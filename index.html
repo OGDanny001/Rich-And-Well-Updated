@@ -1,0 +1,3158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich & Well</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      // Flash prevention - apply theme immediately
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.add("light");
+        }
+      })();
+    </script>
+    <style>
+      :root {
+        --bg-primary: #f8f9fb;
+        --bg-secondary: white;
+        --bg-dark: #050e17;
+        --bg-darker: #00040d;
+        --text-primary: #050e17;
+        --text-secondary: #4b5563;
+        --text-light: #d1d5db;
+        --text-white: white;
+        --accent-blue: #1452b1;
+        --accent-blue-light: #347db6;
+        --accent-green: #42841F;
+        --accent-green-light: #6cb833;
+        --accent-yellow: #ffc00a;
+        --accent-yellow-dark: #e69c09;
+        --border-light: rgba(20, 82, 177, 0.12);
+        --border-dark: rgba(255, 255, 255, 0.12);
+        --card-bg-light: rgba(255, 255, 255, 0.95);
+        --card-bg-dark: rgba(5, 14, 23, 0.75);
+        --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        --transition-duration: 250ms;
+      }
+
+      .dark {
+        --bg-primary: linear-gradient(
+          135deg,
+          #050e17 0%,
+          #0a2a4d 50%,
+          #050e17 100%
+        );
+        --bg-secondary: #050e17;
+        --bg-dark: #050e17;
+        --bg-darker: #00040d;
+        --text-primary: white;
+        --text-secondary: #9ca3af;
+        --text-light: #6b7280;
+        --text-white: white;
+        --accent-blue: #1452b1;
+        --accent-blue-light: #347db6;
+        --accent-green: #42841F;
+        --accent-green-light: #6cb833;
+        --accent-yellow: #ffc00a;
+        --accent-yellow-dark: #e69c09;
+        --border-light: rgba(255, 255, 255, 0.12);
+        --border-dark: rgba(255, 255, 255, 0.12);
+        --card-bg-light: rgba(5, 14, 23, 0.75);
+        --card-bg-dark: rgba(5, 14, 23, 0.75);
+        --card-shadow: none;
+      }
+
+      * {
+        font-family: "Montserrat", sans-serif;
+        transition:
+          background-color var(--transition-duration) ease,
+          color var(--transition-duration) ease,
+          border-color var(--transition-duration) ease,
+          box-shadow var(--transition-duration) ease;
+      }
+
+      .gradient-bg {
+        background: var(--bg-primary);
+      }
+
+      .testimonials-section {
+        background: #e8ebf0;
+      }
+
+      .testimonials-pattern {
+        background-image: radial-gradient(circle, #88929f 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.4;
+      }
+
+      .dark .testimonials-section {
+        background: #050e17;
+      }
+
+      .dark .testimonials-pattern {
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        opacity: 0.35;
+      }
+
+      /* Professional Max-Width Container */
+      .container-pro {
+        width: 100%;
+        max-width: 1280px; /* Standard desktop max width */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      @media (min-width: 640px) {
+        .container-pro {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container-pro {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+      @media (min-width: 1536px) {
+        .container-pro {
+          max-width: 1440px; /* Larger max for bigger screens */
+        }
+      }
+
+      .card-gradient {
+        background: var(--card-bg-light);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--border-light);
+        box-shadow: var(--card-shadow);
+      }
+
+      /* Navbar Scroll Styles */
+      #navbar.scrolled {
+        background: white;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      #navbar.scrolled .nav-link {
+        color: #050e17 !important;
+      }
+
+      #navbar.scrolled .nav-link:hover {
+        color: #1452b1 !important;
+      }
+
+      #navbar.scrolled #loginBtn {
+        color: #050e17 !important;
+        border-color: #050e17 !important;
+      }
+
+      #navbar.scrolled #loginBtn:hover {
+        background: #050e17 !important;
+        color: white !important;
+      }
+
+      /* Dark Mode Navbar */
+      .dark #navbar.scrolled {
+        background: #050e17;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .dark #navbar.scrolled .nav-link {
+        color: white !important;
+      }
+
+      .dark #navbar.scrolled .nav-link:hover {
+        color: #1452b1 !important;
+      }
+
+      .dark #navbar.scrolled #loginBtn {
+        color: white !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+      }
+
+      .btn-primary {
+        background: #42841F;
+      }
+
+      .btn-primary:hover {
+        background: #529a25;
+      }
+
+      .btn-blue {
+        background: radial-gradient(ellipse at top, #347db6 0%, #1452b1 100%);
+      }
+
+      .btn-blue:hover {
+        background: radial-gradient(ellipse at top, #3d8ec9 0%, #1a64d8 100%);
+      }
+
+      .slider-dot {
+        transition: all 0.3s ease;
+      }
+
+      .slider-dot.active {
+        background: var(--accent-green);
+        width: 20px;
+      }
+
+      .hero-radial {
+        background: radial-gradient(
+          ellipse at center,
+          var(--accent-blue) 0%,
+          transparent 70%
+        );
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .hero-foreground {
+        position: relative;
+        z-index: 10;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .theme-toggle i {
+        font-size: 18px;
+        color: white;
+      }
+
+      .light .theme-toggle {
+        border-color: #e5e7eb;
+      }
+
+      .light .theme-toggle i {
+        color: #050e17;
+      }
+
+      .theme-toggle .fa-sun {
+        display: none;
+      }
+
+      .theme-toggle .fa-moon {
+        display: block;
+      }
+
+      .dark .theme-toggle {
+        border-color: white;
+      }
+
+      .dark .theme-toggle .fa-sun {
+        display: block;
+      }
+
+      .dark .theme-toggle .fa-moon {
+        display: none;
+      }
+
+      /* ===============================
+         Premium Animation System Overhaul
+         =============================== */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Base Keyframes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translate3d(0, 32px, 0);
+        }
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Page Load Animations */
+      .animate-fadeInUp {
+        animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .animate-scaleIn {
+        animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      /* Scroll Reveal Base */
+      .reveal-up {
+        opacity: 0;
+        transform: translate3d(0, 32px, 0);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-up.is-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      /* Button Hover Effects */
+      button,
+      .btn-primary,
+      .btn-blue {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    background 0.3s ease;
+      }
+      button:hover,
+      .btn-primary:hover,
+      .btn-blue:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Card Hover Effects */
+      .product-card,
+      .value-card {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .product-card:hover,
+      .value-card:hover {
+        transform: translateY(-8px);
+      }
+
+      /* Nav Link Hover Effects */
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-blue);
+        transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+
+      @media (min-width: 768px) {
+        section[id] {
+          scroll-margin-top: 7.5rem;
+        }
+      }
+
+      /* Theme toggle on scrolled light navbar */
+      html:not(.dark) #navbar.scrolled .theme-toggle {
+        border-color: #e5e7eb;
+        background: rgba(5, 14, 23, 0.05);
+      }
+
+      html:not(.dark) #navbar.scrolled .theme-toggle i {
+        color: #050e17;
+      }
+
+      #mobileMenuBtn {
+        position: relative;
+        z-index: 70;
+      }
+
+      /* ===============================
+         Premium Mobile Navigation
+         =============================== */
+      @media (max-width: 1023px) {
+        #navbar {
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          background: rgba(5, 14, 23, 0.72);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        #navbar.scrolled {
+          background: rgba(5, 14, 23, 0.96);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        html:not(.dark) #navbar.scrolled {
+          background: rgba(255, 255, 255, 0.96);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .mobile-menu-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: rgba(255, 255, 255, 0.06);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent;
+          transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .mobile-menu-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .hamburger-line {
+          display: block;
+          width: 18px;
+          height: 2px;
+          background: white;
+          border-radius: 2px;
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 0.25s ease;
+        }
+
+        html:not(.dark) #navbar.scrolled .hamburger-line {
+          background: #050e17;
+        }
+
+        html:not(.dark) #navbar.scrolled .mobile-menu-btn {
+          border-color: rgba(5, 14, 23, 0.15);
+          background: rgba(5, 14, 23, 0.04);
+        }
+
+        .mobile-menu-btn.is-open .hamburger-line:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.is-open .hamburger-line:nth-child(2) {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+
+        .mobile-menu-btn.is-open .hamburger-line:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-header-cta {
+          font-size: 0.75rem;
+          font-weight: 600;
+          padding: 0.5rem 1rem;
+          border-radius: 9999px;
+          letter-spacing: 0.02em;
+        }
+
+        #mobileMenuBackdrop {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        #mobileMenuBackdrop.is-open {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+        }
+
+        #mobileMenu {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: translateY(-8px);
+          transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 0.4s ease,
+            transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #mobileMenu.is-open {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+
+        .mobile-menu-panel {
+          background: linear-gradient(
+            180deg,
+            #050e17 0%,
+            #0a1a2e 100%
+          );
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          position: relative;
+        }
+
+        .mobile-menu-panel::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #1452b1, #42841f, #ffc00a);
+        }
+
+        .mobile-nav-link {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1.05rem 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          font-size: 1rem;
+          font-weight: 500;
+          letter-spacing: 0.03em;
+          color: rgba(255, 255, 255, 0.75);
+          -webkit-tap-highlight-color: transparent;
+          transition: color 0.2s ease, padding-left 0.25s ease;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link:focus {
+          color: white;
+          padding-left: 0.35rem;
+        }
+
+        .mobile-nav-link.active {
+          color: white;
+        }
+
+        .mobile-nav-link.active .mobile-nav-dot {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        .mobile-nav-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--accent-green);
+          opacity: 0;
+          transform: scale(0);
+          transition: opacity 0.25s ease, transform 0.25s ease;
+          flex-shrink: 0;
+          margin-right: 0.75rem;
+        }
+
+        .mobile-nav-chevron {
+          font-size: 0.65rem;
+          color: rgba(255, 255, 255, 0.25);
+          transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .mobile-nav-link:hover .mobile-nav-chevron {
+          color: rgba(255, 255, 255, 0.5);
+          transform: translateX(3px);
+        }
+
+        @keyframes mobileNavItemIn {
+          from {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        #mobileMenu.is-open .mobile-nav-link {
+          animation: mobileNavItemIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        #mobileMenu.is-open .mobile-nav-link:nth-child(1) { animation-delay: 0.04s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(2) { animation-delay: 0.08s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(3) { animation-delay: 0.12s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(4) { animation-delay: 0.16s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(5) { animation-delay: 0.20s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(6) { animation-delay: 0.24s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(7) { animation-delay: 0.28s; }
+        #mobileMenu.is-open .mobile-nav-link:nth-child(8) { animation-delay: 0.32s; }
+      }
+
+      .footer-tagline {
+        font-size: 1.25rem;
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+      }
+
+      @media (min-width: 768px) {
+        .footer-tagline {
+          font-size: 1.875rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .footer-tagline {
+          font-size: 2.25rem;
+        }
+      }
+
+      /* Premium Footer */
+      .footer-social-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .footer-social-btn:hover {
+        background: rgba(20, 82, 177, 0.15);
+        border-color: rgba(20, 82, 177, 0.35);
+      }
+
+      .footer-cta-card {
+        background: linear-gradient(
+          145deg,
+          rgba(5, 14, 23, 0.98) 0%,
+          rgba(10, 42, 77, 0.6) 50%,
+          rgba(5, 14, 23, 0.98) 100%
+        );
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .footer-cta-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          #1452b1,
+          #42841f,
+          #ffc00a
+        );
+      }
+
+      .footer-newsletter-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(20, 82, 177, 0.25);
+      }
+
+      .footer-col-toggle {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .footer-col-toggle[aria-expanded="true"] .footer-chevron {
+        transform: rotate(180deg);
+      }
+
+      .footer-chevron {
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @media (max-width: 767px) {
+        .footer-col-links {
+          display: none;
+        }
+
+        .footer-col-links.is-open {
+          display: block;
+          padding-bottom: 1rem;
+          animation: fadeIn 0.35s ease;
+        }
+
+        .footer-pillar-card {
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 0.75rem;
+          padding: 1rem 0.75rem;
+        }
+
+        .footer-social-btn {
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-social-btn:hover {
+          background: rgba(20, 82, 177, 0.2);
+          border-color: rgba(20, 82, 177, 0.4);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .footer-col-links {
+          display: block !important;
+        }
+      }
+
+      /* Desktop Footer UI */
+      @media (min-width: 1024px) {
+        .footer-cta-card {
+          padding: 0;
+        }
+
+        .footer-cta-waves {
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 42%;
+          max-width: 480px;
+          object-fit: cover;
+          object-position: left center;
+          opacity: 0.9;
+          pointer-events: none;
+          mask-image: linear-gradient(to left, black 50%, transparent 100%);
+          -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
+        }
+
+        .footer-cta-inner {
+          display: grid;
+          grid-template-columns: minmax(0, 1.35fr) 1px minmax(0, 1fr) auto;
+          gap: 2rem;
+          align-items: center;
+          position: relative;
+          z-index: 2;
+        }
+
+        .footer-cta-heading-wrap {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+        }
+
+        .footer-cta-divider {
+          width: 1px;
+          height: 4.5rem;
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        .footer-cta-desc {
+          font-size: 0.8125rem;
+          line-height: 1.65;
+          color: rgba(209, 213, 219, 0.9);
+          max-width: 16rem;
+        }
+
+        .footer-cta-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          min-width: 13.5rem;
+        }
+
+        .footer-btn-member {
+          padding: 0.75rem 1.25rem;
+          font-size: 0.6875rem;
+          letter-spacing: 0.04em;
+          border-radius: 0.5rem;
+          white-space: nowrap;
+        }
+
+        .footer-btn-consult {
+          padding: 0.75rem 1.25rem;
+          font-size: 0.6875rem;
+          letter-spacing: 0.04em;
+          border-radius: 0.5rem;
+          white-space: nowrap;
+          border: 1px solid rgba(255, 192, 10, 0.45);
+          background: rgba(0, 0, 0, 0.25);
+          color: white;
+        }
+
+        .footer-btn-consult:hover {
+          background: rgba(255, 192, 10, 0.1);
+        }
+
+        .footer-main-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr 1.35fr;
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .footer-col-heading {
+          color: #9ca3af;
+          font-size: 0.6875rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          margin-bottom: 1.25rem;
+          padding-bottom: 0.5rem;
+          position: relative;
+          display: inline-block;
+        }
+
+        .footer-col-heading::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 2rem;
+          height: 2px;
+          border-radius: 1px;
+        }
+
+        .footer-col-heading--blue::after { background: #1452b1; }
+        .footer-col-heading--green::after { background: #42841f; }
+        .footer-col-heading--gold::after { background: #ffc00a; }
+
+        .footer-col-links li {
+          margin-bottom: 0.625rem;
+        }
+
+        .footer-col-links a {
+          font-size: 0.8125rem;
+          color: #d1d5db;
+          transition: color 0.2s ease;
+        }
+
+        .footer-col-links a:hover {
+          color: white;
+        }
+
+        .footer-brand-desc {
+          font-size: 0.8125rem;
+          line-height: 1.65;
+          color: #9ca3af;
+          margin: 1rem 0 1.25rem;
+          max-width: 14rem;
+        }
+
+        .footer-social-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+
+        .footer-social-btn {
+          width: 2.25rem;
+          height: 2.25rem;
+          font-size: 0.7rem;
+        }
+
+        .footer-newsletter-input-wrap {
+          display: flex;
+          margin-top: 0.75rem;
+        }
+
+        .footer-newsletter-input-wrap input {
+          border-radius: 0.375rem 0 0 0.375rem;
+          border-right: none;
+          font-size: 0.75rem;
+          padding: 0.625rem 0.75rem;
+          flex: 1;
+          min-width: 0;
+        }
+
+        .footer-newsletter-input-wrap button {
+          border-radius: 0 0.375rem 0.375rem 0;
+          padding: 0 0.875rem;
+          min-width: 2.75rem;
+        }
+
+        .footer-newsletter-mobile-card {
+          display: none;
+        }
+
+        .footer-mission-section {
+          position: relative;
+          padding: 2.5rem 0 3rem;
+          margin-bottom: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-mission-wave {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 140px;
+          height: 80%;
+          opacity: 0.35;
+          pointer-events: none;
+          object-fit: contain;
+        }
+
+        .footer-mission-wave--left {
+          left: 0;
+        }
+
+        .footer-mission-wave--right {
+          right: 0;
+          transform: translateY(-50%) scaleX(-1);
+        }
+
+        .footer-pillars-row {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 4rem;
+          margin-bottom: 1.75rem;
+        }
+
+        .footer-pillar-item {
+          background: none !important;
+          border: none !important;
+          padding: 0 !important;
+          text-align: center;
+        }
+
+        .footer-pillar-item .pillar-icon {
+          width: 2.5rem;
+          height: 2.5rem;
+          margin: 0 auto 0.5rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .footer-pillar-item p {
+          font-size: 0.6875rem;
+          letter-spacing: 0.1em;
+          font-weight: 600;
+        }
+
+        .footer-tagline-desktop {
+          font-size: 1.75rem;
+          letter-spacing: -0.02em;
+          margin-bottom: 0.75rem;
+          white-space: nowrap;
+        }
+
+        .footer-bottom-bar {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: center;
+          gap: 1rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-bottom-copyright {
+          text-align: left;
+          font-size: 0.8125rem;
+          color: #6b7280;
+          margin: 0;
+        }
+
+        .footer-bottom-legal {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 0.8125rem;
+          color: #6b7280;
+          justify-content: center;
+        }
+
+        .footer-bottom-legal a:hover {
+          color: #d1d5db;
+        }
+
+        .footer-bottom-signoff {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 0.5rem;
+          font-size: 0.8125rem;
+          color: #9ca3af;
+        }
+
+        .footer-bottom-signoff img {
+          height: 1.75rem;
+        }
+
+        .footer-mobile-only {
+          display: none !important;
+        }
+      }
+
+      /* Reveal fallback for slow devices */
+      @media (max-width: 639px) {
+        .reveal-up {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* Hero heading scale */
+      .hero-heading {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 0.95;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+      }
+
+      @media (min-width: 640px) {
+        .hero-heading {
+          font-size: 40px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hero-heading {
+          font-size: 50px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hero-heading {
+          font-size: 60px;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .hero-heading {
+          font-size: 70px;
+        }
+      }
+
+      @media (min-width: 1536px) {
+        .hero-heading {
+          font-size: 80px;
+        }
+      }
+
+      /* Premium Mobile Hero + Values */
+      @media (max-width: 639px) {
+        #home {
+          min-height: auto;
+          padding-top: 5.5rem;
+          padding-bottom: 2rem;
+        }
+
+        .hero-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          font-size: 10px;
+          letter-spacing: 0.14em;
+          line-height: 1.35;
+          padding: 0.45rem 0.85rem;
+          margin-bottom: 1rem;
+          border-radius: 9999px;
+          border: 1px solid rgba(20, 82, 177, 0.45);
+          background: rgba(20, 82, 177, 0.12);
+          color: #5b9fd4;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        .hero-heading {
+          font-size: 2rem;
+          line-height: 1.12;
+          letter-spacing: -0.03em;
+          margin-bottom: 1rem;
+        }
+
+        .hero-line {
+          display: block;
+          margin-bottom: 0.1rem;
+        }
+
+        .hero-description {
+          font-size: 0.9375rem;
+          line-height: 1.65;
+          color: rgba(209, 213, 219, 0.92);
+          margin-bottom: 1.5rem;
+          max-width: 100%;
+        }
+
+        .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.625rem;
+          margin-bottom: 1.25rem;
+        }
+
+        .hero-actions .btn-blue,
+        .hero-actions .btn-primary {
+          padding: 0.8rem 0.65rem;
+          font-size: 0.7rem;
+          font-weight: 600;
+          gap: 0.35rem;
+          border-radius: 9999px;
+          white-space: nowrap;
+        }
+
+        .hero-actions .btn-blue i,
+        .hero-actions .btn-primary i {
+          font-size: 0.6rem;
+        }
+
+        .hero-social-proof {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.625rem 1rem;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 9999px;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+
+        .hero-avatar-stack .hero-avatar {
+          width: 1.75rem;
+          height: 1.75rem;
+          border-width: 2px;
+        }
+
+        .hero-member-count {
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.3;
+        }
+
+        .hero-member-sub {
+          font-size: 0.625rem;
+          color: rgba(156, 163, 175, 0.9);
+          font-weight: 400;
+        }
+
+        .values-section-wrap {
+          padding-top: 1.25rem;
+          padding-bottom: 1.75rem;
+        }
+
+        .values-grid {
+          gap: 0.625rem;
+        }
+
+        .value-card {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 1rem 0.625rem;
+          gap: 0.5rem;
+          border-radius: 1rem;
+        }
+
+        .value-card-icon {
+          width: 2.5rem;
+          height: 2.5rem;
+          margin-bottom: 0.125rem;
+        }
+
+        .value-card-icon i {
+          font-size: 1rem !important;
+        }
+
+        .value-card-title {
+          font-size: 0.6875rem;
+          letter-spacing: 0.1em;
+          margin-bottom: 0.25rem;
+        }
+
+        .value-card-desc {
+          font-size: 0.6875rem;
+          line-height: 1.45;
+          color: rgba(156, 163, 175, 0.95);
+        }
+      }
+
+      @media (min-width: 640px) {
+        .hero-eyebrow {
+          display: block;
+          background: transparent;
+          border: none;
+          padding: 0;
+          border-radius: 0;
+          color: var(--accent-blue);
+          font-size: 15px;
+          letter-spacing: 0.05em;
+          font-weight: 500;
+          text-transform: uppercase;
+          margin-bottom: 1rem;
+        }
+
+        .hero-social-proof {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 0;
+          background: transparent;
+          border: none;
+          border-radius: 0;
+          backdrop-filter: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="gradient-bg text-white">
+    <!-- Hero + Values Combined Container -->
+    <div class="relative">
+      <!-- Hero Background Container -->
+      <div class="relative min-h-0 lg:min-h-svh">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+          <div class="absolute inset-0 hero-radial"></div>
+          <img
+            src="images/hero%20bg.png"
+            alt="Hero Background"
+            class="absolute inset-0 w-full h-full object-cover object-right-center"
+            fetchpriority="high"
+          />
+        </div>
+
+        <div
+          class="hero-overlay bg-gradient-to-b from-[#050e17]/90 via-[#050e17]/70 to-[#050e17]/90 md:bg-gradient-to-r md:from-[#050e17]/95 md:via-[#050e17]/70 md:to-transparent"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Header -->
+        <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-fadeInUp" style="animation-delay:0.15s;">
+          <div class="container-pro">
+            <div class="flex items-center justify-between h-16 lg:h-28">
+              <a href="#home" class="flex items-center shrink-0" aria-label="Rich & Well Home">
+                <img
+                  src="images/logo.png"
+                  alt="Rich & Well Logo"
+                  class="h-10 sm:h-12 lg:h-20 w-auto"
+                />
+              </a>
+              <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
+                <a
+                  href="#home"
+                  class="nav-link text-white hover:text-white transition"
+                  style="font-weight: 500"
+                  >Home</a
+                >
+                <a
+                  href="#about"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >About Us</a
+                >
+                <a
+                  href="#wellness-devices"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Wellness Devices</a
+                >
+                <a
+                  href="#opportunity"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Opportunity</a
+                >
+                <a
+                  href="#compensation"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Compensation Plan</a
+                >
+                <a
+                  href="#testimonials"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Testimonials</a
+                >
+                <a
+                  href="#faq"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >FAQ</a
+                >
+                <a
+                  href="#contact"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Contact</a
+                >
+
+              </nav>
+              <div class="flex items-center gap-2 sm:gap-3">
+                <button
+                  class="btn-primary mobile-header-cta lg:hidden"
+                  style="color: white"
+                >
+                  Join Now
+                </button>
+                <button
+                  class="theme-toggle hidden sm:flex"
+                  id="themeToggle"
+                  aria-label="Toggle theme"
+                  title="Toggle theme"
+                >
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+                <button
+                  id="mobileMenuBtn"
+                  class="mobile-menu-btn lg:hidden"
+                  aria-label="Open menu"
+                  aria-expanded="false"
+                  aria-controls="mobileMenu"
+                >
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                </button>
+                <div class="hidden lg:flex items-center space-x-3">
+                  <button
+                    id="loginBtn"
+                    class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300"
+                    style="font-weight: 500"
+                  >
+                    Login
+                  </button>
+                  <button
+                    class="btn-primary px-6 py-2 rounded-full text-sm"
+                    style="font-weight: 500; color: white"
+                  >
+                    Join Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Mobile Menu Backdrop -->
+        <div
+          id="mobileMenuBackdrop"
+          class="fixed inset-0 z-[55] lg:hidden bg-black/50 backdrop-blur-sm"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="mobile-menu-panel fixed inset-x-0 top-16 bottom-0 z-[60] lg:hidden overflow-y-auto"
+          aria-hidden="true"
+        >
+          <div class="container-pro flex flex-col h-full py-6">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight: 500">
+              Navigation
+            </p>
+            <nav class="flex-1" id="mobileNav">
+              <a href="#home" class="mobile-nav-link active">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#about" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#wellness-devices" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#opportunity" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#compensation" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#testimonials" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#faq" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="#contact" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+
+            </nav>
+            <div class="pt-6 mt-4 border-t space-y-3" style="border-color: rgba(255,255,255,0.08);">
+              <div class="flex items-center justify-between mb-2 sm:hidden">
+                <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight: 500">Appearance</span>
+                <button
+                  class="theme-toggle"
+                  id="themeToggleMobile"
+                  aria-label="Toggle theme"
+                  style="width: 40px; height: 40px;"
+                >
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </div>
+              <button
+                class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300"
+                style="font-weight: 500"
+              >
+                Login
+              </button>
+              <button
+                class="btn-primary w-full px-6 py-3.5 rounded-full text-sm"
+                style="font-weight: 600; color: white"
+              >
+                Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero -->
+        <section id="home" class="hero-foreground relative flex flex-col justify-between min-h-0 lg:min-h-svh pt-20 md:pt-28 lg:pt-[170px] pb-8 sm:pb-28">
+          <div class="container-pro pb-4 sm:pb-12">
+            <div class="lg:w-1/2">
+              <p
+                class="hero-eyebrow animate-fadeInUp"
+                style="animation-delay:0.25s;"
+              >
+                <span class="sm:hidden">Frequency Wellness Technology</span>
+                <span class="hidden sm:inline">Drug-Free Frequency Wellness Technology</span>
+              </p>
+              <h1
+                class="hero-heading mb-5 sm:mb-6 animate-fadeInUp"
+                style="animation-delay:0.45s;"
+              >
+                <span class="hero-line">
+                  HEAL
+                  <span style="color: var(--accent-blue); font-weight: 700">SMARTER.</span>
+                </span>
+                <span class="hero-line">
+                  EARN
+                  <span style="color: var(--accent-green); font-weight: 700">FREELY.</span>
+                </span>
+                <span class="hero-line">
+                  LIVE
+                  <span style="color: var(--accent-yellow); font-weight: 700">FULLY.</span>
+                </span>
+              </h1>
+              <p
+                class="hero-description text-gray-300 mb-5 sm:mb-6 max-w-md text-sm leading-relaxed animate-fadeIn"
+                style="font-weight: 400; animation-delay:0.7s;"
+              >
+                The world's first full-spectrum wellness ecosystem combining drug-free frequency technology with life-changing income opportunities.
+              </p>
+              <div class="hero-actions flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <button
+                  class="btn-blue px-6 sm:px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
+                  style="font-weight: 600; animation-delay:0.9s;"
+                >
+                  <span class="sm:hidden">Explore</span>
+                  <span class="hidden sm:inline">Explore Devices</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                <button
+                  class="btn-primary px-6 sm:px-8 py-3 rounded-full text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
+                  style="font-weight: 600; color: white; animation-delay:1.05s;"
+                >
+                  <span class="sm:hidden">Join Now</span>
+                  <span class="hidden sm:inline">Join The Movement</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="hero-social-proof animate-fadeInUp" style="animation-delay:1.25s;">
+                <div class="flex hero-avatar-stack -space-x-2 sm:-space-x-3">
+                  <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-[#050e17]"></div>
+                  <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#1452b1] to-[#347db6] border-2 border-[#050e17]"></div>
+                  <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#42841F] to-[#6cb833] border-2 border-[#050e17]"></div>
+                  <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#ffc00a] to-[#e69c09] border-2 border-[#050e17] flex items-center justify-center text-[9px] sm:text-xs font-bold text-[#050e17]">10k</div>
+                </div>
+                <div>
+                  <div class="sm:hidden">
+                    <div class="hero-member-count">10,000+ Members</div>
+                    <div class="hero-member-sub">Worldwide &amp; growing</div>
+                  </div>
+                  <span class="hidden sm:inline text-sm text-gray-300" style="font-weight: 500">10,000+ Members Worldwide</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div
+            class="hero-foreground hidden sm:flex absolute left-1/2 bottom-6 -translate-x-1/2 flex-col items-center gap-2 z-10"
+          >
+            <span
+              class="text-xs text-gray-400 uppercase tracking-widest"
+              style="font-weight: 400"
+              >Scroll to discover</span
+            >
+            <div
+              class="w-6 h-10 rounded-full border-2 border-gray-600 flex items-start justify-center pt-2"
+            >
+              <div
+                class="w-1.5 h-2 rounded-full animate-bounce"
+                style="background: var(--accent-green)"
+              ></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Values Section -->
+      <section class="relative z-10 values-section-wrap" style="background: var(--bg-dark);">
+        <div class="container-pro pt-6 sm:pt-10 pb-6 sm:pb-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 values-grid">
+            <div
+              class="value-card rounded-xl p-3 sm:p-5 flex items-start gap-3 sm:gap-4 reveal-up"
+              style="
+                background: rgba(5, 14, 23, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(20px);
+                transition-delay: 0.5s;
+              "
+            >
+              <div
+                class="value-card-icon w-10 sm:w-14 h-10 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 border-2"
+                style="
+                  background: rgba(20, 82, 177, 0.2);
+                  border-color: rgba(20, 82, 177, 0.5);
+                "
+              >
+                <i
+                  class="fas fa-heartbeat text-lg sm:text-2xl"
+                  style="color: var(--accent-blue)"
+                ></i>
+              </div>
+              <div>
+                <h3
+                  class="value-card-title text-xs sm:text-sm mb-1"
+                  style="
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: white;
+                  "
+                >
+                  WELLNESS
+                </h3>
+                <p class="value-card-desc text-gray-400 text-xs sm:text-sm" style="font-weight: 400">
+                  Innovative frequency wellness technologies.
+                </p>
+              </div>
+            </div>
+            <div
+              class="value-card rounded-xl p-3 sm:p-5 flex items-start gap-3 sm:gap-4 reveal-up"
+              style="
+                background: rgba(5, 14, 23, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(20px);
+                transition-delay: 0.6s;
+              "
+            >
+              <div
+                class="value-card-icon w-10 sm:w-14 h-10 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 border-2"
+                style="
+                  background: rgba(72, 115, 25, 0.2);
+                  border-color: rgba(72, 115, 25, 0.5);
+                "
+              >
+                <i
+                  class="fas fa-chart-line text-lg sm:text-2xl"
+                  style="color: var(--accent-green)"
+                ></i>
+              </div>
+              <div>
+                <h3
+                  class="value-card-title text-xs sm:text-sm mb-1"
+                  style="
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: white;
+                  "
+                >
+                  WEALTH
+                </h3>
+                <p class="value-card-desc text-gray-400 text-xs sm:text-sm" style="font-weight: 400">
+                  Business opportunities designed for growth.
+                </p>
+              </div>
+            </div>
+            <div
+              class="value-card rounded-xl p-3 sm:p-5 flex items-start gap-3 sm:gap-4 reveal-up"
+              style="
+                background: rgba(5, 14, 23, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(20px);
+                transition-delay: 0.7s;
+              "
+            >
+              <div
+                class="value-card-icon w-10 sm:w-14 h-10 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 border-2"
+                style="
+                  background: rgba(20, 82, 177, 0.2);
+                  border-color: rgba(20, 82, 177, 0.5);
+                "
+              >
+                <i
+                  class="fas fa-users text-lg sm:text-2xl"
+                  style="color: var(--accent-blue)"
+                ></i>
+              </div>
+              <div>
+                <h3
+                  class="value-card-title text-xs sm:text-sm mb-1"
+                  style="
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: white;
+                  "
+                >
+                  COMMUNITY
+                </h3>
+                <p class="value-card-desc text-gray-400 text-xs sm:text-sm" style="font-weight: 400">
+                  A supportive ecosystem built for success.
+                </p>
+              </div>
+            </div>
+            <div
+              class="value-card rounded-xl p-3 sm:p-5 flex items-start gap-3 sm:gap-4 reveal-up"
+              style="
+                background: rgba(5, 14, 23, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(20px);
+                transition-delay: 0.8s;
+              "
+            >
+              <div
+                class="value-card-icon w-10 sm:w-14 h-10 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 border-2"
+                style="
+                  background: rgba(72, 115, 25, 0.2);
+                  border-color: rgba(72, 115, 25, 0.5);
+                "
+              >
+                <i
+                  class="fas fa-person-walking text-lg sm:text-2xl"
+                  style="color: var(--accent-green)"
+                ></i>
+              </div>
+              <div>
+                <h3
+                  class="value-card-title text-xs sm:text-sm mb-1"
+                  style="
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: white;
+                  "
+                >
+                  FREEDOM
+                </h3>
+                <p class="value-card-desc text-gray-400 text-xs sm:text-sm" style="font-weight: 400">
+                  Live life on your own terms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Sovereignty Section - Our Advocacy -->
+    <section id="about" class="py-16 md:py-24" style="background: var(--bg-secondary)">
+      <div class="container-pro">
+        <div class="reveal-up" style="transition-delay:0.5s;">
+          <p
+            class="text-xs mb-2 tracking-wider uppercase"
+            style="color: var(--accent-blue); font-weight: 500"
+          >
+            OUR ADVOCACY
+          </p>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal-up" style="transition-delay:0.6s;">
+            <h2
+              class="text-3xl mb-4"
+              style="font-weight: 600; color: var(--text-primary)"
+            >
+              Drug-Free Frequency
+              <span style="color: var(--accent-green); font-weight: 600"
+                >Sovereignty</span
+              >
+            </h2>
+            <p
+              class="mb-4 text-sm"
+              style="font-weight: 400; color: var(--text-secondary)"
+            >
+              We believe health is not merely the absence of disease—
+            </p>
+            <p
+              class="mb-6 text-sm"
+              style="font-weight: 400; color: var(--text-secondary)"
+            >
+              it is the coherence of energy.
+            </p>
+            <p
+              class="mb-8 text-sm"
+              style="font-weight: 400; color: var(--text-secondary)"
+            >
+              Rich & Well provides a full-spectrum range of calibrated frequency
+              devices designed to support your body's natural wellness journey.
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-8">
+              <div class="flex items-center space-x-2">
+                <i
+                  class="fas fa-check-circle text-sm"
+                  style="color: var(--accent-green)"
+                ></i>
+                <span
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-primary)"
+                  >Drug-Free Wellness</span
+                >
+              </div>
+              <div class="flex items-center space-x-2">
+                <i
+                  class="fas fa-check-circle text-sm"
+                  style="color: var(--accent-green)"
+                ></i>
+                <span
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-primary)"
+                  >Frequency-Based Technology</span
+                >
+              </div>
+              <div class="flex items-center space-x-2">
+                <i
+                  class="fas fa-check-circle text-sm"
+                  style="color: var(--accent-green)"
+                ></i>
+                <span
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-primary)"
+                  >Non-Invasive Solutions</span
+                >
+              </div>
+              <div class="flex items-center space-x-2">
+                <i
+                  class="fas fa-check-circle text-sm"
+                  style="color: var(--accent-green)"
+                ></i>
+                <span
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-primary)"
+                  >Personal Empowerment</span
+                >
+              </div>
+            </div>
+            <button
+              class="btn-blue px-6 py-2.5 rounded-full text-sm flex items-center gap-3"
+              style="font-weight: 600"
+            >
+              Learn More About Us
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="relative reveal-up" style="transition-delay:0.75s;">
+            <div class="relative rounded-xl overflow-hidden card-gradient">
+              <img
+                src="images/ouradvocacysection.png"
+                alt="Frequency"
+                class="rounded-lg w-full"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <a
+                  href="#about"
+                  class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center cursor-pointer hover:bg-white/30 transition"
+                  aria-label="Learn more about our advocacy"
+                >
+                  <i class="fas fa-play text-2xl text-white ml-1"></i>
+                </a>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <img
+                  src="images/logo.png"
+                  alt="Rich & Well Logo"
+                  class="h-12 w-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <!-- Products Section -->
+    <section id="wellness-devices" class="py-16 mb-16" style="background: radial-gradient(ellipse at center, #0a2a4d 0%, #050e17 100%);">
+      <div class="container-pro">
+        <div class="text-center mb-10 reveal-up" style="transition-delay:0.5s;">
+          <p
+            class="text-xs mb-2 tracking-wider uppercase"
+            style="color: var(--accent-blue); font-weight: 500"
+          >
+            OUR WELLNESS DEVICES
+          </p>
+          <h2 class="text-2xl" style="font-weight: 600; color: white">
+            Advanced Technology.
+            <span style="color: var(--accent-green); font-weight: 600"
+              >Natural</span
+            >
+            Harmony.
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div
+            class="product-card rounded-2xl overflow-hidden border border-blue-500/60 reveal-up"
+            style="
+              background: rgba(5, 14, 23, 0.9);
+              box-shadow: 0 0 30px rgba(20, 82, 177, 0.3), 0 10px 40px rgba(0,0,0,0.4);
+              transition-delay:0.6s;
+            "
+          >
+            <div class="flex justify-center p-4 bg-black/30">
+              <img
+                src="images/best_device.png"
+                alt="B.E.S.T. Device"
+                class="max-h-36 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4">
+              <h3
+                class="text-sm mb-2 text-left"
+                style="font-weight: 600; color: white"
+              >
+                Bio-Energetic Synchronization Therapy (B.E.S.T.)
+              </h3>
+              <p
+                class="text-gray-300 text-xs mb-4 text-left leading-relaxed"
+                style="font-weight: 400"
+              >
+                Advanced frequency synchronization technology designed to
+                support wellness and energetic balance.
+              </p>
+              <div class="flex justify-start">
+                <button
+                  class="btn-blue px-4 py-1.5 rounded-full text-xs flex items-center gap-2"
+                  style="font-weight: 600"
+                >
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="product-card rounded-2xl overflow-hidden border border-green-500/60 reveal-up"
+            style="
+              background: rgba(5, 14, 23, 0.9);
+              box-shadow: 0 0 30px rgba(72, 115, 25, 0.3), 0 10px 40px rgba(0,0,0,0.4);
+              transition-delay:0.75s;
+            "
+          >
+            <div class="flex justify-center p-4 bg-black/30">
+              <img
+                src="images/wavedevice.jpg"
+                alt="Terahertz Device"
+                class="max-h-36 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4">
+              <h3
+                class="text-sm mb-2 text-left"
+                style="font-weight: 600; color: white"
+              >
+                Terahertz Rotating Magnetic Wave
+              </h3>
+              <p
+                class="text-gray-300 text-xs mb-4 text-left leading-relaxed"
+                style="font-weight: 400"
+              >
+                Revolutionary 4-in-1 wellness technology for energetic harmony
+                and natural balance.
+              </p>
+              <div class="flex justify-start">
+                <button
+                  class="btn-primary px-4 py-1.5 rounded-full text-xs flex items-center gap-2"
+                  style="font-weight: 600"
+                >
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="product-card rounded-2xl overflow-hidden border border-blue-500/60 reveal-up"
+            style="
+              background: rgba(5, 14, 23, 0.9);
+              box-shadow: 0 0 30px rgba(20, 82, 177, 0.3), 0 10px 40px rgba(0,0,0,0.4);
+              transition-delay:0.9s;
+            "
+          >
+            <div class="flex justify-center p-4 bg-black/30">
+              <img
+                src="images/best_device.png"
+                alt="Frequency Collection"
+                class="max-h-36 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4">
+              <h3
+                class="text-sm mb-2 text-left"
+                style="font-weight: 600; color: white"
+              >
+                FREQUENCY WELLNESS COLLECTION
+              </h3>
+              <p
+                class="text-gray-300 text-xs mb-4 text-left leading-relaxed"
+                style="font-weight: 400"
+              >
+                Explore our complete ecosystem of frequency-based wellness
+                devices and solutions.
+              </p>
+              <div class="flex justify-start">
+                <button
+                  class="btn-blue px-4 py-1.5 rounded-full text-xs flex items-center gap-2"
+                  style="font-weight: 600"
+                >
+                  View All Devices <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="opportunity" class="py-16 md:py-24" style="background: radial-gradient(ellipse at center, #0a2a4d 0%, #050e17 100%);">
+      <div class="container-pro">
+        <div class="grid lg:grid-cols-3 gap-10 items-center">
+          <div class="reveal-up" style="transition-delay:0.5s;">
+            <p
+              class="text-xs mb-2 tracking-wider uppercase"
+              style="color: var(--accent-blue); font-weight: 500"
+            >
+              MORE THAN WELLNESS
+            </p>
+            <h2
+              class="text-2xl md:text-3xl mb-4"
+              style="font-weight: 600; color: white"
+            >
+              A Complete
+              <span style="color: var(--accent-green); font-weight: 600"
+                >Economic</span
+              >
+              Ecosystem
+            </h2>
+            <p
+              class="mb-6 text-sm md:text-sm"
+              style="font-weight: 400; color: #e0e0e0"
+            >
+              Build a thriving business while promoting wellness and empowering
+              lives around you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-2">
+              <button
+                class="btn-primary px-5 md:px-7 py-3 md:py-3 rounded-full text-xs md:text-xs flex items-center gap-2 justify-center w-full sm:w-auto"
+                style="font-weight: 600;"
+              >
+                Become a Distributor <i class="fas fa-arrow-right"></i>
+              </button>
+              <button
+                class="px-5 md:px-7 py-3 md:py-3 rounded-full text-xs md:text-xs border border-white hover:text-black transition w-full sm:w-auto text-center"
+                style="font-weight: 500; color: white;"
+                onclick="document.getElementById('compensation').scrollIntoView({behavior:'smooth'})"
+              >
+                View Compensation Plan
+              </button>
+            </div>
+          </div>
+          <div id="compensation" class="lg:col-span-2 reveal-up" style="transition-delay:0.65s;">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-0">
+              <div class="text-center p-4 md:p-6 relative border-b border-white/20 md:border-b-0" style="transition-delay:0.1s;">
+                <div class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-full flex items-center justify-center" style="background: rgba(20, 82, 177, 0.2)">
+                  <i class="fas fa-users text-xl md:text-2xl" style="color: var(--accent-blue)"></i>
+                </div>
+                <h3 class="text-xs md:text-sm font-bold mb-1 md:mb-2" style="font-weight: 600; color: white">DIRECT REFERRALS</h3>
+                <p class="text-gray-200 text-xs md:text-xs" style="font-weight: 400">Earn from every direct referral.</p>
+                <div class="absolute right-0 top-1/4 bottom-1/4 w-px hidden md:block" style="background: rgba(255,255,255,0.2);"></div>
+              </div>
+              <div class="text-center p-4 md:p-6 relative border-b border-white/20 md:border-b-0" style="transition-delay:0.2s;">
+                <div class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-full flex items-center justify-center" style="background: rgba(20, 82, 177, 0.2)">
+                  <i class="fas fa-users text-xl md:text-2xl" style="color: var(--accent-blue)"></i>
+                </div>
+                <h3 class="text-xs md:text-sm font-bold mb-1 md:mb-2" style="font-weight: 600; color: white">TEAM BUILDING</h3>
+                <p class="text-gray-200 text-xs md:text-xs" style="font-weight: 400">Build your team and multiply your income.</p>
+              </div>
+              <div class="text-center p-4 md:p-6 relative border-b border-white/20 md:border-b-0" style="transition-delay:0.3s;">
+                <div class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-full flex items-center justify-center" style="background: rgba(20, 82, 177, 0.2)">
+                  <i class="fas fa-shopping-cart text-xl md:text-2xl" style="color: var(--accent-blue)"></i>
+                </div>
+                <h3 class="text-xs md:text-sm font-bold mb-1 md:mb-2" style="font-weight: 600; color: white">E-COMMERCE RETAILING</h3>
+                <p class="text-gray-200 text-xs md:text-xs" style="font-weight: 400">Member-only dropshipping opportunity.</p>
+                <div class="absolute right-0 top-1/4 bottom-1/4 w-px hidden md:block" style="background: rgba(255,255,255,0.2);"></div>
+              </div>
+              <div class="text-center p-4 md:p-6 relative border-b border-white/20 md:border-b-0" style="transition-delay:0.4s;">
+                <div class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-full flex items-center justify-center" style="background: rgba(72, 115, 25, 0.2)">
+                  <i class="fas fa-star text-xl md:text-2xl" style="color: var(--accent-green)"></i>
+                </div>
+                <h3 class="text-xs md:text-sm font-bold mb-1 md:mb-2" style="font-weight: 600; color: white">LEADERSHIP BONUSES</h3>
+                <p class="text-gray-200 text-xs md:text-xs" style="font-weight: 400">Achieve ranks and unlock higher rewards.</p>
+                <div class="absolute right-0 top-1/4 bottom-1/4 w-px hidden md:block" style="background: rgba(255,255,255,0.2);"></div>
+              </div>
+              <div class="text-center p-4 md:p-6 col-span-2 md:col-span-1" style="transition-delay:0.5s;">
+                <div class="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-full flex items-center justify-center" style="background: rgba(255, 192, 10, 0.2)">
+                  <i class="fas fa-coins text-xl md:text-2xl" style="color: var(--accent-yellow)"></i>
+                </div>
+                <h3 class="text-xs md:text-sm font-bold mb-1 md:mb-2" style="font-weight: 600; color: white">PASSIVE INCOME OPPORTUNITIES</h3>
+                <p class="text-gray-200 text-xs md:text-xs" style="font-weight: 400">Long-term income streams for financial freedom.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="py-24" style="background: var(--bg-secondary)">
+      <div class="container-pro">
+        <div class="mb-12 reveal-up" style="transition-delay:0.5s;">
+          <p
+            class="text-xs mb-2 tracking-wider uppercase"
+            style="color: var(--accent-blue); font-weight: 500"
+          >
+            HOW IT WORKS
+          </p>
+          <h2
+            class="text-3xl"
+            style="font-weight: 600; color: var(--text-primary)"
+          >
+            Simple
+            <span style="color: var(--accent-green); font-weight: 600"
+              >Steps.</span
+            >
+            Powerful Results.
+          </h2>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div class="relative w-full reveal-up" style="transition-delay:0.65s;">
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+              <div class="text-left w-full md:w-auto">
+                <div
+                  class="w-10 h-10 mb-4 rounded-full bg-gradient-to-r from-[#1452b1] to-[#347db6] flex items-center justify-center font-bold"
+                  style="color: #050e17; font-weight: 700"
+                >
+                  01
+                </div>
+                <h3
+                  class="mb-2 text-sm"
+                  style="
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: var(--text-primary);
+                  "
+                >
+                  JOIN RICH & WELL
+                </h3>
+                <p
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-secondary)"
+                >
+                  Activate your Bronze Membership and get started.
+                </p>
+              </div>
+              <div
+                class="flex items-center justify-center flex-shrink-0 hidden md:flex"
+              >
+                <i
+                  class="fas fa-chevron-right text-sm"
+                  style="color: var(--accent-green)"
+                ></i>
+              </div>
+              <div class="text-left w-full md:w-auto">
+                <div
+                  class="w-10 h-10 mb-4 rounded-full bg-gradient-to-r from-[#487319] to-[#a9b75e] flex items-center justify-center font-bold"
+                  style="color: #050e17; font-weight: 700"
+                >
+                  02
+                </div>
+                <h3
+                  class="mb-2 text-sm"
+                  style="
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: var(--text-primary);
+                  "
+                >
+                  SHARE THE ADVOCACY
+                </h3>
+                <p
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-secondary)"
+                >
+                  Introduce others to the vision and build your team.
+                </p>
+              </div>
+              <div
+                class="flex items-center justify-center flex-shrink-0 hidden md:flex"
+              >
+                <i
+                  class="fas fa-chevron-right text-sm"
+                  style="color: var(--accent-green)"
+                ></i>
+              </div>
+              <div class="text-left w-full md:w-auto">
+                <div
+                  class="w-10 h-10 mb-4 rounded-full bg-gradient-to-r from-[#1452b1] to-[#347db6] flex items-center justify-center font-bold"
+                  style="color: #050e17; font-weight: 700"
+                >
+                  03
+                </div>
+                <h3
+                  class="mb-2 text-sm"
+                  style="
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: var(--text-primary);
+                  "
+                >
+                  GROW & EARN
+                </h3>
+                <p
+                  class="text-sm"
+                  style="font-weight: 400; color: var(--text-secondary)"
+                >
+                  Unlock rewards, bonuses, and long-term income opportunities.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-xl p-6 reveal-up"
+            style="
+              background: rgba(5, 14, 23, 1);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              transition-delay:0.8s;
+            "
+          >
+            <div class="grid grid-cols-2 gap-6">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  style="background: rgba(20, 82, 177, 0.2)"
+                >
+                  <i
+                    class="fas fa-users text-2xl"
+                    style="color: var(--accent-blue-light)"
+                  ></i>
+                </div>
+                <div>
+                  <div
+                    class="text-2xl font-bold"
+                    style="color: var(--accent-blue-light)"
+                  >
+                    10,000+
+                  </div>
+                  <div
+                    class="text-xs font-semibold text-white"
+                    style="text-transform: uppercase; font-weight: 600"
+                  >
+                    Members
+                  </div>
+                  <div class="text-xs text-gray-300" style="font-weight: 400">
+                    Worldwide and growing
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  style="background: rgba(72, 115, 25, 0.2)"
+                >
+                  <i
+                    class="fas fa-sack-dollar text-2xl"
+                    style="color: var(--accent-green-light)"
+                  ></i>
+                </div>
+                <div>
+                  <div
+                    class="text-2xl font-bold"
+                    style="color: var(--accent-green-light)"
+                  >
+                    50+
+                  </div>
+                  <div
+                    class="text-xs font-semibold text-white"
+                    style="text-transform: uppercase; font-weight: 600"
+                  >
+                    Products
+                  </div>
+                  <div class="text-xs text-gray-300" style="font-weight: 400">
+                    Wellness solutions
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  style="background: rgba(20, 82, 177, 0.2)"
+                >
+                  <i
+                    class="fas fa-globe text-2xl"
+                    style="color: var(--accent-blue-light)"
+                  ></i>
+                </div>
+                <div>
+                  <div
+                    class="text-2xl font-bold"
+                    style="color: var(--accent-blue-light)"
+                  >
+                    20+
+                  </div>
+                  <div
+                    class="text-xs font-semibold text-white"
+                    style="text-transform: uppercase; font-weight: 600"
+                  >
+                    Income Streams
+                  </div>
+                  <div class="text-xs text-gray-300" style="font-weight: 400">
+                    Multiple ways to earn
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full flex items-center justify-center"
+                  style="background: rgba(255, 192, 10, 0.2)"
+                >
+                  <i
+                    class="fas fa-heart text-2xl"
+                    style="color: var(--accent-yellow)"
+                  ></i>
+                </div>
+                <div>
+                  <div
+                    class="text-2xl font-bold"
+                    style="color: var(--accent-yellow)"
+                  >
+                    100%
+                  </div>
+                  <div
+                    class="text-xs font-semibold text-white"
+                    style="text-transform: uppercase; font-weight: 600"
+                  >
+                    Support
+                  </div>
+                  <div class="text-xs text-gray-300" style="font-weight: 400">
+                    We are with you all the way
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section py-20 md:py-24 relative">
+      <div class="testimonials-pattern absolute inset-0" aria-hidden="true"></div>
+      <div class="relative z-10">
+      <div class="container-pro">
+        <div class="text-center mb-12 reveal-up" style="transition-delay:0.5s;">
+          <p
+            class="text-xs mb-2 tracking-wider uppercase"
+            style="color: var(--accent-blue); font-weight: 500"
+          >
+            WHAT MEMBERS ARE SAYING
+          </p>
+          <h2
+            class="text-3xl"
+            style="font-weight: 600; color: var(--text-primary)"
+          >
+            Real
+            <span style="color: var(--accent-green); font-weight: 600"
+              >People.</span
+            >
+            Real Results.
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <!-- Card 1 -->
+          <div class="reveal-up" style="transition-delay:0.6s;">
+            <div
+              class="rounded-xl p-4 md:p-6 product-card"
+              style="
+                background: rgba(5, 14, 23, 1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <div class="flex mb-4 gap-1">
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+              </div>
+              <p class="text-gray-300 text-xs md:text-sm mb-4" style="font-weight: 400">
+                "Rich & Well introduced me to a completely different way of
+                thinking about wellness and business."
+              </p>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&crop=faces"
+                    class="w-full h-full object-cover"
+                    alt="Adeola M."
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <div class="text-xs md:text-sm" style="font-weight: 600; color: white">
+                    Adeola M.
+                  </div>
+                  <div class="text-xs md:text-xs text-gray-300" style="font-weight: 400">
+                    Wellness Advocate
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="reveal-up" style="transition-delay:0.75s;">
+            <div
+              class="rounded-xl p-4 md:p-6 product-card"
+              style="
+                background: rgba(5, 14, 23, 1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <div class="flex mb-4 gap-1">
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+              </div>
+              <p class="text-gray-300 text-xs md:text-sm mb-4" style="font-weight: 400">
+                "The compensation structure is simple, transparent and very
+                rewarding."
+              </p>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&crop=faces"
+                    class="w-full h-full object-cover"
+                    alt="Chinedu K."
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <div class="text-xs md:text-sm" style="font-weight: 600; color: white">
+                    Chinedu K.
+                  </div>
+                  <div class="text-xs md:text-xs text-gray-300" style="font-weight: 400">
+                    Entrepreneur
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="reveal-up" style="transition-delay:0.9s;">
+            <div
+              class="rounded-xl p-4 md:p-6 product-card"
+              style="
+                background: rgba(5, 14, 23, 1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <div class="flex mb-4 gap-1">
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+                <i
+                  class="fas fa-star text-sm"
+                  style="color: var(--accent-yellow)"
+                ></i>
+              </div>
+              <p class="text-gray-300 text-xs md:text-sm mb-4" style="font-weight: 400">
+                "I love the products, the community and the support system."
+              </p>
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&crop=faces"
+                    class="w-full h-full object-cover"
+                    alt="Blessing A."
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <div class="text-xs md:text-sm" style="font-weight: 600; color: white">
+                    Blessing A.
+                  </div>
+                  <div class="text-xs md:text-xs text-gray-300" style="font-weight: 400">
+                    Community Leader
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 overflow-x-hidden" style="background: var(--bg-secondary)">
+      <div class="container-pro">
+        <div class="reveal-up" style="transition-delay:0.1s;">
+          <div class="relative rounded-2xl overflow-hidden" style="background: linear-gradient(90deg, #0a1628 0%, #0a2a4d 50%, #0a1a28 100%);">
+            <!-- Glow effect -->
+            <div class="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-green-500/20 to-yellow-500/20 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="relative z-10 p-6 sm:p-8 lg:p-10">
+              <!-- Content -->
+              <div class="text-center md:text-left">
+                <h2 class="text-xl md:text-3xl lg:text-4xl font-bold mb-3" style="color: white">
+                  What Is Your <span style="color: #ffc00a">$15</span> <span style="color: white">or</span> <span style="color: #ffc00a">₦24,000</span> Doing Today?
+                </h2>
+                <p class="text-gray-300 text-sm md:text-base mb-5" style="font-weight: 400">
+                  Sitting in your wallet? Or helping create opportunities for your future?
+                  Join Rich & Well today and start building the life you deserve.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-center md:justify-start">
+                  <button class="btn-primary px-6 py-3 md:px-8 md:py-3 rounded-full text-sm flex items-center gap-2 justify-center w-full sm:w-auto" style="font-weight: 600; color: white">
+                    Become A Member <i class="fas fa-arrow-right"></i>
+                  </button>
+                  <button class="px-6 py-3 md:px-8 md:py-3 rounded-full text-sm border border-[rgba(255,192,10,0.5)] text-white flex items-center gap-2 justify-center w-full sm:w-auto" style="font-weight: 500; background: rgba(255,192,10,0.15)">
+                    <i class="fas fa-phone" style="color: #ffc00a"></i>
+                    Speak To A Consultant
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-24" style="background: var(--bg-secondary)">
+      <div class="container-pro">
+        <div class="text-left mb-12 reveal-up" style="transition-delay:0.1s;">
+          <p
+            class="text-xs mb-2 tracking-wider uppercase"
+            style="color: var(--accent-blue); font-weight: 500"
+          >
+            FREQUENTLY ASKED QUESTIONS
+          </p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-8">
+          <!-- FAQ Accordions -->
+          <div class="lg:col-span-2 reveal-up" style="transition-delay:0.2s;">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- FAQ Item 1 -->
+              <div>
+                <button
+                  class="faq-accordion w-full flex items-center justify-between rounded-lg p-3 text-left card-gradient"
+                >
+                  <h3 class="text-sm" style="font-weight: 600; color: var(--text-primary)">
+                    What is Rich & Well?
+                  </h3>
+                  <i class="fas fa-plus text-sm" style="color: var(--accent-blue)"></i>
+                </button>
+                <div
+                  class="faq-panel overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+                >
+                  <p class="text-sm p-3" style="font-weight: 400; color: var(--text-secondary)">
+                    Rich & Well is a wellness and business platform that
+                    combines frequency-based wellness technology with income
+                    opportunities.
+                  </p>
+                </div>
+              </div>
+              <!-- FAQ Item 2 -->
+              <div>
+                <button
+                  class="faq-accordion w-full flex items-center justify-between rounded-lg p-3 text-left card-gradient"
+                >
+                  <h3 class="text-sm" style="font-weight: 600; color: var(--text-primary)">
+                    How do distributors earn?
+                  </h3>
+                  <i class="fas fa-plus text-sm" style="color: var(--accent-blue)"></i>
+                </button>
+                <div
+                  class="faq-panel overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+                >
+                  <p class="text-sm p-3" style="font-weight: 400; color: var(--text-secondary)">
+                    Distributors earn through direct referrals, team building
+                    bonuses, e-commerce retailing, leadership bonuses, and
+                    passive income opportunities.
+                  </p>
+                </div>
+              </div>
+              <!-- FAQ Item 3 -->
+              <div>
+                <button
+                  class="faq-accordion w-full flex items-center justify-between rounded-lg p-3 text-left card-gradient"
+                >
+                  <h3 class="text-sm" style="font-weight: 600; color: var(--text-primary)">
+                    What products do you offer?
+                  </h3>
+                  <i class="fas fa-plus text-sm" style="color: var(--accent-blue)"></i>
+                </button>
+                <div
+                  class="faq-panel overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+                >
+                  <p class="text-sm p-3" style="font-weight: 400; color: var(--text-secondary)">
+                    We offer a range of frequency wellness devices including
+                    B.E.S.T., TaoHertz, and our complete Frequency Collection.
+                  </p>
+                </div>
+              </div>
+              <!-- FAQ Item 4 -->
+              <div>
+                <button
+                  class="faq-accordion w-full flex items-center justify-between rounded-lg p-3 text-left card-gradient"
+                >
+                  <h3 class="text-sm" style="font-weight: 600; color: var(--text-primary)">
+                    Do I need experience?
+                  </h3>
+                  <i class="fas fa-plus text-sm" style="color: var(--accent-blue)"></i>
+                </button>
+                <div
+                  class="faq-panel overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+                >
+                  <p class="text-sm p-3" style="font-weight: 400; color: var(--text-secondary)">
+                    No experience is required! We provide comprehensive training
+                    and support to help you succeed.
+                  </p>
+                </div>
+              </div>
+              <!-- FAQ Item 5 -->
+              <div>
+                <button
+                  class="faq-accordion w-full flex items-center justify-between rounded-lg p-3 text-left card-gradient"
+                >
+                  <h3 class="text-sm" style="font-weight: 600; color: var(--text-primary)">
+                    How do I become a member?
+                  </h3>
+                  <i class="fas fa-plus text-sm" style="color: var(--accent-blue)"></i>
+                </button>
+                <div
+                  class="faq-panel overflow-hidden max-h-0 transition-all duration-300 ease-in-out"
+                >
+                  <p class="text-sm p-3" style="font-weight: 400; color: var(--text-secondary)">
+                    Simply click "Become A Member" above or contact us to get
+                    started today!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Legal Disclaimer -->
+          <div class="reveal-up" style="transition-delay:0.35s;">
+            <div
+              class="rounded-xl p-6 card-gradient"
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center"
+                  style="background: rgba(20, 82, 177, 0.1)"
+                >
+                  <i
+                    class="fas fa-shield-alt text-lg"
+                    style="color: var(--accent-blue)"
+                  ></i>
+                </div>
+                <h3 style="font-weight: 600; color: var(--text-primary)">
+                  LEGAL DISCLAIMER
+                </h3>
+              </div>
+              <p class="text-sm mb-4" style="font-weight: 400; color: var(--text-secondary)">
+                This website is for informational purposes only and does not
+                constitute financial, legal, or medical advice.
+              </p>
+              <p class="text-sm" style="font-weight: 400; color: var(--text-secondary)">
+                Results may vary. Rich & Well does not guarantee any specific
+                outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <script>
+      // FAQ Accordion functionality
+      document.querySelectorAll(".faq-accordion").forEach((accordion) => {
+        accordion.addEventListener("click", function () {
+          this.classList.toggle("active");
+          const panel = this.nextElementSibling;
+
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+            this.querySelector("i").classList.remove("fa-minus");
+            this.querySelector("i").classList.add("fa-plus");
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            this.querySelector("i").classList.remove("fa-plus");
+            this.querySelector("i").classList.add("fa-minus");
+          }
+        });
+      });
+
+      // Intersection Observer for Scroll Reveal Animations (Premium Overhaul)
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px 200px 0px', // Trigger even earlier, especially for footer
+        threshold: 0.08 // Trigger when 8% of element is visible (lower threshold = easier trigger)
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-up').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer
+      class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden"
+      style="background: #050e17; border-color: rgba(20, 82, 177, 0.2)"
+    >
+      <div class="container-pro relative z-10">
+        <!-- Newsletter CTA Section - Full Width -->
+        <div class="news relative mb-16">
+          <div class="container-pro relative z-10">
+            <div class="rounded-2xl overflow-hidden border border-[rgba(20,82,177,0.3)]" style="background: rgba(5,14,23,0.95); width: calc(100% + 4rem); margin-left: -2rem; margin-right: -2rem;">
+              <div class="p-6 md:p-8 lg:p-10">
+                <style>
+                  @media (min-width: 1280px) {
+                    .cta-heading {
+                      margin-left: -14rem !important;
+                    }
+                    .cta-divider {
+                      margin-left: -14rem !important;
+                    }
+                    .cta-button {
+                      width: 70% !important;
+                      margin-left: -10rem !important;
+                    }
+                  }
+                </style>
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 items-center">
+                  <!-- Icon -->
+                  <div class="flex justify-center lg:justify-start">
+                    <div
+                      class="w-11 h-11 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center"
+                      style="background: rgba(20,82,177,0.1)"
+                    >
+                      <i
+                        class="fas fa-users text-xl"
+                        style="color: #1452b1"
+                      ></i>
+                    </div>
+                  </div>
+                  <!-- Heading -->
+                  <div class="text-center lg:text-left">
+                    <h2
+                      class="text-xl md:text-2xl font-bold cta-heading"
+                      style="color: white; font-weight: 700; line-height: 1.2;"
+                    >
+                      Ready To Begin Your<br />
+                      <span style="color: #1452b1">Rich</span> &amp;
+                      <span style="color: #487319">Well</span> Journey?
+                    </h2>
+                  </div>
+                  <!-- Vertical Divider + Description -->
+                  <div class="flex items-center gap-5 cta-divider">
+                    <div class="hidden lg:block w-px h-12 bg-gray-600"></div>
+                    <p
+                      class="text-gray-300 text-xs leading-relaxed text-center lg:text-left"
+                      style="font-weight: 400;"
+                    >
+                      Join a global wellness and empowerment ecosystem
+                      <br />
+                      designed to help you live healthier, earn smarter,
+                      <br />
+                      and create lasting impact.
+                    </p>
+                  </div>
+                  <!-- Buttons -->
+                  <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end items-center"
+                  >
+                    <button
+                      class="btn-blue px-4 py-3 rounded-full text-xs flex items-center gap-2 justify-center w-full sm:w-auto cta-button"
+                      style="font-weight: 600;"
+                    >
+                      BECOME A MEMBER
+                      <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button
+                      class="px-4 py-3 rounded-full text-xs border border-[rgba(255,192,10,0.5)] text-white flex items-center gap-2 justify-center w-full sm:w-auto"
+                      style="font-weight: 500; background: rgba(0,0,0,0.2);"
+                    >
+                      <i class="fas fa-phone" style="color: #ffc00a"></i>
+                      SPEAK TO A CONSULTANT
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main footer grid (desktop) -->
+        <div class="footer-main-grid hidden lg:grid">
+          <!-- Brand -->
+          <div>
+            <img src="images/logo.png" alt="Rich & Well" class="h-12 w-auto" loading="lazy" />
+            <p class="footer-brand-desc" style="font-weight: 400;">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="footer-social-row">
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube" style="color: white"></i></a>
+            </div>
+          </div>
+          <!-- Company -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">COMPANY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#about">Our Mission</a></li>
+              <li><a href="#about">Leadership</a></li>
+              <li><a href="#testimonials">Success Stories</a></li>
+              <li><a href="#about">News &amp; Blog</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+
+            </ul>
+          </div>
+          <!-- Wellness Devices -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">WELLNESS DEVICES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="#wellness-devices">B.E.S.T. Therapy</a></li>
+              <li><a href="#wellness-devices">Terahertz Wave</a></li>
+              <li><a href="#wellness-devices">Frequency Collection</a></li>
+              <li><a href="#wellness-devices">Accessories</a></li>
+              <li><a href="#wellness-devices">Wellness Solutions</a></li>
+            </ul>
+          </div>
+          <!-- Opportunity -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--gold">OPPORTUNITY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="#opportunity">Why Rich &amp; Well</a></li>
+              <li><a href="#compensation">Compensation Plan</a></li>
+              <li><a href="#opportunity">Become A Distributor</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQs</a></li>
+            </ul>
+          </div>
+          <!-- Resources -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">RESOURCES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="#faq">Support Center</a></li>
+              <li><a href="#faq">Shipping Policy</a></li>
+              <li><a href="#faq">Returns &amp; Refunds</a></li>
+              <li><a href="#faq">Terms of Use</a></li>
+              <li><a href="#faq">Privacy Policy</a></li>
+              <li><a href="#faq">Legal Disclaimer</a></li>
+            </ul>
+          </div>
+          <!-- Stay Connected -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">STAY CONNECTED</h4>
+            <p class="text-gray-400 text-xs leading-relaxed mb-0" style="font-weight: 400;">
+              Receive wellness insights, product updates, and community news.
+            </p>
+            <form id="newsletterFormDesktop" class="footer-newsletter-input-wrap">
+              <input type="email" required placeholder="Enter your email address" class="border border-gray-600 bg-[rgba(255,255,255,0.06)] text-white placeholder-gray-500 focus:outline-none focus:border-[#1452b1]" />
+              <button type="submit" class="btn-primary flex items-center justify-center" aria-label="Subscribe"><i class="fas fa-arrow-right text-xs"></i></button>
+            </form>
+            <p id="newsletterMessageDesktop" class="text-xs mt-2 hidden" style="color: #6cb833"></p>
+            <div class="flex items-center gap-2 mt-3">
+              <i class="fas fa-shield-alt text-xs" style="color: #487319"></i>
+              <span class="text-gray-500 text-xs" style="font-weight: 400">We respect your privacy.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile footer (accordions) -->
+        <div class="lg:hidden">
+          <div class="text-center pb-8 mb-8 border-b" style="border-color: rgba(255,255,255,0.08);">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight: 400">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="WhatsApp"><i class="fab fa-whatsapp text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-sm" style="color: white"></i></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-0 mb-8">
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#about" class="hover:text-white transition block">About Us</a></li>
+                <li><a href="#about" class="hover:text-white transition block">Our Mission</a></li>
+                <li><a href="#testimonials" class="hover:text-white transition block">Success Stories</a></li>
+                <li><a href="#contact" class="hover:text-white transition block">Contact Us</a></li>
+
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">WELLNESS DEVICES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #42841F"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#wellness-devices" class="hover:text-white transition block">B.E.S.T. Therapy</a></li>
+                <li><a href="#wellness-devices" class="hover:text-white transition block">Terahertz Wave</a></li>
+                <li><a href="#wellness-devices" class="hover:text-white transition block">Frequency Collection</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #ffc00a"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#opportunity" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
+                <li><a href="#compensation" class="hover:text-white transition block">Compensation Plan</a></li>
+                <li><a href="#testimonials" class="hover:text-white transition block">Testimonials</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#faq" class="hover:text-white transition block">Support Center</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">Terms of Use</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">Privacy Policy</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">Legal Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-newsletter-card rounded-2xl p-6 mb-10">
+            <h4 class="text-xs tracking-wider uppercase mb-2 relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">STAY CONNECTED<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #42841F"></span></h4>
+            <p class="text-gray-400 text-sm mb-4 leading-relaxed" style="font-weight: 400">Receive wellness insights, product updates, and community news.</p>
+            <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3">
+              <input type="email" id="newsletterEmail" required placeholder="Enter your email address" class="flex-1 px-4 py-3.5 rounded-xl text-sm border border-gray-600 bg-[rgba(255,255,255,0.06)] text-white placeholder-gray-500 min-h-[48px] focus:outline-none focus:border-[#1452b1]" />
+              <button type="submit" class="btn-primary px-6 py-3.5 rounded-xl text-sm font-semibold min-h-[48px] flex items-center justify-center gap-2" aria-label="Subscribe">Subscribe <i class="fas fa-arrow-right text-xs"></i></button>
+            </form>
+            <p id="newsletterMessage" class="text-sm mt-3 hidden" style="color: #6cb833"></p>
+            <div class="flex items-center gap-2 mt-3">
+              <i class="fas fa-check-circle text-xs" style="color: #487319"></i>
+              <span class="text-gray-500 text-xs" style="font-weight: 400">We respect your privacy.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission & values -->
+        <div class="footer-mission-section text-center relative">
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--left hidden lg:block" aria-hidden="true" loading="lazy" />
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--right hidden lg:block" aria-hidden="true" loading="lazy" />
+          <div class="footer-pillars-row grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 lg:flex lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
+            <div class="footer-pillar-item footer-pillar-card text-center">
+              <div class="pillar-icon" style="background: rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-lg" style="color: #1452b1"></i></div>
+              <p style="color: #1452b1">WELLNESS</p>
+            </div>
+            <div class="footer-pillar-item footer-pillar-card text-center">
+              <div class="pillar-icon" style="background: rgba(72,115,25,0.15)"><i class="fas fa-chart-line text-lg" style="color: #487319"></i></div>
+              <p style="color: #487319">WEALTH</p>
+            </div>
+            <div class="footer-pillar-item footer-pillar-card text-center">
+              <div class="pillar-icon" style="background: rgba(20,82,177,0.15)"><i class="fas fa-users text-lg" style="color: #1452b1"></i></div>
+              <p style="color: #1452b1">COMMUNITY</p>
+            </div>
+            <div class="footer-pillar-item footer-pillar-card text-center">
+              <div class="pillar-icon" style="background: rgba(255,192,10,0.12)"><i class="fas fa-person-walking text-lg" style="color: #ffc00a"></i></div>
+              <p style="color: #ffc00a">FREEDOM</p>
+            </div>
+          </div>
+          <h2 class="footer-tagline footer-tagline-desktop font-bold mb-3 px-2 relative z-10" style="font-weight: 700; color: white">
+            <span class="lg:inline block">HEAL <span style="color: #1452b1">SMARTER.</span></span>
+            <span class="lg:inline block lg:mx-2">EARN <span style="color: #487319">FREELY.</span></span>
+            <span class="lg:inline block">LIVE <span style="color: #ffc00a">FULLY.</span></span>
+          </h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight: 400">
+            Creating a future where wellness, wealth, community, and freedom work together.
+          </p>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom-bar lg:grid pt-8 text-center lg:text-left">
+          <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm mb-5 lg:mb-0" style="font-weight: 400">
+            © 2026 Rich & Well. All Rights Reserved.
+          </p>
+          <div class="footer-bottom-legal flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs sm:text-sm text-gray-500 mb-6 lg:mb-0">
+            <a href="#faq" class="hover:text-gray-300 transition">Privacy Policy</a>
+            <span class="text-gray-700">|</span>
+            <a href="#faq" class="hover:text-gray-300 transition">Terms of Use</a>
+            <span class="text-gray-700">|</span>
+            <a href="#faq" class="hover:text-gray-300 transition">Disclaimer</a>
+          </div>
+          <div class="footer-bottom-signoff flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-3 lg:gap-2">
+            <img src="images/logo.png" alt="Rich & Well" class="h-8 w-auto opacity-90 lg:h-7" loading="lazy" />
+            <span class="text-gray-500 text-xs tracking-wide" style="font-weight: 400">Designed for Wellness. Built for Impact.</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const themeToggleMobile = document.getElementById("themeToggleMobile");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenuBackdrop = document.getElementById("mobileMenuBackdrop");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileNavLinks = document.querySelectorAll("#mobileNav .mobile-nav-link");
+      const navbar = document.getElementById("navbar");
+
+      // Function to toggle theme
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.toggle("dark");
+        document.documentElement.classList.toggle("light", !isDark);
+        const newTheme = isDark ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+
+      if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+      if (themeToggleMobile) themeToggleMobile.addEventListener("click", toggleTheme);
+
+      [themeToggle, themeToggleMobile].forEach((btn) => {
+        if (!btn) return;
+        btn.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleTheme();
+          }
+        });
+      });
+
+      // Mobile Menu Toggle
+      function setMobileMenuOpen(isOpen) {
+        mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        mobileMenuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        mobileMenuBtn.classList.toggle("is-open", isOpen);
+        mobileMenu.classList.toggle("is-open", isOpen);
+        mobileMenuBackdrop.classList.toggle("is-open", isOpen);
+        mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        mobileMenuBackdrop.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      }
+
+      mobileMenuBtn.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.contains("is-open");
+        setMobileMenuOpen(!isOpen);
+      });
+
+      mobileMenuBackdrop.addEventListener("click", () => {
+        setMobileMenuOpen(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+          setMobileMenuOpen(false);
+        }
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          setMobileMenuOpen(false);
+        });
+      });
+
+      // Active mobile nav link on scroll
+      const sectionIds = ["home", "about", "wellness-devices", "opportunity", "compensation", "testimonials", "faq", "contact"];
+      function updateActiveNavLink() {
+        const scrollPos = window.scrollY + 100;
+        let current = "home";
+        sectionIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollPos) current = id;
+        });
+        mobileNavLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          link.classList.toggle("active", href === "#" + current);
+        });
+      }
+      window.addEventListener("scroll", updateActiveNavLink);
+      updateActiveNavLink();
+
+
+
+      // Navbar scroll behavior
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Footer mobile accordion
+      document.querySelectorAll(".footer-col-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          if (window.innerWidth >= 1024) return;
+          const links = toggle.nextElementSibling;
+          const isOpen = links.classList.contains("is-open");
+          document.querySelectorAll(".footer-col-links.is-open").forEach((el) => {
+            el.classList.remove("is-open");
+          });
+          document.querySelectorAll(".footer-col-toggle[aria-expanded='true']").forEach((btn) => {
+            btn.setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            links.classList.add("is-open");
+            toggle.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      // Newsletter form
+      function handleNewsletterSubmit(e, messageEl) {
+        e.preventDefault();
+        if (messageEl) {
+          messageEl.textContent = "Thank you for subscribing!";
+          messageEl.classList.remove("hidden");
+        }
+        e.target.reset();
+      }
+
+      const newsletterForm = document.getElementById("newsletterForm");
+      const newsletterMessage = document.getElementById("newsletterMessage");
+      const newsletterFormDesktop = document.getElementById("newsletterFormDesktop");
+      const newsletterMessageDesktop = document.getElementById("newsletterMessageDesktop");
+
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => handleNewsletterSubmit(e, newsletterMessage));
+      }
+      if (newsletterFormDesktop) {
+        newsletterFormDesktop.addEventListener("submit", (e) => handleNewsletterSubmit(e, newsletterMessageDesktop));
+      }
+
+      // Reveal animation fallback
+      setTimeout(() => {
+        document.querySelectorAll(".reveal-up:not(.is-visible)").forEach((el) => {
+          el.classList.add("is-visible");
+        });
+      }, 2500);
+    </script>
+  </body>
+</html>
