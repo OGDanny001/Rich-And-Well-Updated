@@ -460,12 +460,19 @@
           gap: 5px;
           cursor: pointer;
           -webkit-tap-highlight-color: transparent;
-          transition: background 0.25s ease, border-color 0.25s ease;
+          transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+          z-index: 70;
         }
 
         .mobile-menu-btn:hover {
           background: rgba(255, 255, 255, 0.1);
           border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .mobile-menu-btn.is-open {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.35);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
         .hamburger-line {
@@ -482,9 +489,24 @@
           background: #050e17;
         }
 
+        .mobile-menu-btn.is-open .hamburger-line {
+          background: white;
+          height: 2.5px;
+        }
+
+        html:not(.dark) #navbar.scrolled .mobile-menu-btn.is-open .hamburger-line {
+          background: #050e17;
+        }
+
         html:not(.dark) #navbar.scrolled .mobile-menu-btn {
           border-color: rgba(5, 14, 23, 0.15);
           background: rgba(5, 14, 23, 0.04);
+        }
+
+        html:not(.dark) #navbar.scrolled .mobile-menu-btn.is-open {
+          background: rgba(5, 14, 23, 0.08);
+          border-color: rgba(5, 14, 23, 0.3);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(5, 14, 23, 0.1);
         }
 
         .mobile-menu-btn.is-open .hamburger-line:nth-child(1) {
@@ -3027,6 +3049,7 @@
         mobileMenuBackdrop.classList.toggle("is-open", isOpen);
         mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
         mobileMenuBackdrop.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        navbar.classList.toggle("z-[65]", isOpen); // Raise navbar above mobile menu when open
         document.body.style.overflow = isOpen ? "hidden" : "";
       }
 
