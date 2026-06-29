@@ -1298,6 +1298,22 @@
       #navbar.is-blurred > div > div > div > #mobileMenuBtn {
         z-index: 100 !important;
       }
+
+      /* Desktop Slider Styles */
+      .desktop-slider-slide {
+        transition: opacity 0.8s ease-in-out;
+      }
+      .desktop-slider-slide.active {
+        opacity: 1 !important;
+        z-index: 1;
+      }
+
+      .desktop-slide-content {
+        transition: opacity 0.8s ease-in-out;
+      }
+      .desktop-slide-content.active {
+        opacity: 1 !important;
+      }
     </style>
   </head>
   <body class="gradient-bg text-white">
@@ -1305,8 +1321,8 @@
     <div class="relative">
       <!-- Hero Background Container -->
       <div class="relative min-h-0 lg:min-h-svh">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
+        <!-- Mobile Background (unchanged) -->
+        <div class="lg:hidden absolute inset-0">
           <div class="absolute inset-0 hero-radial"></div>
           <img
             src="images/hero%20bg.png"
@@ -1315,11 +1331,45 @@
             fetchpriority="high"
           />
         </div>
-
         <div
-          class="hero-overlay bg-gradient-to-b from-[#050e17]/90 via-[#050e17]/70 to-[#050e17]/90 md:bg-gradient-to-r md:from-[#050e17]/95 md:via-[#050e17]/70 md:to-transparent"
+          class="lg:hidden hero-overlay bg-gradient-to-b from-[#050e17]/90 via-[#050e17]/70 to-[#050e17]/90"
           aria-hidden="true"
         ></div>
+
+        <!-- Desktop Slider -->
+        <div id="desktopHeroSlider" class="hidden lg:block absolute inset-0 overflow-hidden">
+          <!-- Slide 1 -->
+          <div class="desktop-slider-slide absolute inset-0 active">
+            <div class="absolute inset-0">
+              <div class="absolute inset-0 hero-radial"></div>
+              <img
+                src="images/hero%20bg.png"
+                alt="Hero Background"
+                class="absolute inset-0 w-full h-full object-cover object-right-center"
+                fetchpriority="high"
+              />
+            </div>
+            <div
+              class="hero-overlay bg-gradient-to-r from-[#050e17]/95 via-[#050e17]/70 to-transparent"
+              aria-hidden="true"
+            ></div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="desktop-slider-slide absolute inset-0 opacity-0">
+            <div class="absolute inset-0">
+              <div class="absolute inset-0 hero-radial"></div>
+              <img
+                src="images/slider1.png"
+                alt="Wellness Devices"
+                class="absolute inset-0 w-full h-full object-cover object-right-center"
+              />
+            </div>
+            <div
+              class="hero-overlay bg-gradient-to-r from-[#050e17]/95 via-[#050e17]/70 to-transparent"
+              aria-hidden="true"
+            ></div>
+          </div>
+        </div>
 
         <!-- Header -->
         <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-fadeInUp" style="animation-delay:0.15s;">
@@ -1514,13 +1564,13 @@
         <!-- Hero -->
         <section id="home" class="hero-foreground relative flex flex-col justify-between min-h-0 lg:min-h-[75vh] pt-52 md:pt-64 lg:pt-[170px] pb-4 sm:pb-20">
           <div class="container-pro pb-4 sm:pb-12">
-            <div class="lg:w-1/2">
+            <!-- Mobile Content (unchanged) -->
+            <div class="lg:hidden">
               <p
                 class="hero-eyebrow animate-fadeInUp"
                 style="animation-delay:0.25s;"
               >
-                <span class="sm:hidden">Frequency Wellness Technology</span>
-                <span class="hidden sm:inline">Drug-Free Frequency Wellness Technology</span>
+                Frequency Wellness Technology
               </p>
               <h1
                 class="hero-heading mb-5 sm:mb-6 animate-fadeInUp"
@@ -1550,16 +1600,14 @@
                   class="btn-blue px-6 sm:px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
                   style="font-weight: 600; animation-delay:0.9s;"
                 >
-                  <span class="sm:hidden">Explore</span>
-                  <span class="hidden sm:inline">Explore Devices</span>
+                  Explore
                   <i class="fas fa-arrow-right"></i>
                 </button>
                 <button
                   class="btn-primary px-6 sm:px-8 py-3 rounded-full text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
                   style="font-weight: 600; color: white; animation-delay:1.05s;"
                 >
-                  <span class="sm:hidden">Join Now</span>
-                  <span class="hidden sm:inline">Join The Movement</span>
+                  Join Now
                   <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
@@ -1571,11 +1619,111 @@
                   <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#ffc00a] to-[#e69c09] border-2 border-[#050e17] flex items-center justify-center text-[9px] sm:text-xs font-bold text-[#050e17]">10k</div>
                 </div>
                 <div>
-                  <div class="sm:hidden">
-                    <div class="hero-member-count">10,000+ Members</div>
-                    <div class="hero-member-sub">Worldwide &amp; growing</div>
+                  <div class="hero-member-count">10,000+ Members</div>
+                  <div class="hero-member-sub">Worldwide &amp; growing</div>
+                </div>
+              </div>
+            </div>
+            <!-- Desktop Slider Content -->
+            <div class="hidden lg:block">
+              <!-- Slide 1 Content -->
+              <div class="desktop-slide-content w-1/2 active">
+                <p
+                  class="hero-eyebrow animate-fadeInUp"
+                  style="animation-delay:0.25s;"
+                >
+                  Drug-Free Frequency Wellness Technology
+                </p>
+                <h1
+                  class="hero-heading mb-5 sm:mb-6 animate-fadeInUp"
+                  style="animation-delay:0.45s;"
+                >
+                  <span class="hero-line">
+                    HEAL
+                    <span style="color: var(--accent-blue); font-weight: 700">SMARTER.</span>
+                  </span>
+                  <span class="hero-line">
+                    EARN
+                    <span style="color: var(--accent-green); font-weight: 700">FREELY.</span>
+                  </span>
+                  <span class="hero-line">
+                    LIVE
+                    <span style="color: var(--accent-yellow); font-weight: 700">FULLY.</span>
+                  </span>
+                </h1>
+                <p
+                  class="hero-description text-gray-300 mb-5 sm:mb-6 max-w-md text-sm leading-relaxed animate-fadeIn"
+                  style="font-weight: 400; animation-delay:0.7s;"
+                >
+                  The world's first full-spectrum wellness ecosystem combining drug-free frequency technology with life-changing income opportunities.
+                </p>
+                <div class="hero-actions flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+                  <button
+                    class="btn-blue px-6 sm:px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
+                    style="font-weight: 600; animation-delay:0.9s;"
+                  >
+                    Explore Devices
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                  <button
+                    class="btn-primary px-6 sm:px-8 py-3 rounded-full text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
+                    style="font-weight: 600; color: white; animation-delay:1.05s;"
+                  >
+                    Join The Movement
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+                <div class="hero-social-proof animate-fadeInUp" style="animation-delay:1.25s;">
+                  <div class="flex hero-avatar-stack -space-x-2 sm:-space-x-3">
+                    <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border-2 border-[#050e17]"></div>
+                    <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#1452b1] to-[#347db6] border-2 border-[#050e17]"></div>
+                    <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#42841F] to-[#6cb833] border-2 border-[#050e17]"></div>
+                    <div class="hero-avatar w-7 sm:w-9 h-7 sm:h-9 rounded-full bg-gradient-to-br from-[#ffc00a] to-[#e69c09] border-2 border-[#050e17] flex items-center justify-center text-[9px] sm:text-xs font-bold text-[#050e17]">10k</div>
                   </div>
-                  <span class="hidden sm:inline text-sm text-gray-300" style="font-weight: 500">10,000+ Members Worldwide</span>
+                  <div>
+                    <span class="text-sm text-gray-300" style="font-weight: 500">10,000+ Members Worldwide</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 2 Content -->
+              <div class="desktop-slide-content w-1/2 opacity-0">
+                <p
+                  class="hero-eyebrow animate-fadeInUp"
+                  style="animation-delay:0.25s;"
+                >
+                  Revolutionary Wellness Technology
+                </p>
+                <h1
+                  class="hero-heading mb-5 sm:mb-6 animate-fadeInUp"
+                  style="animation-delay:0.45s;"
+                >
+                  <span class="hero-line">
+                    BREATHE
+                    <span style="color: var(--accent-blue); font-weight: 700">BETTER.</span>
+                  </span>
+                  <span class="hero-line">
+                    HEAL
+                    <span style="color: var(--accent-green); font-weight: 700">NATURALLY.</span>
+                  </span>
+                  <span class="hero-line">
+                    THRIVE
+                    <span style="color: var(--accent-yellow); font-weight: 700">DAILY.</span>
+                  </span>
+                </h1>
+                <p
+                  class="hero-description text-gray-300 mb-5 sm:mb-6 max-w-md text-sm leading-relaxed animate-fadeIn"
+                  style="font-weight: 400; animation-delay:0.7s;"
+                >
+                  Discover our cutting-edge wellness devices including BEST Therapy, Terahertz technology, and more designed to support your holistic well-being journey.
+                </p>
+                <div class="hero-actions flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+                  <button
+                    class="btn-blue px-6 sm:px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center animate-fadeInUp w-full sm:w-auto"
+                    style="font-weight: 600; animation-delay:0.9s;"
+                  >
+                    Explore Wellness Devices
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -2773,6 +2921,38 @@
       document.querySelectorAll('.reveal-up').forEach(el => {
         observer.observe(el);
       });
+
+      // Desktop Hero Slider
+      let currentSlide = 0;
+      const totalSlides = 2;
+      const desktopSliderSlides = document.querySelectorAll('.desktop-slider-slide');
+      const desktopSlideContents = document.querySelectorAll('.desktop-slide-content');
+
+      function goToSlide(index) {
+        desktopSliderSlides.forEach((slide, i) => {
+          slide.classList.remove('active');
+          if (i === index) {
+            slide.classList.add('active');
+          }
+        });
+
+        desktopSlideContents.forEach((content, i) => {
+          content.classList.remove('active');
+          content.classList.add('opacity-0');
+          if (i === index) {
+            content.classList.add('active');
+            content.classList.remove('opacity-0');
+          }
+        });
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+      }
+
+      // Auto advance every 5 seconds
+      setInterval(nextSlide, 5000);
     </script>
 
     <!-- Footer -->
