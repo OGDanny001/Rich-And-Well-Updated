@@ -1,4 +1,4 @@
-﻿
+
       // FAQ Accordion functionality
       document.querySelectorAll(".faq-accordion").forEach((accordion) => {
         accordion.addEventListener("click", function () {
@@ -209,5 +209,5 @@
         document.querySelectorAll(".reveal-up:not(.is-visible)").forEach((el) => {
           el.classList.add("is-visible");
         });
-      }, 2500);
+      }, 4000);
     

@@ -301,21 +301,21 @@
 
       /* Page Load Animations */
       .animate-fadeInUp {
-        animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: fadeInUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
       .animate-fadeIn {
-        animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
       .animate-scaleIn {
-        animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: scaleIn 1.3s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
 
       /* Scroll Reveal Base */
       .reveal-up {
         opacity: 0;
-        transform: translate3d(0, 32px, 0);
-        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translate3d(0, 40px, 0);
+        transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .reveal-up.is-visible {
         opacity: 1;

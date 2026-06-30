@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich & Well - About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.add("light");
+        }
+      })();
+    </script>
+    
+    <link rel='stylesheet' href='styles.css'>
+
+  </head>
+  <body class="gradient-bg text-white">
+    
+    <!-- Hero Section for About Us -->
+    <div class="relative">
+      <!-- Hero Background Container -->
+      <div class="relative min-h-screen">
+        <!-- Background Image for About Hero -->
+        <div class="absolute inset-0">
+          <div class="absolute inset-0 hero-radial"></div>
+          <img
+                src="images/slider2.png"
+                alt="About Us Hero Background"
+                class="absolute inset-0 w-full h-full object-cover"
+                style="object-position: right center;"
+          />
+        </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[#050e17]/95 via-[#050e17]/60 to-transparent"
+          style="background-size: 120% 100%;"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Header -->
+        <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+          <div class="container-pro">
+            <div class="flex items-center justify-between h-16 lg:h-28">
+              <a href="index.html" class="flex items-center shrink-0" aria-label="Rich & Well Home">
+                <img
+                  src="images/logo.png"
+                  alt="Rich & Well Logo"
+                  class="h-10 sm:h-12 lg:h-20 w-auto"
+                />
+              </a>
+              <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
+                <a
+                  href="index.html"
+                  class="nav-link text-white hover:text-white transition"
+                  style="font-weight: 500"
+                  >Home</a
+                >
+                <a
+                  href="about.html"
+                  class="nav-link text-white hover:text-white transition relative"
+                  style="font-weight: 500"
+                  >About Us
+                  <span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span>
+                  </a
+                >
+                <a
+                  href="index.html#wellness-devices"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Wellness Devices</a
+                >
+                <a
+                  href="index.html#opportunity"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Opportunity</a
+                >
+                <a
+                  href="index.html#services"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Services</a
+                >
+                <a
+                  href="index.html#compensation"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Compensation Plan</a
+                >
+                <a
+                  href="index.html#testimonials"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Testimonials</a
+                >
+                <a
+                  href="index.html#faq"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >FAQ</a
+                >
+                <a
+                  href="index.html#contact"
+                  class="nav-link text-gray-300 hover:text-white transition"
+                  style="font-weight: 500"
+                  >Contact</a
+                >
+
+              </nav>
+              <div class="flex items-center gap-2 sm:gap-3">
+                <button
+                  class="btn-primary mobile-header-cta lg:hidden"
+                  style="color: white"
+                >
+                  Join Now
+                </button>
+                <button
+                  class="theme-toggle hidden sm:flex"
+                  id="themeToggle"
+                  aria-label="Toggle theme"
+                  title="Toggle theme"
+                >
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+                <button
+                  id="mobileMenuBtn"
+                  class="mobile-menu-btn lg:hidden relative z-[9999]"
+                  aria-label="Open menu"
+                  aria-expanded="false"
+                  aria-controls="mobileMenu"
+                >
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                </button>
+                <div class="hidden lg:flex items-center space-x-3">
+                  <button
+                    id="loginBtn"
+                    class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300"
+                    style="font-weight: 500"
+                  >
+                    Login
+                  </button>
+                  <button
+                    class="btn-primary px-6 py-2 rounded-full text-sm"
+                    style="font-weight: 500; color: white"
+                  >
+                    Join Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Mobile Menu Backdrop -->
+        <div
+          id="mobileMenuBackdrop"
+          class="fixed inset-0 z-[55] lg:hidden bg-white/10 backdrop-blur-xl"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="mobile-menu-panel fixed inset-x-0 top-[calc(64px+0.75rem)] bottom-0 z-[60] lg:hidden overflow-y-auto"
+          aria-hidden="true"
+        >
+          <div class="container-pro flex flex-col h-full py-6">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight: 500">
+              Navigation
+            </p>
+            <nav class="flex-1" id="mobileNav">
+              <a href="index.html" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="about.html" class="mobile-nav-link active">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#wellness-devices" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#opportunity" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#compensation" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#testimonials" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#faq" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#contact" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+
+            </nav>
+            <div class="pt-6 mt-4 border-t space-y-3" style="border-color: rgba(255,255,255,0.08);">
+              <div class="flex items-center justify-between mb-2 sm:hidden">
+                <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight: 500">Appearance</span>
+                <button
+                  class="theme-toggle"
+                  id="themeToggleMobile"
+                  aria-label="Toggle theme"
+                  style="width: 40px; height: 40px;"
+                >
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </div>
+              <button
+                class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300"
+                style="font-weight: 500"
+              >
+                Login
+              </button>
+              <button
+                class="btn-primary w-full px-6 py-3.5 rounded-full text-sm"
+                style="font-weight: 600; color: white"
+              >
+                Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standalone Mobile Menu Close Button -->
+        <button
+          id="mobileMenuCloseBtn"
+          class="mobile-menu-btn fixed right-4 w-11 h-11 z-[9999] lg:hidden flex items-center justify-center"
+          aria-label="Close menu"
+          style="display: none; top: calc( (64px - 44px) / 2 );"
+        >
+          <i class="fas fa-times text-white"></i>
+        </button>
+
+        <!-- Hero Content -->
+        <section class="hero-foreground relative flex flex-col justify-center min-h-screen pt-32 pb-16">
+          <div class="container-pro">
+            <div class="max-w-3xl">
+              <p
+              class="hero-eyebrow animate-fadeInUp"
+              style="color: var(--accent-blue); animation-delay:0.4s;"
+            >
+              ABOUT US
+            </p>
+            <h1
+              class="hero-heading mb-6 animate-fadeInUp"
+              style="animation-delay:0.8s; line-height: 1.1;"
+            >
+              <span class="block">BUILDING <span style="color: var(--accent-blue);">HEALTH.</span></span>
+              <span class="block">CREATING <span style="color: var(--accent-green);">WEALTH.</span></span>
+              <span class="block">TRANSFORMING <span style="color: var(--accent-yellow);">COMMUNITIES.</span></span>
+            </h1>
+            <p
+              class="hero-description text-gray-300 mb-8 max-w-xl text-base leading-relaxed animate-fadeIn"
+              style="font-weight: 400; animation-delay:1.2s;"
+            >
+              We are the new breed of professionals thriving in the new economy—building lasting wealth in a new normal world.
+            </p>
+            <div class="hero-actions flex flex-col sm:flex-row gap-4 animate-fadeInUp" style="animation-delay:1.6s;">
+                <button
+                  class="btn-blue px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center"
+                  style="font-weight: 600;"
+                >
+                  JOIN THE MOVEMENT
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                <button
+                  class="border border-gray-500 px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center bg-transparent hover:bg-white/10 transition"
+                  style="font-weight: 600;"
+                >
+                  EXPLORE OUR MISSION
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Who We Are Section -->
+    <section class="py-20" style="background: white;">
+      <div class="container-pro">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left: Image -->
+          <div class="reveal-up" style="transition-delay: 0.2s;">
+            <img 
+              src="images/ouradvocacysection.png" 
+              alt="Who We Are" 
+              class="rounded-xl shadow-lg w-full"
+            />
+          </div>
+          <!-- Right: Text -->
+          <div class="reveal-up" style="transition-delay: 0.4s;">
+            <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-blue);">
+              WHO WE ARE
+            </p>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6" style="color: #050e17; line-height: 1.2;">
+              A New Breed of Professionals<br>
+              Building a <span style="color: var(--accent-green);">New Economy.</span>
+            </h2>
+            <p class="text-gray-600 text-base leading-relaxed mb-4">
+              Rich & Well is driven by an exceptional management team: industry leaders, passionate visionaries, and innovators with a proven track record and deep expertise in health, finance, and network marketing.
+            </p>
+            <p class="text-gray-600 text-base leading-relaxed">
+              Our product line is strong, appealing, and designed for positive impact. Backed by a smart marketing plan and robust corporate support, we empower our community to succeed—together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Foundation Section -->
+    <section class="py-20" style="background: #f3f4f6;">
+      <div class="container-pro">
+        <div class="text-center mb-12 reveal-up" style="transition-delay: 0.2s;">
+          <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-blue);">
+            OUR FOUNDATION
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Mission Card -->
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal-up" style="transition-delay: 0.3s;">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6);">
+              <i class="fas fa-bullseye text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: #050e17;">OUR MISSION</h3>
+            <p class="text-sm text-gray-500 mb-2">What we do every day</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              To deliver cutting-edge frequency healing technology and intentional wealth creation to African families worldwide — empowering them to live healthier, wealthier, and more purposeful lives.
+            </p>
+            <p class="text-3xl font-bold text-gray-300">01</p>
+          </div>
+          <!-- Vision Card -->
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal-up" style="transition-delay: 0.5s;">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #166534, #22c55e);">
+              <i class="fas fa-eye text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: #050e17;">OUR VISION</h3>
+            <p class="text-sm text-gray-500 mb-2">The future we are building</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              A world where every African family thrives in optimal health and generational prosperity — empowered by innovation and intentional legacy.
+            </p>
+            <p class="text-3xl font-bold text-gray-300">02</p>
+          </div>
+          <!-- Our Why Card -->
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal-up" style="transition-delay: 0.7s;">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #92400e, #f59e0b);">
+              <i class="fas fa-heart text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: #050e17;">OUR WHY</h3>
+            <p class="text-sm text-gray-500 mb-2">Our purpose</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              To equip communities with the tools and knowledge to take proactive control of their health and finances, enabling secure, balanced, and fulfilling lives on their own terms.
+            </p>
+            <p class="text-3xl font-bold text-gray-300">03</p>
+          </div>
+          <!-- Our Goal Card -->
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal-up" style="transition-delay: 0.9s;">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: linear-gradient(135deg, #166534, #22c55e);">
+              <i class="fas fa-flag text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="color: #050e17;">OUR GOAL</h3>
+            <p class="text-sm text-gray-500 mb-2">What we are set to achieve</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              To lead the frequency healing revolution, capture the industry's largest market share, and scale this impact through the power of direct sales.
+            </p>
+            <p class="text-3xl font-bold text-gray-300">04</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Ecosystem Section -->
+    <section class="py-20" style="background: var(--bg-dark);">
+      <div class="container-pro">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="reveal-up" style="transition-delay: 0.2s;">
+            <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-blue);">
+              OUR ECOSYSTEM
+            </p>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white" style="line-height: 1.2;">
+              Four Pillars.<br>
+              One <span style="color: var(--accent-green);">Powerful Mission.</span>
+            </h2>
+            <p class="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
+              Our ecosystem is built on four interconnected pillars that create balance, purpose, and lasting impact.
+            </p>
+            <button
+              class="border border-green-500 px-6 py-2 rounded-full text-white text-sm flex items-center gap-2 hover:bg-green-500/10 transition"
+              style="font-weight: 600;"
+            >
+              EXPLORE THE ECOSYSTEM
+              <i class="fas fa-arrow-right text-green-500"></i>
+            </button>
+          </div>
+          <!-- Right: Pillars Visual -->
+          <div class="reveal-up relative" style="transition-delay: 0.5s;">
+            <!-- Desktop/Tablet: Absolute Positioning -->
+            <div class="hidden md:flex relative flex-col items-center justify-center min-h-[400px]">
+              <!-- Background glow -->
+              <div class="absolute inset-0" style="background: radial-gradient(circle, rgba(20, 82, 177, 0.15) 0%, transparent 70%);"></div>
+              
+              <!-- Center Logo -->
+              <div class="relative z-10 mb-8">
+                <img src="images/logo.png" alt="Rich & Well" class="h-24 w-auto">
+              </div>
+
+              <!-- Top Pillar: Wealth -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-2" style="background: linear-gradient(135deg, #166534, #22c55e); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-chart-line text-white text-2xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-base">WEALTH</h3>
+                <p class="text-gray-400 text-xs">Financial Freedom & Opportunity</p>
+              </div>
+
+              <!-- Left Pillar: Wellness -->
+              <div class="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-2" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-heartbeat text-white text-2xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-base">WELLNESS</h3>
+                <p class="text-gray-400 text-xs">Health, Healing & Well-being</p>
+              </div>
+
+              <!-- Right Pillar: Community -->
+              <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-2" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-users text-white text-2xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-base">COMMUNITY</h3>
+                <p class="text-gray-400 text-xs">Connection, Support & Empowerment</p>
+              </div>
+
+              <!-- Bottom Pillar: Freedom -->
+              <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mb-2" style="background: linear-gradient(135deg, #92400e, #f59e0b); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-child-reaching text-white text-2xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-base">FREEDOM</h3>
+                <p class="text-gray-400 text-xs">Live Life On Your Own Terms</p>
+              </div>
+
+              <!-- Connecting lines -->
+              <div class="absolute inset-0">
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
+                  <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="5,5"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Mobile: Grid Layout -->
+            <div class="md:hidden grid grid-cols-2 gap-6">
+              <!-- Center Logo -->
+              <div class="col-span-2 flex justify-center mb-6">
+                <img src="images/logo.png" alt="Rich & Well" class="h-20 w-auto">
+              </div>
+              <!-- Wellness Pillar -->
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-heartbeat text-white text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-sm">WELLNESS</h3>
+                <p class="text-gray-400 text-xs text-center">Health, Healing & Well-being</p>
+              </div>
+              <!-- Wealth Pillar -->
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #166534, #22c55e); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-chart-line text-white text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-sm">WEALTH</h3>
+                <p class="text-gray-400 text-xs text-center">Financial Freedom & Opportunity</p>
+              </div>
+              <!-- Community Pillar -->
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-users text-white text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-sm">COMMUNITY</h3>
+                <p class="text-gray-400 text-xs text-center">Connection, Support & Empowerment</p>
+              </div>
+              <!-- Freedom Pillar -->
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: linear-gradient(135deg, #92400e, #f59e0b); border: 2px solid rgba(255,255,255,0.2);">
+                  <i class="fas fa-child-reaching text-white text-xl"></i>
+                </div>
+                <h3 class="text-white font-bold text-sm">FREEDOM</h3>
+                <p class="text-gray-400 text-xs text-center">Live Life On Your Own Terms</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Rich & Well Section -->
+    <section class="py-20" style="background: white;">
+      <div class="container-pro">
+        <div class="text-center mb-12 reveal-up" style="transition-delay: 0.2s;">
+          <p class="text-sm font-semibold uppercase tracking-wider mb-3" style="color: var(--accent-blue);">
+            WHY CHOOSE RICH & WELL
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Experience Card -->
+          <div class="p-8 rounded-2xl reveal-up" style="background: rgba(30, 58, 138, 0.08); transition-delay: 0.3s;">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center" style="background: rgba(30, 58, 138, 0.15);">
+                <i class="fas fa-gem text-3xl" style="color: #1e3a8a;"></i>
+              </div>
+              <h3 class="text-xl font-bold" style="color: #050e17;">EXPERIENCE</h3>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Backed by industry leaders with proven track records and decades of combined experience in health, finance, and network marketing.
+            </p>
+          </div>
+          <!-- Profitable Card -->
+          <div class="p-8 rounded-2xl reveal-up" style="background: transparent; transition-delay: 0.6s;">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center" style="background: rgba(22, 101, 52, 0.15);">
+                <i class="fas fa-arrow-trend-up text-3xl" style="color: #166534;"></i>
+              </div>
+              <h3 class="text-xl font-bold" style="color: #050e17;">PROFITABLE</h3>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              A sustainable business model with high-quality products, multiple income streams, and global market potential.
+            </p>
+          </div>
+          <!-- Sustainable Card -->
+          <div class="p-8 rounded-2xl reveal-up" style="background: rgba(146, 64, 14, 0.08); transition-delay: 0.9s;">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center" style="background: rgba(146, 64, 14, 0.15);">
+                <i class="fas fa-seedling text-3xl" style="color: #92400e;"></i>
+              </div>
+              <h3 class="text-xl font-bold" style="color: #050e17;">SUSTAINABLE</h3>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Built for long-term impact, generational wealth, and community transformation across Africa and beyond.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote & Impact Section -->
+    <section class="py-20" style="background: var(--bg-dark);">
+      <div class="container-pro">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Quote -->
+          <div class="reveal-up" style="transition-delay: 0.3s;">
+            <div class="relative">
+              <i class="fas fa-quote-left text-4xl text-gray-500 mb-4"></i>
+              <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-relaxed">
+                We believe wellness and wealth should not be privileges. They should be accessible tools for transformation.
+              </p>
+              <div class="mt-8">
+                <div class="text-gray-400 italic mb-2">— Rich & Well Leadership</div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Impact Stats -->
+          <div class="reveal-up" style="transition-delay: 0.5s;">
+            <p class="text-sm font-semibold uppercase tracking-wider mb-6" style="color: var(--accent-blue);">
+              OUR IMPACT VISION
+            </p>
+            <div class="grid grid-cols-2 gap-6">
+              <!-- Members Stat -->
+              <div class="p-6 rounded-xl reveal-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition-delay: 0.6s;">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(20,82,177,0.2);">
+                  <i class="fas fa-users text-2xl" style="color: var(--accent-blue);"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-1">10,000+</h3>
+                <p class="text-gray-400 text-sm">Members Worldwide</p>
+              </div>
+              <!-- Products Stat -->
+              <div class="p-6 rounded-xl reveal-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition-delay: 0.8s;">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(66,132,31,0.2);">
+                  <i class="fas fa-cube text-2xl" style="color: var(--accent-green);"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-1">50+</h3>
+                <p class="text-gray-400 text-sm">Wellness Products</p>
+              </div>
+              <!-- Countries Stat -->
+              <div class="p-6 rounded-xl reveal-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition-delay: 1s;">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(20,82,177,0.2);">
+                  <i class="fas fa-globe text-2xl" style="color: var(--accent-blue);"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-1" style="color: var(--accent-blue);">Multiple</h3>
+                <p class="text-gray-400 text-sm">Countries Reached</p>
+              </div>
+              <!-- Lives Stat -->
+              <div class="p-6 rounded-xl reveal-up" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition-delay: 1.2s;">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center mb-4" style="background: rgba(255,192,10,0.2);">
+                  <i class="fas fa-heart-pulse text-2xl" style="color: var(--accent-yellow);"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-1">Countless</h3>
+                <p class="text-gray-400 text-sm">Lives Transformed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden"
+      style="background: #050e17; border-color: rgba(20, 82, 177, 0.2)"
+    >
+      <div class="container-pro relative z-10">
+        <!-- Newsletter CTA Section - Full Width -->
+        <div class="news relative mb-16 reveal-up" style="transition-delay: 0.3s;">
+          <div class="container-pro relative z-10">
+            <div class="rounded-2xl overflow-hidden border border-[rgba(20,82,177,0.3)]" style="background: rgba(5,14,23,0.98); width: calc(100% + 4rem); margin-left: -2rem; margin-right: -2rem;">
+              <div class="p-6 md:p-8 lg:p-10">
+                <style>
+                  @media (min-width: 1280px) {
+                    .cta-heading {
+                      margin-left: -14rem !important;
+                    }
+                    .cta-divider {
+                      margin-left: -14rem !important;
+                    }
+                    .cta-button {
+                      width: 70% !important;
+                      margin-left: -10rem !important;
+                    }
+                  }
+                </style>
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 items-center">
+                  <!-- Icon -->
+                  <div class="flex justify-center lg:justify-start">
+                    <div
+                      class="w-11 h-11 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center"
+                      style="background: rgba(20,82,177,0.1)"
+                    >
+                      <i
+                        class="fas fa-users text-xl"
+                        style="color: #1452b1"
+                      ></i>
+                    </div>
+                  </div>
+                  <!-- Heading -->
+                  <div class="text-center lg:text-left">
+                    <h2
+                      class="text-xl md:text-2xl font-bold cta-heading"
+                      style="color: white; font-weight: 700; line-height: 1.2;"
+                    >
+                      Ready To Begin Your<br />
+                      <span style="color: #1452b1">Rich</span> &amp;
+                      <span style="color: #487319">Well</span> Journey?
+                    </h2>
+                  </div>
+                  <!-- Vertical Divider + Description -->
+                  <div class="flex items-center gap-5 cta-divider">
+                    <div class="hidden lg:block w-px h-12 bg-gray-600"></div>
+                    <p
+                      class="text-gray-300 text-xs leading-relaxed text-center lg:text-left"
+                      style="font-weight: 400;"
+                    >
+                      Join a global wellness and empowerment ecosystem
+                      <br />
+                      designed to help you live healthier, earn smarter,
+                      <br />
+                      and create lasting impact.
+                    </p>
+                  </div>
+                  <!-- Buttons -->
+                  <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end items-center"
+                  >
+                    <button
+                      class="btn-blue px-4 py-3 rounded-full text-xs flex items-center gap-2 justify-center w-full sm:w-auto cta-button"
+                      style="font-weight: 600;"
+                    >
+                      BECOME A MEMBER
+                      <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button
+                      class="px-4 py-3 rounded-full text-xs border border-[rgba(255,192,10,0.5)] text-white flex items-center gap-2 justify-center w-full sm:w-auto"
+                      style="font-weight: 500; background: rgba(0,0,0,0.2);"
+                    >
+                      <i class="fas fa-phone" style="color: #ffc00a"></i>
+                      SPEAK TO A CONSULTANT
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main footer grid (desktop) -->
+        <div class="footer-main-grid hidden lg:grid">
+          <!-- Brand -->
+          <div>
+            <img src="images/logo.png" alt="Rich & Well" class="h-12 w-auto" loading="lazy" />
+            <p class="footer-brand-desc" style="font-weight: 400;">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="footer-social-row">
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube" style="color: white"></i></a>
+            </div>
+          </div>
+          <!-- Company -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">COMPANY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Mission</a></li>
+              <li><a href="about.html">Leadership</a></li>
+              <li><a href="index.html#testimonials">Success Stories</a></li>
+              <li><a href="about.html">News &amp; Blog</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <!-- Wellness Devices -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">WELLNESS DEVICES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="index.html#wellness-devices">B.E.S.T. Therapy</a></li>
+              <li><a href="index.html#wellness-devices">Terahertz Wave</a></li>
+              <li><a href="index.html#wellness-devices">Frequency Collection</a></li>
+              <li><a href="index.html#wellness-devices">Accessories</a></li>
+              <li><a href="index.html#wellness-devices">Wellness Solutions</a></li>
+            </ul>
+          </div>
+          <!-- Opportunity -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--gold">OPPORTUNITY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="index.html#opportunity">Why Rich &amp; Well</a></li>
+              <li><a href="index.html#compensation">Compensation Plan</a></li>
+              <li><a href="index.html#opportunity">Become A Distributor</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#faq">FAQs</a></li>
+            </ul>
+          </div>
+          <!-- Resources -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">RESOURCES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="index.html#faq">Support Center</a></li>
+              <li><a href="index.html#faq">Shipping Policy</a></li>
+              <li><a href="index.html#faq">Returns &amp; Refunds</a></li>
+              <li><a href="index.html#faq">Terms of Use</a></li>
+              <li><a href="index.html#faq">Privacy Policy</a></li>
+              <li><a href="index.html#faq">Legal Disclaimer</a></li>
+            </ul>
+          </div>
+          <!-- Stay Connected -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">STAY CONNECTED</h4>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed" style="font-weight: 400;">
+              Receive wellness insights, product updates, and community news.
+            </p>
+            <form id="newsletterFormDesktop" class="footer-newsletter-input-wrap">
+              <input type="email" placeholder="Enter your email address" class="flex-1 rounded-l-lg px-4 py-3 text-xs text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" style="background: rgba(255,255,255,0.05); font-weight: 400;" required />
+              <button type="submit" class="btn-primary rounded-r-lg px-4 py-3 text-xs" style="font-weight: 600; color: white;">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </form>
+            <div id="newsletterMessageDesktop" class="hidden text-green-400 text-xs mt-2" style="font-weight: 500;"></div>
+            <div class="flex items-center gap-2 mt-4">
+              <i class="fas fa-shield-alt text-xs" style="color: #42841F"></i>
+              <p class="text-gray-500 text-[10px]" style="font-weight: 400;">
+                We respect your privacy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile footer (accordions) -->
+        <div class="lg:hidden">
+          <div class="text-center pb-8 mb-8 border-b" style="border-color: rgba(255,255,255,0.08);">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight: 400">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color: white"></i></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-0 mb-8">
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="about.html" class="hover:text-white transition block">About Us</a></li>
+                <li><a href="about.html" class="hover:text-white transition block">Our Mission</a></li>
+                <li><a href="index.html#testimonials" class="hover:text-white transition block">Success Stories</a></li>
+                <li><a href="index.html#contact" class="hover:text-white transition block">Contact Us</a></li>
+
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">WELLNESS DEVICES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #42841F"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">B.E.S.T. Therapy</a></li>
+                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">Terahertz Wave</a></li>
+                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">Frequency Collection</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #ffc00a"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="index.html#opportunity" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
+                <li><a href="index.html#compensation" class="hover:text-white transition block">Compensation Plan</a></li>
+                <li><a href="index.html#testimonials" class="hover:text-white transition block">Testimonials</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="index.html#faq" class="hover:text-white transition block">Support Center</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Terms of Use</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Privacy Policy</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Legal Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mission & values -->
+        <div class="footer-mission-section text-center relative">
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--left hidden lg:block" aria-hidden="true" loading="lazy" />
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--right hidden lg:block" aria-hidden="true" loading="lazy" />
+          <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color: #1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #1452b1">WELLNESS</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(72,115,25,0.15)"><i class="fas fa-chart-line text-xs sm:text-sm" style="color: #487319"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #487319">WEALTH</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-users text-xs sm:text-sm" style="color: #1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #1452b1">COMMUNITY</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(255,192,10,0.12)"><i class="fas fa-person-walking text-xs sm:text-sm" style="color: #ffc00a"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #ffc00a">FREEDOM</p>
+            </div>
+          </div>
+          <h2 class="footer-tagline footer-tagline-desktop font-bold mb-3 px-2 relative z-10" style="font-weight: 700; color: white; font-size: clamp(0.9rem, 3vw, 1.5rem)">
+            <span class="inline">HEAL <span style="color: #1452b1">SMARTER.</span></span>
+            <span class="inline mx-2">EARN <span style="color: #487319">FREELY.</span></span>
+            <span class="inline">LIVE <span style="color: #ffc00a">FULLY.</span></span>
+          </h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight: 400">
+            Creating a future where wellness, wealth, community, and freedom work together.
+          </p>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom-bar pt-8 mt-4">
+          <div class="text-center">
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight: 400">
+              © 2026 Rich & Well. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
