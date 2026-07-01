@@ -306,12 +306,93 @@
     - All elements use `reveal-up` for scroll animations
     - Paragraph color updated to match hero section text (rgba(209,213,219,0.9))
 
-30. **Updated Services Page Footer to Match Index & About Pages**:
-    - Replaced entire services.html footer with the exact same footer from index.html and about.html
+30. **Updated Services Page Footer CTA to "Together We Can Create More Impact"**:
+    - Removed the duplicate "Together We Can..." section before the footer
+    - Replaced the original footer CTA ("Ready To Begin Your Rich & Well Journey") with "Together We Can Create More Impact"
+    - Kept the same footer CTA structure (container, rounded border, background, grid layout)
+    - Added the slider2.png background image with gradient overlay on the right side
+    - Updated heading to "Together We Can Create More Impact" (with "More Impact" in green)
+    - Updated description to "Join us in building a healthier, kinder, and more empowered world"
+    - Updated buttons to "BECOME A MEMBER" and "PARTNER WITH RICH & WELL"
+    - Changed the icon to hands-helping with green accent
+31. **Updated Services Page Footer to Match Index & About Pages**:
+    - Footer includes main grid (desktop), mobile accordion, mission/values section, and bottom copyright bar
     - Updated all links to point to correct pages:
       - Company links to about.html
       - All other links to index.html sections (wellness-devices, opportunity, compensation, testimonials, faq, contact)
-    - Footer includes newsletter CTA section, desktop grid, mobile accordion, mission/values section, and bottom copyright bar
+
+32. **Created Opportunity Page (opportunity.html)**:
+    - Created new page with identical navbar and footer as other pages
+    - Hero section:
+      - Background image: slider3.png with hero-radial gradient and overlay
+      - Left content: Eyebrow ("OPPORTUNITY", green), heading ("Build Wellness. Build Wealth. Build Legacy." with colored accents), paragraph, buttons ("BECOME A MEMBER", "VIEW COMPENSATION PLAN")
+      - Right side: 3 stats ("10,000+ Members Worldwide", "50+ Countries Reached", "Countless Lives Transformed") each with colored icon
+    - Footer CTA: "Together We Can Create More Impact" (same as services.html)
+    - All elements use website's design system, light/dark mode compatible, animations
+    - Navbar active state for Opportunity page
+
+33. **Updated Navbar on All Pages to Link to opportunity.html**:
+    - index.html: Updated desktop and mobile Opportunity links to point to opportunity.html instead of index.html#opportunity
+    - about.html: Updated desktop and mobile Opportunity links to point to opportunity.html
+    - services.html: Updated desktop and mobile Opportunity links to point to opportunity.html
+    - All navbars consistent across the entire website
+
+34. **Added "WHY PEOPLE JOIN RICH & WELL" Section to opportunity.html**:
+    - Section header: "WHY PEOPLE JOIN RICH & WELL" (with "RICH" in blue, "WELL" in green)
+    - 4 cards in grid layout (1 column mobile, 2 columns tablet, 4 columns desktop):
+      1. DIRECT EARNINGS: Dollar sign icon (blue), description, bottom blue line
+      2. E-COMMERCE OPPORTUNITIES: Shopping cart icon (green), description, bottom green line
+      3. LEADERSHIP REWARDS: Trophy icon (yellow), description, bottom yellow line
+      4. PASSIVE INCOME STREAMS: Clock icon (purple), description, bottom purple line
+    - Cards use card-gradient and value-card classes for light/dark mode compatibility and hover effects
+    - All elements use reveal-up with staggered delays for scroll animations
+
+35. **Added "OUR MODEL - The Rich & Well Business Model" Section to opportunity.html**:
+    - Left content:
+      - Eyebrow ("OUR MODEL", green)
+      - Heading ("The Rich & Well Business Model")
+      - Description
+      - Button ("EXPLORE THE ECOSYSTEM")
+    - Right diagram: Replaced custom design with "ourmodel.png" image from images folder; increased max-width to 600px
+    - All elements use reveal-up with staggered delays for scroll animations
+
+36. **Added "HOW IT WORKS" Section to opportunity.html**:
+    - Section header: "HOW IT WORKS" with "HOW" in blue
+    - 5 steps in horizontal row on desktop (vertical on mobile):
+      1. BECOME A MEMBER: 01 circle (blue) → user-plus icon circle (blue)
+      2. SHARE THE WELLNESS ADVOCACY: 02 circle (green) → share-nodes icon circle (green)
+      3. BUILD COMMUNITY: 03 circle (yellow) → users icon circle (yellow)
+      4. GROW & EARN: 04 circle (purple) → chart-line icon circle (purple)
+      5. LEAD & INSPIRE: 05 circle (blue) → crown icon circle (blue)
+    - Each step has internal arrow between number circle and icon circle
+    - Arrows between each step (right on desktop, down on mobile)
+    - All elements use reveal-up with staggered delays for scroll animations
+
+37. **Fixed Services Page Footer CTA Layout & Buttons**:
+    - Removed the right-side image from the footer CTA
+    - Reduced section size:
+      - Changed padding from p-6 md:p-8 lg:p-10 to p-4 md:p-6 lg:p-8
+      - Changed bottom margin from mb-16 to mb-12
+    - Reduced text sizes:
+      - Heading: text-xl md:text-2xl lg:text-3xl
+      - Paragraph: text-xs md:text-sm
+    - Reduced button sizes:
+      - Padding: px-4 py-2
+      - Text size: text-xs
+      - Gap: gap-3
+      - Button style: rounded-md instead of rounded-full
+    - Kept the same background image (slider2.png) with gradient overlay
+    - Kept the same content and button icons
+38. **Fixed Services Page Dark Mode Issues**:
+    - Updated all cards in services.html to use `card-gradient` class instead of hardcoded Tailwind colors
+    - Replaced occurrences of `bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm` with `card-gradient`
+    - All cards now properly handle light/dark mode using CSS variables
+    - Verified all sections have images in place
+    - All text is now properly visible in both dark and light modes
+39. **Fixed Missing Icon in "OUR 5 PILLARS OF IMPACT" Section**:
+    - Changed icon from `fa-hands-holding-heart` (invalid in FA 6.5) to `fa-hand-holding-heart`
+    - Humanitarian Outreach pillar icon now shows correctly
+    - Kept the same styling and colors
 
 ## What We Might Do Next
 
