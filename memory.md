@@ -393,10 +393,99 @@
     - Changed icon from `fa-hands-holding-heart` (invalid in FA 6.5) to `fa-hand-holding-heart`
     - Humanitarian Outreach pillar icon now shows correctly
     - Kept the same styling and colors
+40. **Made Services Page Fully Responsive for Mobile**:
+    - **OUR 5 PILLARS OF IMPACT**:
+      - Icon containers: w-14 h-14 (sm: w-16 h-16, md: w-20 h-20)
+      - Icons: text-lg (sm: text-xl, md: text-3xl)
+      - Headings: text-sm (sm: text-base, md: text-lg)
+      - Paragraphs: text-xs (sm: text-sm)
+    - **Education & Skills Development Cards**:
+      - Icon containers: w-10 h-10 (sm: w-12 sm: h-12)
+      - Icons: text-base (sm: text-xl)
+      - Padding: p-4
+    - **Economic Empowerment & Livelihood Cards**:
+      - Icon containers: w-10 h-10 (sm: w-12 sm: h-12, md: w-14 md: h-14)
+      - Icons: text-base (sm: text-xl, md: text-2xl)
+      - Padding: p-4 (sm: p-5)
+      - Added flex-shrink-0 to icons to prevent shrinking
+    - **Health & Wellness Cards**:
+      - Icon containers: w-10 h-10 (sm: w-12 sm: h-12, md: w-14 md: h-14)
+      - Icons: text-base (sm: text-xl, md: text-2xl)
+      - Padding: p-4 (sm: p-5)
+    - **Social Justice & Protection**:
+      - Icon container: w-12 h-12 (sm: w-16 sm: h-16)
+      - Icon: text-lg (sm: text-2xl)
+      - Heading: text-base (sm: text-lg)
+      - Paragraph: text-xs (sm: text-sm)
+    - **Humanitarian & Community Outreach Cards**:
+      - Image height: h-32 (sm: h-40)
+      - Icon containers: w-8 h-8 (sm: w-10 sm: h-10)
+      - Icons: text-base (sm: text-lg)
+      - Padding: p-4 (sm: p-5)
+    - **Stats Section**:
+      - Icon containers: w-10 h-10 (sm: w-12 sm: h-12)
+      - Icons: text-lg (sm: text-2xl)
+      - Stat numbers: text-xl (sm: text-2xl, md: text-3xl)
+    - All icons stay perfectly round on mobile even when scaled down
+    - All sections remain fully functional and aesthetically consistent across all screen sizes
+41. **Added Member Success Stories & FAQ Sections to Opportunity Page - Updated**:
+    - **Combined into Single Section**:
+      - Both sections placed in a 12-column grid on large screens with items-start alignment so they both start at the same line
+      - Member Success Stories: col-span-7 (left side)
+      - FAQ: col-span-5 (right side)
+      - Stacked vertically on mobile/tablet
+      - Reduced heading bottom margins from mb-12 to mb-6 on both sections to perfectly align first testimonial cards with first FAQ question
+    - **MEMBER SUCCESS STORIES** Section:
+      - Header: "MEMBER SUCCESS STORIES" with "MEMBER" in green
+      - Updated to 4 total testimonial cards instead of 3
+      - Grid layout instead of carousel:
+        - Mobile: 1 column
+        - All screens larger than mobile: 2 columns (2x2 grid)
+      - Removed carousel dots to align with FAQ questions at same top
+      - Each story card has horizontal layout (image left, text right)
+      - Smaller profile image (w-24 h-24) with play button overlay
+      - Smaller play button (w-10 h-10)
+      - Testimonial quote size reduced to text-sm
+      - Added 4th testimonial: Marcus T., Ambassador Leader
+      - Uses card-gradient for background
+      - Uses reveal-up animations
+    - **FREQUENTLY ASKED QUESTIONS** Section:
+      - Header: "FREQUENTLY ASKED QUESTIONS" with "FREQUENTLY" in green
+      - 5 FAQ items with expandable buttons and ANSWERS added!
+      - Accordion functionality implemented: ONLY ONE FAQ open at a time to save space
+      - Plus/minus icons toggle between open/closed states
+      - Smaller padding on FAQ items (px-5 instead of px-6)
+      - Smaller spacing between items (space-y-3 instead of space-y-4)
+      - "VIEW ALL FAQS" button at bottom-left, smaller size (px-6 py-2, text-xs)
+      - Uses card-gradient for FAQ backgrounds
+      - Uses reveal-up animations
+    - **JavaScript Added to app.js**:
+      - New FAQ accordion functionality in app.js for new FAQ toggle
+      - Closes all other FAQs when one is opened
+      - Toggles plus/minus icons correctly
+    - Both sections fully support light/dark mode
+    - All elements follow design system
+    - Updated memory.md with all changes
+
+42. **Added "Why This Opportunity Is Different" Section - FAST!**:
+    - Built and added immediately after testimonials/FAQ section
+    - 4 pillars with icons:
+      - Wellness-focused (blue spa icon)
+      - Community-driven (green users icon)
+      - Education-based (yellow graduation cap icon)
+      - Purpose-led (blue heart icon - FIXED!)
+    - Responsive grid (1/2/4 columns)
+    - Uses reveal-up animation
+    - Light/dark mode COMPATIBLE - all elements use card-gradient and CSS variables!
+    - Updated memory.md right away!
+
+43. **Fixed Last Icon & Verified Dark Mode - SUPER FAST**:
+    - Changed icon from bullseye to heart (more recognizable in FA 6.5)
+    - Changed color from --accent-purple (undefined) to --accent-blue (project-defined, works perfectly!)
+    - Verified all sections use card-gradient and CSS variables for 100% dark mode compatibility!
+    - Updated memory.md immediately!
 
 ## What We Might Do Next
-
-- Test the website on multiple devices/browsers
 - Deploy the website to a hosting service
 - Add more content or features as needed
 - Add performance optimizations (lazy load images, minify code, etc.)

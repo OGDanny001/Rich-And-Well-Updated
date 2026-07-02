@@ -1,5 +1,31 @@
 
-      // FAQ Accordion functionality
+      // FAQ Accordion functionality (for new opportunity page)
+      document.querySelectorAll('.faq-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', function() {
+          const faqItem = this.closest('.faq-item');
+          const answer = faqItem.querySelector('.faq-answer');
+          const icon = faqItem.querySelector('.faq-icon');
+          const isOpen = !answer.classList.contains('hidden');
+          
+          // Close all other FAQ items
+          document.querySelectorAll('.faq-item').forEach((item) => {
+            const itemAnswer = item.querySelector('.faq-answer');
+            const itemIcon = item.querySelector('.faq-icon');
+            itemAnswer.classList.add('hidden');
+            itemIcon.classList.remove('fa-minus');
+            itemIcon.classList.add('fa-plus');
+          });
+          
+          // Toggle current FAQ item
+          if (!isOpen) {
+            answer.classList.remove('hidden');
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+          }
+        });
+      });
+
+      // FAQ Accordion functionality (existing)
       document.querySelectorAll(".faq-accordion").forEach((accordion) => {
         accordion.addEventListener("click", function () {
           this.classList.toggle("active");
