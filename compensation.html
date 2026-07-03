@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich & Well - Compensation Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.add("light");
+        }
+      })();
+    </script>
+    
+    <link rel='stylesheet' href='styles.css'>
+  </head>
+  <body class="bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-gray-800">
+    <!-- Hero Container -->
+    <div class="relative">
+      <!-- Hero Background -->
+        <div class="relative min-h-[100vh] bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-gray-800">
+          <!-- Background Overlay -->
+          <div class="absolute inset-0 opacity-30">
+            <svg class="w-full h-full" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="gradient1" cx="20%" cy="20%" r="60%">
+                  <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+                  <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+                </radialGradient>
+                <radialGradient id="gradient2" cx="80%" cy="80%" r="60%">
+                  <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.4" />
+                  <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0" />
+                </radialGradient>
+              </defs>
+              <circle cx="200" cy="200" r="300" fill="url(#gradient1)" />
+              <circle cx="800" cy="800" r="400" fill="url(#gradient2)" />
+              <path d="M0,500 Q250,300 500,500 T1000,500" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.2" />
+              <path d="M0,600 Q250,400 500,600 T1000,600" stroke="#22c55e" stroke-width="2" fill="none" opacity="0.2" />
+            </svg>
+          </div>
+
+        <!-- Header -->
+        <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);">
+          <style>
+            .dark #navbar {
+              background: rgba(5, 14, 23, 0.95) !important;
+            }
+          </style>
+          <div class="container-pro">
+            <div class="flex items-center justify-between h-16 lg:h-28">
+              <a href="index.html" class="flex items-center shrink-0" aria-label="Rich & Well Home">
+                <img
+                  src="images/logo.png"
+                  alt="Rich & Well Logo"
+                  class="h-10 sm:h-12 lg:h-20 w-auto"
+                />
+              </a>
+              <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
+                <a
+                  href="index.html"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Home
+                </a
+                >
+                <a
+                  href="about.html"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >About Us</a
+                >
+                <a
+                  href="index.html#wellness-devices"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Wellness Devices</a
+                >
+                <a
+                  href="opportunity.html"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Opportunity</a
+                >
+                <a
+                  href="services.html"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Services</a
+                >
+                <a
+                  href="compensation.html"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition relative"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Compensation Plan
+                <span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span>
+                </a
+                >
+                <a
+                  href="index.html#testimonials"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Testimonials</a
+                >
+                <a
+                  href="index.html#faq"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >FAQ</a
+                >
+                <a
+                  href="index.html#contact"
+                  class="nav-link hover:text-gray-900 dark:hover:text-white transition"
+                  style="font-weight: 500; color: var(--text-primary);"
+                >Contact</a
+                >
+
+              </nav>
+              <div class="flex items-center gap-2 sm:gap-3">
+                <button
+                  class="btn-primary mobile-header-cta lg:hidden"
+                  style="color: white"
+                >
+                  Join Now
+                </button>
+                <button
+                  class="theme-toggle hidden sm:flex"
+                  id="themeToggle"
+                  aria-label="Toggle theme"
+                  title="Toggle theme"
+                >
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+                <button
+                  id="mobileMenuBtn"
+                  class="mobile-menu-btn lg:hidden relative z-[9999]"
+                  aria-label="Open menu"
+                  aria-expanded="false"
+                  aria-controls="mobileMenu"
+                >
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                  <span class="hamburger-line"></span>
+                </button>
+                <div class="hidden lg:flex items-center space-x-3">
+                  <button
+                    id="loginBtn"
+                    class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300"
+                    style="font-weight: 500"
+                  >
+                    Login
+                  </button>
+                  <button
+                    class="btn-primary px-6 py-2 rounded-full text-sm"
+                    style="font-weight: 500; color: white"
+                  >
+                    Join Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Mobile Menu Backdrop -->
+        <div
+          id="mobileMenuBackdrop"
+          class="fixed inset-0 z-[55] lg:hidden bg-white/10 backdrop-blur-xl"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobileMenu"
+          class="mobile-menu-panel fixed inset-x-0 top-[calc(64px+0.75rem)] bottom-0 z-[60] lg:hidden overflow-y-auto"
+          aria-hidden="true"
+        >
+          <div class="container-pro flex flex-col h-full py-6">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight: 500">
+              Navigation
+            </p>
+            <nav class="flex-1" id="mobileNav">
+              <a href="index.html" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="about.html" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#wellness-devices" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="opportunity.html" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="services.html" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Services</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="compensation.html" class="mobile-nav-link active">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#testimonials" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#faq" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+              <a href="index.html#contact" class="mobile-nav-link">
+                <span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span>
+                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
+              </a>
+
+            </nav>
+            <div class="pt-6 mt-4 border-t space-y-3" style="border-color: rgba(255,255,255,0.08);">
+              <div class="flex items-center justify-between mb-2 sm:hidden">
+                <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight: 500">Appearance</span>
+                <button
+                  class="theme-toggle"
+                  id="themeToggleMobile"
+                  aria-label="Toggle theme"
+                  style="width: 40px; height: 40px;"
+                >
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </div>
+              <button
+                class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300"
+                style="font-weight: 500"
+              >
+                Login
+              </button>
+              <button
+                class="btn-primary w-full px-6 py-3.5 rounded-full text-sm"
+                style="font-weight: 600; color: white"
+              >
+                Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Standalone Mobile Menu Close Button -->
+        <button
+          id="mobileMenuCloseBtn"
+          class="mobile-menu-btn fixed right-4 w-11 h-11 z-[9999] lg:hidden flex items-center justify-center"
+          aria-label="Close menu"
+          style="display: none; top: calc( (64px - 44px) / 2 );"
+        >
+          <i class="fas fa-times text-white"></i>
+        </button>
+
+        <!-- Hero Content -->
+        <section id="home" class="hero-foreground relative flex flex-col justify-center min-h-[100vh] pt-52 pb-16">
+          <div class="container-pro">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <!-- Left Content -->
+              <div class="lg:col-span-7">
+                <p
+                  class="hero-eyebrow animate-fadeInUp"
+                  style="color: var(--accent-blue); animation-delay:0.2s;"
+                >
+                  RICH & WELL OPPORTUNITY SYSTEM
+                </p>
+                <h1
+                  class="hero-heading mb-6 animate-fadeInUp"
+                  style="animation-delay:0.4s; line-height: 1.1; color: var(--text-primary);"
+                >
+                  <span class="block">Earn <span style="color: var(--text-primary);">More.</span></span>
+                  <span class="block">Grow <span style="color: var(--accent-green);">Faster.</span></span>
+                  <span class="block">Build <span style="color: var(--accent-blue);">Legacy.</span></span>
+                </h1>
+                <p
+                  class="hero-description mb-8 max-w-xl text-sm leading-relaxed animate-fadeIn"
+                  style="font-weight: 400; animation-delay:0.6s; color: var(--text-secondary);"
+                >
+                  A simple yet powerful compensation plan designed to reward wellness advocacy, leadership, community growth and long-term financial freedom.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-8 animate-fadeInUp" style="animation-delay:0.8s;">
+                  <button
+                    class="px-8 py-3 rounded-md text-white text-sm flex items-center gap-2 justify-center"
+                    style="background: var(--accent-green); font-weight: 600;"
+                  >
+                    Become A Member
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                  <button
+                    class="px-8 py-3 rounded-md text-gray-800 text-sm border border-blue-500 flex items-center gap-2 justify-center transition-all"
+                    style="font-weight: 500; background: transparent;"
+                  >
+                    <i class="fas fa-download"></i>
+                    Download Plan Guide
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Right Visual -->
+              <div class="lg:col-span-5 flex items-center justify-center animate-fadeInUp" style="animation-delay:1s;">
+                <div class="relative">
+                  <div class="w-80 h-80 rounded-full bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+                    <img src="images/logo.png" alt="Rich & Well" class="w-40 h-auto">
+                  </div>
+                  <!-- Surrounding bubbles -->
+                  <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white shadow-lg flex flex-col items-center justify-center border border-green-500 flex-shrink: 0">
+                    <i class="fas fa-leaf text-2xl" style="color: var(--accent-green);"></i>
+                    <p class="text-xs mt-1" style="color: var(--accent-green);">Wellness</p>
+                  </div>
+                  <div class="absolute top-20 -right-12 w-24 h-24 rounded-full bg-white shadow-lg flex flex-col items-center justify-center border border-blue-500 flex-shrink: 0">
+                    <i class="fas fa-user-tie text-2xl" style="color: var(--accent-blue);"></i>
+                    <p class="text-xs mt-1" style="color: var(--accent-blue);">Leadership</p>
+                  </div>
+                  <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-white shadow-lg flex flex-col items-center justify-center border border-green-500 flex-shrink: 0">
+                    <i class="fas fa-gift text-2xl" style="color: var(--accent-green);"></i>
+                    <p class="text-xs mt-1" style="color: var(--accent-green);">Rewards</p>
+                  </div>
+                  <div class="absolute -bottom-4 left-0 w-24 h-24 rounded-full bg-white shadow-lg flex flex-col items-center justify-center border border-blue-500 flex-shrink: 0">
+                    <i class="fas fa-shopping-cart text-2xl" style="color: var(--accent-blue);"></i>
+                    <p class="text-xs mt-1" style="color: var(--accent-blue);">E-commerce</p>
+                  </div>
+                  <div class="absolute top-20 -left-12 w-24 h-24 rounded-full bg-white shadow-lg flex flex-col items-center justify-center border border-green-500 flex-shrink: 0">
+                    <i class="fas fa-users text-2xl" style="color: var(--accent-green);"></i>
+                    <p class="text-xs mt-1" style="color: var(--accent-green);">Community</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Multiple Ways To Earn Section -->
+    <section class="py-20" style="background: var(--bg-primary);">
+      <div class="container-pro">
+        <h2 class="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-12 reveal-up" style="color: var(--text-primary); animation-delay:0.1s;">
+          MULTIPLE WAYS TO EARN
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <!-- Card 1: Direct Referral Earnings -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.2s;">
+            <div class="w-16 h-16 rounded-full border border-[rgba(72,115,25,0.5)] flex items-center justify-center mb-4 flex-shrink: 0" style="background: rgba(72,115,25,0.1);">
+              <i class="fas fa-user-friends text-2xl" style="color: var(--accent-green);"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Direct Referral Earnings</h3>
+            <p class="text-gray-400 text-sm" style="color: var(--text-secondary);">Earn generous commissions from your personal referrals.</p>
+          </div>
+          <!-- Card 2: Team Growth Rewards -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.3s;">
+            <div class="w-16 h-16 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center mb-4 flex-shrink: 0" style="background: rgba(20,82,177,0.1);">
+              <i class="fas fa-users text-2xl" style="color: var(--accent-blue);"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Team Growth Rewards</h3>
+            <p class="text-gray-400 text-sm" style="color: var(--text-secondary);">Benefit from the growth and expansion of your team.</p>
+          </div>
+          <!-- Card 3: Members-Only Dropshipping -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.4s;">
+            <div class="w-16 h-16 rounded-full border border-[rgba(72,115,25,0.5)] flex items-center justify-center mb-4 flex-shrink: 0" style="background: rgba(72,115,25,0.1);">
+              <i class="fas fa-shopping-cart text-2xl" style="color: var(--accent-green);"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Members-Only Dropshipping</h3>
+            <p class="text-gray-400 text-sm" style="color: var(--text-secondary);">Retail luxury FMCG products without inventory.</p>
+          </div>
+          <!-- Card 4: Leadership Incentives -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.5s;">
+            <div class="w-16 h-16 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center mb-4 flex-shrink: 0" style="background: rgba(20,82,177,0.1);">
+              <i class="fas fa-crown text-2xl" style="color: var(--accent-blue);"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Leadership Incentives</h3>
+            <p class="text-gray-400 text-sm" style="color: var(--text-secondary);">Unlock luxury rewards and leadership recognition.</p>
+          </div>
+          <!-- Card 5: Passive Income Ecosystem -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.6s;">
+            <div class="w-16 h-16 rounded-full border border-[rgba(72,115,25,0.5)] flex items-center justify-center mb-4 flex-shrink: 0" style="background: rgba(72,115,25,0.1);">
+              <i class="fas fa-chart-line text-2xl" style="color: var(--accent-green);"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Passive Income Ecosystem</h3>
+            <p class="text-gray-400 text-sm" style="color: var(--text-secondary);">Participate in qualifying company programs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reverse 2-Up System & The Power of 4 Section -->
+    <section class="py-20" style="background: var(--bg-primary);">
+      <div class="container-pro">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Left: THE REVERSE 2-UP SYSTEM with Description -->
+          <div class="reveal-up" style="animation-delay:0.1s;">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">THE REVERSE 2-UP SYSTEM</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <!-- Diagram Image -->
+              <div class="flex items-center justify-center">
+                <img src="images/reversesystem.png" alt="Reverse 2-Up System" class="max-w-full h-auto rounded-lg w-full" style="max-width: 500px;" />
+              </div>
+              <!-- Description -->
+              <div>
+                <h3 class="text-lg md:text-xl font-bold mb-3" style="color: var(--text-primary);">Simple.<br/>Transparent.<br/>Powerful.</h3>
+                <p class="text-gray-400 text-xs leading-relaxed mb-1" style="color: var(--text-secondary);">
+                  When you refer 4 people,
+                </p>
+                <p class="text-gray-400 text-xs leading-relaxed mb-1" style="color: var(--text-secondary);">
+                  you keep the 1st and 3rd,
+                </p>
+                <p class="text-gray-400 text-xs leading-relaxed mb-2" style="color: var(--text-secondary);">
+                  and pass up the 2nd and 4th to your sponsor.
+                </p>
+                <p class="text-gray-400 text-xs leading-relaxed" style="color: var(--text-secondary);">
+                  This creates a powerful wave of duplication and team growth.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Right: THE POWER OF 4 -->
+          <div class="reveal-up" style="animation-delay:0.2s;">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">THE POWER OF 4</h2>
+            <div class="flex items-center justify-center">
+              <img src="images/powerof4.png" alt="Power of 4" class="max-w-full h-auto rounded-lg w-full" style="max-width: 600px;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Packages Section -->
+    <section class="py-20" style="background: var(--bg-secondary);">
+      <div class="container-pro">
+        <h2 class="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-12 reveal-up" style="color: var(--text-primary); animation-delay:0.1s;">
+          MEMBERSHIP PACKAGES
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <!-- Bronze Package -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.2s;">
+            <i class="fas fa-medal text-5xl mb-4" style="color: #cd7f32;"></i>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Bronze</h3>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦24,000</p>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Foundation Package</p>
+            <ul class="text-left mb-6 space-y-2 w-full">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Full compensation plan access
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Reverse 2-Up participation
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Dropshipping access
+              </li>
+            </ul>
+            <button class="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-sm font-semibold transition">
+              Start Here
+            </button>
+          </div>
+          <!-- Silver Package -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.3s;">
+            <i class="fas fa-medal text-5xl mb-4" style="color: #c0c0c0;"></i>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Silver</h3>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦120,000</p>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Growth Package</p>
+            <ul class="text-left mb-6 space-y-2 w-full">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                All Bronze benefits
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Higher earning potential
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Leadership qualifications
+              </li>
+            </ul>
+            <button class="w-full bg-white border border-gray-300 hover:border-gray-400 text-gray-800 px-6 py-3 rounded-full text-sm font-semibold transition dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:border-gray-500">
+              Upgrade
+            </button>
+          </div>
+          <!-- Gold Package -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.4s;">
+            <i class="fas fa-medal text-5xl mb-4" style="color: #ffd700;"></i>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Gold</h3>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦240,000</p>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Leadership Package</p>
+            <ul class="text-left mb-6 space-y-2 w-full">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                All Silver benefits
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                More team building power
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Advanced incentives
+              </li>
+            </ul>
+            <button class="w-full bg-white border border-gray-300 hover:border-gray-400 text-gray-800 px-6 py-3 rounded-full text-sm font-semibold transition dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:border-gray-500">
+              Upgrade
+            </button>
+          </div>
+          <!-- Diamond Package -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.5s;">
+            <i class="fas fa-gem text-5xl mb-4" style="color: #1e90ff;"></i>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Diamond</h3>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦480,000</p>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Elite Growth Package</p>
+            <ul class="text-left mb-6 space-y-2 w-full">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                All Gold benefits
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Diamond incentive access
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                2 × 6 Matrix participation
+              </li>
+            </ul>
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-semibold transition">
+              Go Diamond
+            </button>
+          </div>
+          <!-- Platinum Package -->
+          <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.6s;">
+            <i class="fas fa-gem text-5xl mb-4" style="color: #b19cd9;"></i>
+            <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Platinum</h3>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦960,000</p>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Legacy Package</p>
+            <ul class="text-left mb-6 space-y-2 w-full">
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                All Diamond benefits
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Platinum elite rewards
+              </li>
+              <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
+                <i class="fas fa-check text-green-500"></i>
+                Maximum earning potential
+              </li>
+            </ul>
+            <button class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full text-sm font-semibold transition">
+              Go Platinum
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your Leadership Journey Section -->
+    <section class="py-16" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);">
+      <div class="container-pro">
+        <h2 class="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-12 reveal-up" style="color: white; text-transform: uppercase; letter-spacing: 0.1em;">
+          YOUR LEADERSHIP JOURNEY
+        </h2>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 reveal-up">
+          <!-- Bronze -->
+          <div class="flex flex-col items-center text-center flex-1">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3 flex-shrink: 0" style="background: radial-gradient(circle, #8B4513 0%, #654321 100%); box-shadow: 0 0 20px rgba(139, 69, 19, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2); border: 2px solid rgba(205, 127, 50, 0.5);">
+              <i class="fas fa-medal text-3xl" style="color: #cd7f32;"></i>
+            </div>
+            <h3 class="text-base font-bold mb-1" style="color: white;">Bronze</h3>
+            <p class="text-xs" style="color: rgba(209, 213, 219, 0.8);">Build Foundation</p>
+          </div>
+          
+          <!-- Arrow 1 -->
+          <div class="hidden md:flex items-center">
+            <i class="fas fa-arrow-right text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          <div class="md:hidden flex items-center justify-center">
+            <i class="fas fa-arrow-down text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          
+          <!-- Silver -->
+          <div class="flex flex-col items-center text-center flex-1">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3 flex-shrink: 0" style="background: radial-gradient(circle, #a8a8a8 0%, #6c6c6c 100%); box-shadow: 0 0 20px rgba(192, 192, 192, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.3); border: 2px solid rgba(192, 192, 192, 0.5);">
+              <i class="fas fa-medal text-3xl" style="color: #c0c0c0;"></i>
+            </div>
+            <h3 class="text-base font-bold mb-1" style="color: white;">Silver</h3>
+            <p class="text-xs" style="color: rgba(209, 213, 219, 0.8);">Grow Your Team</p>
+          </div>
+          
+          <!-- Arrow 2 -->
+          <div class="hidden md:flex items-center">
+            <i class="fas fa-arrow-right text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          <div class="md:hidden flex items-center justify-center">
+            <i class="fas fa-arrow-down text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          
+          <!-- Gold -->
+          <div class="flex flex-col items-center text-center flex-1">
+            <div class="w-24 h-24 rounded-full flex items-center justify-center mb-3 flex-shrink: 0" style="background: radial-gradient(circle, #ffd700 0%, #b8860b 100%); box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), inset 0 0 25px rgba(255, 255, 255, 0.4); border: 3px solid rgba(255, 215, 0, 0.7);">
+              <i class="fas fa-crown text-4xl" style="color: #ffd700;"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-1" style="color: #ffd700;">Gold</h3>
+            <p class="text-xs" style="color: rgba(209, 213, 219, 0.8);">Lead With Impact</p>
+          </div>
+          
+          <!-- Arrow 3 -->
+          <div class="hidden md:flex items-center">
+            <i class="fas fa-arrow-right text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          <div class="md:hidden flex items-center justify-center">
+            <i class="fas fa-arrow-down text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          
+          <!-- Diamond -->
+          <div class="flex flex-col items-center text-center flex-1">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3 flex-shrink: 0" style="background: radial-gradient(circle, #4facfe 0%, #00c6fb 100%); box-shadow: 0 0 20px rgba(79, 172, 254, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.3); border: 2px solid rgba(79, 172, 254, 0.5);">
+              <i class="fas fa-gem text-3xl" style="color: #1e90ff;"></i>
+            </div>
+            <h3 class="text-base font-bold mb-1" style="color: white;">Diamond</h3>
+            <p class="text-xs" style="color: rgba(209, 213, 219, 0.8);">Expand Influence</p>
+          </div>
+          
+          <!-- Arrow 4 -->
+          <div class="hidden md:flex items-center">
+            <i class="fas fa-arrow-right text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          <div class="md:hidden flex items-center justify-center">
+            <i class="fas fa-arrow-down text-2xl" style="color: rgba(209, 213, 219, 0.5);"></i>
+          </div>
+          
+          <!-- Platinum -->
+          <div class="flex flex-col items-center text-center flex-1">
+            <div class="w-20 h-20 rounded-full flex items-center justify-center mb-3 flex-shrink: 0" style="background: radial-gradient(circle, #e0e0e0 0%, #9370db 100%); box-shadow: 0 0 20px rgba(147, 112, 219, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.3); border: 2px solid rgba(147, 112, 219, 0.5);">
+              <i class="fas fa-crown text-3xl" style="color: #9370db;"></i>
+            </div>
+            <h3 class="text-base font-bold mb-1" style="color: white;">Platinum</h3>
+            <p class="text-xs" style="color: rgba(209, 213, 219, 0.8);">Build Your Legacy</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diamond Leadership Rewards & Passive Income Ecosystem Section -->
+    <section class="py-16" style="background: var(--bg-primary);">
+      <div class="container-pro">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Left: Diamond Leadership Rewards -->
+          <div class="rounded-xl overflow-hidden border" style="border-color: #3b82f6; background: white;">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop&q=80" alt="Warehouse" class="w-full h-full object-cover">
+              <div class="p-6 flex flex-col justify-center" style="background: white;">
+                <h2 class="text-lg font-bold mb-3" style="color: #0f172a; text-transform: uppercase;">
+                  DIAMOND LEADERSHIP REWARDS
+                </h2>
+                <h3 class="text-xl font-bold mb-4" style="color: #0f172a;">
+                  Sell More.<br>Hold Nothing.
+                </h3>
+                <ul class="space-y-2 mb-5">
+                  <li class="flex items-center gap-2 text-sm" style="color: #4b5563;">
+                    <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                    No Inventory
+                  </li>
+                  <li class="flex items-center gap-2 text-sm" style="color: #4b5563;">
+                    <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                    No Warehousing
+                  </li>
+                  <li class="flex items-center gap-2 text-sm" style="color: #4b5563;">
+                    <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                    No Stock Building
+                  </li>
+                  <li class="flex items-center gap-2 text-sm" style="color: #4b5563;">
+                    <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                    Corporate Fulfillment
+                  </li>
+                  <li class="flex items-center gap-2 text-sm" style="color: #4b5563;">
+                    <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                    Quality FMCG Products
+                  </li>
+                </ul>
+                <button class="w-fit px-6 py-2 rounded-md text-white text-sm font-semibold" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
+                  Explore E-Commerce
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right: Passive Income Ecosystem -->
+          <div class="rounded-xl overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);">
+            <!-- Background decorative effects -->
+            <div class="relative p-8">
+              <!-- Background lines -->
+              <div class="absolute inset-0 opacity-20">
+                <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0,0 Q100,50 200,0 Q300,50 400,0" stroke="#3b82f6" stroke-width="2" fill="none" />
+                  <path d="M0,50 Q100,100 200,50 Q300,100 400,50" stroke="#22c55e" stroke-width="1" fill="none" />
+                  <path d="M0,250 Q100,200 200,250 Q300,200 400,250" stroke="#3b82f6" stroke-width="2" fill="none" />
+                  <path d="M0,300 Q100,250 200,300 Q300,250 400,300" stroke="#22c55e" stroke-width="1" fill="none" />
+                </svg>
+              </div>
+              
+              <div class="relative z-10">
+                <h2 class="text-lg md:text-xl font-bold mb-8 text-center" style="color: white; text-transform: uppercase;">
+                  PASSIVE INCOME ECOSYSTEM
+                </h2>
+                
+                <!-- 6 icons row -->
+                <div class="flex items-center justify-center gap-3 md:gap-5 mb-4">
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink: 0" style="background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(147, 51, 234, 0.1) 100%); border: 2px solid rgba(147, 51, 234, 0.7); box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);">
+                    <i class="fas fa-gem text-2xl md:text-3xl" style="color: #a78bfa;"></i>
+                  </div>
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink: 0" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.1) 100%); border: 2px solid rgba(59, 130, 246, 0.7); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);">
+                    <i class="fas fa-gem text-2xl md:text-3xl" style="color: #60a5fa;"></i>
+                  </div>
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink: 0" style="background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(147, 51, 234, 0.1) 100%); border: 2px solid rgba(147, 51, 234, 0.7); box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);">
+                    <i class="fas fa-gem text-2xl md:text-3xl" style="color: #a78bfa;"></i>
+                  </div>
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink: 0" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.1) 100%); border: 2px solid rgba(59, 130, 246, 0.7); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);">
+                    <i class="fas fa-gem text-2xl md:text-3xl" style="color: #60a5fa;"></i>
+                  </div>
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink: 0" style="background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(147, 51, 234, 0.1) 100%); border: 2px solid rgba(147, 51, 234, 0.7); box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);">
+                    <i class="fas fa-gem text-2xl md:text-3xl" style="color: #a78bfa;"></i>
+                  </div>
+                  <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink: 0" style="background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0.1) 100%); border: 2px solid rgba(59, 130, 246, 0.7); box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);">
+                    <i class="fas fa-gem text-2xl md:text-3xl" style="color: #60a5fa;"></i>
+                  </div>
+                </div>
+                
+                <!-- Labels -->
+                <div class="flex items-center justify-center gap-2 md:gap-4 mb-8 text-xs md:text-sm text-center" style="color: #e2e8f0;">
+                  <span class="w-14 md:w-16">Super<br>Achiever</span>
+                  <span class="w-14 md:w-16">Master<br>Mentor</span>
+                  <span class="w-14 md:w-16">Legacy<br>Builder</span>
+                  <span class="w-14 md:w-16">Empire<br>Builder</span>
+                  <span class="w-14 md:w-16">Success<br>Ambassador</span>
+                  <span class="w-14 md:w-16">Commission<br>Champion</span>
+                </div>
+                
+                <!-- Button -->
+                <div class="flex justify-center">
+                  <button class="px-8 py-3 rounded-lg text-white text-sm font-semibold border-2" style="background: transparent; border-color: #7c3aed; color: #e2e8f0;">
+                    Explore Platinum Rewards
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Potential Calculator, FAQ & Transparency Section -->
+    <section class="py-16" style="background: var(--bg-primary);">
+      <div class="container-pro">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Left: Success Potential Calculator -->
+          <div class="card-gradient rounded-xl p-5 reveal-up">
+            <h3 class="text-base font-bold mb-4" style="color: var(--text-primary); text-transform: uppercase;">
+              SUCCESS POTENTIAL CALCULATOR
+            </h3>
+            <p class="text-xs mb-3" style="color: var(--text-secondary);">
+              How many active referrals do you have?
+            </p>
+            <div class="flex items-center gap-3 mb-6">
+              <button id="decreaseCount" class="w-9 h-9 rounded-full flex items-center justify-center border" style="border-color: var(--accent-blue); color: var(--text-primary); flex-shrink: 0;">
+                <i class="fas fa-minus text-sm"></i>
+              </button>
+              <span id="referralCount" class="text-xl font-bold" style="color: var(--text-primary);">10</span>
+              <button id="increaseCount" class="w-9 h-9 rounded-full flex items-center justify-center border" style="border-color: var(--accent-blue); color: var(--text-primary); flex-shrink: 0;">
+                <i class="fas fa-plus text-sm"></i>
+              </button>
+            </div>
+            <div class="grid grid-cols-3 gap-3 mb-6">
+              <div class="text-center">
+                <div id="teamMembers" class="text-2xl font-bold" style="color: var(--accent-blue);">160</div>
+                <p class="text-[10px]" style="color: var(--text-secondary);">Team Members (Estimated)</p>
+              </div>
+              <div class="text-center">
+                <div id="potentialRank" class="text-2xl font-bold" style="color: var(--accent-green);">Gold</div>
+                <p class="text-[10px]" style="color: var(--text-secondary);">Potential Rank</p>
+              </div>
+              <div class="text-center">
+                <div id="incomePotential" class="text-2xl font-bold" style="color: var(--accent-blue);">High</div>
+                <p class="text-[10px]" style="color: var(--text-secondary);">Income Potential</p>
+              </div>
+            </div>
+            <button class="w-full px-4 py-2 rounded-md text-white text-xs font-semibold" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);">
+              Calculate My Potential
+            </button>
+          </div>
+
+          <!-- Middle: Frequently Asked Questions -->
+          <div class="card-gradient rounded-xl p-5 reveal-up" style="animation-delay: 0.1s;">
+            <h3 class="text-base font-bold mb-4" style="color: var(--text-primary); text-transform: uppercase;">
+              FREQUENTLY ASKED QUESTIONS
+            </h3>
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center justify-between py-1.5 border-b" style="border-color: rgba(255,255,255,0.1);">
+                <span class="text-[11px]" style="color: var(--text-primary);">What is the Reverse 2-Up System?</span>
+                <i class="fas fa-plus text-xs" style="color: var(--text-secondary);"></i>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b" style="border-color: rgba(255,255,255,0.1);">
+                <span class="text-[11px]" style="color: var(--text-primary);">Do I need inventory to earn?</span>
+                <i class="fas fa-plus text-xs" style="color: var(--text-secondary);"></i>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b" style="border-color: rgba(255,255,255,0.1);">
+                <span class="text-[11px]" style="color: var(--text-primary);">How does dropshipping work?</span>
+                <i class="fas fa-plus text-xs" style="color: var(--text-secondary);"></i>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b" style="border-color: rgba(255,255,255,0.1);">
+                <span class="text-[11px]" style="color: var(--text-primary);">How do I qualify for rank advancement?</span>
+                <i class="fas fa-plus text-xs" style="color: var(--text-secondary);"></i>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b" style="border-color: rgba(255,255,255,0.1);">
+                <span class="text-[11px]" style="color: var(--text-primary);">Is this a part-time or full-time opportunity?</span>
+                <i class="fas fa-plus text-xs" style="color: var(--text-secondary);"></i>
+              </div>
+              <div class="flex items-center justify-between py-1.5">
+                <span class="text-[11px]" style="color: var(--text-primary);">When and how are commissions paid?</span>
+                <i class="fas fa-plus text-xs" style="color: var(--text-secondary);"></i>
+              </div>
+            </div>
+            <button class="w-full px-4 py-2 rounded-md text-white text-xs font-semibold" style="background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue);">
+              View All FAQs
+            </button>
+          </div>
+
+          <!-- Right: Transparency & Compliance -->
+          <div class="card-gradient rounded-xl p-5 reveal-up" style="animation-delay: 0.2s;">
+            <h3 class="text-base font-bold mb-4" style="color: var(--text-primary); text-transform: uppercase;">
+              TRANSPARENCY & COMPLIANCE
+            </h3>
+            <div class="space-y-4">
+              <!-- Wellness Disclaimer -->
+              <div class="flex gap-3">
+                <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink: 0" style="background: rgba(20,82,177,0.1);">
+                  <i class="fas fa-book-open text-sm" style="color: var(--accent-blue);"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Wellness Disclaimer</h4>
+                  <p class="text-[10px]" style="color: var(--text-secondary);">Rich & Well products support a healthy lifestyle and general wellbeing.</p>
+                </div>
+              </div>
+
+              <!-- Income Disclaimer -->
+              <div class="flex gap-3">
+                <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink: 0" style="background: rgba(72,115,25,0.1);">
+                  <i class="fas fa-chart-bar text-sm" style="color: var(--accent-green);"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Income Disclaimer</h4>
+                  <p class="text-[10px]" style="color: var(--text-secondary);">Earnings depend on individual effort, leadership, and team performance.</p>
+                </div>
+              </div>
+
+              <!-- Participation Disclaimer -->
+              <div class="flex gap-3">
+                <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink: 0" style="background: rgba(20,82,177,0.1);">
+                  <i class="fas fa-check-circle text-sm" style="color: var(--accent-blue);"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Participation Disclaimer</h4>
+                  <p class="text-[10px]" style="color: var(--text-secondary);">Rich & Well is not an investment vehicle. Participation does not guarantee a return and is subject to company rules and qualifications.</p>
+                </div>
+              </div>
+            </div>
+            <button class="w-full px-4 py-2 rounded-md text-white text-xs font-semibold mt-6" style="background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue);">
+              Read Full Disclosures
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden"
+      style="background: #050e17; border-color: rgba(20, 82, 177, 0.2)"
+    >
+      <div class="container-pro relative z-10">
+        <!-- Ready To Start Building Your Future CTA Section - Full Width -->
+        <div class="relative mb-12 reveal-up" style="transition-delay: 0.3s;">
+          <div class="container-pro relative z-10">
+            <div class="rounded-xl overflow-hidden" style="background: linear-gradient(90deg, #050814 0%, #0a1633 50%, #050814 100%); width: calc(100% + 4rem); margin-left: -2rem; margin-right: -2rem;">
+              <div class="px-6 md:px-10 py-6 md:py-8 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-6">
+                <!-- Background Effects -->
+                <div class="absolute inset-0 opacity-30">
+                  <div class="absolute top-0 left-0 w-32 h-32 rounded-full" style="background: radial-gradient(circle, #1e40af 0%, transparent 70%);"></div>
+                  <div class="absolute bottom-0 right-0 w-40 h-40 rounded-full" style="background: radial-gradient(circle, #487319 0%, transparent 70%);"></div>
+                </div>
+                
+                <div class="relative z-10 flex flex-col lg:flex-row items-center gap-6 lg:gap-10 w-full">
+                  <!-- Heading -->
+                  <h2 class="text-lg md:text-xl lg:text-2xl font-bold" style="color: white; line-height: 1.3;">
+                    Ready To Start<br />Building Your Future?
+                  </h2>
+                  
+                  <!-- Icon Pills -->
+                  <div class="flex items-center gap-4 md:gap-6 flex-wrap justify-center">
+                    <div class="flex items-center gap-2">
+                      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="border: 1px solid rgba(37, 99, 235, 0.6); background: rgba(37, 99, 235, 0.1);">
+                        <i class="fas fa-heartbeat text-sm" style="color: #2563eb;"></i>
+                      </div>
+                      <span class="text-xs md:text-sm" style="color: rgba(255,255,255,0.9);">Heal Smarter.</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="border: 1px solid rgba(72, 115, 25, 0.6); background: rgba(72, 115, 25, 0.1);">
+                        <i class="fas fa-hand-holding-usd text-sm" style="color: #487319;"></i>
+                      </div>
+                      <span class="text-xs md:text-sm" style="color: rgba(255,255,255,0.9);">Earn Freely.</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="border: 1px solid rgba(72, 115, 25, 0.6); background: rgba(72, 115, 25, 0.1);">
+                        <i class="fas fa-rocket text-sm" style="color: #487319;"></i>
+                      </div>
+                      <span class="text-xs md:text-sm" style="color: rgba(255,255,255,0.9);">Live Fully.</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Buttons -->
+                <div class="relative z-10 flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                  <button class="px-6 py-3 rounded-lg text-xs md:text-sm font-semibold flex items-center justify-center gap-2" style="background: linear-gradient(90deg, #15803d 0%, #4ade80 100%); color: white; border: none;">
+                    Become A Member
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </button>
+                  <button class="px-6 py-3 rounded-lg text-xs md:text-sm font-semibold flex items-center justify-center gap-2" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white;">
+                    Speak To A Consultant
+                    <i class="fas fa-headset text-xs"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main footer grid (desktop) -->
+        <div class="footer-main-grid hidden lg:grid">
+          <!-- Brand -->
+          <div>
+            <img src="images/logo.png" alt="Rich & Well" class="h-12 w-auto" loading="lazy" />
+            <p class="footer-brand-desc" style="font-weight: 400;">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="footer-social-row">
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="Facebook"><i class="fab fa-facebook" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="Instagram"><i class="fab fa-instagram" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="TikTok"><i class="fab fa-tiktok" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="YouTube"><i class="fab fa-youtube" style="color: white"></i></a>
+            </div>
+          </div>
+          <!-- Company -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">COMPANY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Mission</a></li>
+              <li><a href="about.html">Leadership</a></li>
+              <li><a href="opportunity.html">Success Stories</a></li>
+              <li><a href="about.html">News &amp; Blog</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <!-- Wellness Devices -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">WELLNESS DEVICES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="index.html#wellness-devices">B.E.S.T. Therapy</a></li>
+              <li><a href="index.html#wellness-devices">Terahertz Wave</a></li>
+              <li><a href="index.html#wellness-devices">Frequency Collection</a></li>
+              <li><a href="index.html#wellness-devices">Accessories</a></li>
+              <li><a href="services.html">Wellness Solutions</a></li>
+            </ul>
+          </div>
+          <!-- Opportunity -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--gold">OPPORTUNITY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="opportunity.html">Why Rich &amp; Well</a></li>
+              <li><a href="compensation.html">Compensation Plan</a></li>
+              <li><a href="opportunity.html">Become A Distributor</a></li>
+              <li><a href="opportunity.html">Testimonials</a></li>
+              <li><a href="opportunity.html">FAQs</a></li>
+            </ul>
+          </div>
+          <!-- Resources -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">RESOURCES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="index.html#faq">Support Center</a></li>
+              <li><a href="index.html#faq">Shipping Policy</a></li>
+              <li><a href="index.html#faq">Returns &amp; Refunds</a></li>
+              <li><a href="index.html#faq">Terms of Use</a></li>
+              <li><a href="index.html#faq">Privacy Policy</a></li>
+              <li><a href="index.html#faq">Legal Disclaimer</a></li>
+            </ul>
+          </div>
+          <!-- Stay Connected -->
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">STAY CONNECTED</h4>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed" style="font-weight: 400">
+              Receive wellness insights, product updates, and community news.
+            </p>
+            <form id="newsletterFormDesktop" class="footer-newsletter-input-wrap">
+              <input type="email" placeholder="Enter your email address" class="flex-1 rounded-l-lg px-4 py-3 text-xs text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" style="background: rgba(255,255,255,0.05); font-weight: 400;" required />
+              <button type="submit" class="btn-primary rounded-r-lg px-4 py-3 text-xs" style="font-weight: 600; color: white;">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </form>
+            <div id="newsletterMessageDesktop" class="hidden text-green-400 text-xs mt-2" style="font-weight: 500"></div>
+            <div class="flex items-center gap-2 mt-4">
+              <i class="fas fa-shield-alt text-xs" style="color: #42841F"></i>
+              <p class="text-gray-500 text-[10px]" style="font-weight: 400">
+                We respect your privacy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile footer (accordions) -->
+        <div class="lg:hidden">
+          <div class="text-center pb-8 mb-8 border-b" style="border-color: rgba(255,255,255,0.08);">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight: 400">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition flex-shrink: 0" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color: white"></i></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-0 mb-8">
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="about.html" class="hover:text-white transition block">About Us</a></li>
+                <li><a href="about.html" class="hover:text-white transition block">Our Mission</a></li>
+                <li><a href="opportunity.html" class="hover:text-white transition block">Success Stories</a></li>
+                <li><a href="index.html#contact" class="hover:text-white transition block">Contact Us</a></li>
+
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">WELLNESS DEVICES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #42841F"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">B.E.S.T. Therapy</a></li>
+                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">Terahertz Wave</a></li>
+                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">Frequency Collection</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #ffc00a"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="opportunity.html" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
+                <li><a href="compensation.html" class="hover:text-white transition block">Compensation Plan</a></li>
+                <li><a href="opportunity.html" class="hover:text-white transition block">Testimonials</a></li>
+                <li><a href="opportunity.html" class="hover:text-white transition block">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="index.html#faq" class="hover:text-white transition block">Support Center</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Terms of Use</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Privacy Policy</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Legal Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mission & values -->
+        <div class="footer-mission-section text-center relative">
+          <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color: #1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #1452b1">WELLNESS</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(72,115,25,0.15)"><i class="fas fa-chart-line text-xs sm:text-sm" style="color: #487319"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #487319">WEALTH</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-users text-xs sm:text-sm" style="color: #1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #1452b1">COMMUNITY</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(255,192,10,0.12)"><i class="fas fa-person-walking text-xs sm:text-sm" style="color: #ffc00a"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #ffc00a">FREEDOM</p>
+            </div>
+          </div>
+          <h2 class="footer-tagline footer-tagline-desktop font-bold mb-3 px-2 relative z-10" style="font-weight: 700; color: white; font-size: clamp(0.9rem, 3vw, 1.5rem)">
+            <span class="inline">HEAL <span style="color: #1452b1">SMARTER.</span></span>
+            <span class="inline mx-2">EARN <span style="color: #487319">FREELY.</span></span>
+            <span class="inline">LIVE <span style="color: #ffc00a">FULLY.</span></span>
+          </h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight: 400">
+            Creating a future where wellness, wealth, community, and freedom work together.
+          </p>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom-bar pt-8 mt-4">
+          <div class="text-center">
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight: 400">
+              © 2026 Rich & Well. All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

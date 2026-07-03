@@ -236,4 +236,67 @@
           el.classList.add("is-visible");
         });
       }, 4000);
+
+      // Success Potential Calculator functionality
+      function initializeCalculator() {
+        const decreaseBtn = document.getElementById('decreaseCount');
+        const increaseBtn = document.getElementById('increaseCount');
+        const referralCountSpan = document.getElementById('referralCount');
+        const teamMembersSpan = document.getElementById('teamMembers');
+        const potentialRankSpan = document.getElementById('potentialRank');
+        const incomePotentialSpan = document.getElementById('incomePotential');
+        
+        if (decreaseBtn && increaseBtn && referralCountSpan && teamMembersSpan && potentialRankSpan && incomePotentialSpan) {
+          let count = 10;
+
+          function updateDisplay() {
+            referralCountSpan.textContent = count;
+            // Calculate values (customize logic as needed)
+            const teamMembersVal = Math.round(count * 16);
+            let potentialRankVal = 'Bronze';
+            let incomePotentialVal = 'Low';
+            
+            if (count >= 100) {
+              potentialRankVal = 'Platinum';
+              incomePotentialVal = 'Very High';
+            } else if (count >= 50) {
+              potentialRankVal = 'Diamond';
+              incomePotentialVal = 'High';
+            } else if (count >= 25) {
+              potentialRankVal = 'Gold';
+              incomePotentialVal = 'High';
+            } else if (count >= 10) {
+              potentialRankVal = 'Silver';
+              incomePotentialVal = 'Medium';
+            }
+            
+            // Update display elements
+            teamMembersSpan.textContent = teamMembersVal;
+            potentialRankSpan.textContent = potentialRankVal;
+            incomePotentialSpan.textContent = incomePotentialVal;
+          }
+
+          decreaseBtn.addEventListener('click', () => {
+            if (count > 0) {
+              count--;
+              updateDisplay();
+            }
+          });
+
+          increaseBtn.addEventListener('click', () => {
+            count++;
+            updateDisplay();
+          });
+
+          // Initialize display
+          updateDisplay();
+        }
+      }
+
+      // Initialize calculator when DOM is loaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCalculator);
+      } else {
+        initializeCalculator();
+      }
     
