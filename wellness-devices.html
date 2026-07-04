@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich & Well - Wellness Devices</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.add("light");
+        }
+      })();
+    </script>
+    <link rel='stylesheet' href='styles.css'>
+  </head>
+  <body class="gradient-bg text-white">
+    <!-- Header (copied pattern from other pages) -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="container-pro">
+        <div class="flex items-center justify-between h-16 lg:h-28">
+          <a href="index.html" class="flex items-center shrink-0" aria-label="Rich & Well Home">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-10 sm:h-12 lg:h-20 w-auto" />
+          </a>
+          <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
+            <a href="index.html" class="nav-link text-white hover:text-white transition" style="font-weight: 500">Home</a>
+            <a href="about.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">About Us</a>
+            <a href="wellness-devices.html" class="nav-link text-white hover:text-white transition relative" style="font-weight: 500">Wellness Devices<span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span></a>
+            <a href="opportunity.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Opportunity</a>
+            <a href="services.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Services</a>
+            <a href="compensation.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Compensation Plan</a>
+            <a href="index.html#testimonials" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Testimonials</a>
+            <a href="index.html#faq" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">FAQ</a>
+            <a href="index.html#contact" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <button class="theme-toggle hidden sm:flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+            <div class="hidden lg:flex items-center space-x-3">
+              <button id="loginBtn" class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300" style="font-weight: 500">Login</button>
+              <button class="btn-primary px-6 py-2 rounded-full text-sm" style="font-weight: 500; color: white">Join Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] md:min-h-[85vh] lg:min-h-[90vh] pt-52 md:pt-64 lg:pt-[150px]">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 hero-radial"></div>
+        <img src="images/slider2.png" alt="Wellness Hero Background" class="absolute inset-0 w-full h-full object-cover" style="object-position: left center;" />
+      </div>
+      <div class="absolute inset-0 hero-overlay bg-gradient-to-r from-[#050e17]/95 via-[#050e17]/40 to-transparent" aria-hidden="true"></div>
+
+      <div class="container-pro relative z-10">
+        <div class="grid lg:grid-cols-12 gap-6 items-center py-8">
+          <div class="lg:col-span-12">
+            <p class="text-xs mb-4 tracking-wider uppercase" style="color: var(--accent-blue); font-weight: 500">WELLNESS TECHNOLOGIES</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: white; font-weight:700">
+              ADVANCED <span class="block">WELLNESS TECHNOLOGY.</span>
+              <span class="block"><span style="color: var(--accent-green);">NATURAL</span> HARMONY.</span>
+            </h1>
+            <p class="text-gray-300 max-w-xl mb-8" style="font-weight: 400">Rich & Well's ecosystem of frequency-based wellness technologies designed to support balance, vitality, relaxation, and empowered living.</p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <button class="btn-blue px-6 sm:px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center" style="font-weight: 600">Explore Technologies <i class="fas fa-arrow-right"></i></button>
+              <button class="px-6 sm:px-8 py-3 rounded-full text-sm border border-white hover:bg-white/5 transition flex items-center gap-2 justify-center" style="font-weight: 600">Speak To A Consultant <i class="fas fa-phone"></i></button>
+            </div>
+            <div class="hero-badges grid gap-3 sm:grid-cols-3 mt-8">
+              <div class="hero-badge">
+                <div class="hero-badge-icon"><i class="fas fa-leaf"></i></div>
+                <div>
+                  <div class="hero-badge-title">DRUG-FREE</div>
+                  <div class="hero-badge-sub">Wellness Support</div>
+                </div>
+              </div>
+              <div class="hero-badge">
+                <div class="hero-badge-icon"><i class="fas fa-wave-square"></i></div>
+                <div>
+                  <div class="hero-badge-title">FREQUENCY-BASED</div>
+                  <div class="hero-badge-sub">Innovation</div>
+                </div>
+              </div>
+              <div class="hero-badge">
+                <div class="hero-badge-icon"><i class="fas fa-shield-alt"></i></div>
+                <div>
+                  <div class="hero-badge-title">NON-INVASIVE</div>
+                  <div class="hero-badge-sub">& Easy To Use</div>
+                </div>
+              </div>
+            </div>
+            <!-- Centered category cards below the CTAs -->
+            <!-- placeholder: category cards moved below to a dedicated section -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Device Categories Section (below hero) -->
+    <section class="device-categories-section relative -mt-12">
+      <div class="container-pro relative z-10">
+        <h3 class="device-categories-heading text-center mb-6">EXPLORE OUR DEVICE CATEGORIES</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+          <a href="#" class="category-card">
+            <div class="icon-wrap icon-blue"><i class="fas fa-magnet"></i></div>
+            <div>
+              <div class="category-title">Terahertz Technology</div>
+              <div class="category-sub">Wands, Vibrators & Energy Devices</div>
+            </div>
+            <div class="chev"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrap icon-green"><i class="fas fa-shoe-prints"></i></div>
+            <div>
+              <div class="category-title">Wellness Therapy Devices</div>
+              <div class="category-sub">Foot Therapy & Support Systems</div>
+            </div>
+            <div class="chev"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrap icon-blue"><i class="fas fa-lightbulb"></i></div>
+            <div>
+              <div class="category-title">Light & Frequency Wellness</div>
+              <div class="category-sub">LED & Frequency-Based Devices</div>
+            </div>
+            <div class="chev"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrap icon-green"><i class="fas fa-bed"></i></div>
+            <div>
+              <div class="category-title">Lifestyle Wellness</div>
+              <div class="category-sub">Sleep & Relaxation Solutions</div>
+            </div>
+            <div class="chev"><i class="fas fa-arrow-right"></i></div>
+          </a>
+          <a href="#" class="category-card">
+            <div class="icon-wrap icon-blue"><i class="fas fa-bolt"></i></div>
+            <div>
+              <div class="category-title">Energy Accessories</div>
+              <div class="category-sub">Patches & Portable Wellness Tools</div>
+            </div>
+            <div class="chev"><i class="fas fa-arrow-right"></i></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keep footer consistent with other pages by linking index footer (reuse on-site footer) -->
+    <!-- Product Highlight Section -->
+    <section class="product-highlight-section">
+      <div class="container-pro">
+        <div class="product-highlight-inner">
+          <div>
+            <div class="product-highlight-eyebrow">01</div>
+            <h2 class="product-highlight-title">TERAHERTZ WAND / BLOWER SERIES</h2>
+            <p class="product-highlight-desc">Advanced terahertz frequency technology designed to support daily wellness, promote balance and enhance your overall vitality.</p>
+
+            <div class="product-features">
+              <div class="product-feature">
+                <div class="feat-icon"><i class="fas fa-box"></i></div>
+                <div>Portable Design</div>
+              </div>
+              <div class="product-feature">
+                <div class="feat-icon"><i class="fas fa-hand-pointer"></i></div>
+                <div>Easy To Use</div>
+              </div>
+              <div class="product-feature">
+                <div class="feat-icon"><i class="fas fa-heartbeat"></i></div>
+                <div>Daily Wellness</div>
+              </div>
+            </div>
+
+            <div class="product-cta">
+              <button class="btn-blue px-6 py-3 rounded-full">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
+            </div>
+          </div>
+
+          <div class="product-right-wrap">
+            <div class="product-right-bg" aria-hidden="true"></div>
+            <!-- image removed as requested; background panel remains -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
