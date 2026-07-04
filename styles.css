@@ -58,6 +58,11 @@
           box-shadow var(--transition-duration) ease;
       }
 
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
       .gradient-bg {
         background: var(--bg-primary);
       }
@@ -232,16 +237,141 @@
       }
 
       /* Product highlight (section after categories) */
-      .product-highlight-section {
-        padding: 2.5rem 0 3.5rem 0;
+      .hero-section {
+        background: var(--bg-dark);
+        overflow: hidden;
+      }
+
+      .wellness-tech-section {
+        padding: 3rem 0 4rem 0;
         background: var(--bg-dark);
       }
 
-      .product-highlight-inner {
+      .wellness-tech-heading {
+        display: flex;
+        justify-content: center;
+      }
+
+      .wellness-tech-eyebrow {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: rgba(255,255,255,0.75);
+        font-weight: 600;
+      }
+
+      .wellness-tech-eyebrow span {
+        color: var(--accent-green);
+      }
+
+      .wellness-tech-grid {
         display: grid;
-        grid-template-columns: 1fr;
         gap: 2rem;
+      }
+
+      @media (min-width: 1024px) {
+        .wellness-tech-grid {
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+        }
+      }
+
+      .wellness-tech-copy {
+        max-width: 540px;
+      }
+
+      .wellness-tech-counter {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--accent-blue);
+        margin-bottom: 1rem;
+      }
+
+      .wellness-tech-title {
+        font-size: 3rem;
+        line-height: 1.05;
+        color: white;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .wellness-tech-description {
+        color: rgba(255,255,255,0.75);
+        max-width: 520px;
+        margin-bottom: 1.75rem;
+        line-height: 1.8;
+      }
+
+      .wellness-tech-badges {
+        display: grid;
+        gap: 0.95rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .wellness-tech-badge {
+        display: inline-flex;
         align-items: center;
+        gap: 0.75rem;
+        padding: 0.8rem 1rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+        color: rgba(255,255,255,0.9);
+        font-size: 0.9rem;
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .wellness-tech-badge i {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(20,82,177,0.18);
+        color: var(--accent-blue);
+      }
+
+      .wellness-tech-cta {
+        margin-top: 1rem;
+      }
+
+      .wellness-tech-visual {
+        position: relative;
+        min-height: 420px;
+      }
+
+      .wellness-tech-visual-bg {
+        position: absolute;
+        inset: 0;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(9,19,36,1) 0%, rgba(5,11,21,0.95) 100%);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), 0 15px 60px rgba(0,0,0,0.4);
+      }
+
+      .wellness-tech-image-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .wellness-tech-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: contain;
+      }
+
+      @media (min-width: 1280px) {
+        .wellness-tech-title {
+          font-size: 3.75rem;
+        }
+
+        .wellness-tech-badges {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (min-width: 768px) {
@@ -350,6 +480,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
+      }
+
+      .product-highlight-section {
+        overflow: hidden;
       }
 
       .product-right-bg {
@@ -407,8 +542,10 @@
 
       /* Dark Mode Navbar */
       .dark #navbar.scrolled {
-        background: #050e17;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        background: rgba(5, 14, 23, 0.98);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
       }
 
       .dark #navbar.scrolled .nav-link {
