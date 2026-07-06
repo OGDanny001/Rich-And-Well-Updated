@@ -610,3 +610,175 @@
 - Add performance optimizations (lazy load images, minify code, etc.)
 - Create a proper README file for the GitHub repo
 - Add form submission functionality for newsletter and contact forms
+
+54. **Built Complete Wellness Devices Page (wellness-devices.html)**:
+    - **Navbar & Mobile Menu**: Full sticky navbar with active state on "Wellness Technologies", hamburger mobile menu with all links, theme toggle, Login/Join buttons — matches all other pages exactly.
+    - **Hero Section**: Full-bleed dark hero with device image on the right, animated headline "ADVANCED WELLNESS TECHNOLOGY. NATURAL HARMONY." (green), description, two CTA buttons (Explore Technologies / Speak To A Consultant), and 3 trust badges (Drug-Free, Frequency-Based, Non-Invasive).
+    - **Terahertz Wand Spotlight** (`#terahertz`): Big "01" counter, heading, description, 4 feature pills (Balances Energy, Enhances Well-being, Supports Recovery, Promotes Vitality), Learn More button, product visual card with blue glow.
+    - **5-Card Category Strip**: Full-width scrollable strip (existing style) linking to all 5 section anchors — Terahertz Technology, Wellness Therapy Devices, Light & Frequency Wellness, Lifestyle Wellness, Energy Accessories. Uses images from `images/d/` folder for new categories.
+    - **4 Remaining Product Sections** (alternating layout, reversed every other):
+      - `#therapy` — Wellness Therapy Devices (foot therapy, PEMF, Red/Blue Light, Microcirculation)
+      - `#light-frequency` — Light & Frequency Wellness (bioresonance, photobiomodulation)
+      - `#lifestyle` — Lifestyle Wellness (sleep, relaxation, recovery, mental clarity)
+      - `#accessories` — Energy Accessories (patches, portable tools, on-the-go wellness)
+    - **Rich & Well Ecosystem Ring**: Left copy with 4 pillars (Wellness, Energy, Relaxation, Lifestyle) + right visual ring with logo at center and 4 orbit nodes at top/right/bottom/left.
+    - **Why Our Technology Works**: 4 science cards (Frequency Resonance, Terahertz Waves, Photobiomodulation, PEMF Therapy) each with colored top border + stats row (10K+ Members, 5+ Categories, 50+ Countries, 100% Drug-Free).
+    - **Testimonials Slider**: 5 testimonial cards with prev/next arrow buttons, dots pagination, auto-advances every 5 seconds, responsive (1/2/3 cards visible by breakpoint). JS slider implemented inline.
+    - **CTA Banner**: Full-bleed dark section with slider2.png background at 30% opacity, gradient overlay, big headline "DISCOVER WELLNESS DIFFERENTLY. HEAL SMARTER. EARN FREELY. LIVE FULLY." with colored accents, two CTA buttons.
+    - **Footer**: Identical to all other pages — newsletter CTA card, 6-column desktop grid (Brand, Company, Wellness Technologies, Opportunity, Resources, Stay Connected), mobile accordions, mission pillars row, tagline, copyright bar. Footer Wellness Devices links point to page-internal anchors (#terahertz, #therapy, etc.).
+    - **Updated All Navbars Site-Wide**: Changed every `index.html#wellness-devices` link to `wellness-devices.html` across desktop nav, mobile nav, and footer accordion links in all 5 pages (index.html, about.html, services.html, opportunity.html, compensation.html). Zero stale links remain.
+
+55. **Fixed Hero Heading Line Wrapping on Wellness Devices Page**:
+    - Problem: "ADVANCED WELLNESS" was wrapping to two lines because font-size was too large (clamp 2.4rem–3.6rem)
+    - Fix: Reduced font-size to `clamp(1.8rem,3vw,2.8rem)` and added `white-space:nowrap` so each span stays on one line
+    - Also widened the hero copy container from `max-width:520px` to `max-width:600px` to give the text room
+    - Result: All three lines — "ADVANCED WELLNESS", "TECHNOLOGY.", "NATURAL HARMONY." — now each sit on a single straight line exactly matching the design
+
+56. **Removed Placeholder Device Images from Hero Right Side**:
+    - Removed the composite of 5 device images that were shown on the right side of the hero
+    - Right side is now empty — awaiting the correct hero device image from the user
+    - Comment placeholder left in the HTML: `<!-- Image will be added here -->`
+
+57. **Rebuilt Terahertz Wand Series Section to Match Design**:
+    - Eyebrow: centered "EXPLORE OUR WELLNESS TECHNOLOGY ECOSYSTEM" — "WELLNESS TECHNOLOGY" in green (#6cb833), rest white, with small green diamond icon below
+    - Layout: full-bleed 2-column grid (no container-pro wrapper padding) — left copy, right image placeholder
+    - Number "01" in accent blue, small, above heading
+    - Heading: "TERAHERTZ / WAND SERIES" — very large (clamp 2.2rem–3rem), bold white, two block lines, tight line-height
+    - Description: short, smaller (0.85rem), grey, max-width 320px — no extra sentences
+    - 4 features in single horizontal row (not 2×2 grid): small blue circle icon + two-line label below, compact inline style matching design exactly
+    - Button: "LEARN MORE →" — blue filled, rectangular border-radius (8px not pill), smaller padding, uppercase, bold
+    - Right side: dark gradient background with subtle blue radial glow — image placeholder until device image is provided
+
+58. **Pixel-matched Terahertz Section Left Side to Design**:
+    - "01" — larger (1.15rem), bolder (800), brighter blue (#1a6cff)
+    - Heading — bigger (clamp 2.6rem–3.5rem), tighter letter-spacing (-0.02em), line-height 1.0
+    - Added thin horizontal divider (40px wide, rgba white 15%) between heading and description
+    - Description — slightly smaller (0.88rem), more transparent grey (0.62), max-width 300px
+    - Feature row — changed from icon-on-top layout to icon-LEFT + text-RIGHT layout: icon circle (blue tint bg, blue border) with main label bold white on top and sub-label dimmer below, matching design exactly
+    - Icon colors changed to #4a9eff (lighter blue matching design)
+    - Button — wider padding (0.75rem 2rem), tighter border-radius (6px), more letter-spacing (0.06em)
+
+## WELLNESS DEVICES PAGE — CURRENT BUILD STATUS (July 2026)
+
+### Sections confirmed PERFECT (do not touch):
+1. **HERO** — dark navy bg, blue radial rings, left copy (eyebrow, heading 3 lines each on own line, description, 2 equal-width CTA buttons, 3 trust badges inline). Right side empty — awaiting hero image.
+2. **TERAHERTZ WAND SERIES** — eyebrow "EXPLORE OUR WELLNESS TECHNOLOGY ECOSYSTEM" centered with green diamond, full-bleed 2-col grid, left side: "01" blue, large heading 2 lines, thin divider, short description, 4 horizontal feature items (icon-left + stacked label-right), LEARN MORE rectangular blue button. Right side empty — awaiting device image.
+
+### Next section to build (5-card category strip):
+- Image reference provided: 5 cards in a horizontal strip, dark background
+- Card 1: TERAHERTZ TECHNOLOGY — Wands, Blowers & Energy Devices — arrow button — device image right
+- Card 2: WELLNESS THERAPY DEVICES — Foot Therapy & Support Systems — arrow button — device image right
+- Card 3: LIGHT & FREQUENCY WELLNESS — LED & Frequency-Based Devices — arrow button — device image right
+- Card 4: LIFESTYLE WELLNESS — Sleep & Relaxation Solutions — arrow button — device image right
+- Card 5: ENERGY ACCESSORIES — Patches & Portable Wellness Tools — arrow button — device image right
+- Each card: dark bg, bold white title (2 lines), grey subtitle (2 lines), small circular arrow button (bottom left), product image (bottom right, cut off at bottom)
+- Images will be added later — placeholders for now
+
+### Remaining sections still to be built/reviewed:
+- 5-card category strip (IN PROGRESS)
+- Ecosystem ring section
+- Why Our Technology Works (4 science cards + stats)
+- Testimonials slider
+- CTA banner
+- Footer
+
+59. **Rebuilt 5-Card Category Strip to Match Design**:
+    - Full-bleed dark background (#07111e), no container wrapper, 5-column CSS grid
+    - Each card: dark bg, hover lightens to #0c1a2e, right border separator (rgba white 7%)
+    - Card structure: bold white ALL CAPS title (13px, 800 weight, 2 lines with <br>), grey subtitle (11px, 50% opacity, 2 lines), green circle arrow button bottom-left (28px circle, green border + color matching design), image placeholder bottom-right (dimmed icon at 25% opacity — real images to be added later)
+    - Cards: TERAHERTZ / TECHNOLOGY, WELLNESS / THERAPY DEVICES, LIGHT & FREQUENCY / WELLNESS, LIFESTYLE / WELLNESS, ENERGY / ACCESSORIES
+    - All cards link to their respective section anchors (#terahertz, #therapy, #light-frequency, #lifestyle, #accessories)
+    - Image placeholders use FontAwesome icons dimmed — will be replaced with real product images when provided
+    - No scrollable wrapper needed — 5 equal columns on desktop; mobile responsiveness to be added when doing mobile pass
+
+60. **Rebuilt Ecosystem Section + Removed Old Category Sections 2–5**:
+    - REMOVED: Old category detail sections for Wellness Therapy Devices (#therapy), Light & Frequency (#light-frequency), Lifestyle Wellness (#lifestyle), Energy Accessories (#accessories) — these were full product deep-dive sections that are not in the reference UI
+    - REMOVED: Old ecosystem ring section (circular ring with nodes) — replaced entirely
+    - BUILT NEW: "THE RICH & WELL ECOSYSTEM" banner section matching the design:
+      - Full-width dark #050e17 bg with subtle blue radial glow at center-right and faint grid/dot overlay
+      - LEFT column (1fr): "THE RICH & WELL" white heading + "ECOSYSTEM" green heading on separate lines, short description paragraph, "DISCOVER THE ECOSYSTEM →" outlined rectangular button
+      - RIGHT column (2fr): Hub diagram with Rich&Well logo at center, 5 nodes connected by dashed blue SVG lines:
+        - TOP: WELLNESS — Balance & Vitality (blue icon, blue border)
+        - LEFT: ENERGY — Revitalise & Recharge (blue icon, blue border)
+        - RIGHT: RELAXATION — Rest & Recovery (blue icon, blue border)
+        - BOTTOM-LEFT: COMMUNITY — Support & Empower (orange icon, orange border)
+        - BOTTOM-RIGHT: LIFESTYLE — Live Your Best Life (orange icon, orange border)
+      - Each node: 42px circle icon + bold white label + dimmer sub-label beside it
+
+### CURRENT PAGE SECTION ORDER (wellness-devices.html):
+1. ✅ HERO — perfect, awaiting hero bg image
+2. ✅ TERAHERTZ WAND SERIES — perfect, awaiting device image (right side)
+3. ✅ 5-CARD CATEGORY STRIP — perfect, awaiting product images
+4. ✅ THE RICH & WELL ECOSYSTEM — just built, matches design
+5. WHY OUR TECHNOLOGY WORKS — still old version, needs review
+6. TESTIMONIALS SLIDER — still old version, needs review
+7. CTA BANNER — still old version, needs review
+8. FOOTER — copied from index.html, should be correct
+
+## WELLNESS DEVICES PAGE — UPDATED CLEAN STATUS
+
+### CONFIRMED SECTION ORDER (wellness-devices.html as of current build):
+1. ✅ HERO — perfect (lines ~370–445). Awaiting hero bg image + right-side device image.
+2. ✅ TERAHERTZ WAND SERIES — perfect (lines ~447–540). "EXPLORE OUR WELLNESS TECHNOLOGY ECOSYSTEM" eyebrow, "01", large heading, divider, short description, 4 horizontal icon+label features, LEARN MORE button. Right side awaiting device image.
+3. ✅ 5-CARD CATEGORY STRIP — perfect (lines ~541–640). Full-bleed 5-col grid, dark bg, each card: bold 2-line title, grey subtitle, green circle arrow, image placeholder.
+4. ✅ THE RICH & WELL ECOSYSTEM — perfect (lines ~641–725). 2-col: left copy ("THE RICH & WELL" / "ECOSYSTEM" green, description, DISCOVER button), right hub diagram (logo center + 5 nodes with SVG dashed lines).
+5. ✅ TRUSTED BY THOUSANDS — TESTIMONIALS — perfect (lines ~727–845). Centered heading, 4-card slider, prev/next arrows, 4 dots, real member photos, italic quotes, star ratings.
+6. ✅ FOOTER — intact (lines ~847+). Full footer matching all other pages.
+
+### PENDING TASKS ON WELLNESS DEVICES PAGE:
+- Add hero background image when provided by user
+- Add Terahertz Wand device image (right side) when provided
+- Add product images to the 5 category strip cards when provided
+- Review/test testimonials slider JS (inline script at bottom of file)
+- Mobile responsiveness pass (all new sections built desktop-first)
+
+61. **Replaced Footer CTA on wellness-devices.html to Match Design**:
+    - REMOVED: Old "Ready To Begin Your Rich & Well Journey?" 4-column grid CTA
+    - BUILT: New full-width "DISCOVER WELLNESS DIFFERENTLY" banner matching the design exactly:
+      - Dark #050e17 background with slider2.png photo on the right (person silhouette at sunrise), fading left with a gradient mask
+      - Green SVG wave lines decorating the bottom-left corner
+      - LEFT: Two lines of bold text:
+        - Line 1: "DISCOVER WELLNESS DIFFERENTLY." — white, font-weight 900
+        - Line 2: "HEAL SMARTER." (green #6cb833) + "EARN FREELY." (blue #3b9eff) + "LIVE " (white) + "FULLY." (yellow #ffc00a)
+      - RIGHT: Two side-by-side buttons:
+        - "EXPLORE TECHNOLOGIES →" — blue filled, rectangular (border-radius 6px), font-size 0.75rem, bold
+        - "BECOME A MEMBER" with user-circle icon — transparent with white border, same size/shape
+      - Full-width (negative margin to bleed to edges), no extra padding above/below
+      - Followed by a spacer div (mb-12) before the footer grid begins
+
+62. **Increased Section Padding on wellness-devices.html**:
+    - `wd-product-section` CSS: 5rem → 7rem vertical padding
+    - `wd-ecosystem-section` CSS: 5rem → 7rem vertical padding
+    - `wd-testimonials-section` CSS: 4rem → 6rem vertical padding
+    - Terahertz section inline: padding:0 → added padding-top:5rem
+    - Ecosystem section inline: 3.5rem → 6rem
+    - Testimonials section inline: 3.5rem → 6rem
+    - 5-card category strip: added padding-top:5rem + padding-bottom:5rem
+    - Result: more breathing room between all sections so each section is clearly separated before the next one comes into view
+
+63. **Light Mode for wellness-devices.html + Dark Mode fixes for compensation.html**:
+
+    **wellness-devices.html — Light Mode:**
+    - Added comprehensive `.light` CSS override block in the page's `<style>` tag
+    - Hero always stays dark (intentional — same as index.html hero)
+    - Non-hero sections flip to light backgrounds in light mode:
+      - Terahertz section: #f0f4ff background, dark text
+      - 5-card category strip: stays dark (#1a2a4a) — matches design intent
+      - Ecosystem section: #f0f4ff background, dark text, nodes get white bg
+      - Testimonials: #f8f9fb background, cards become white with shadow
+    - All white text (`color:rgba(255,255,255,...)`) overridden to `var(--text-primary)` / `var(--text-secondary)` equivalents
+    - Slider arrows flip to white bg with dark color
+    - Dots flip to dark/blue
+    - SVG connector lines in ecosystem become more subtle
+
+    **services.html — Dark Mode: ✅ Already perfect, no changes needed**
+    **opportunity.html — Dark Mode: ✅ Already perfect, no changes needed**
+
+    **compensation.html — Dark Mode fixes:**
+    - `<body>` class: removed `from-blue-50 to-green-50`, now uses `gradient-bg` only
+    - Hero container div: removed `from-blue-50 to-green-50`, background now controlled by CSS
+    - Hero `<h1>`: replaced `color:#0f172a` with `color:var(--text-primary)` — now flips correctly
+    - Hero description: replaced `color:#4b5563` with `color:var(--text-secondary)` — now flips
+    - Hero logo circle: `bg-gradient-to-br from-blue-50 to-green-50 dark:card-gradient` → `card-gradient` only
+    - All 5 surrounding bubbles: `bg-white dark:card-gradient` → `card-gradient` only
+    - Removed inline `<style>` block that hardcoded `background:rgba(255,255,255,0.9)` for navbar in light mode (this was overriding styles.css's proper navbar logic)

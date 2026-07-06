@@ -27,11 +27,11 @@
     
     <link rel='stylesheet' href='styles.css'>
   </head>
-  <body class="bg-gradient-to-br from-blue-50 to-green-50 dark:gradient-bg dark:text-white">
+  <body class="gradient-bg dark:text-white">
     <!-- Hero Container -->
     <div class="relative">
       <!-- Hero Background -->
-        <div class="relative min-h-[100vh] bg-gradient-to-br from-blue-50 to-green-50 dark:bg-transparent">
+        <div class="relative min-h-[100vh] dark:bg-transparent">
           <!-- Light mode background overlay (original SVG) -->
           <div class="absolute inset-0 opacity-30 dark:hidden">
             <svg class="w-full h-full" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
@@ -58,13 +58,7 @@
 
         <!-- Header -->
         <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-          <style>
-            /* Light mode navbar background before scroll */
-            :root:not(.dark) #navbar {
-              background: rgba(255, 255, 255, 0.9);
-              backdrop-filter: blur(10px);
-            }
-          </style>
+          <!-- Navbar scroll styles handled by styles.css -->
           <div class="container-pro">
             <div class="flex items-center justify-between h-16 lg:h-28">
               <a href="index.html" class="flex items-center shrink-0" aria-label="Rich & Well Home">
@@ -89,7 +83,7 @@
                 >About Us</a
                 >
                 <a
-                  href="index.html#wellness-devices"
+                  href="wellness-devices.html"
                   class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
                   style="font-weight: 500"
                 >Wellness Devices</a
@@ -207,7 +201,7 @@
                 <span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span>
                 <i class="fas fa-chevron-right mobile-nav-chevron"></i>
               </a>
-              <a href="index.html#wellness-devices" class="mobile-nav-link">
+              <a href="wellness-devices.html" class="mobile-nav-link">
                 <span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span>
                 <i class="fas fa-chevron-right mobile-nav-chevron"></i>
               </a>
@@ -290,17 +284,17 @@
                 </p>
                 <h1
                   class="hero-heading mb-6 animate-fadeInUp"
-                  style="animation-delay:0.4s; line-height: 1.1; color: #0f172a;"
+                  style="animation-delay:0.4s; line-height: 1.1; color: var(--text-primary);"
                 >
-                  <span class="block dark:text-white">Earn <span style="color: #0f172a;" class="dark:text-white">More.</span></span>
-                  <span class="block dark:text-white">Grow <span style="color: var(--accent-green);">Faster.</span></span>
-                  <span class="block dark:text-white">Build <span style="color: var(--accent-blue);">Legacy.</span></span>
+                  <span class="block">Earn <span style="color: var(--text-primary);">More.</span></span>
+                  <span class="block">Grow <span style="color: var(--accent-green);">Faster.</span></span>
+                  <span class="block">Build <span style="color: var(--accent-blue);">Legacy.</span></span>
                 </h1>
                 <p
                   class="hero-description mb-8 max-w-xl text-sm leading-relaxed animate-fadeIn"
-                  style="font-weight: 400; animation-delay:0.6s; color: #4b5563;"
+                  style="font-weight: 400; animation-delay:0.6s; color: var(--text-secondary);"
                 >
-                  <span class="dark:text-gray-300">A simple yet powerful compensation plan designed to reward wellness advocacy, leadership, community growth and long-term financial freedom.</span>
+                  A simple yet powerful compensation plan designed to reward wellness advocacy, leadership, community growth and long-term financial freedom.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-8 animate-fadeInUp" style="animation-delay:0.8s;">
                   <button
@@ -322,27 +316,27 @@
               <!-- Right Visual -->
               <div class="lg:col-span-5 flex items-center justify-center animate-fadeInUp" style="animation-delay:1s;">
                 <div class="relative">
-                  <div class="w-80 h-80 rounded-full bg-gradient-to-br from-blue-50 to-green-50 dark:card-gradient flex items-center justify-center">
+                  <div class="w-80 h-80 rounded-full card-gradient flex items-center justify-center">
                     <img src="images/logo.png" alt="Rich & Well" class="w-40 h-auto">
                   </div>
                   <!-- Surrounding bubbles -->
-                  <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-white dark:card-gradient shadow-lg flex flex-col items-center justify-center border border-green-500 dark:border-green-500 flex-shrink: 0">
+                  <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full card-gradient shadow-lg flex flex-col items-center justify-center border border-green-500 dark:border-green-500 flex-shrink: 0">
                     <i class="fas fa-leaf text-2xl" style="color: var(--accent-green);"></i>
                     <p class="text-xs mt-1" style="color: var(--accent-green);">Wellness</p>
                   </div>
-                  <div class="absolute top-20 -right-12 w-24 h-24 rounded-full bg-white dark:card-gradient shadow-lg flex flex-col items-center justify-center border border-blue-500 dark:border-blue-500 flex-shrink: 0">
+                  <div class="absolute top-20 -right-12 w-24 h-24 rounded-full card-gradient shadow-lg flex flex-col items-center justify-center border border-blue-500 dark:border-blue-500 flex-shrink: 0">
                     <i class="fas fa-user-tie text-2xl" style="color: var(--accent-blue);"></i>
                     <p class="text-xs mt-1" style="color: var(--accent-blue);">Leadership</p>
                   </div>
-                  <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-white dark:card-gradient shadow-lg flex flex-col items-center justify-center border border-green-500 dark:border-green-500 flex-shrink: 0">
+                  <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full card-gradient shadow-lg flex flex-col items-center justify-center border border-green-500 dark:border-green-500 flex-shrink: 0">
                     <i class="fas fa-gift text-2xl" style="color: var(--accent-green);"></i>
                     <p class="text-xs mt-1" style="color: var(--accent-green);">Rewards</p>
                   </div>
-                  <div class="absolute -bottom-4 left-0 w-24 h-24 rounded-full bg-white dark:card-gradient shadow-lg flex flex-col items-center justify-center border border-blue-500 dark:border-blue-500 flex-shrink: 0">
+                  <div class="absolute -bottom-4 left-0 w-24 h-24 rounded-full card-gradient shadow-lg flex flex-col items-center justify-center border border-blue-500 dark:border-blue-500 flex-shrink: 0">
                     <i class="fas fa-shopping-cart text-2xl" style="color: var(--accent-blue);"></i>
                     <p class="text-xs mt-1" style="color: var(--accent-blue);">E-commerce</p>
                   </div>
-                  <div class="absolute top-20 -left-12 w-24 h-24 rounded-full bg-white dark:card-gradient shadow-lg flex flex-col items-center justify-center border border-green-500 dark:border-green-500 flex-shrink: 0">
+                  <div class="absolute top-20 -left-12 w-24 h-24 rounded-full card-gradient shadow-lg flex flex-col items-center justify-center border border-green-500 dark:border-green-500 flex-shrink: 0">
                     <i class="fas fa-users text-2xl" style="color: var(--accent-green);"></i>
                     <p class="text-xs mt-1" style="color: var(--accent-green);">Community</p>
                   </div>
@@ -457,7 +451,7 @@
           <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.2s;">
             <i class="fas fa-medal text-5xl mb-4" style="color: #cd7f32;"></i>
             <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Bronze</h3>
-            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦24,000</p>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">$15/ <br> ₦24,009</p>
             <p class="text-sm mb-4" style="color: var(--text-secondary);">Foundation Package</p>
             <ul class="text-left mb-6 space-y-2 w-full">
               <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
@@ -481,7 +475,7 @@
           <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.3s;">
             <i class="fas fa-medal text-5xl mb-4" style="color: #c0c0c0;"></i>
             <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Silver</h3>
-            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦120,000</p>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">$60/ <br> ₦96,000</p>
             <p class="text-sm mb-4" style="color: var(--text-secondary);">Growth Package</p>
             <ul class="text-left mb-6 space-y-2 w-full">
               <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
@@ -505,7 +499,7 @@
           <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.4s;">
             <i class="fas fa-medal text-5xl mb-4" style="color: #ffd700;"></i>
             <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Gold</h3>
-            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦240,000</p>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">$150/ <br> ₦240,000</p>
             <p class="text-sm mb-4" style="color: var(--text-secondary);">Leadership Package</p>
             <ul class="text-left mb-6 space-y-2 w-full">
               <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
@@ -529,7 +523,7 @@
           <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.5s;">
             <i class="fas fa-gem text-5xl mb-4" style="color: #1e90ff;"></i>
             <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Diamond</h3>
-            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦480,000</p>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">$500/ <br> ₦800,000</p>
             <p class="text-sm mb-4" style="color: var(--text-secondary);">Elite Growth Package</p>
             <ul class="text-left mb-6 space-y-2 w-full">
               <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
@@ -553,7 +547,7 @@
           <div class="card-gradient value-card rounded-2xl p-6 flex flex-col items-center text-center reveal-up" style="animation-delay:0.6s;">
             <i class="fas fa-gem text-5xl mb-4" style="color: #b19cd9;"></i>
             <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Platinum</h3>
-            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">₦960,000</p>
+            <p class="text-3xl font-bold mb-3" style="color: var(--text-primary);">$1000/ <br> ₦1,600,000</p>
             <p class="text-sm mb-4" style="color: var(--text-secondary);">Legacy Package</p>
             <ul class="text-left mb-6 space-y-2 w-full">
               <li class="flex items-center gap-2 text-sm" style="color: var(--text-secondary);">
@@ -724,7 +718,7 @@
               
               <div class="relative z-10">
                 <h2 class="text-lg md:text-xl font-bold mb-8 text-center" style="color: white; text-transform: uppercase;">
-                  PASSIVE INCOME ECOSYSTEM
+                  DIAMOND PACKAGE INCENTIVES
                 </h2>
                 
                 <!-- 6 icons row -->
@@ -988,11 +982,11 @@
           <div>
             <h4 class="footer-col-heading footer-col-heading--green">WELLNESS DEVICES</h4>
             <ul class="footer-col-links list-none p-0 m-0">
-              <li><a href="index.html#wellness-devices">B.E.S.T. Therapy</a></li>
-              <li><a href="index.html#wellness-devices">Terahertz Wave</a></li>
-              <li><a href="index.html#wellness-devices">Frequency Collection</a></li>
-              <li><a href="index.html#wellness-devices">Accessories</a></li>
-              <li><a href="services.html">Wellness Solutions</a></li>
+              <li><a href="wellness-devices.html">B.E.S.T. Therapy</a></li>
+              <li><a href="wellness-devices.html">Terahertz Wave</a></li>
+              <li><a href="wellness-devices.html">Frequency Collection</a></li>
+              <li><a href="wellness-devices.html">Accessories</a></li>
+              <li><a href="wellness-devices.html">Wellness Solutions</a></li>
             </ul>
           </div>
           <!-- Opportunity -->
@@ -1074,9 +1068,9 @@
                 <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
               </button>
               <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
-                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">B.E.S.T. Therapy</a></li>
-                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">Terahertz Wave</a></li>
-                <li><a href="index.html#wellness-devices" class="hover:text-white transition block">Frequency Collection</a></li>
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">B.E.S.T. Therapy</a></li>
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">Terahertz Wave</a></li>
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">Frequency Collection</a></li>
               </ul>
             </div>
             <div class="border-b" style="border-color: rgba(255,255,255,0.08);">

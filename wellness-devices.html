@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rich & Well - Wellness Devices</title>
+    <title>Rich & Well - Wellness Technologies</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script>
       (function () {
         const savedTheme = localStorage.getItem("theme") || "light";
@@ -24,10 +18,397 @@
         }
       })();
     </script>
-    <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ── Wellness Devices Page Specific Styles ── */
+      .wd-hero-section {
+        background: #050e17;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        padding-top: 112px;
+        padding-bottom: 3rem;
+      }
+
+      /* Deep space background layers */
+      .wd-hero-bg-layer {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 60% at 70% 50%, rgba(10,40,120,0.55) 0%, transparent 65%),
+          radial-gradient(ellipse 50% 80% at 100% 50%, rgba(5,20,80,0.4) 0%, transparent 60%),
+          radial-gradient(ellipse 30% 40% at 50% 50%, rgba(0,80,200,0.12) 0%, transparent 50%);
+        pointer-events: none;
+      }
+
+      /* Right side glow rings around devices */
+      .wd-hero-rings {
+        position: absolute;
+        right: 3%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 560px;
+        height: 560px;
+        pointer-events: none;
+      }
+      .wd-hero-rings::before,
+      .wd-hero-rings::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        border: 1.5px solid rgba(30,120,255,0.25);
+      }
+      .wd-hero-rings::before {
+        inset: 0;
+        box-shadow: 0 0 80px rgba(20,82,177,0.3), inset 0 0 80px rgba(20,82,177,0.1);
+      }
+      .wd-hero-rings::after {
+        inset: 60px;
+        border-color: rgba(30,120,255,0.18);
+        box-shadow: 0 0 40px rgba(20,82,177,0.2);
+      }
+      .wd-hero-rings-inner {
+        position: absolute;
+        inset: 120px;
+        border-radius: 50%;
+        border: 1px solid rgba(30,120,255,0.12);
+      }
+
+      .wd-hero-devices-wrap {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 52%;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .wd-hero-devices-wrap img {
+        width: 90%;
+        max-width: 600px;
+        object-fit: contain;
+        object-position: center bottom;
+        filter: drop-shadow(0 0 40px rgba(20,82,177,0.5)) drop-shadow(0 20px 60px rgba(0,0,0,0.6));
+        transform: translateY(4%);
+      }
+
+      /* Ecosystem Ring Section */
+      .wd-ecosystem-section {
+        background: var(--bg-dark);
+        padding: 7rem 0;
+      }
+      .wd-ecosystem-ring {
+        position: relative;
+        width: 320px;
+        height: 320px;
+        flex-shrink: 0;
+      }
+      .wd-ecosystem-ring-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .wd-ecosystem-node {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+        width: 90px;
+      }
+      .wd-ecosystem-node-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        font-size: 16px;
+      }
+      .wd-ecosystem-node-label {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255,255,255,0.75);
+      }
+      .wd-ecosystem-node-sub {
+        font-size: 8px;
+        color: rgba(255,255,255,0.45);
+        margin-top: -4px;
+      }
+
+      /* Testimonials Slider */
+      .wd-testimonials-section {
+        background: var(--bg-dark);
+        padding: 6rem 0;
+        overflow: hidden;
+      }
+      .wd-testimonials-track {
+        display: flex;
+        gap: 1.25rem;
+        transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+      }
+      .wd-testimonial-card {
+        flex: 0 0 280px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 1.5rem;
+      }
+
+      /* CTA Banner */
+      .wd-cta-section {
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-dark);
+      }
+      .wd-cta-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('images/slider2.png');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+      }
+      .wd-cta-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(5,14,23,0.98) 40%, rgba(5,14,23,0.6) 100%);
+      }
+
+      /* Tech Tabs / Product Detail Sections */
+      .wd-product-section {
+        background: var(--bg-dark);
+        padding: 7rem 0;
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+      .wd-product-section:nth-child(even) {
+        background: rgba(8,18,36,0.98);
+      }
+      .wd-product-visual {
+        position: relative;
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(9,19,36,1) 0%, rgba(5,11,21,0.95) 100%);
+        border: 1px solid rgba(255,255,255,0.06);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 380px;
+        overflow: hidden;
+      }
+      .wd-product-visual img {
+        max-height: 320px;
+        max-width: 90%;
+        object-fit: contain;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 0 30px rgba(20,82,177,0.3));
+      }
+      .wd-product-visual-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20,82,177,0.15) 0%, transparent 65%);
+        pointer-events: none;
+      }
+      .wd-feature-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.65rem 1rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.88);
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .wd-feature-pill i {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(20,82,177,0.18);
+        color: var(--accent-blue);
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+      .wd-feature-pill.green i {
+        background: rgba(66,132,31,0.18);
+        color: var(--accent-green);
+      }
+      .wd-feature-pill.yellow i {
+        background: rgba(255,192,10,0.15);
+        color: var(--accent-yellow);
+      }
+      .wd-counter {
+        font-size: 4rem;
+        font-weight: 900;
+        color: rgba(255,255,255,0.04);
+        line-height: 1;
+        position: absolute;
+        top: -1rem;
+        left: 0;
+        pointer-events: none;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Why It Works Section */
+      .wd-science-section {
+        background: var(--bg-dark);
+        padding: 5rem 0;
+      }
+      .wd-science-card {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 16px;
+        padding: 1.75rem;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+      }
+      .wd-science-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      }
+      .wd-science-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        border-radius: 2px 2px 0 0;
+      }
+      .wd-science-card.blue::before { background: var(--accent-blue); }
+      .wd-science-card.green::before { background: var(--accent-green); }
+      .wd-science-card.yellow::before { background: var(--accent-yellow); }
+      .wd-science-card.purple::before { background: #8b5cf6; }
+
+      /* ══════════════════════════════════════════
+         LIGHT MODE OVERRIDES
+         Hero stays dark always. All other sections
+         flip to white/light backgrounds with dark text.
+      ══════════════════════════════════════════ */
+
+      /* --- Section backgrounds --- */
+      html.light #terahertz,
+      html.light #terahertz > div.grid,
+      html.light #terahertz > div.grid > div:last-child {
+        background: #f0f4ff !important;
+      }
+      html.light #terahertz > div:first-child { /* eyebrow bar */
+        background: #e8eef8 !important;
+        border-color: rgba(20,82,177,0.12) !important;
+      }
+      html.light #terahertz > div.grid > div:last-child { /* right image panel */
+        background: linear-gradient(135deg, #e8eef8 0%, #dce6f5 50%, #e8eef8 100%) !important;
+      }
+      html.light .product-category-showcase,
+      html.light section[style*="background:#07111e"] {
+        background: #1a2a4a !important; /* keep card strip always dark — matches design */
+      }
+      html.light #ecosystem {
+        background: #f0f4ff !important;
+      }
+      html.light #ecosystem > div[style*="background:radial"] {
+        background: radial-gradient(ellipse 80% 100% at 60% 50%, rgba(20,82,177,0.06) 0%, transparent 70%) !important;
+      }
+      html.light .wd-testimonials-section,
+      html.light section[style*="background:#050e17"][style*="overflow:hidden"] {
+        background: #f8f9fb !important;
+      }
+
+      /* --- Terahertz left copy text --- */
+      html.light #terahertz p[style*="color:#1a6cff"] { color: #1452b1 !important; }
+      html.light #terahertz h2 span { color: #050e17 !important; }
+      html.light #terahertz h2 { color: #050e17 !important; }
+      html.light #terahertz p[style*="rgba(255,255,255,0.62)"] { color: #4b5563 !important; }
+      html.light #terahertz div[style*="color:white"] > div { color: #050e17 !important; }
+      html.light #terahertz div[style*="rgba(255,255,255,0.5)"] { color: #6b7280 !important; }
+      html.light #terahertz .wd-counter { color: rgba(5,14,23,0.04) !important; }
+
+      /* Terahertz eyebrow bar text */
+      html.light #terahertz p[style*="color:rgba(255,255,255,0.85)"] { color: rgba(5,14,23,0.6) !important; }
+      html.light #terahertz p[style*="color:rgba(255,255,255,0.85)"] span { color: #42841F !important; }
+
+      /* Terahertz feature icon circles */
+      html.light #terahertz .flex.items-center.gap-2 > div[style*="border:1px solid rgba(30,100,220"] {
+        background: rgba(20,82,177,0.08) !important;
+        border-color: rgba(20,82,177,0.25) !important;
+      }
+
+      /* Thin divider in terahertz */
+      html.light #terahertz div[style*="background:rgba(255,255,255,0.15)"] {
+        background: rgba(5,14,23,0.15) !important;
+      }
+
+      /* Right placeholder text */
+      html.light #terahertz p[style*="rgba(255,255,255,0.2)"] { color: rgba(5,14,23,0.2) !important; }
+
+      /* --- Ecosystem section text --- */
+      html.light #ecosystem h2[style*="color:white"] { color: #050e17 !important; }
+      html.light #ecosystem p[style*="rgba(255,255,255,0.6)"] { color: #4b5563 !important; }
+      html.light #ecosystem button[style*="border:1.5px solid rgba(255,255,255"] {
+        border-color: rgba(5,14,23,0.35) !important;
+        color: #050e17 !important;
+      }
+
+      /* Ecosystem hub nodes */
+      html.light #ecosystem div[style*="color:white;font-size:11px"] { color: #050e17 !important; }
+      html.light #ecosystem div[style*="color:rgba(255,255,255,0.45)"] { color: #6b7280 !important; }
+      html.light #ecosystem div[style*="background:rgba(10,25,60"] {
+        background: white !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      html.light #ecosystem .absolute.inset-0.rounded-full { opacity: 0.4; }
+      html.light #ecosystem svg line { stroke: rgba(20,82,177,0.2) !important; }
+
+      /* --- Testimonials section text --- */
+      html.light section[style*="padding:6rem 0;overflow:hidden"] p[style*="color:white"] { color: #050e17 !important; }
+      html.light .wd-testimonial-card,
+      html.light div[style*="background:rgba(255,255,255,0.04)"][style*="border:1px solid rgba(255,255,255,0.08)"][style*="border-radius:12px"] {
+        background: white !important;
+        border-color: rgba(20,82,177,0.12) !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+      }
+      html.light div[style*="border-radius:12px"] p[style*="rgba(255,255,255,0.82)"] { color: #4b5563 !important; }
+      html.light div[style*="border-radius:12px"] div[style*="color:white;font-size:0.82rem"] { color: #050e17 !important; }
+
+      /* Testimonial slider arrows */
+      html.light #wdTestiPrev,
+      html.light #wdTestiNext {
+        background: white !important;
+        border-color: rgba(20,82,177,0.2) !important;
+        color: #050e17 !important;
+      }
+
+      /* Testimonial dots */
+      html.light .wd-dot[style*="background:#1a6cff"] { background: #1452b1 !important; }
+      html.light .wd-dot[style*="background:rgba(255,255,255,0.25)"] { background: rgba(5,14,23,0.2) !important; }
+
+      /* --- Footer CTA banner in light mode --- */
+      html.light .footer-cta-banner-wd {
+        background: #0a1628 !important; /* keep dark by design */
+      }
+    </style>
   </head>
   <body class="gradient-bg text-white">
-    <!-- Header (copied pattern from other pages) -->
+
+    <!-- ══════════════ NAVBAR ══════════════ -->
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       <div class="container-pro">
         <div class="flex items-center justify-between h-16 lg:h-28">
@@ -35,146 +416,801 @@
             <img src="images/logo.png" alt="Rich & Well Logo" class="h-10 sm:h-12 lg:h-20 w-auto" />
           </a>
           <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
-            <a href="index.html" class="nav-link text-white hover:text-white transition" style="font-weight: 500">Home</a>
-            <a href="about.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">About Us</a>
-            <a href="wellness-devices.html" class="nav-link text-white hover:text-white transition relative" style="font-weight: 500">Wellness Devices<span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span></a>
-            <a href="opportunity.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Opportunity</a>
-            <a href="services.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Services</a>
-            <a href="compensation.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Compensation Plan</a>
-            <a href="index.html#testimonials" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Testimonials</a>
-            <a href="index.html#faq" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">FAQ</a>
-            <a href="index.html#contact" class="nav-link text-gray-300 hover:text-white transition" style="font-weight: 500">Contact</a>
+            <a href="index.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Home</a>
+            <a href="about.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">About</a>
+            <a href="wellness-devices.html" class="nav-link text-white hover:text-white transition relative" style="font-weight:500">Wellness Technologies<span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500 rounded-full"></span></a>
+            <a href="opportunity.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Opportunity</a>
+            <a href="services.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Services</a>
+            <a href="compensation.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Compensation Plan</a>
+            <a href="index.html#testimonials" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Testimonials</a>
+            <a href="index.html#faq" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">FAQ</a>
+            <a href="index.html#contact" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Contact</a>
           </nav>
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <button class="btn-primary mobile-header-cta lg:hidden" style="color:white">Join Now</button>
             <button class="theme-toggle hidden sm:flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
               <i class="fas fa-moon"></i>
               <i class="fas fa-sun"></i>
             </button>
+            <button id="mobileMenuBtn" class="mobile-menu-btn lg:hidden relative z-[9999]" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
             <div class="hidden lg:flex items-center space-x-3">
-              <button id="loginBtn" class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300" style="font-weight: 500">Login</button>
-              <button class="btn-primary px-6 py-2 rounded-full text-sm" style="font-weight: 500; color: white">Join Now</button>
+              <button id="loginBtn" class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300" style="font-weight:500">Login</button>
+              <button class="btn-primary px-6 py-2 rounded-full text-sm" style="font-weight:500;color:white">Join Now</button>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section relative min-h-[85vh] md:min-h-[85vh] lg:min-h-[90vh] pt-52 md:pt-64 lg:pt-[150px]">
-      <div class="absolute inset-0">
-        <div class="absolute inset-0 hero-radial"></div>
-        <img src="images/slider2.png" alt="Wellness Hero Background" class="absolute inset-0 w-full h-full object-cover" style="object-position: left center;" />
+    <!-- Mobile Menu Backdrop -->
+    <div id="mobileMenuBackdrop" class="fixed inset-0 z-[55] lg:hidden bg-white/10 backdrop-blur-xl" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu-panel fixed inset-x-0 top-[calc(64px+0.75rem)] bottom-0 z-[60] lg:hidden overflow-y-auto" aria-hidden="true">
+      <div class="container-pro flex flex-col h-full py-6">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight:500">Navigation</p>
+        <nav class="flex-1" id="mobileNav">
+          <a href="index.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="about.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="wellness-devices.html" class="mobile-nav-link active"><span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Technologies</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="opportunity.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="services.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Services</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="compensation.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="index.html#testimonials" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="index.html#faq" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="index.html#contact" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+        </nav>
+        <div class="pt-6 mt-4 border-t space-y-3" style="border-color:rgba(255,255,255,0.08)">
+          <div class="flex items-center justify-between mb-2 sm:hidden">
+            <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight:500">Appearance</span>
+            <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme" style="width:40px;height:40px"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+          </div>
+          <button class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300" style="font-weight:500">Login</button>
+          <button class="btn-primary w-full px-6 py-3.5 rounded-full text-sm" style="font-weight:600;color:white">Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i></button>
+        </div>
       </div>
-      <div class="absolute inset-0 hero-overlay bg-gradient-to-r from-[#050e17]/95 via-[#050e17]/40 to-transparent" aria-hidden="true"></div>
+    </div>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="wd-hero-section">
+      <!-- Background depth layers -->
+      <div class="wd-hero-bg-layer"></div>
+
+      <!-- Glowing rings behind devices -->
+      <div class="wd-hero-rings hidden lg:block">
+        <div class="wd-hero-rings-inner"></div>
+      </div>
+
+      <!-- Bottom fade so hero blends into next section -->
+      <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style="background:linear-gradient(to bottom, transparent, #050e17)"></div>
+
+      <!-- Device images placeholder — to be replaced when new image is added -->
+      <div class="wd-hero-devices-wrap hidden lg:flex">
+        <!-- Image will be added here -->
+      </div>
 
       <div class="container-pro relative z-10">
-        <div class="grid lg:grid-cols-12 gap-6 items-center py-8">
-          <div class="lg:col-span-12">
-            <p class="text-xs mb-4 tracking-wider uppercase" style="color: var(--accent-blue); font-weight: 500">WELLNESS TECHNOLOGIES</p>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: white; font-weight:700">
-              ADVANCED <span class="block">WELLNESS TECHNOLOGY.</span>
-              <span class="block"><span style="color: var(--accent-green);">NATURAL</span> HARMONY.</span>
-            </h1>
-            <p class="text-gray-300 max-w-xl mb-8" style="font-weight: 400">Rich & Well's ecosystem of frequency-based wellness technologies designed to support balance, vitality, relaxation, and empowered living.</p>
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button class="btn-blue px-6 sm:px-8 py-3 rounded-full text-white text-sm flex items-center gap-2 justify-center" style="font-weight: 600">Explore Technologies <i class="fas fa-arrow-right"></i></button>
-              <button class="px-6 sm:px-8 py-3 rounded-full text-sm border border-white hover:bg-white/5 transition flex items-center gap-2 justify-center" style="font-weight: 600">Speak To A Consultant <i class="fas fa-phone"></i></button>
+        <div style="max-width:600px">
+          <!-- Eyebrow -->
+          <p class="text-xs mb-5 tracking-widest uppercase animate-fadeInUp" style="color:#3b9eff;font-weight:700;letter-spacing:0.18em;animation-delay:0.2s">WELLNESS TECHNOLOGIES</p>
+
+          <!-- Heading -->
+          <h1 class="mb-5 animate-fadeInUp" style="font-size:clamp(1.8rem,3vw,2.8rem);color:white;font-weight:900;line-height:1.15;letter-spacing:-0.01em;animation-delay:0.35s;white-space:nowrap">
+            <span class="block">ADVANCED WELLNESS</span>
+            <span class="block">TECHNOLOGY.</span>
+            <span class="block" style="color:#6cb833">NATURAL HARMONY.</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="mb-8 animate-fadeIn" style="color:rgba(209,213,219,0.9);font-size:0.9rem;line-height:1.7;font-weight:400;max-width:430px;animation-delay:0.55s">
+            Rich &amp; Well's ecosystem of frequency-based wellness technologies designed to support balance, vitality, relaxation, and empowered living.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-10 animate-fadeInUp" style="animation-delay:0.7s">
+            <button class="btn-blue rounded-full text-sm text-white flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:700;padding:0.75rem 1.75rem;min-width:200px">
+              EXPLORE TECHNOLOGIES <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="rounded-full text-sm flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:600;padding:0.75rem 1.75rem;min-width:200px;color:white;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.35)">
+              SPEAK TO A CONSULTANT <i class="fas fa-phone text-xs"></i>
+            </button>
+          </div>
+
+          <!-- Trust Badges Row -->
+          <div class="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style="animation-delay:0.85s">
+            <div class="flex items-center gap-3">
+              <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
+                <i class="fas fa-leaf text-sm" style="color:#6cb833"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wide" style="color:white">DRUG-FREE</div>
+                <div class="text-xs" style="color:rgba(255,255,255,0.55)">Wellness Support</div>
+              </div>
             </div>
-            <div class="hero-badges grid gap-3 sm:grid-cols-3 mt-8">
-              <div class="hero-badge">
-                <div class="hero-badge-icon"><i class="fas fa-leaf"></i></div>
-                <div>
-                  <div class="hero-badge-title">DRUG-FREE</div>
-                  <div class="hero-badge-sub">Wellness Support</div>
-                </div>
+            <div class="flex items-center gap-3">
+              <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
+                <i class="fas fa-wave-square text-sm" style="color:#3b9eff"></i>
               </div>
-              <div class="hero-badge">
-                <div class="hero-badge-icon"><i class="fas fa-wave-square"></i></div>
-                <div>
-                  <div class="hero-badge-title">FREQUENCY-BASED</div>
-                  <div class="hero-badge-sub">Innovation</div>
-                </div>
-              </div>
-              <div class="hero-badge">
-                <div class="hero-badge-icon"><i class="fas fa-shield-alt"></i></div>
-                <div>
-                  <div class="hero-badge-title">NON-INVASIVE</div>
-                  <div class="hero-badge-sub">& Easy To Use</div>
-                </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wide" style="color:white">FREQUENCY-BASED</div>
+                <div class="text-xs" style="color:rgba(255,255,255,0.55)">Innovation</div>
               </div>
             </div>
-            <!-- Centered category cards below the CTAs -->
-            <!-- placeholder: category cards moved below to a dedicated section -->
+            <div class="flex items-center gap-3">
+              <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
+                <i class="fas fa-shield-alt text-sm" style="color:#3b9eff"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wide" style="color:white">NON-INVASIVE</div>
+                <div class="text-xs" style="color:rgba(255,255,255,0.55)">&amp; Easy To Use</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Wellness Technology Ecosystem Section -->
-    <section class="wellness-tech-section relative pt-16 lg:pt-20">
-      <div class="container-pro relative z-10">
-        <div class="wellness-tech-heading text-center mb-10">
-          <div class="wellness-tech-eyebrow">EXPLORE OUR <span>WELLNESS TECHNOLOGY</span> ECOSYSTEM</div>
-        </div>
-        <div class="wellness-tech-grid">
-          <div class="wellness-tech-copy">
-            <div class="wellness-tech-counter">01</div>
-            <h2 class="wellness-tech-title">TERAHERTZ WAND SERIES</h2>
-            <p class="wellness-tech-description">Portable frequency technology designed to support balance, vitality, and daily wellness — anytime, anywhere.</p>
-            <div class="wellness-tech-badges">
-              <div class="wellness-tech-badge"><i class="fas fa-sun"></i><span>Balances Energy</span></div>
-              <div class="wellness-tech-badge"><i class="fas fa-heartbeat"></i><span>Enhances Well-being</span></div>
-              <div class="wellness-tech-badge"><i class="fas fa-hand-holding-medical"></i><span>Supports Recovery</span></div>
-              <div class="wellness-tech-badge"><i class="fas fa-leaf"></i><span>Promotes Vitality</span></div>
-            </div>
-            <div class="wellness-tech-cta">
-              <button class="btn-blue px-6 py-3 rounded-full flex items-center gap-2">Learn More <i class="fas fa-arrow-right"></i></button>
-            </div>
-          </div>
-          <div class="wellness-tech-visual">
-            <div class="wellness-tech-visual-bg" aria-hidden="true"></div>
-          </div>
+    <!-- ══════════════ TERAHERTZ WAND SPOTLIGHT ══════════════ -->
+    <section id="terahertz" style="background:#050e17;padding:0;padding-top:5rem">
+      <!-- Section eyebrow -->
+      <div class="text-center py-5" style="border-bottom:1px solid rgba(255,255,255,0.06)">
+        <p class="text-xs tracking-widest uppercase" style="color:rgba(255,255,255,0.85);font-weight:700;letter-spacing:0.18em">
+          EXPLORE OUR <span style="color:#6cb833">WELLNESS TECHNOLOGY</span> ECOSYSTEM
+        </p>
+        <div class="flex justify-center mt-2">
+          <i class="fas fa-diamond text-[8px]" style="color:#6cb833"></i>
         </div>
       </div>
-    </section>
 
-    <!-- Keep footer consistent with other pages by linking index footer (reuse on-site footer) -->
-    <!-- Product Highlight Section -->
-    <section class="product-highlight-section">
-      <div class="container-pro">
-        <div class="product-highlight-inner">
+      <!-- Content row -->
+      <div class="grid lg:grid-cols-2" style="min-height:400px">
+        <!-- Left: Copy -->
+        <div class="flex flex-col justify-center px-8 lg:px-16 py-14 reveal-up" style="transition-delay:0.15s">
+          <!-- Number -->
+          <p class="mb-3" style="color:#1a6cff;font-size:1.15rem;font-weight:800;line-height:1;letter-spacing:0.02em">01</p>
+          <!-- Heading -->
+          <h2 class="mb-6" style="font-size:clamp(2.6rem,5vw,3.5rem);color:white;font-weight:900;line-height:1.0;letter-spacing:-0.02em">
+            <span class="block">TERAHERTZ</span>
+            <span class="block">WAND SERIES</span>
+          </h2>
+          <!-- Thin divider -->
+          <div class="mb-5" style="width:40px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px"></div>
+          <!-- Description -->
+          <p class="mb-8" style="color:rgba(255,255,255,0.62);font-size:0.88rem;line-height:1.8;max-width:300px">
+            Portable frequency technology designed to support balance, vitality, and daily wellness — anytime, <em>anywhere</em>.
+          </p>
+          <!-- 4 feature items in a single row -->
+          <div class="flex flex-wrap gap-5 mb-10">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.12);border:1px solid rgba(30,100,220,0.35)">
+                <i class="fas fa-sun" style="color:#4a9eff;font-size:11px"></i>
+              </div>
+              <div style="line-height:1.25">
+                <div style="color:white;font-size:10px;font-weight:700">Balances</div>
+                <div style="color:rgba(255,255,255,0.5);font-size:9px">Energy</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.12);border:1px solid rgba(30,100,220,0.35)">
+                <i class="fas fa-heartbeat" style="color:#4a9eff;font-size:11px"></i>
+              </div>
+              <div style="line-height:1.25">
+                <div style="color:white;font-size:10px;font-weight:700">Enhances</div>
+                <div style="color:rgba(255,255,255,0.5);font-size:9px">Well-being</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.12);border:1px solid rgba(30,100,220,0.35)">
+                <i class="fas fa-shield-alt" style="color:#4a9eff;font-size:11px"></i>
+              </div>
+              <div style="line-height:1.25">
+                <div style="color:white;font-size:10px;font-weight:700">Supports</div>
+                <div style="color:rgba(255,255,255,0.5);font-size:9px">Recovery</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.12);border:1px solid rgba(30,100,220,0.35)">
+                <i class="fas fa-user" style="color:#4a9eff;font-size:11px"></i>
+              </div>
+              <div style="line-height:1.25">
+                <div style="color:white;font-size:10px;font-weight:700">Promotes</div>
+                <div style="color:rgba(255,255,255,0.5);font-size:9px">Vitality</div>
+              </div>
+            </div>
+          </div>
+          <!-- Button -->
           <div>
-            <div class="product-highlight-eyebrow">01</div>
-            <h2 class="product-highlight-title">TERAHERTZ WAND / BLOWER SERIES</h2>
-            <p class="product-highlight-desc">Advanced terahertz frequency technology designed to support daily wellness, promote balance and enhance your overall vitality.</p>
-
-            <div class="product-features">
-              <div class="product-feature">
-                <div class="feat-icon"><i class="fas fa-box"></i></div>
-                <div>Portable Design</div>
-              </div>
-              <div class="product-feature">
-                <div class="feat-icon"><i class="fas fa-hand-pointer"></i></div>
-                <div>Easy To Use</div>
-              </div>
-              <div class="product-feature">
-                <div class="feat-icon"><i class="fas fa-heartbeat"></i></div>
-                <div>Daily Wellness</div>
-              </div>
-            </div>
-
-            <div class="product-cta">
-              <button class="btn-blue px-6 py-3 rounded-full">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
-            </div>
+            <button class="btn-blue flex items-center gap-3" style="font-weight:700;font-size:0.8rem;padding:0.75rem 2rem;border-radius:6px;color:white;letter-spacing:0.06em">
+              LEARN MORE <i class="fas fa-arrow-right" style="font-size:11px"></i>
+            </button>
           </div>
+        </div>
 
-          <div class="product-right-wrap">
-            <div class="product-right-bg" aria-hidden="true"></div>
-            <!-- image removed as requested; background panel remains -->
+        <!-- Right: Image placeholder -->
+        <div class="hidden lg:flex items-center justify-center relative reveal-up" style="background:linear-gradient(135deg,#050e17 0%,#061428 50%,#050e17 100%);transition-delay:0.3s;min-height:400px">
+          <!-- Blue wave/glow effect background -->
+          <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(20,82,177,0.18) 0%,transparent 70%)"></div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(20,82,177,0.3),transparent)"></div>
           </div>
+          <!-- Image to be added -->
+          <p class="text-xs relative z-10" style="color:rgba(255,255,255,0.2)">&lt;— device image coming soon —&gt;</p>
         </div>
       </div>
     </section>
+
+    <!-- ══════════════ 5-CARD CATEGORY STRIP ══════════════ -->
+    <section style="background:#07111e;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding-top:5rem;padding-bottom:5rem">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr)">
+
+        <!-- Card 1: Terahertz Technology -->
+        <a href="#terahertz" style="display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px 20px;min-height:160px;position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,0.07);text-decoration:none;background:#07111e;transition:background 0.3s ease" onmouseover="this.style.background='#0c1a2e'" onmouseout="this.style.background='#07111e'">
+          <div>
+            <h3 style="color:white;font-size:13px;font-weight:800;line-height:1.25;text-transform:uppercase;margin:0 0 10px;letter-spacing:0.02em">TERAHERTZ<br>TECHNOLOGY</h3>
+            <p style="color:rgba(255,255,255,0.5);font-size:11px;line-height:1.5;margin:0">Wands, Blowers<br>&amp; Energy Devices</p>
+          </div>
+          <div style="margin-top:18px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(82,203,97,0.8);color:rgba(82,203,97,1);background:rgba(3,8,18,0.85)">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <!-- Image placeholder bottom-right -->
+          <div style="position:absolute;right:12px;bottom:0;width:80px;height:80px;display:flex;align-items:flex-end;justify-content:center;opacity:0.25">
+            <i class="fas fa-wand-magic-sparkles" style="font-size:40px;color:rgba(255,255,255,0.3)"></i>
+          </div>
+        </a>
+
+        <!-- Card 2: Wellness Therapy Devices -->
+        <a href="#therapy" style="display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px 20px;min-height:160px;position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,0.07);text-decoration:none;background:#07111e;transition:background 0.3s ease" onmouseover="this.style.background='#0c1a2e'" onmouseout="this.style.background='#07111e'">
+          <div>
+            <h3 style="color:white;font-size:13px;font-weight:800;line-height:1.25;text-transform:uppercase;margin:0 0 10px;letter-spacing:0.02em">WELLNESS<br>THERAPY DEVICES</h3>
+            <p style="color:rgba(255,255,255,0.5);font-size:11px;line-height:1.5;margin:0">Foot Therapy<br>&amp; Support Systems</p>
+          </div>
+          <div style="margin-top:18px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(82,203,97,0.8);color:rgba(82,203,97,1);background:rgba(3,8,18,0.85)">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div style="position:absolute;right:12px;bottom:0;width:80px;height:80px;display:flex;align-items:flex-end;justify-content:center;opacity:0.25">
+            <i class="fas fa-spa" style="font-size:40px;color:rgba(255,255,255,0.3)"></i>
+          </div>
+        </a>
+
+        <!-- Card 3: Light & Frequency Wellness -->
+        <a href="#light-frequency" style="display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px 20px;min-height:160px;position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,0.07);text-decoration:none;background:#07111e;transition:background 0.3s ease" onmouseover="this.style.background='#0c1a2e'" onmouseout="this.style.background='#07111e'">
+          <div>
+            <h3 style="color:white;font-size:13px;font-weight:800;line-height:1.25;text-transform:uppercase;margin:0 0 10px;letter-spacing:0.02em">LIGHT &amp; FREQUENCY<br>WELLNESS</h3>
+            <p style="color:rgba(255,255,255,0.5);font-size:11px;line-height:1.5;margin:0">LED &amp; Frequency-<br>Based Devices</p>
+          </div>
+          <div style="margin-top:18px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(82,203,97,0.8);color:rgba(82,203,97,1);background:rgba(3,8,18,0.85)">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div style="position:absolute;right:12px;bottom:0;width:80px;height:80px;display:flex;align-items:flex-end;justify-content:center;opacity:0.25">
+            <i class="fas fa-lightbulb" style="font-size:40px;color:rgba(255,255,255,0.3)"></i>
+          </div>
+        </a>
+
+        <!-- Card 4: Lifestyle Wellness -->
+        <a href="#lifestyle" style="display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px 20px;min-height:160px;position:relative;overflow:hidden;border-right:1px solid rgba(255,255,255,0.07);text-decoration:none;background:#07111e;transition:background 0.3s ease" onmouseover="this.style.background='#0c1a2e'" onmouseout="this.style.background='#07111e'">
+          <div>
+            <h3 style="color:white;font-size:13px;font-weight:800;line-height:1.25;text-transform:uppercase;margin:0 0 10px;letter-spacing:0.02em">LIFESTYLE<br>WELLNESS</h3>
+            <p style="color:rgba(255,255,255,0.5);font-size:11px;line-height:1.5;margin:0">Sleep &amp; Relaxation<br>Solutions</p>
+          </div>
+          <div style="margin-top:18px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(82,203,97,0.8);color:rgba(82,203,97,1);background:rgba(3,8,18,0.85)">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div style="position:absolute;right:12px;bottom:0;width:80px;height:80px;display:flex;align-items:flex-end;justify-content:center;opacity:0.25">
+            <i class="fas fa-moon" style="font-size:40px;color:rgba(255,255,255,0.3)"></i>
+          </div>
+        </a>
+
+        <!-- Card 5: Energy Accessories -->
+        <a href="#accessories" style="display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px 20px;min-height:160px;position:relative;overflow:hidden;text-decoration:none;background:#07111e;transition:background 0.3s ease" onmouseover="this.style.background='#0c1a2e'" onmouseout="this.style.background='#07111e'">
+          <div>
+            <h3 style="color:white;font-size:13px;font-weight:800;line-height:1.25;text-transform:uppercase;margin:0 0 10px;letter-spacing:0.02em">ENERGY<br>ACCESSORIES</h3>
+            <p style="color:rgba(255,255,255,0.5);font-size:11px;line-height:1.5;margin:0">Patches &amp; Portable<br>Wellness Tools</p>
+          </div>
+          <div style="margin-top:18px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(82,203,97,0.8);color:rgba(82,203,97,1);background:rgba(3,8,18,0.85)">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div style="position:absolute;right:12px;bottom:0;width:80px;height:80px;display:flex;align-items:flex-end;justify-content:center;opacity:0.25">
+            <i class="fas fa-bolt" style="font-size:40px;color:rgba(255,255,255,0.3)"></i>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ══════════════ THE RICH & WELL ECOSYSTEM ══════════════ -->
+    <section id="ecosystem" style="background:#050e17;position:relative;overflow:hidden;padding:6rem 0">
+      <!-- Subtle tech/dot background -->
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 60% 50%,rgba(8,25,60,0.7) 0%,transparent 70%);pointer-events:none"></div>
+      <!-- Faint grid lines -->
+      <div style="position:absolute;inset:0;opacity:0.07;background-image:linear-gradient(rgba(255,255,255,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.3) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+
+      <div class="container-pro relative z-10">
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center">
+
+          <!-- LEFT: Copy -->
+          <div class="reveal-up" style="transition-delay:0.1s">
+            <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);color:white;font-weight:900;line-height:1.15;margin:0 0 0.5rem">THE RICH &amp; WELL</h2>
+            <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);color:#6cb833;font-weight:900;line-height:1.15;margin:0 0 1.25rem">ECOSYSTEM</h2>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.75;max-width:320px;margin:0 0 2rem">
+              Our technologies work in harmony to support your journey to better wellness, balance, and vitality—naturally.
+            </p>
+            <button style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.7rem 1.5rem;border:1.5px solid rgba(255,255,255,0.35);border-radius:6px;background:transparent;color:white;font-size:0.78rem;font-weight:700;letter-spacing:0.06em;cursor:pointer">
+              DISCOVER THE ECOSYSTEM <i class="fas fa-arrow-right" style="font-size:11px"></i>
+            </button>
+          </div>
+
+          <!-- RIGHT: Hub diagram -->
+          <div class="reveal-up" style="transition-delay:0.25s;position:relative;display:flex;align-items:center;justify-content:center;min-height:260px">
+
+            <!-- Connecting lines SVG -->
+            <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 700 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <!-- lines from center (350,130) to each node -->
+              <line x1="350" y1="130" x2="175" y2="130" stroke="rgba(30,100,220,0.25)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="350" y1="130" x2="525" y2="130" stroke="rgba(30,100,220,0.25)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="350" y1="130" x2="350" y2="28"  stroke="rgba(30,100,220,0.25)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="350" y1="130" x2="220" y2="220" stroke="rgba(30,100,220,0.25)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="350" y1="130" x2="480" y2="220" stroke="rgba(30,100,220,0.25)" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+
+            <!-- Center logo hub -->
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:4px">
+              <img src="images/logo.png" alt="Rich & Well" style="height:44px;width:auto;filter:drop-shadow(0 0 12px rgba(20,82,177,0.6))" />
+            </div>
+
+            <!-- Node: TOP — Wellness -->
+            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px">
+              <div style="width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(30,100,220,0.5);background:rgba(10,25,60,0.9);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-users" style="color:#4a9eff;font-size:14px"></i>
+              </div>
+              <div>
+                <div style="color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em">WELLNESS</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:10px">Balance &amp; Vitality</div>
+              </div>
+            </div>
+
+            <!-- Node: LEFT — Energy -->
+            <div style="position:absolute;top:50%;left:4%;transform:translateY(-50%);display:flex;align-items:center;gap:10px">
+              <div style="width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(30,100,220,0.5);background:rgba(10,25,60,0.9);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-bolt" style="color:#4a9eff;font-size:14px"></i>
+              </div>
+              <div>
+                <div style="color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em">ENERGY</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:10px">Revitalise &amp; Recharge</div>
+              </div>
+            </div>
+
+            <!-- Node: RIGHT — Relaxation -->
+            <div style="position:absolute;top:50%;right:0;transform:translateY(-50%);display:flex;align-items:center;gap:10px">
+              <div style="width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(30,100,220,0.5);background:rgba(10,25,60,0.9);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-cloud" style="color:#4a9eff;font-size:14px"></i>
+              </div>
+              <div>
+                <div style="color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em">RELAXATION</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:10px">Rest &amp; Recovery</div>
+              </div>
+            </div>
+
+            <!-- Node: BOTTOM-LEFT — Community -->
+            <div style="position:absolute;bottom:0;left:18%;display:flex;align-items:center;gap:10px">
+              <div style="width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,160,0,0.5);background:rgba(10,25,60,0.9);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-users" style="color:#ffa500;font-size:14px"></i>
+              </div>
+              <div>
+                <div style="color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em">COMMUNITY</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:10px">Support &amp; Empower</div>
+              </div>
+            </div>
+
+            <!-- Node: BOTTOM-RIGHT — Lifestyle -->
+            <div style="position:absolute;bottom:0;right:6%;display:flex;align-items:center;gap:10px">
+              <div style="width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,160,0,0.5);background:rgba(10,25,60,0.9);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-sun" style="color:#ffa500;font-size:14px"></i>
+              </div>
+              <div>
+                <div style="color:white;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em">LIFESTYLE</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:10px">Live Your Best Life</div>
+              </div>
+            </div>
+
+          </div><!-- end hub diagram -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ TRUSTED BY THOUSANDS — TESTIMONIALS ══════════════ -->
+    <section style="background:#050e17;padding:6rem 0;overflow:hidden">
+      <div class="container-pro">
+
+        <!-- Heading -->
+        <p class="text-center mb-8" style="color:white;font-size:0.95rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">TRUSTED BY THOUSANDS</p>
+
+        <!-- Slider wrapper -->
+        <div style="position:relative">
+          <!-- Prev arrow -->
+          <button id="wdTestiPrev" aria-label="Previous" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:rgba(5,14,23,0.8);color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <!-- Track overflow clip -->
+          <div style="overflow:hidden">
+            <div id="wdTestiTrack" style="display:flex;gap:16px;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)">
+
+              <!-- Card 1 -->
+              <div style="flex:0 0 calc(25% - 12px);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.4rem;display:flex;flex-direction:column;gap:1rem">
+                <p style="color:rgba(255,255,255,0.82);font-size:0.82rem;line-height:1.65;font-style:italic;margin:0">
+                  "The foot therapy system has improved my circulation and reduced my daily fatigue."
+                </p>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <img src="images/Edah Solomon.jpg" alt="Amaka T." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0" loading="lazy" />
+                  <div>
+                    <div style="color:white;font-size:0.82rem;font-weight:600">— Amaka T.</div>
+                    <div style="display:flex;gap:2px;margin-top:3px">
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div style="flex:0 0 calc(25% - 12px);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.4rem;display:flex;flex-direction:column;gap:1rem">
+                <p style="color:rgba(255,255,255,0.82);font-size:0.82rem;line-height:1.65;font-style:italic;margin:0">
+                  "I sleep deeper and wake up refreshed since I started using the sleep wellness device."
+                </p>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <img src="images/Joy Thomas.jpg" alt="David O." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0" loading="lazy" />
+                  <div>
+                    <div style="color:white;font-size:0.82rem;font-weight:600">— David O.</div>
+                    <div style="display:flex;gap:2px;margin-top:3px">
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div style="flex:0 0 calc(25% - 12px);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.4rem;display:flex;flex-direction:column;gap:1rem">
+                <p style="color:rgba(255,255,255,0.82);font-size:0.82rem;line-height:1.65;font-style:italic;margin:0">
+                  "The energy patch is a game changer for my busy lifestyle. It really works!"
+                </p>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <img src="images/Erica Laju.jpg" alt="Mercy L." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0" loading="lazy" />
+                  <div>
+                    <div style="color:white;font-size:0.82rem;font-weight:600">— Mercy L.</div>
+                    <div style="display:flex;gap:2px;margin-top:3px">
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div style="flex:0 0 calc(25% - 12px);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.4rem;display:flex;flex-direction:column;gap:1rem">
+                <p style="color:rgba(255,255,255,0.82);font-size:0.82rem;line-height:1.65;font-style:italic;margin:0">
+                  "These technologies are safe, effective, and easy to use. I highly recommend them."
+                </p>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div style="width:40px;height:40px;border-radius:50%;background:rgba(20,82,177,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    <span style="color:white;font-weight:700;font-size:14px">J</span>
+                  </div>
+                  <div>
+                    <div style="color:white;font-size:0.82rem;font-weight:600">— Joseph A.</div>
+                    <div style="display:flex;gap:2px;margin-top:3px">
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                      <i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- end track -->
+          </div><!-- end overflow clip -->
+
+          <!-- Next arrow -->
+          <button id="wdTestiNext" aria-label="Next" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:rgba(5,14,23,0.8);color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div><!-- end slider wrapper -->
+
+        <!-- Dots -->
+        <div id="wdTestiDots" style="display:flex;justify-content:center;gap:6px;margin-top:20px">
+          <button class="wd-dot" data-index="0" style="width:8px;height:8px;border-radius:50%;background:#1a6cff;border:none;cursor:pointer;padding:0" aria-label="Slide 1"></button>
+          <button class="wd-dot" data-index="1" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);border:none;cursor:pointer;padding:0" aria-label="Slide 2"></button>
+          <button class="wd-dot" data-index="2" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);border:none;cursor:pointer;padding:0" aria-label="Slide 3"></button>
+          <button class="wd-dot" data-index="3" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);border:none;cursor:pointer;padding:0" aria-label="Slide 4"></button>
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden" style="background:#050e17;border-color:rgba(20,82,177,0.2)">
+      <div class="container-pro relative z-10">
+
+        <!-- Footer CTA Banner -->
+        <div class="mb-0 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-0 xl:rounded-2xl overflow-hidden relative" style="background:#050e17;min-height:100px">
+          <!-- Background image right side -->
+          <div class="absolute inset-0 pointer-events-none">
+            <img src="images/slider2.png" alt="" class="absolute right-0 top-0 h-full w-1/2 object-cover object-left" style="mask-image:linear-gradient(to right,transparent 0%,black 40%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 40%)" aria-hidden="true" loading="lazy" />
+            <!-- Dark overlay over entire banner -->
+            <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(5,14,23,1) 0%,rgba(5,14,23,0.88) 45%,rgba(5,14,23,0.45) 75%,rgba(5,14,23,0.2) 100%)"></div>
+            <!-- Green wave lines bottom-left -->
+            <div class="absolute bottom-0 left-0 w-64 h-full pointer-events-none overflow-hidden">
+              <svg viewBox="0 0 260 100" preserveAspectRatio="none" class="absolute bottom-0 left-0 w-full h-full opacity-60" aria-hidden="true">
+                <path d="M0,80 Q40,60 80,70 Q120,80 160,60 Q200,40 260,55" fill="none" stroke="#42841F" stroke-width="1.5"/>
+                <path d="M0,90 Q50,72 100,82 Q150,92 200,72 Q230,60 260,68" fill="none" stroke="#6cb833" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 px-6 sm:px-8 lg:px-10 py-5">
+            <!-- Left: Text -->
+            <div>
+              <div class="text-base sm:text-lg font-black leading-tight" style="letter-spacing:-0.01em">
+                <span style="color:white;font-weight:900">DISCOVER WELLNESS DIFFERENTLY.</span>
+              </div>
+              <div class="text-base sm:text-lg font-black leading-tight mt-0.5" style="letter-spacing:-0.01em">
+                <span style="color:#6cb833;font-weight:900">HEAL SMARTER.&nbsp;</span>
+                <span style="color:#3b9eff;font-weight:900">EARN FREELY.&nbsp;</span>
+                <span style="color:white;font-weight:900">LIVE </span><span style="color:#ffc00a;font-weight:900">FULLY.</span>
+              </div>
+            </div>
+
+            <!-- Right: Buttons -->
+            <div class="flex items-center gap-3 flex-shrink-0">
+              <button class="btn-blue flex items-center gap-2 whitespace-nowrap" style="font-weight:700;font-size:0.75rem;padding:0.65rem 1.4rem;border-radius:6px;color:white;letter-spacing:0.05em">
+                EXPLORE TECHNOLOGIES <i class="fas fa-arrow-right" style="font-size:10px"></i>
+              </button>
+              <button class="flex items-center gap-2 whitespace-nowrap" style="font-weight:600;font-size:0.75rem;padding:0.63rem 1.3rem;border-radius:6px;color:white;border:1.5px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.04);letter-spacing:0.04em">
+                <i class="fas fa-user-circle" style="font-size:13px"></i> BECOME A MEMBER
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer before footer grid -->
+        <div class="mb-12"></div>
+
+        <!-- Desktop footer grid -->
+        <div class="footer-main-grid hidden lg:grid">
+          <div>
+            <img src="images/logo.png" alt="Rich & Well" class="h-12 w-auto" loading="lazy" />
+            <p class="footer-brand-desc" style="font-weight:400">Empowering wellness through innovative frequency technologies and life-changing opportunities.</p>
+            <div class="footer-social-row">
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="LinkedIn"><i class="fab fa-linkedin" style="color:white"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">COMPANY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Mission</a></li>
+              <li><a href="about.html">Leadership</a></li>
+              <li><a href="index.html#testimonials">Success Stories</a></li>
+              <li><a href="about.html">News &amp; Blog</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">WELLNESS TECHNOLOGIES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="#terahertz">Terahertz Wand Series</a></li>
+              <li><a href="#therapy">Foot Therapy System</a></li>
+              <li><a href="#light-frequency">Quantum Energy Platform</a></li>
+              <li><a href="#accessories">Energy Patch</a></li>
+              <li><a href="#lifestyle">Sleep &amp; Relaxation</a></li>
+              <li><a href="#light-frequency">Infrared Wellness</a></li>
+              <li><a href="#accessories">Energy Spray</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--gold">OPPORTUNITY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="opportunity.html">Why Rich &amp; Well</a></li>
+              <li><a href="compensation.html">Compensation Plan</a></li>
+              <li><a href="opportunity.html">Become A Distributor</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#faq">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">RESOURCES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="index.html#faq">Support Center</a></li>
+              <li><a href="index.html#faq">Shipping Policy</a></li>
+              <li><a href="index.html#faq">Returns &amp; Refunds</a></li>
+              <li><a href="index.html#faq">Terms of Use</a></li>
+              <li><a href="index.html#faq">Privacy Policy</a></li>
+              <li><a href="index.html#faq">Legal Disclaimer</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">STAY CONNECTED</h4>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed" style="font-weight:400">Receive wellness insights, success stories, new product launches, and community updates delivered to your inbox.</p>
+            <form id="newsletterFormDesktop" class="footer-newsletter-input-wrap">
+              <input type="email" placeholder="Enter your email address" class="flex-1 rounded-l-lg px-4 py-3 text-xs text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" style="background:rgba(255,255,255,0.05);font-weight:400" required />
+              <button type="submit" class="btn-primary rounded-r-lg px-4 py-3 text-xs" style="font-weight:600;color:white"><i class="fas fa-arrow-right"></i></button>
+            </form>
+            <div id="newsletterMessageDesktop" class="hidden text-green-400 text-xs mt-2" style="font-weight:500"></div>
+            <div class="flex items-center gap-2 mt-4">
+              <i class="fas fa-shield-alt text-xs" style="color:#42841F"></i>
+              <p class="text-gray-500 text-[10px]" style="font-weight:400">We respect your privacy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile footer accordions -->
+        <div class="lg:hidden">
+          <div class="text-center pb-8 mb-8 border-b" style="border-color:rgba(255,255,255,0.08)">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight:400">Empowering wellness through innovative frequency technologies and life-changing opportunities.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color:white"></i></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-0 mb-8">
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="about.html" class="hover:text-white transition block">About Us</a></li>
+                <li><a href="about.html" class="hover:text-white transition block">Our Mission</a></li>
+                <li><a href="index.html#testimonials" class="hover:text-white transition block">Success Stories</a></li>
+                <li><a href="index.html#contact" class="hover:text-white transition block">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">WELLNESS TECHNOLOGIES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#42841F"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#terahertz" class="hover:text-white transition block">Terahertz Wand Series</a></li>
+                <li><a href="#therapy" class="hover:text-white transition block">Foot Therapy System</a></li>
+                <li><a href="#light-frequency" class="hover:text-white transition block">Quantum Energy Platform</a></li>
+                <li><a href="#accessories" class="hover:text-white transition block">Energy Patch</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#ffc00a"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="opportunity.html" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
+                <li><a href="compensation.html" class="hover:text-white transition block">Compensation Plan</a></li>
+                <li><a href="index.html#testimonials" class="hover:text-white transition block">Testimonials</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="index.html#faq" class="hover:text-white transition block">Support Center</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Terms of Use</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Privacy Policy</a></li>
+                <li><a href="index.html#faq" class="hover:text-white transition block">Legal Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission pillars -->
+        <div class="footer-mission-section text-center relative">
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--left hidden lg:block" aria-hidden="true" loading="lazy" />
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--right hidden lg:block" aria-hidden="true" loading="lazy" />
+          <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color:#1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#1452b1">WELLNESS</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(72,115,25,0.15)"><i class="fas fa-bolt text-xs sm:text-sm" style="color:#487319"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#487319">ENERGY</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(20,82,177,0.15)"><i class="fas fa-users text-xs sm:text-sm" style="color:#1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#1452b1">COMMUNITY</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(255,192,10,0.12)"><i class="fas fa-sun text-xs sm:text-sm" style="color:#ffc00a"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#ffc00a">LIFESTYLE</p>
+            </div>
+          </div>
+          <h2 class="font-bold mb-3 px-2 relative z-10" style="font-weight:700;color:white;font-size:clamp(0.9rem,3vw,1.5rem)">
+            <span class="inline">HEAL <span style="color:#6cb833">SMARTER.</span></span>
+            <span class="inline mx-2">EARN <span style="color:#1452b1">FREELY.</span></span>
+            <span class="inline">LIVE <span style="color:#ffc00a">FULLY.</span></span>
+          </h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight:400">Creating a future where wellness, wealth, community, and freedom work together.</p>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom-bar pt-8 mt-4">
+          <div class="text-center">
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight:400">© 2025 Rich &amp; Well. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="app.js"></script>
+    <script>
+      // ── Testimonials Slider ──
+      (function () {
+        const track = document.getElementById('wdTestiTrack');
+        const dots  = document.querySelectorAll('.wd-testi-dot');
+        const prevBtn = document.getElementById('wdTestiPrev');
+        const nextBtn = document.getElementById('wdTestiNext');
+        if (!track) return;
+
+        const cards = track.querySelectorAll('.wd-testimonial-card');
+        let current = 0;
+        const visibleCount = () => window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+
+        function cardWidth() {
+          return cards[0].offsetWidth + 20; // 20 = gap (1.25rem)
+        }
+
+        function goTo(index) {
+          const max = cards.length - visibleCount();
+          current = Math.max(0, Math.min(index, max));
+          track.style.transform = `translateX(-${current * cardWidth()}px)`;
+          dots.forEach((d, i) => {
+            d.style.background = i === current ? 'var(--accent-blue)' : 'rgba(255,255,255,0.25)';
+            d.style.width = i === current ? '20px' : '8px';
+          });
+        }
+
+        dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+        if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+
+        // Auto-advance every 5s
+        setInterval(() => goTo((current + 1) % (cards.length - visibleCount() + 1)), 5000);
+        window.addEventListener('resize', () => goTo(current));
+      })();
+    </script>
   </body>
 </html>
