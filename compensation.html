@@ -56,119 +56,38 @@
             <div class="absolute inset-0 hero-radial"></div>
           </div>
 
-        <!-- Header -->
+        <!-- ══ NAVBAR ══ -->
         <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
           <!-- Navbar scroll styles handled by styles.css -->
           <div class="container-pro">
             <div class="flex items-center justify-between h-16 lg:h-28">
               <a href="index.html" class="flex items-center shrink-0" aria-label="Rich & Well Home">
-                <img
-                  src="images/logo.png"
-                  alt="Rich & Well Logo"
-                  class="h-10 sm:h-12 lg:h-20 w-auto"
-                />
+                <img src="images/logo.png" alt="Rich & Well Logo" class="h-10 sm:h-12 lg:h-20 w-auto" />
               </a>
               <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
-                <a
-                  href="index.html"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >Home
-                </a
-                >
-                <a
-                  href="about.html"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >About Us</a
-                >
-                <a
-                  href="wellness-devices.html"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >Wellness Devices</a
-                >
-                <a
-                  href="opportunity.html"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >Opportunity</a
-                >
-                <a
-                  href="services.html"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >Services</a
-                >
-                <a
-                  href="compensation.html"
-                  class="nav-link text-gray-900 hover:text-gray-900 transition relative dark:text-white dark:hover:text-white"
-                  style="font-weight: 500"
-                >Compensation Plan
-                <span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span>
-                </a
-                >
-                <a
-                  href="index.html#testimonials"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >Testimonials</a
-                >
-                <a
-                  href="index.html#faq"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >FAQ</a
-                >
-                <a
-                  href="index.html#contact"
-                  class="nav-link text-gray-700 hover:text-gray-900 transition dark:text-gray-300 dark:hover:text-white"
-                  style="font-weight: 500"
-                >Contact</a
-                >
-
+                <a href="index.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Home</a>
+                <a href="about.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">About Us</a>
+                <a href="wellness-devices.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Wellness Devices</a>
+                <a href="opportunity.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Opportunity</a>
+                <a href="services.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Services</a>
+                <a href="compensation.html" class="nav-link text-white hover:text-white transition relative" style="font-weight:500">Compensation Plan<span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span></a>
+                <a href="testimonials.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Testimonials</a>
+                <a href="faq.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">FAQ</a>
+                <a href="contact.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Contact</a>
               </nav>
               <div class="flex items-center gap-2 sm:gap-3">
-                <button
-                  class="btn-primary mobile-header-cta lg:hidden"
-                  style="color: white"
-                >
-                  Join Now
+                <button class="btn-primary mobile-header-cta lg:hidden" style="color:white">Join Now</button>
+                <button class="theme-toggle hidden sm:flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+                  <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                 </button>
-                <button
-                  class="theme-toggle hidden sm:flex"
-                  id="themeToggle"
-                  aria-label="Toggle theme"
-                  title="Toggle theme"
-                >
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
-                </button>
-                <button
-                  id="mobileMenuBtn"
-                  class="mobile-menu-btn lg:hidden relative z-[9999]"
-                  aria-label="Open menu"
-                  aria-expanded="false"
-                  aria-controls="mobileMenu"
-                >
+                <button id="mobileMenuBtn" class="mobile-menu-btn lg:hidden relative z-[9999]" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                   <span class="hamburger-line"></span>
                   <span class="hamburger-line"></span>
                   <span class="hamburger-line"></span>
                 </button>
                 <div class="hidden lg:flex items-center space-x-3">
-                  <button
-                    id="loginBtn"
-                    class="text-sm border border-gray-300 px-5 py-2 rounded-full hover:border-gray-900 transition text-gray-700 dark:border-gray-600 dark:text-gray-300 dark:hover:border-white"
-                    style="font-weight: 500"
-                  >
-                    Login
-                  </button>
-                  <button
-                    class="btn-primary px-6 py-2 rounded-full text-sm"
-                    style="font-weight: 500; color: white"
-                  >
-                    Join Now
-                  </button>
+                  <button id="loginBtn" class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300" style="font-weight:500">Login</button>
+                  <button class="btn-primary px-6 py-2 rounded-full text-sm" style="font-weight:500;color:white">Join Now</button>
                 </div>
               </div>
             </div>
@@ -176,97 +95,34 @@
         </header>
 
         <!-- Mobile Menu Backdrop -->
-        <div
-          id="mobileMenuBackdrop"
-          class="fixed inset-0 z-[55] lg:hidden bg-white/10 backdrop-blur-xl"
-          aria-hidden="true"
-        ></div>
+        <div id="mobileMenuBackdrop" class="fixed inset-0 z-[55] lg:hidden bg-black/20" aria-hidden="true"></div>
 
         <!-- Mobile Menu -->
-        <div
-          id="mobileMenu"
-          class="mobile-menu-panel fixed inset-x-0 top-[calc(64px+0.75rem)] bottom-0 z-[60] lg:hidden overflow-y-auto"
-          aria-hidden="true"
-        >
+        <div id="mobileMenu" class="mobile-menu-panel fixed inset-x-0 top-[calc(64px+0.75rem)] bottom-0 z-[60] lg:hidden overflow-y-auto" aria-hidden="true">
           <div class="container-pro flex flex-col h-full py-6">
-            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight: 500">
-              Navigation
-            </p>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight:500">Navigation</p>
             <nav class="flex-1" id="mobileNav">
-              <a href="index.html" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="about.html" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="wellness-devices.html" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="opportunity.html" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="services.html" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Services</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="compensation.html" class="mobile-nav-link active">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="index.html#testimonials" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="index.html#faq" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-              <a href="index.html#contact" class="mobile-nav-link">
-                <span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span>
-                <i class="fas fa-chevron-right mobile-nav-chevron"></i>
-              </a>
-
+              <a href="index.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="about.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="wellness-devices.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="opportunity.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="services.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Services</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="compensation.html" class="mobile-nav-link active"><span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="testimonials.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="faq.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+              <a href="contact.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
             </nav>
-            <div class="pt-6 mt-4 border-t space-y-3" style="border-color: rgba(255,255,255,0.08);">
+            <div class="pt-6 mt-4 border-t space-y-3" style="border-color:rgba(255,255,255,0.08)">
               <div class="flex items-center justify-between mb-2 sm:hidden">
-                <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight: 500">Appearance</span>
-                <button
-                  class="theme-toggle"
-                  id="themeToggleMobile"
-                  aria-label="Toggle theme"
-                  style="width: 40px; height: 40px;"
-                >
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
-                </button>
+                <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight:500">Appearance</span>
+                <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme" style="width:40px;height:40px"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
               </div>
-              <button
-                class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300"
-                style="font-weight: 500"
-              >
-                Login
-              </button>
-              <button
-                class="btn-primary w-full px-6 py-3.5 rounded-full text-sm"
-                style="font-weight: 600; color: white"
-              >
-                Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i>
-              </button>
+              <button class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300" style="font-weight:500">Login</button>
+              <button class="btn-primary w-full px-6 py-3.5 rounded-full text-sm" style="font-weight:600;color:white">Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i></button>
             </div>
           </div>
         </div>
-
-        <!-- Standalone Mobile Menu Close Button -->
-        <button
-          id="mobileMenuCloseBtn"
-          class="mobile-menu-btn fixed right-4 w-11 h-11 z-[9999] lg:hidden flex items-center justify-center"
-          aria-label="Close menu"
-          style="display: none; top: calc( (64px - 44px) / 2 );"
-        >
+        <button id="mobileMenuCloseBtn" class="mobile-menu-btn fixed right-4 w-11 h-11 z-[9999] lg:hidden flex items-center justify-center" aria-label="Close menu" style="display:none;top:calc((64px - 44px)/2)">
           <i class="fas fa-times text-white"></i>
         </button>
 

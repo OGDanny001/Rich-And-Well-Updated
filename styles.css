@@ -1193,9 +1193,11 @@
         .mobile-menu-panel {
           background: linear-gradient(
             180deg,
-            #050e17 0%,
-            #0a1a2e 100%
+            rgba(5, 14, 23, 0.55) 0%,
+            rgba(10, 26, 46, 0.60) 100%
           );
+          backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
           border-top: 1px solid rgba(255, 255, 255, 0.08);
           position: relative;
         }
@@ -1889,43 +1891,47 @@
         }
       }
 
-      /* Blurred navbar when mobile menu is open */
+      /* Blurred navbar when mobile menu is open — stays visible, slightly dimmed */
       #navbar.is-blurred {
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
       }
 
-      /* Hide logo link */
+      /* Dim logo — still visible */
       #navbar.is-blurred > div > div > a {
-        opacity: 0;
+        opacity: 0.45;
         pointer-events: none;
         transition: opacity 0.3s ease;
       }
 
-      /* Hide desktop nav */
+      /* Dim desktop nav — still visible */
       #navbar.is-blurred > div > div > nav {
-        opacity: 0;
+        opacity: 0.3;
         pointer-events: none;
         transition: opacity 0.3s ease;
       }
 
-      /* Hide mobile join now button */
+      /* Dim mobile join now button — still visible */
       #navbar.is-blurred > div > div > div > .mobile-header-cta {
-        display: none !important;
+        opacity: 0.3;
+        pointer-events: none;
       }
 
-      /* Hide theme toggle button */
+      /* Dim theme toggle — still visible */
       #navbar.is-blurred > div > div > div > .theme-toggle {
-        display: none !important;
+        opacity: 0.3;
+        pointer-events: none;
       }
 
-      /* Hide desktop login/join buttons */
+      /* Dim desktop login/join buttons — still visible */
       #navbar.is-blurred > div > div > div > div:last-child {
-        display: none !important;
+        opacity: 0.3;
+        pointer-events: none;
       }
 
-      /* Ensure mobile menu button is fully visible */
+      /* Keep hamburger button fully visible and interactive */
       #navbar.is-blurred > div > div > div > #mobileMenuBtn {
+        opacity: 1 !important;
         z-index: 100 !important;
       }
 

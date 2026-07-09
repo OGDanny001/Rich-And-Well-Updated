@@ -782,3 +782,339 @@
     - Hero logo circle: `bg-gradient-to-br from-blue-50 to-green-50 dark:card-gradient` → `card-gradient` only
     - All 5 surrounding bubbles: `bg-white dark:card-gradient` → `card-gradient` only
     - Removed inline `<style>` block that hardcoded `background:rgba(255,255,255,0.9)` for navbar in light mode (this was overriding styles.css's proper navbar logic)
+
+64. **Updated Home Page — Sovereignty Section Text & Products Section Layout**:
+
+    **Sovereignty Section (DRUG-LESS FREQUENCY SOVEREIGNTY)**:
+    - Replaced old multi-paragraph copy with exact new content:
+      - "True Wellness is the ultimate coherence of Energy."
+      - "Rich & Well provides a full-spectrum range of calibrated frequency devices designed to support your body's natural wellness journey."
+      - 4 checkmark items: Drug-Free Wellness, Frequency-Based Technology, Non-Invasive Solutions, Personal Empowerment
+      - Added WHO quote at bottom: "This aligns with the WHO definition of health as a state of complete physical, mental, and social well-being." (italic, smaller)
+
+    **Products Section (#wellness-devices)**:
+    - REMOVED: Old 3-card product grid (B.E.S.T. Prime, Terahertz Wave, Bioresonance) with dark card backgrounds
+    - REMOVED: Dark radial gradient background (`background: radial-gradient(ellipse at center, #0a2a4d 0%, #050e17 100%)`)
+    - NEW background: `var(--bg-secondary)` — clean light/dark mode compatible
+    - NEW layout:
+      - `homeproductsimage1.png` — full-width spanning edge to edge (w-full, max-height 520px, rounded-2xl)
+      - `homeproductimage2.jpg` + `homeproductimage3.jpg` — 2-column grid below (1 col mobile, 2 col md+, max-height 420px each)
+      - "Explore All Devices" button centered below the images linking to wellness-devices.html
+    - Removed "FLAGSHIP PRODUCT" label and the old heading white color (now uses var(--text-primary))
+
+65. **Home Page — Product Images Resize + Mobile Responsive + Testimonial Avatars**:
+    - Product image 1 (homeproductsimage1.png): max-height reduced 520px → 360px
+    - Product images 2 & 3 (grid): max-height reduced 420px → 300px; grid breakpoint changed from `md:grid-cols-2` → `sm:grid-cols-2` so they split into 2 columns sooner on mobile (at ~640px), and stack to 1 column on very small screens
+    - Testimonial avatars (all 3 — Edah Solomon, Joy Thomas, Erica Laju): increased from `w-8 h-8 md:w-10 md:h-10` → `w-14 h-14 md:w-16 md:h-16` (56px mobile, 64px desktop); added `flex-shrink-0` to prevent compression
+
+66. **Home Page — Mobile Product Image Swap for Image 1**:
+    - Used HTML `<picture>` element for the first product image (homeproductsimage1.png)
+    - On mobile (max-width: 639px): serves `mobilehomeproductsimage1.png` — cropped version with products more visible and clear
+    - On tablet & desktop (min-width: 640px): serves `homeproductsimage1.png` — original full-width version
+    - Fallback `<img>` src still points to `homeproductsimage1.png` for browsers that don't support `<picture>`
+    - All other styles (max-height:360px, object-cover, rounded-2xl) remain unchanged
+
+## HOME PAGE — CONFIRMED COMPLETE SECTIONS:
+- Hero slider (5 slides, dark navy)
+- Values section (4 cards: Wellness, Wealth, Community, Freedom)
+- Drug-Less Frequency Sovereignty section — text updated to exact copy provided
+- Products section — new layout: full-width image 1 (picture element for mobile), 2-col grid images 2+3 (full image, no crop)
+- Ecosystem / More Than Wellness section
+- Steps section (How It Works)
+- Testimonials section — avatars increased to w-14 h-14 (mobile) / w-16 h-16 (desktop)
+- CTA section ("What Is Your $15...")
+- FAQ section
+- Footer
+
+## NEXT: Continue working on wellness-devices.html
+
+67. **Added Terahertz Blower Series Product Suite to wellness-devices.html**:
+    - Inserted between the 5-card category strip and the Ecosystem section
+    - Section header: "PRODUCT SUITE" eyebrow (blue) + "TERAHERTZ BLOWER SERIES" heading (white + green accent) + gradient divider line
+    - Auto-fill grid (minmax 280px) — fills 3 cols desktop, 2 cols tablet, 1 col mobile automatically
+    - 6 product cards, each with: product image (220px min-height container, drop-shadow), name, blue category label, description, price ($ + NGN), "Learn More" button
+    - Card hover: translateY(-6px) + box-shadow lift
+    - Special treatments:
+      - Infinity (Touch Version): blue border glow + "PRO" badge (blue gradient, top-right)
+      - Terahertz Rotating Magnetic Wave: blue gradient bg + stronger glow + "FLAGSHIP" badge (gold, top-right) + gold price color
+    - All product images from `images/product/` folder with exact filenames
+    - Products:
+      1. IonSync — $110 / NGN 170,000
+      2. VitaFlow Duo — $150 / NGN 240,000
+      3. Quantum Essence 9.0 — $90 / NGN 140,000
+      4. Polaris Vitalis — $330 / NGN 528,000
+      5. Infinity (Touch Version) — $700 / NGN 1,100,000 [PRO badge]
+      6. Terahertz Rotating Magnetic Wave — $1,600 / NGN 2,400,000 [FLAGSHIP badge]
+    - More product series to be added after client approval of this design
+
+## WELLNESS DEVICES PAGE — FINAL CURRENT STATE (leaving this page for now)
+
+68. **Restructured wellness-devices.html — Removed sections, merged Product Suite into Ecosystem section**:
+    - REMOVED: Old Terahertz Wand Spotlight section (with "01", heading, feature pills, image placeholder)
+    - REMOVED: 5-card category strip section
+    - REMOVED: Ecosystem ring section
+    - REMOVED: Testimonials slider section
+    - NEW STRUCTURE: Hero → single unified "EXPLORE OUR WELLNESS TECHNOLOGY ECOSYSTEM" section containing all product series stacked vertically
+    - Each series has: series number (01, 02...), large bold heading (same style as old Terahertz heading), thin divider, short description, then a product card grid below
+    - Series 01 (Terahertz Blower Series) product cards are intact with all 6 products
+    - Section background changed to `var(--bg-secondary)` for light/dark mode compatibility
+    - Text uses CSS variables: `var(--text-primary)`, `var(--text-secondary)`, `var(--accent-blue)`, `var(--border-light)`
+
+### WELLNESS DEVICES PAGE — PENDING WORK:
+- Product card text still has hardcoded white colors — needs updating to CSS variables for full light mode support
+- More product series still to be added (client will provide data):
+  - Series 02: Pulsesole (foot massager)
+  - Series 03: Water Life Collection
+  - Series 04: Advanced Frequency Tech
+  - Series 05: Professional Series
+  - Series 06: Daily Wellness
+  - Series 07: Flagship Product
+  - Series 08: Essential Products
+- Hero image (right side) — awaiting from client
+- Device images for 5-category strip cards — awaiting from client
+- Mobile responsiveness pass needed
+
+### CURRENT wellness-devices.html SECTION ORDER:
+1. ✅ HERO — dark navy, awaiting bg image + right device image
+2. ✅ PRODUCT SUITE SECTION — "EXPLORE OUR WELLNESS TECHNOLOGY ECOSYSTEM" eyebrow, Series 01 (Terahertz Blower Series) with 6 product cards, `var(--bg-secondary)` background
+3. ✅ FOOTER — "DISCOVER WELLNESS DIFFERENTLY" CTA banner + full footer grid
+
+---
+
+## NEXT PAGES TO BUILD:
+1. **TESTIMONIALS PAGE** — standalone testimonials.html
+2. **FAQ PAGE** — standalone faq.html  
+3. **CONTACT PAGE** — standalone contact.html
+
+### Notes for next session:
+- All these pages need the same navbar (from index.html) and footer (from index.html)
+- Active state in navbar should match the page (Testimonials active on testimonials.html, etc.)
+- Use `var(--bg-secondary)` / `var(--bg-primary)` / `card-gradient` / `var(--text-primary)` for all content — no hardcoded colors
+- app.js handles mobile menu, theme toggle, and navbar scroll — link it on every new page
+- styles.css handles all global styling — link it on every new page
+
+## TESTIMONIALS PAGE (testimonials.html) — BUILD LOG
+
+69. **Created testimonials.html — Hero + Stats Bar (Step 1)**:
+    - New standalone page: `testimonials.html`
+    - Navbar: same as all pages, "Testimonials" active with green underline, links updated (FAQ → faq.html, Testimonials → testimonials.html)
+    - Mobile menu: same pattern, "Testimonials" marked active
+    - **HERO SECTION** (dark navy, matching design exactly):
+      - Background: #050e17 + blue radial gradients right side
+      - Bottom fade gradient blending into stats bar
+      - LEFT: "TESTIMONIALS" green eyebrow with green dash, heading "Real People. / Real Stories. / Real Transformation." (Transformation in blue #3b9eff), description text
+      - RIGHT: 6-photo collage in 3×2 grid using real member photos from images folder (IMG-20260708-WA0031–0042), rounded corners, 10px gap
+    - **STATS BAR** (white card, overlaps bottom of hero):
+      - White background, rounded-2xl, box-shadow, 4-column grid
+      - Stat 1: quote icon (blue) — 15,000+ Happy Members
+      - Stat 2: users icon (green) — 120+ Countries Reached
+      - Stat 3: star icon (blue) — 4.9/5 Average Rating
+      - Stat 4: heart icon (green) — 98% Would Recommend
+      - Dividers between each stat item
+      - Stats bar z-index:20, margin-top:-2rem to overlap hero bottom
+
+    ### NEXT STEPS for testimonials.html:
+    - Step 2: "WHAT OUR MEMBERS SAY / Voices of Success" section with 4-card testimonial slider
+    - Step 3: "Featured Story" banner section
+    - Step 4: "Your Transformation Story Could Be Next" CTA banner
+    - Step 5: Footer (copy from index.html)
+
+70. **Fixed testimonials.html Hero + Stats Bar to match design exactly**:
+    - Heading: `white-space:nowrap` + `font-size:clamp(2.6rem,4.5vw,3.8rem)` so "Real People." / "Real Stories." / "Real Transformation." each stay on one line
+    - Description: forced line break after "lives through" to match design's 2-line layout
+    - Photo collage rows: fixed height `180px` per row (not auto) so images are uniform
+    - Stats bar: removed overlap approach, sits cleanly below the dark hero in a dark wrapper (`background:#050e17`)
+    - Stat icons: changed from tinted bg to **solid filled circles** — blue (#1452b1) for stat 1+3, green (#42841F) for stat 2+4, white icons inside — matching design exactly
+    - `white-space:nowrap` on stat numbers and labels so nothing wraps
+
+71. **Added "Voices of Success" section to testimonials.html (Step 2)**:
+    - White background (`var(--bg-secondary)`), 5rem vertical padding
+    - Section heading: "WHAT OUR MEMBERS SAY —" (blue, small caps + blue dash), "Voices of Success" (Success in green), 2-line grey description
+    - 5-card slider (4 visible on desktop, 2 on tablet, 1 on mobile), prev/next circle arrows on sides
+    - Each card: white bg, light border, blue quote icon + 5 gold stars, quote text, member photo (48px circle) + name + location + colored partner badge
+      - Emeka A. — Lagos, Nigeria — Diamond Partner (blue badge)
+      - Chioma E. — Abuja, Nigeria — Gold Partner (green badge)
+      - David B. — Accra, Ghana — Platinum Partner (blue-grey badge)
+      - Funke O. — Port Harcourt, Nigeria — Silver Partner (grey badge)
+      - Edah S. — Lagos, Nigeria — Diamond Director (blue badge)
+    - 3 dots pagination (first dot wider/filled blue, others grey circles)
+    - Auto-advances every 5s, wraps back to start
+    - JS slider inline at bottom of page
+
+72. **Added Featured Story + CTA Banner to testimonials.html (Step 3)**:
+
+    **FEATURED STORY section:**
+    - Full-width 2-column dark card (border-radius 16px)
+    - LEFT panel (#0a1628): member photo as dim bg overlay, "FEATURED STORY" green eyebrow, "From Struggle to Financial Freedom" bold heading, short description, green play button + "Play Video 04:32"
+    - RIGHT panel (#0d1f3c): decorative dot grid top-right, center play button (frosted glass circle), large green quote icon, quote text "Rich & Well didn't just give me a business, it gave me back my confidence, my health, and my future.", "— Mercy I. / Top Leader, Enugu, Nigeria"
+
+    **CTA BANNER section:**
+    - Dark navy card (#0a1e3d), border-radius 14px, flex row layout
+    - LEFT: green rocket icon circle (56px) + heading "Your Transformation Story Could Be Next" (Transformation in green, Next in blue) + 2-line description
+    - RIGHT: green "Join Rich & Well Today →" button
+    - Both sections use `var(--bg-secondary)` page background so they sit cleanly on light/dark mode
+
+73. **Fixed Featured Story to 3-column layout + Added Footer to testimonials.html**:
+
+    **Featured Story fix:**
+    - Changed from 2-col to correct 3-col layout matching design exactly:
+      - Col 1 (#0d1e35): "FEATURED STORY" green eyebrow, bold heading, description, green play button + "Play Video 04:32"
+      - Col 2: Real member photo (Erica Laju.jpg) filling the panel with object-fit:cover, dark gradient overlay, frosted glass play circle centered on image
+      - Col 3 (#0d1f3c): Large green quote icon, quote text, "— Mercy I. / Top Leader, Enugu, Nigeria", decorative dot grid bottom-right
+
+    **Footer added (matches index.html exactly):**
+    - Newsletter CTA card (dark, rounded, 4-col grid with buttons)
+    - Desktop 6-column footer grid: Brand+social, Company, Wellness Devices, Opportunity, Resources, Stay Connected
+    - Mobile accordion footer (Company + Opportunity sections)
+    - Mission pillars row (Wellness, Wealth, Community, Freedom with icons)
+    - Tagline: "RESTORE SMARTER · PROSPER FREELY · LIVE FULLY"
+    - Bottom copyright bar: © 2026 Rich & Well
+    - Footer links updated to point to correct pages (testimonials.html, about.html, etc.)
+    - app.js linked before inline slider script
+
+    ### testimonials.html — COMPLETE ✅
+    All sections done: Hero → Stats Bar → Voices of Success → Featured Story → CTA Banner → Footer
+
+74. **Fixed testimonials.html navbar + Created faq.html Hero**:
+
+    **testimonials.html navbar fix:**
+    - "Wellness Technologies" → "Wellness Devices" (matches index.html)
+    - Added "Contact" link pointing to contact.html
+    - Active state (white text + green underline) on Testimonials link
+
+    **faq.html — Created new page, Hero section (Step 1):**
+    - Same navbar as all pages, "FAQ" active with green underline
+    - Nav links order matches design: Home, About Us, Wellness Devices, Opportunity, Compensation Plan, Services & Impact, FAQ (active), Contact
+    - **HERO**: dark #050e17 bg, blue radial gradient + subtle diagonal wave lines
+    - LEFT: "FAQ —" green eyebrow, "Frequently Asked" white h1 + "Questions" blue (#3b9eff) on separate line, grey description, white search bar with magnifier icon + green "Search" button
+    - RIGHT: CSS-built 3D speech bubble illustration:
+      - Large blue bubble with "FAQ" text (drop shadow)
+      - Small green bubble with 3 white dots (like typing indicator)
+      - Small dark bubble with "?" (bottom right)
+      - Concentric glow rings behind bubbles
+    - Search bar: white bg, rounded-12px, box-shadow, magnifier icon + input + green search button
+    - JS: Enter key triggers search, button click triggers search
+
+    ### NEXT STEPS for faq.html:
+    - Step 2: FAQ categories/tabs + accordion questions section
+    - Step 3: Footer (same as other pages)
+
+75. **faq.html — Hero padding fix + FAQ Section (Step 2)**:
+    - Hero padding-top increased: 112px → 160px for better navbar spacing
+    - **FAQ SECTION** (white/light bg, 2-col layout):
+      - LEFT SIDEBAR (320px fixed):
+        - "Browse by Category" card with 9 category buttons, each with colored circle icon + label + count
+        - Active category ("All Questions") highlighted with blue bg tint + blue text + blue count badge
+        - Category filter JS: clicking a category shows/hides FAQ items by data-cat attribute
+        - "Still have a question?" support card with headset icon + "Contact Support →" link
+      - RIGHT ACCORDION (10 FAQ items):
+        - Each item: blue numbered circle (01–10) + question text + chevron icon
+        - First item (What is Rich & Well?) open by default, answer in light blue bg box
+        - Clicking toggles open/close, only one open at a time
+        - Border-top separators between items, all inside one rounded-2xl container
+      - SEARCH: works by filtering FAQ items whose text contains the search query
+      - All uses `card-gradient`, `var(--text-primary)`, `var(--border-light)` — light/dark mode compatible
+
+76. **faq.html — 2 CTA banners + Footer (Steps 3 & 4) — COMPLETE**:
+
+    **"Your Success is Our Priority" banner:**
+    - Light blue bg (#f0f4ff), rounded-2xl, flex row
+    - LEFT: blue shield icon (gradient blue) with small green leaf badge overlay + "Your Success is Our Priority" bold heading + grey description
+    - RIGHT: blue "Contact Us →" rectangular button linking to contact.html
+
+    **"Ready to Transform Your Life?" banner:**
+    - Dark navy bg (#0a1e3d), rounded-2xl, flex row
+    - LEFT: blue circle with mountain icon + "Ready to " (white) + "Transform Your Life?" (blue #3b9eff) + grey description
+    - RIGHT: green "Join Rich & Well Today →" button
+
+    **Footer:** Full universal footer added — newsletter CTA card, 6-col desktop grid, mobile accordions, mission pillars, tagline, copyright bar. Links updated to point to correct pages.
+
+    ### faq.html — COMPLETE ✅
+    All sections done: Hero (with search) → Browse by Category + FAQ Accordion → Your Success is Our Priority → Ready to Transform → Footer
+
+77. **Created contact.html — Navbar + Hero + Info Bar (Step 1)**:
+
+    **Navbar:** Exact copy from index.html:
+    - Same links, same order: Home, About Us, Wellness Devices, Opportunity, Services, Compensation Plan, Testimonials, FAQ, Contact
+    - Contact has active state (white text + green underline)
+    - Same Login button (outlined) + Join Now (btn-primary green)
+    - Same mobile menu with all links, Contact marked active
+    - Same theme toggle, hamburger, close button
+
+    **Hero:**
+    - Background: #050e17 + blue/green radial gradients
+    - Right side: customer service photo (half-screen, masked with gradient fade), blue+green SVG energy wave lines overlaid
+    - padding-top: 160px for proper navbar spacing
+    - LEFT content:
+      - "WE'D LOVE TO HEAR FROM YOU" — pill badge (rounded, white border, semi-transparent bg)
+      - "Let's Connect" heading — "Let's" white, "Connect" blue (#3b9eff), font-size clamp(2.8rem,5vw,4rem)
+      - Grey description text
+      - 2 feature pills: blue circle icon (headset) + "Quick Response / We reply within 24 hours", blue circle (users) + "Customer Focused / Your success is our priority"
+
+    **Info Bar (white card below hero):**
+    - 4-column grid, white bg, rounded-2xl, box-shadow
+    - Col 1: Green phone icon — Phone/WhatsApp — +234 901 234 5678 — Mon-Sat 8AM-6PM
+    - Col 2: Blue email icon — Email Address — info@richandwell.com — We reply within 24 hours
+    - Col 3: Green map icon — Head Office — Benin City, Edo State, Nigeria — Visit by appointment
+    - Col 4: Blue clock icon — Business Hours — Monday–Saturday — 8:00AM–6:00PM
+
+    ### NEXT STEPS for contact.html:
+    - Step 2: Contact form section + social media links
+    - Step 3: Footer (same as all pages)
+
+78. **Fixed overlapping cards on contact.html and testimonials.html**:
+    - Both pages: hero `overflow:hidden` → `overflow:visible`, bottom padding increased to `8rem` to create space for the card overlap
+    - Info/stats bar wrapper: `background:#050e17` → `background:var(--bg-secondary)` (white in light mode), `margin-top:-4rem` + `position:relative;z-index:20` so the card pulls up into the hero bottom, sitting half-in half-out — matching the design
+    - This is the standard "overlap card" pattern used in professional landing pages
+
+79. **contact.html — Let's Connect + Contact Form + Map (Step 2)**:
+    - 2-column layout: left sidebar (380px) + right form area
+    - **LEFT SIDEBAR:**
+      - "Let's Connect" heading card: "Let's" dark + "Connect" green, blue underline, description, 4 contact options each with icon circle + name + description + email link with chevron:
+        - Customer Support (blue headset) — support@richandwell.com
+        - Partnerships (green handshake) — partnerships@richandwell.com
+        - Business Opportunity (blue chart-line) — opportunity@richandwell.com
+        - Media & Press (green bullhorn) — media@richandwell.com
+      - Quote card: blue quote icon + "Your success is our mission..." + decorative leaf watermark
+    - **RIGHT SIDE:**
+      - "Send Us a Message" form card: "Send Us a" dark + "Message" green, description
+        - Row 1: Full Name + Email Address inputs
+        - Row 2: Phone Number + Subject dropdown (select with 6 options)
+        - Message textarea (5 rows)
+        - Dark navy "Send Message" submit button with paper-plane icon
+        - Success message (green) shows for 5s after submit, form resets
+      - Map card: CSS-drawn map (grid lines + roads + river + green pin), info panel below with address + "Get Directions →" link to Google Maps
+    - All inputs use `var(--bg-primary)`, `var(--border-light)`, `var(--text-primary)` — fully light/dark mode compatible
+
+80. **contact.html — CTA Banner + Footer (Step 3) — COMPLETE**:
+
+    **"Ready to Transform Your Life?" CTA banner:**
+    - Dark navy rounded card (#0a1e3d)
+    - Blue circle icon (rocket) — "Ready to " white + "Transform Your Life?" blue (#3b9eff)
+    - Description text
+    - Green "Join Rich & Well Today →" button right-aligned
+
+    **Footer:** Full universal footer — newsletter CTA card, 6-col desktop grid, mobile accordions, mission pillars, tagline, copyright.
+
+    ### contact.html — COMPLETE ✅
+    All sections: Hero + Info Bar → Let's Connect + Contact Form + Map → CTA Banner → Footer
+
+81. **testimonials.html — Full Mobile Responsiveness + Dark Mode**:
+    - **Hero**: padding-top 80px on mobile (112px on desktop), heading uses clamp() with no white-space:nowrap overflow, description no longer has forced <br>
+    - **Stats bar**: 2×2 grid on mobile (< 640px), 4-col on tablet+. Smaller padding/icons/numbers on mobile. Dark mode: dark bg, white text
+    - **Testimonial cards**: changed from hardcoded `flex:0 0 calc(25%)` to `.testi-card` CSS class. Card width now calculated dynamically by JS (100% on mobile, 50% on tablet, 25% on desktop)
+    - **Slider arrows**: hidden on mobile (`hidden sm:flex`), visible on sm+. Arrow buttons now use `flex` not absolute positioning
+    - **Touch swipe**: added touchstart/touchend listeners for mobile swipe left/right to change slides. Auto-advance paused on touch.
+    - **Featured story**: `featured-story-grid` CSS class — 3 columns on md+, single column on mobile (stacks: copy → image 220px → quote). Image uses absolute positioning to fill container
+    - **CTA banner**: removed `white-space:nowrap` from heading, uses clamp() font-size, heading and button wrap cleanly on mobile
+    - **Dark mode**: `.dark .testi-card`, `.dark .testi-stats-bar`, `.dark #testiPrev/Next` all themed correctly
+    - **Slider JS rewrite**: uses `.testi-card` class selector, recalculates card widths on resize, touch swipe support added
+
+82. **testimonials.html, faq.html, contact.html — CTA fix + 4 footer dropdowns**:
+    - **CTA banner (testimonials.html)**: Rewrote using Tailwind flex classes — `flex-col sm:flex-row` so it stacks on mobile and goes side-by-side on tablet+. Icon circle is `flex-shrink-0`, button is `w-full sm:w-auto`. Removed all inline `display:flex` styles that were causing the bad stacking.
+    - **Footer mobile accordions — all 3 pages**: Expanded from 2 dropdowns to 4:
+      1. COMPANY (blue underline) — About Us, Our Mission, Success Stories, Contact Us
+      2. WELLNESS DEVICES (green underline) — Terahertz Series, Foot Therapy, Frequency Collection, Accessories
+      3. OPPORTUNITY (gold underline) — Why Rich & Well, Compensation Plan, Become A Distributor, Testimonials
+      4. RESOURCES (blue underline) — Support Center, FAQs, Terms of Use, Privacy Policy
+    - All footer links updated to point to correct pages (contact.html, faq.html, testimonials.html)

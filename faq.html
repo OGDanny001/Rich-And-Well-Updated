@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rich & Well – FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        document.documentElement.classList.add(savedTheme === "dark" ? "dark" : "light");
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .faq-hero {
+        background: #050e17;
+        position: relative;
+        overflow: hidden;
+        padding-top: 160px;
+        padding-bottom: 5rem;
+      }
+      .faq-hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 70% 90% at 100% 50%, rgba(10,40,120,0.5) 0%, transparent 65%),
+          radial-gradient(ellipse 40% 60% at 60% 40%, rgba(5,20,80,0.25) 0%, transparent 55%);
+        pointer-events: none;
+      }
+      /* Wave lines decoration */
+      .faq-hero-waves {
+        position: absolute;
+        inset: 0;
+        background-image:
+          repeating-linear-gradient(
+            -20deg,
+            transparent,
+            transparent 60px,
+            rgba(30,100,220,0.04) 60px,
+            rgba(30,100,220,0.04) 61px
+          );
+        pointer-events: none;
+      }
+      /* Search bar */
+      .faq-search-bar {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        max-width: 600px;
+      }
+      .faq-search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 1rem 1.25rem;
+        font-size: 0.9rem;
+        color: #374151;
+        background: transparent;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .faq-search-input::placeholder { color: #9ca3af; }
+      .faq-search-btn {
+        background: #42841F;
+        color: white;
+        border: none;
+        padding: 1rem 1.75rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.02em;
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .faq-search-btn:hover { background: #356b18; }
+    </style>
+  </head>
+  <body class="gradient-bg text-white">
+
+    <!-- ══ NAVBAR ══ -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="container-pro">
+        <div class="flex items-center justify-between h-16 lg:h-28">
+          <a href="index.html" class="flex items-center shrink-0" aria-label="Rich & Well Home">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-10 sm:h-12 lg:h-20 w-auto" />
+          </a>
+          <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs">
+            <a href="index.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Home</a>
+            <a href="about.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">About Us</a>
+            <a href="wellness-devices.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Wellness Devices</a>
+            <a href="opportunity.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Opportunity</a>
+            <a href="services.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Services</a>
+            <a href="compensation.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Compensation Plan</a>
+            <a href="testimonials.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Testimonials</a>
+            <a href="faq.html" class="nav-link text-white hover:text-white transition relative" style="font-weight:500">FAQ<span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"></span></a>
+            <a href="contact.html" class="nav-link text-gray-300 hover:text-white transition" style="font-weight:500">Contact</a>
+          </nav>
+          <div class="flex items-center gap-2 sm:gap-3">
+            <button class="btn-primary mobile-header-cta lg:hidden" style="color:white">Join Now</button>
+            <button class="theme-toggle hidden sm:flex" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+              <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+            </button>
+            <button id="mobileMenuBtn" class="mobile-menu-btn lg:hidden relative z-[9999]" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
+            <div class="hidden lg:flex items-center space-x-3">
+              <button id="loginBtn" class="text-sm border border-gray-600 px-5 py-2 rounded-full hover:border-white transition text-gray-300" style="font-weight:500">Login</button>
+              <button class="btn-primary px-6 py-2 rounded-full text-sm" style="font-weight:500;color:white">Join Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="mobileMenuBackdrop" class="fixed inset-0 z-[55] lg:hidden bg-black/20" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu-panel fixed inset-x-0 top-[calc(64px+0.75rem)] bottom-0 z-[60] lg:hidden overflow-y-auto" aria-hidden="true">
+      <div class="container-pro flex flex-col h-full py-6">
+        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-2" style="font-weight:500">Navigation</p>
+        <nav class="flex-1" id="mobileNav">
+          <a href="index.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Home</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="about.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>About Us</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="wellness-devices.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Wellness Devices</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="opportunity.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Opportunity</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="services.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Services</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="compensation.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Compensation Plan</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="testimonials.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Testimonials</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="faq.html" class="mobile-nav-link active"><span class="flex items-center"><span class="mobile-nav-dot"></span>FAQ</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+          <a href="contact.html" class="mobile-nav-link"><span class="flex items-center"><span class="mobile-nav-dot"></span>Contact</span><i class="fas fa-chevron-right mobile-nav-chevron"></i></a>
+        </nav>
+        <div class="pt-6 mt-4 border-t space-y-3" style="border-color:rgba(255,255,255,0.08)">
+          <div class="flex items-center justify-between mb-2 sm:hidden">
+            <span class="text-[10px] uppercase tracking-[0.15em] text-gray-500" style="font-weight:500">Appearance</span>
+            <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme" style="width:40px;height:40px"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+          </div>
+          <button class="w-full text-sm border border-gray-600 px-6 py-3.5 rounded-full hover:border-white hover:bg-white/5 transition text-gray-300" style="font-weight:500">Login</button>
+          <button class="btn-primary w-full px-6 py-3.5 rounded-full text-sm" style="font-weight:600;color:white">Join Now <i class="fas fa-arrow-right ml-2 text-xs"></i></button>
+        </div>
+      </div>
+    </div>
+    <button id="mobileMenuCloseBtn" class="mobile-menu-btn fixed right-4 w-11 h-11 z-[9999] lg:hidden flex items-center justify-center" aria-label="Close menu" style="display:none;top:calc((64px - 44px)/2)">
+      <i class="fas fa-times text-white"></i>
+    </button>
+
+    <!-- ══ HERO ══ -->
+    <section class="faq-hero">
+      <div class="faq-hero-bg"></div>
+      <div class="faq-hero-waves"></div>
+
+      <div class="container-pro relative z-10">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+          <!-- Left: Copy -->
+          <div class="animate-fadeInUp" style="animation-delay:0.2s">
+            <p class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest mb-6" style="color:var(--accent-green)">
+              FAQ <span class="inline-block w-8 h-0.5 rounded-full" style="background:var(--accent-green)"></span>
+            </p>
+            <h1 class="font-black mb-4" style="line-height:1.15">
+              <span class="block text-white" style="font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900">Frequently Asked</span>
+              <span class="block" style="font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;color:#3b9eff">Questions</span>
+            </h1>
+            <p class="text-sm leading-relaxed mb-10" style="color:rgba(255,255,255,0.62);max-width:380px">
+              Find answers to the most common questions about<br>
+              Rich &amp; Well, our products, opportunity, and more.
+            </p>
+
+            <!-- Search bar -->
+            <div class="faq-search-bar">
+              <i class="fas fa-search ml-4 mr-2 flex-shrink-0" style="color:#9ca3af;font-size:14px"></i>
+              <input type="text" class="faq-search-input" placeholder="Search for questions..." id="faqSearchInput" />
+              <button class="faq-search-btn" onclick="handleFaqSearch()">Search</button>
+            </div>
+          </div>
+
+          <!-- Right: 3D FAQ illustration -->
+          <div class="hidden lg:flex items-center justify-center animate-fadeIn" style="animation-delay:0.4s">
+            <!-- 3D speech bubbles illustration built with CSS -->
+            <div class="relative" style="width:340px;height:280px">
+              <!-- Blue FAQ bubble -->
+              <div class="absolute" style="top:10px;right:20px;width:200px;height:140px;background:linear-gradient(145deg,#2563eb,#1d4ed8);border-radius:24px 24px 6px 24px;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(37,99,235,0.4),0 4px 15px rgba(0,0,0,0.3)">
+                <span style="color:white;font-size:3rem;font-weight:900;letter-spacing:-0.02em">FAQ</span>
+                <!-- Bubble tail -->
+                <div style="position:absolute;bottom:-16px;right:20px;width:0;height:0;border-left:16px solid transparent;border-top:16px solid #1d4ed8"></div>
+              </div>
+              <!-- Green dots bubble -->
+              <div class="absolute" style="bottom:40px;left:30px;width:120px;height:68px;background:linear-gradient(145deg,#22c55e,#16a34a);border-radius:18px 18px 18px 6px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 10px 30px rgba(34,197,94,0.35),0 4px 12px rgba(0,0,0,0.25)">
+                <div style="width:10px;height:10px;border-radius:50%;background:white;opacity:0.9"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:white;opacity:0.9"></div>
+                <div style="width:10px;height:10px;border-radius:50%;background:white;opacity:0.9"></div>
+                <div style="position:absolute;bottom:-14px;left:18px;width:0;height:0;border-right:14px solid transparent;border-top:14px solid #16a34a"></div>
+              </div>
+              <!-- Dark question mark bubble -->
+              <div class="absolute" style="bottom:20px;right:50px;width:80px;height:80px;background:linear-gradient(145deg,#1e293b,#0f172a);border-radius:18px 18px 18px 6px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.4)">
+                <span style="color:white;font-size:2rem;font-weight:900">?</span>
+                <div style="position:absolute;bottom:-12px;left:14px;width:0;height:0;border-right:12px solid transparent;border-top:12px solid #0f172a"></div>
+              </div>
+              <!-- Glow rings behind -->
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;border:1px solid rgba(37,99,235,0.15);pointer-events:none"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;border-radius:50%;border:1px solid rgba(37,99,235,0.1);pointer-events:none"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ SECTION ══ -->
+    <section style="background:var(--bg-secondary);padding:4rem 0 5rem">
+      <div class="container-pro">
+        <div class="grid lg:grid-cols-[320px_1fr] gap-8 items-start">
+
+          <!-- LEFT: Sidebar -->
+          <div>
+            <!-- Browse by Category card -->
+            <div class="card-gradient rounded-2xl p-6 mb-5" style="border:1px solid var(--border-light)">
+              <h3 class="font-bold text-base mb-5" style="color:var(--text-primary)">Browse by Category</h3>
+              <ul class="space-y-1" id="faqCategoryList">
+
+                <!-- All Questions — active by default -->
+                <li>
+                  <button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all active-cat" data-cat="all" style="background:rgba(20,82,177,0.08)">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1">
+                      <i class="fas fa-question" style="color:white;font-size:12px"></i>
+                    </div>
+                    <span class="text-sm font-semibold flex-1 text-left" style="color:#1452b1">All Questions</span>
+                    <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#1452b1;color:white">23</span>
+                  </button>
+                </li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="about">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-building" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">About Rich &amp; Well</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">5</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="wellness">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-leaf" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Wellness Technologies</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">6</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="opportunity">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-users" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">The Opportunity</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">5</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="compensation">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-chart-line" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Compensation Plan</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">4</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="membership">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-id-card" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Membership &amp; Upgrades</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">3</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="payments">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-credit-card" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Payments &amp; Withdrawals</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">3</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="products">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-box" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Products &amp; Orders</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">2</span>
+                </button></li>
+
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="account">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-user-circle" style="color:white;font-size:12px"></i></div>
+                  <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Account &amp; Dashboard</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">2</span>
+                </button></li>
+
+              </ul>
+            </div>
+
+            <!-- Still have a question card -->
+            <div class="card-gradient rounded-2xl p-5" style="border:1px solid var(--border-light)">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.1);border:1px solid rgba(20,82,177,0.2)">
+                  <i class="fas fa-headset text-xl" style="color:#1452b1"></i>
+                </div>
+                <div>
+                  <p class="font-bold text-sm mb-1" style="color:var(--text-primary)">Still have a question?</p>
+                  <p class="text-xs leading-relaxed mb-3" style="color:var(--text-secondary)">Our support team is here to help.</p>
+                  <a href="contact.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:#1452b1">
+                    Contact Support <i class="fas fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Accordion -->
+          <div id="faqAccordion" class="space-y-0 rounded-2xl overflow-hidden" style="border:1px solid rgba(0,0,0,0.08)">
+
+            <!-- Item 01 -->
+            <div class="faq-item" data-cat="about">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.1);color:#1452b1;min-width:36px">01</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">What is Rich &amp; Well?</span>
+                <i class="fas fa-chevron-up text-xs transition-transform" style="color:#1452b1;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  Rich &amp; Well is a global wellness and wealth ecosystem that empowers individuals to achieve optimal health, financial freedom, and personal growth through innovative wellness technologies and a rewarding business opportunity.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 02 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="opportunity">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">02</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">How does the Rich &amp; Well opportunity work?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  You join as a member, use and promote our wellness products, build a team, and earn through multiple income streams including direct referrals, team bonuses, leadership rewards, and passive income systems.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 03 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="membership">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">03</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">What are the membership packages?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  Rich &amp; Well offers Bronze, Silver, Gold, Diamond, and Platinum membership tiers. Each tier unlocks different products, income levels, and business tools to help you grow.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 04 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="compensation">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">04</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">How do I earn income with Rich &amp; Well?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  You earn through direct referral commissions, team growth bonuses, e-commerce dropshipping, leadership incentives, and passive income streams built into the Reverse 2-Up compensation system.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 05 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="compensation">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">05</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">What is the Reverse 2-Up system?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  The Reverse 2-Up system means your first two recruits are passed up to your sponsor, building your sponsor's team while also building yours — creating a powerful, exponential income structure.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 06 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="membership">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">06</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">How do upgrades work?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  You can upgrade your membership at any time by paying the difference between your current tier and the desired tier. Upgrades unlock higher earning potential and more advanced wellness products.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 07 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="payments">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">07</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">When and how do I get paid?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  Commissions are paid directly to your registered bank account or digital wallet. Payments are processed weekly for qualified members. You must have a verified account to receive payouts.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 08 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="products">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">08</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">Can I use the products without joining the business?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  Yes! You can join purely as a wellness customer. Simply select a membership tier that fits your wellness goals, access the products, and enjoy the health benefits without participating in the business opportunity.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 09 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="about">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">09</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">Is Rich &amp; Well available in my country?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  Rich &amp; Well operates in 120+ countries. If you can receive international transfers and have access to our platform, you can join. Contact our support team to confirm availability in your specific country.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="faq-item" style="border-top:1px solid rgba(0,0,0,0.06)" data-cat="about">
+              <button class="faq-trigger w-full flex items-center gap-4 px-6 py-5 text-left" onclick="toggleFaq(this)">
+                <span class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(20,82,177,0.08);color:#1452b1;min-width:36px">10</span>
+                <span class="flex-1 text-sm font-semibold" style="color:var(--text-primary)">How do I get started?</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" style="color:#9ca3af;flex-shrink:0"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" style="padding-left:calc(1.5rem + 36px + 1rem)">
+                <div class="rounded-xl p-4 text-sm leading-relaxed" style="background:rgba(20,82,177,0.05);color:var(--text-secondary)">
+                  Click "Join Now" on any page, choose your membership package, complete your registration, and you're in. Your sponsor or our support team will guide you through the onboarding process.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end accordion -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ YOUR SUCCESS IS OUR PRIORITY ══ -->
+    <section style="background:var(--bg-secondary);padding:0 0 1.5rem">
+      <div class="container-pro">
+        <div class="rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-5" style="background:#f0f4ff;border:1px solid rgba(20,82,177,0.1)">
+
+          <!-- Left: icon + copy -->
+          <div class="flex items-center gap-5">
+            <!-- Shield icon with leaf -->
+            <div class="relative flex-shrink-0">
+              <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,#1452b1,#2563eb)">
+                <i class="fas fa-shield-alt text-2xl" style="color:white"></i>
+              </div>
+              <div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center" style="background:#42841F;border:2px solid #f0f4ff">
+                <i class="fas fa-leaf" style="color:white;font-size:9px"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-base mb-1" style="color:var(--text-primary)">Your Success is Our Priority</h3>
+              <p class="text-sm" style="color:var(--text-secondary);max-width:380px">We are committed to your journey in wellness, wealth, and personal transformation.</p>
+            </div>
+          </div>
+
+          <!-- Right: button -->
+          <a href="contact.html" class="btn-blue flex items-center gap-2 whitespace-nowrap rounded-xl" style="font-weight:700;font-size:0.88rem;padding:0.75rem 1.75rem;color:white;flex-shrink:0">
+            Contact Us <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ READY TO TRANSFORM YOUR LIFE ══ -->
+    <section style="background:var(--bg-secondary);padding:0 0 4rem">
+      <div class="container-pro">
+        <div class="rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-5" style="background:#0a1e3d">
+
+          <!-- Left: icon + copy -->
+          <div class="flex items-center gap-5">
+            <!-- Mountain/people icon -->
+            <div class="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.2);border:2px solid rgba(20,82,177,0.4)">
+              <i class="fas fa-mountain text-2xl" style="color:#3b9eff"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-base mb-1">
+                <span style="color:white">Ready to </span><span style="color:#3b9eff">Transform Your Life?</span>
+              </h3>
+              <p class="text-sm" style="color:rgba(255,255,255,0.65);max-width:380px">
+                Join thousands of people who are already living healthier,<br class="hidden sm:block">
+                earning freely, and building a better future with Rich &amp; Well.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: button -->
+          <button class="btn-primary flex items-center gap-2 whitespace-nowrap rounded-xl" style="font-weight:700;font-size:0.88rem;padding:0.75rem 1.75rem;color:white;flex-shrink:0;background:#42841F;border-color:#42841F">
+            Join Rich &amp; Well Today <i class="fas fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden" style="background:#050e17;border-color:rgba(20,82,177,0.2)">
+      <div class="container-pro relative z-10">
+
+        <!-- Newsletter CTA -->
+        <div class="mb-16">
+          <div class="rounded-2xl overflow-hidden border border-[rgba(20,82,177,0.3)]" style="background:rgba(5,14,23,0.95)">
+            <div class="p-5 md:p-6 lg:p-8">
+              <div class="flex flex-col lg:flex-row lg:items-center gap-5">
+                <div class="flex-shrink-0 flex justify-center lg:justify-start">
+                  <div class="w-11 h-11 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center" style="background:rgba(20,82,177,0.1)">
+                    <i class="fas fa-users text-xl" style="color:#1452b1"></i>
+                  </div>
+                </div>
+                <div class="text-center lg:text-left flex-shrink-0">
+                  <h2 class="text-lg md:text-xl font-bold" style="color:white;font-weight:700;line-height:1.25">
+                    Ready To Begin Your<br />
+                    <span style="color:#1452b1">Rich</span> &amp; <span style="color:#487319">Well</span> Journey?
+                  </h2>
+                </div>
+                <div class="hidden lg:block w-px self-stretch" style="background:rgba(255,255,255,0.15);flex-shrink:0"></div>
+                <div class="flex-1">
+                  <p class="text-gray-300 text-xs leading-relaxed text-center lg:text-left" style="font-weight:400">
+                    Join a global wellness and empowerment ecosystem<br class="hidden lg:block" />
+                    designed to help you live healthier, earn smarter,<br class="hidden lg:block" />
+                    and create lasting impact.
+                  </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-end items-center flex-shrink-0">
+                  <button class="btn-blue px-5 py-2.5 rounded-full text-xs flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:600">BECOME A MEMBER <i class="fas fa-arrow-right"></i></button>
+                  <button class="px-5 py-2.5 rounded-full text-xs border border-[rgba(255,192,10,0.5)] text-white flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:500;background:rgba(0,0,0,0.2)"><i class="fas fa-phone" style="color:#ffc00a"></i> SPEAK TO A CONSULTANT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop footer grid -->
+        <div class="footer-main-grid hidden lg:grid">
+          <div>
+            <img src="images/logo.png" alt="Rich & Well" class="h-12 w-auto" loading="lazy" />
+            <p class="footer-brand-desc" style="font-weight:400">Empowering wellness through innovative frequency technologies and life-changing opportunities.</p>
+            <div class="footer-social-row">
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube" style="color:white"></i></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">COMPANY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Mission</a></li>
+              <li><a href="about.html">Leadership</a></li>
+              <li><a href="testimonials.html">Success Stories</a></li>
+              <li><a href="about.html">News &amp; Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">WELLNESS DEVICES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="wellness-devices.html">Terahertz Series</a></li>
+              <li><a href="wellness-devices.html">Foot Therapy</a></li>
+              <li><a href="wellness-devices.html">Frequency Collection</a></li>
+              <li><a href="wellness-devices.html">Accessories</a></li>
+              <li><a href="wellness-devices.html">Wellness Solutions</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--gold">OPPORTUNITY</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="opportunity.html">Why Rich &amp; Well</a></li>
+              <li><a href="compensation.html">Compensation Plan</a></li>
+              <li><a href="opportunity.html">Become A Distributor</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--blue">RESOURCES</h4>
+            <ul class="footer-col-links list-none p-0 m-0">
+              <li><a href="faq.html">Support Center</a></li>
+              <li><a href="faq.html">Shipping Policy</a></li>
+              <li><a href="faq.html">Returns &amp; Refunds</a></li>
+              <li><a href="faq.html">Terms of Use</a></li>
+              <li><a href="faq.html">Privacy Policy</a></li>
+              <li><a href="faq.html">Legal Disclaimer</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-heading footer-col-heading--green">STAY CONNECTED</h4>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed" style="font-weight:400">Receive wellness insights, product updates, and community news.</p>
+            <form class="footer-newsletter-input-wrap">
+              <input type="email" placeholder="Enter your email address" class="flex-1 rounded-l-lg px-4 py-3 text-xs text-white border border-gray-600 focus:outline-none" style="background:rgba(255,255,255,0.05);font-weight:400" required />
+              <button type="submit" class="btn-primary rounded-r-lg px-4 py-3 text-xs" style="font-weight:600;color:white"><i class="fas fa-arrow-right"></i></button>
+            </form>
+            <div class="flex items-center gap-2 mt-4">
+              <i class="fas fa-shield-alt text-xs" style="color:#42841F"></i>
+              <p class="text-gray-500 text-[10px]" style="font-weight:400">We respect your privacy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile footer accordions -->
+        <div class="lg:hidden">
+          <div class="text-center pb-8 mb-8 border-b" style="border-color:rgba(255,255,255,0.08)">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight:400">Empowering wellness through innovative frequency technologies and life-changing opportunities.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color:white"></i></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-0 mb-8">
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="about.html" class="hover:text-white transition block">About Us</a></li>
+                <li><a href="about.html" class="hover:text-white transition block">Our Mission</a></li>
+                <li><a href="testimonials.html" class="hover:text-white transition block">Success Stories</a></li>
+                <li><a href="contact.html" class="hover:text-white transition block">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">WELLNESS DEVICES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#42841F"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">Terahertz Series</a></li>
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">Foot Therapy</a></li>
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">Frequency Collection</a></li>
+                <li><a href="wellness-devices.html" class="hover:text-white transition block">Accessories</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#ffc00a"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="opportunity.html" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
+                <li><a href="compensation.html" class="hover:text-white transition block">Compensation Plan</a></li>
+                <li><a href="opportunity.html" class="hover:text-white transition block">Become A Distributor</a></li>
+                <li><a href="testimonials.html" class="hover:text-white transition block">Testimonials</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="faq.html" class="hover:text-white transition block">Support Center</a></li>
+                <li><a href="faq.html" class="hover:text-white transition block">FAQs</a></li>
+                <li><a href="faq.html" class="hover:text-white transition block">Terms of Use</a></li>
+                <li><a href="faq.html" class="hover:text-white transition block">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-mission-section text-center relative">
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--left hidden lg:block" aria-hidden="true" loading="lazy" />
+          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--right hidden lg:block" aria-hidden="true" loading="lazy" />
+          <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color:#1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#1452b1">WELLNESS</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(72,115,25,0.15)"><i class="fas fa-chart-line text-xs sm:text-sm" style="color:#487319"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#487319">WEALTH</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(20,82,177,0.15)"><i class="fas fa-users text-xs sm:text-sm" style="color:#1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#1452b1">COMMUNITY</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(255,192,10,0.12)"><i class="fas fa-person-walking text-xs sm:text-sm" style="color:#ffc00a"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color:#ffc00a">FREEDOM</p>
+            </div>
+          </div>
+          <h2 class="font-bold mb-3 px-2 relative z-10" style="font-weight:700;color:white;font-size:clamp(0.9rem,3vw,1.5rem)">
+            <span class="inline">RESTORE <span style="color:#1452b1">SMARTER</span></span>
+            <span class="inline mx-2">PROSPER <span style="color:#487319">FREELY</span></span>
+            <span class="inline">LIVE <span style="color:#ffc00a">FULLY</span></span>
+          </h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight:400">Creating a future where wellness, wealth, community, and freedom work together.</p>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom-bar pt-8 mt-4">
+          <div class="text-center">
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight:400">© 2026 Rich &amp; Well. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+      // FAQ accordion
+      function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = btn.querySelector('i.fa-chevron-down, i.fa-chevron-up');
+        const isOpen = !answer.classList.contains('hidden');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.querySelector('.faq-answer').classList.add('hidden');
+          const ic = i.querySelector('.faq-trigger i');
+          ic.classList.remove('fa-chevron-up');
+          ic.classList.add('fa-chevron-down');
+          ic.style.color = '#9ca3af';
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          answer.classList.remove('hidden');
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+          icon.style.color = '#1452b1';
+        }
+      }
+
+      // Category filter
+      document.querySelectorAll('.faq-cat-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const cat = this.dataset.cat;
+
+          // Update active state
+          document.querySelectorAll('.faq-cat-btn').forEach(b => {
+            b.style.background = '';
+            b.querySelector('span.font-semibold, span.text-sm').style.color = 'var(--text-primary)';
+          });
+          this.style.background = 'rgba(20,82,177,0.08)';
+
+          // Filter items
+          document.querySelectorAll('.faq-item').forEach(item => {
+            if (cat === 'all' || item.dataset.cat === cat) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // FAQ search
+      function handleFaqSearch() {
+        const q = document.getElementById('faqSearchInput').value.trim().toLowerCase();
+        document.querySelectorAll('.faq-item').forEach(item => {
+          const text = item.querySelector('.faq-trigger span.flex-1').textContent.toLowerCase();
+          item.style.display = !q || text.includes(q) ? '' : 'none';
+        });
+      }
+      document.getElementById('faqSearchInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') handleFaqSearch();
+      });
+    </script>
+  </body>
+</html>
