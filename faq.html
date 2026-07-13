@@ -59,19 +59,26 @@
         flex: 1;
         border: none;
         outline: none;
-        padding: 1rem 1.25rem;
-        font-size: 0.9rem;
+        padding: 0.85rem 1rem;
+        font-size: 0.85rem;
         color: #374151;
         background: transparent;
         font-family: 'Montserrat', sans-serif;
+        min-width: 0;
+      }
+      @media (max-width: 639px) {
+        .faq-search-input {
+          padding: 0.7rem 0.75rem;
+          font-size: 0.8rem;
+        }
       }
       .faq-search-input::placeholder { color: #9ca3af; }
       .faq-search-btn {
         background: #42841F;
         color: white;
         border: none;
-        padding: 1rem 1.75rem;
-        font-size: 0.9rem;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.85rem;
         font-weight: 700;
         cursor: pointer;
         font-family: 'Montserrat', sans-serif;
@@ -79,7 +86,84 @@
         transition: background 0.2s;
         white-space: nowrap;
       }
+      @media (max-width: 639px) {
+        .faq-search-btn {
+          padding: 0.7rem 1.1rem;
+          font-size: 0.8rem;
+        }
+      }
       .faq-search-btn:hover { background: #356b18; }
+
+      /* ── FAQ Dark Mode ── */
+      /* Accordion container border */
+      .dark #faqAccordion {
+        border-color: rgba(255,255,255,0.08) !important;
+      }
+      /* Item separator borders */
+      .dark .faq-item[style*="border-top:1px solid rgba(0,0,0"] {
+        border-top-color: rgba(255,255,255,0.06) !important;
+      }
+      /* Number circles */
+      .dark .faq-trigger span[style*="background:rgba(20,82,177,0.08)"],
+      .dark .faq-trigger span[style*="background:rgba(20,82,177,0.1)"] {
+        background: rgba(20,82,177,0.25) !important;
+        color: #6aadff !important;
+      }
+      /* Answer box */
+      .dark .faq-answer > div[style*="background:rgba(20,82,177,0.05)"] {
+        background: rgba(20,82,177,0.15) !important;
+      }
+      /* Chevron icons on closed items */
+      .dark .faq-trigger i[style*="color:#9ca3af"] {
+        color: rgba(255,255,255,0.4) !important;
+      }
+      /* FAQ trigger button hover */
+      .dark .faq-trigger:hover {
+        background: rgba(255,255,255,0.04);
+      }
+      /* Search bar in dark mode */
+      .dark .faq-search-bar {
+        background: #0f1f35;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      }
+      .dark .faq-search-input {
+        color: rgba(255,255,255,0.85);
+      }
+      .dark .faq-search-input::placeholder {
+        color: rgba(255,255,255,0.35);
+      }
+      /* ── Category button base hover (both modes) ── */
+      .faq-cat-btn {
+        background: transparent;
+        cursor: pointer;
+        text-align: left;
+      }
+      .faq-cat-btn:hover {
+        background: rgba(20,82,177,0.06) !important;
+      }
+      /* Light mode active state */
+      .faq-cat-btn.active-cat {
+        background: rgba(20,82,177,0.08) !important;
+      }
+
+      /* ── DARK MODE: category buttons ── */
+      /* Default state — card-gradient handles bg, text uses var(--text-primary)=white */
+      /* Hover — keep a very subtle dark bg so white text stays readable */
+      .dark .faq-cat-btn:hover {
+        background: rgba(255,255,255,0.07) !important;
+      }
+      /* Active state */
+      .dark .faq-cat-btn.active-cat {
+        background: rgba(20,82,177,0.25) !important;
+      }
+      /* Count badges on non-active items — make visible in dark */
+      .dark .faq-cat-btn span.text-xs {
+        color: rgba(255,255,255,0.5) !important;
+      }
+      /* Support card headset icon bg */
+      .dark .card-gradient div[style*="background:rgba(20,82,177,0.1)"] {
+        background: rgba(20,82,177,0.25) !important;
+      }
     </style>
   </head>
   <body class="gradient-bg text-white">
@@ -229,7 +313,7 @@
 
                 <!-- All Questions — active by default -->
                 <li>
-                  <button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all active-cat" data-cat="all" style="background:rgba(20,82,177,0.08)">
+                  <button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all active-cat" data-cat="all">
                     <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1">
                       <i class="fas fa-question" style="color:white;font-size:12px"></i>
                     </div>
@@ -238,49 +322,49 @@
                   </button>
                 </li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="about">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="about">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-building" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">About Rich &amp; Well</span>
                   <span class="text-xs" style="color:var(--text-secondary)">5</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="wellness">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="wellness">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-leaf" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Wellness Technologies</span>
                   <span class="text-xs" style="color:var(--text-secondary)">6</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="opportunity">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="opportunity">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-users" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">The Opportunity</span>
                   <span class="text-xs" style="color:var(--text-secondary)">5</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="compensation">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="compensation">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-chart-line" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Compensation Plan</span>
                   <span class="text-xs" style="color:var(--text-secondary)">4</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="membership">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="membership">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-id-card" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Membership &amp; Upgrades</span>
                   <span class="text-xs" style="color:var(--text-secondary)">3</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="payments">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="payments">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-credit-card" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Payments &amp; Withdrawals</span>
                   <span class="text-xs" style="color:var(--text-secondary)">3</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="products">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="products">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#42841F"><i class="fas fa-box" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Products &amp; Orders</span>
                   <span class="text-xs" style="color:var(--text-secondary)">2</span>
                 </button></li>
 
-                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all hover:bg-gray-50 dark:hover:bg-white/5" data-cat="account">
+                <li><button class="faq-cat-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all" data-cat="account">
                   <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1452b1"><i class="fas fa-user-circle" style="color:white;font-size:12px"></i></div>
                   <span class="text-sm flex-1 text-left" style="color:var(--text-primary)">Account &amp; Dashboard</span>
                   <span class="text-xs" style="color:var(--text-secondary)">2</span>
@@ -471,8 +555,8 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-base mb-1" style="color:var(--text-primary)">Your Success is Our Priority</h3>
-              <p class="text-sm" style="color:var(--text-secondary);max-width:380px">We are committed to your journey in wellness, wealth, and personal transformation.</p>
+              <h3 class="font-bold text-base mb-1" style="color:rgb(37, 37, 37)">Your Success is Our Priority</h3>
+              <p class="text-sm" style="color:rgb(77, 77, 77);max-width:380px">We are committed to your journey in wellness, wealth, and personal transformation.</p>
             </div>
           </div>
 
@@ -713,8 +797,10 @@
 
         <!-- Bottom bar -->
         <div class="footer-bottom-bar pt-8 mt-4">
-          <div class="text-center">
+          <div class="flex items-center justify-center gap-3 flex-wrap text-center">
             <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight:400">© 2026 Rich &amp; Well. All Rights Reserved.</p>
+            <img src="images/logo.png" alt="Rich & Well" class="h-5 w-auto" />
+            <p class="text-gray-500 text-xs sm:text-sm" style="font-weight:400">Designed for Wellness. Built for Impact.</p>
           </div>
         </div>
       </div>
@@ -752,20 +838,21 @@
         btn.addEventListener('click', function() {
           const cat = this.dataset.cat;
 
-          // Update active state
+          // Remove active-cat class and clear inline bg from all buttons
           document.querySelectorAll('.faq-cat-btn').forEach(b => {
+            b.classList.remove('active-cat');
             b.style.background = '';
-            b.querySelector('span.font-semibold, span.text-sm').style.color = 'var(--text-primary)';
+            // Reset "All Questions" label color back to blue if needed
+            const label = b.querySelector('span.font-semibold');
+            if (label) label.style.color = '#1452b1';
           });
-          this.style.background = 'rgba(20,82,177,0.08)';
 
-          // Filter items
+          // Set active on clicked button
+          this.classList.add('active-cat');
+
+          // Filter FAQ items
           document.querySelectorAll('.faq-item').forEach(item => {
-            if (cat === 'all' || item.dataset.cat === cat) {
-              item.style.display = '';
-            } else {
-              item.style.display = 'none';
-            }
+            item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
           });
         });
       });

@@ -1118,3 +1118,156 @@
       3. OPPORTUNITY (gold underline) — Why Rich & Well, Compensation Plan, Become A Distributor, Testimonials
       4. RESOURCES (blue underline) — Support Center, FAQs, Terms of Use, Privacy Policy
     - All footer links updated to point to correct pages (contact.html, faq.html, testimonials.html)
+
+83. **faq.html — Search bar mobile size + Dark mode fixes**:
+    - **Search bar**: reduced padding (1rem → 0.85rem desktop, 0.7rem mobile), font-size (0.9rem → 0.85rem desktop, 0.8rem mobile), button padding reduced too. Added `min-width:0` to input so it doesn't overflow on small screens.
+    - **Dark mode CSS block added**:
+      - `#faqAccordion` border: rgba(0,0,0,0.08) → rgba(255,255,255,0.08)
+      - `faq-item` borders: black/0.06 → white/0.06
+      - Number circles: very faint blue → stronger blue tint + brighter text
+      - Answer boxes: near-invisible blue tint → 15% blue tint for visible depth
+      - Chevron icon colors dim properly in dark mode
+      - FAQ trigger hover uses white/0.04 bg in dark mode
+      - Search bar: dark bg (#0f1f35), white text, dimmer placeholder
+      - Category hover uses white/0.06 in dark mode
+      - Active category uses stronger 20% blue bg in dark mode
+
+84. **faq.html — Category hover dark mode fix (completed)**:
+    - Root problem: `hover:bg-gray-50` Tailwind class was applying a white bg on hover, making white text (dark mode) invisible
+    - All 8 `hover:bg-gray-50 dark:hover:bg-white/5` classes removed from every `.faq-cat-btn` button
+    - Added `.faq-cat-btn` base CSS rule: `background:transparent; cursor:pointer`
+    - Added `.faq-cat-btn:hover`: `rgba(20,82,177,0.06)` — subtle blue hover in light mode
+    - Added `.dark .faq-cat-btn:hover`: `rgba(255,255,255,0.07)` — very subtle white overlay in dark mode, keeps white text visible
+    - Added `.faq-cat-btn.active-cat`: CSS class-based active state (no more inline style)
+    - Added `.dark .faq-cat-btn.active-cat`: stronger blue bg in dark mode
+    - Removed hardcoded `style="background:rgba(20,82,177,0.08)"` from All Questions button — now controlled by `.active-cat` class
+    - Rewrote category filter JS: now toggles `.active-cat` class instead of setting `style.background` inline — cleaner, theme-aware
+    - Added `.dark .faq-cat-btn span.text-xs` rule to make count badges visible in dark mode
+
+85. **contact.html — Info bar mobile text overflow fix (completed)**:
+    - Changed `.contact-info-item` to `flex-direction:column` on mobile — icon stacks above text, giving full width to text
+    - Reduced icon size: 40px → 32px on mobile
+    - Reduced all text sizes on mobile: label 0.6rem, value 0.72rem, sub 0.6rem
+    - Added `word-break:break-word; overflow-wrap:break-word` to `.contact-info-value` — long strings like phone numbers and emails wrap cleanly
+    - Added `min-width:0` to `.contact-info-item` to prevent flex overflow
+
+86. **Text alignment fix — services.html (5 Pillars + Education Cards) + opportunity.html (Why People Join)**:
+    - **Root cause**: Description paragraphs were using `text-center` alignment with `<br>` tags, causing each line to start at a different point on mobile (centered = ragged left edge). The icon/bullet appearance was actually centered text lines of different lengths.
+    - **Fix applied to all 3 sections**: Added `text-left` class to all description `<p>` elements (keeping the icon and heading centered with `text-center` on the parent). Also removed `<br>` tags from pillar descriptions and replaced with natural sentence flow.
+    - **services.html — 5 Pillars**: All 5 pillars (Education, Economic, Health, Social Justice, Humanitarian) — `<p>` text now `text-left`
+    - **services.html — Education Cards**: All 4 cards (Tech Access, Tuition Aid, Street Smart, Life & Leadership) — `<p>` text now `text-left`
+    - **opportunity.html — Why People Join**: All 4 cards (Direct Earnings, E-Commerce, Leadership, Passive Income) — `<p>` text now `text-left w-full`; also removed stale `text-gray-400` class (was overriding `var(--text-secondary)`)
+    - Result: Text under each heading now starts from the same left edge regardless of line length, consistent across all screen sizes
+
+87. **services.html — 5 Pillars text alignment refined**:
+    - Previous fix used `text-left` on `<p>` only — heading was still centered, so the left edge of the heading and description didn't match
+    - New approach: removed `text-center` from each pillar's outer div. Icon stays centered via `mx-auto`. Heading + description wrapped in a `<div class="text-left">` block — both start from the exact same left edge. Description text lines up precisely under the heading start point.
+
+## WELLNESS DEVICES PAGE — FULL RESTRUCTURE (July 2026)
+
+88. **Rebuilt wellness-devices.html Hero to match new design**:
+    - **Complete visual overhaul** — old dark navy hero replaced with light gradient hero matching new design
+    - **Background**: `linear-gradient(135deg, #f0f4ff, #e8f0fe, #edf5f0)` — light blue-white gradient. Subtle dot mesh pattern overlay (`::before` pseudo-element with radial-gradient dots)
+    - **Layout**: Left content (max-width 520px) + right product image (placeholder, `wd-hero-products-wrap`)
+    - **LEFT content** (all dark text — light mode):
+      - "OUR PRODUCTS" pill badge — white bg, blue border, blue text, green leaf icon
+      - H1: "Advanced Wellness Technologies for **Modern Living**" — dark text + green accent, `clamp(1.9rem,3.5vw,3rem)`, font-weight 800
+      - Description: grey (#4b5563), 0.88rem
+      - 4 feature icon badges in a row: Premium Quality (blue shield), Innovative Technology (green chip), Trusted Worldwide (yellow globe), Dedicated Support (blue headset) — each with white circle icon + small 2-line label below
+      - Search bar: white bg, rounded, box-shadow, magnifier icon + input + blue search button (rounded-8px)
+    - **CSS**: `.wd-hero-section`, `.wd-hero-products-wrap`, `.wd-hero-badge`, `.wd-hero-feat`, `.wd-hero-feat-icon`, `.wd-search-bar`, `.wd-search-input`, `.wd-search-btn` — all new classes replacing old dark hero CSS
+    - **Pending**: Product images collage for right side — awaiting image from client
+    - **navbar**: "Wellness Devices" active with green underline — unchanged
+    - **Product suite section below**: unchanged — still has Terahertz Blower Series products
+
+89. **Fixed navbar visibility on wellness-devices.html light hero**:
+    - Problem: navbar uses `text-gray-300` (light text) by default — invisible against the new light gradient hero background
+    - Solution: added `body.light-hero` CSS class system in styles.css:
+      - `body.light-hero #navbar`: white semi-transparent bg + blur from the start (not waiting for scroll)
+      - `body.light-hero .nav-link`: dark grey (#374151) text — clearly visible on light bg
+      - `body.light-hero .nav-link:hover`: blue (#1452b1)
+      - `body.light-hero #loginBtn`: dark border and text
+      - `body.light-hero .theme-toggle`: dark border + dark icon
+      - `body.light-hero .hamburger-line`: dark lines for hamburger
+    - Added `class="light-hero"` to `<body>` in wellness-devices.html
+    - This approach is reusable — any page with a light hero just needs `light-hero` on the body
+    - Dark mode is unaffected (dark mode overrides take precedence)
+
+## WELLNESS DEVICES PAGE — FINAL CONFIRMED STATE (July 2026)
+
+90. **wellness-devices.html — Full restructure complete**:
+
+    ### CONFIRMED PAGE STRUCTURE (clean, no junk):
+    1. ✅ **HERO** — Light gradient bg (#f0f4ff→#e8f0fe→#edf5f0), dot mesh pattern. Left: "OUR PRODUCTS" badge, "Advanced Wellness Technologies for Modern Living" (green), description, 4 feature icon badges, search bar. Right: product image placeholder. padding-top:170px.
+    2. ✅ **CATEGORY TABS + FEATURED PRODUCTS** — `background:var(--bg-secondary)`:
+       - 8 horizontally scrollable category tabs: Featured Products (blue active), Terahertz Technology, Hydrogen Technology, Infrared Therapy, Wellness Devices, Wearable Wellness, Recovery & Relaxation, Accessories
+       - "FEATURED PRODUCTS" heading + "View All Products →" right
+       - 4-card slider (prev/next arrows, touch swipe): Premium Terahertz Therapy Wand ($249), Instant Hydrogen Rich Water Machine ($699), Far Infrared Therapy Sauna ($699), Far Infrared Foot & Body Therapy Device ($99), Polaris Vitalis Triple Action ($330)
+       - Each card: product image (dark/light bg), name, green "In Stock" + underline, description, star ratings, USD + NGN price
+    3. ✅ **FOOTER** — "DISCOVER WELLNESS DIFFERENTLY" CTA banner + full footer grid
+
+    ### JAVASCRIPT (inline at bottom of file):
+    - `slideProd(dir)` — product slider: recalculates card widths responsively (4/2/1 visible), touch swipe support
+    - `switchCat(btn, cat)` — category tab switcher: resets all, activates clicked
+    - Testimonials slider IIFE (legacy, referenced by wdTestiTrack IDs)
+
+    ### STYLING:
+    - `body.light-hero` class on `<body>` → navbar dark text from the start (no scroll required)
+    - `.wd-hero-section` — light gradient + dot mesh
+    - `.wd-hero-products-wrap` — product image right side
+    - `.wd-hero-badge`, `.wd-hero-feat`, `.wd-hero-feat-icon` — hero UI elements
+    - `.wd-search-bar`, `.wd-search-input`, `.wd-search-btn` — search bar
+    - `.prod-card` — featured product cards
+    - `.cat-tab`, `.active-tab` — category tab buttons
+
+    ### PENDING:
+    - Product collage image for hero right side (awaiting from client)
+    - Category tab filtering (currently just UI, no data backend)
+
+91. **wellness-devices.html — Category tabs full-width + Product card image fix**:
+    - Category tabs: added `#catTabsRow { justify-content: space-evenly; }` + `.cat-tab { flex: 1; min-width: 80px; }` so all 8 tabs spread evenly across the full page width
+    - Product card image area: increased height 220px → 240px, `object-fit:cover` + `object-position:center top` so image fills the entire top half of the card edge-to-edge. Dark bg cards: #0a0e1a. Light bg cards: #f4f6f9.
+    - All 5 product cards updated to use `.prod-card-img dark-bg` or `.prod-card-img light-bg` class instead of inline padded divs
+
+92. **wellness-devices.html — All Products section added**:
+    - 2-column layout: left filter sidebar (sticky, 224px) + right product grid
+    - **Filter Sidebar**: "FILTER BY" header, Category checkboxes (7 categories), Price Range slider ($0–$1,500+), Availability/Technology/Rating collapsible sections, Reset Filters button
+    - **Product Grid** (auto-fill minmax 200px): toolbar with "ALL PRODUCTS" + Sort by dropdown + grid/list toggle buttons
+    - **8 product cards**: Moringa Patch ($59), EMF Anti-Radiation Patch ($29), Quantum Terahertz Pendant ($89), Terahertz Chip Detector ($129), Hydrogen Water Machine ($699), Terahertz Massage Wand ($229), Far Infrared Therapy Belt ($299), Infrared Light Panel ($899)
+    - Each card: image (180px, object-fit:cover), name, green "In Stock", stars+count, USD+NGN price, "View Product" (blue outlined) + "Place Order" (green filled) buttons
+    - Uses card-gradient + var(--border-light) — light/dark mode compatible
+
+    ### wellness-devices.html — PAGE NOW COMPLETE ✅
+    Section order: Hero → Category Tabs + Featured Products → All Products → Footer
+
+93. **wellness-devices.html — Trust Badges + CTA Banner added (final sections before footer)**:
+
+    **Trust Badges bar** (between All Products and CTA):
+    - Light bg, 2×2 mobile / 4-col desktop grid
+    - Premium Quality (blue shield icon)
+    - Fast & Secure Delivery (green truck icon)
+    - Member Benefits (yellow crown icon)
+    - Dedicated Support (purple headset icon)
+    - Each: icon circle + bold title + grey description
+
+    **"Ready to Experience Better Wellness?" CTA**:
+    - Dark navy bg (#0a1628), green leaf SVG decorations on left+right
+    - Heading: "Ready to Experience " white + "Better Wellness?" green
+    - Description text grey
+    - Two buttons side by side: "Browse Products" (white outlined) + "Become a Member" (green filled)
+
+    ### wellness-devices.html — FULLY COMPLETE ✅
+    Full section order:
+    1. Hero (light gradient bg, OUR PRODUCTS badge, search bar)
+    2. Category Tabs (8 tabs, full width) + Featured Products slider (5 cards)
+    3. All Products (filter sidebar + 8-product grid)
+    4. Trust Badges (4 feature badges)
+    5. Ready to Experience Better Wellness? (CTA)
+    6. Footer (DISCOVER WELLNESS DIFFERENTLY banner + full footer grid)
+
+94. **Universal Footer — Copyright bar updated on all 9 pages + duplicate border removed**:
+    - Removed CSS `border-top` from `.footer-bottom-bar` in styles.css (single border now comes from the HTML `pt-8 mt-4` border-top via the mission section separator)
+    - All 9 pages (index, about, services, opportunity, compensation, contact, faq, testimonials, wellness-devices): copyright bar changed from centered single line to a **tight centered row**:
+      `© 2026 Rich & Well. All Rights Reserved.` [logo h-5] `Designed for Wellness. Built for Impact.`
+    - Layout: `flex items-center justify-center gap-3 flex-wrap text-center` — everything sits close together in one centered line, wraps on mobile
+    - wellness-devices.html also had "DISCOVER WELLNESS DIFFERENTLY" footer CTA section removed completely

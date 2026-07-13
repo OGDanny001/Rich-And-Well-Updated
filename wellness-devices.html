@@ -20,63 +20,51 @@
     </script>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* ── Wellness Devices Page Specific Styles ── */
+      /* ── Product card image covers top half edge-to-edge ── */
+      .prod-card-img {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .prod-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .prod-card-img.dark-bg { background: #0a0e1a; }
+      .prod-card-img.light-bg { background: #f4f6f9; }
+      /* ── Category tabs full width ── */
+      .cat-tab { flex: 1; min-width: 80px; }
+      #catTabsRow { justify-content: space-evenly; }
       .wd-hero-section {
-        background: #050e17;
-        min-height: 100vh;
+        background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 40%, #edf5f0 100%);
+        min-height: 88vh;
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
-        padding-top: 112px;
+        padding-top: 170px;
         padding-bottom: 3rem;
       }
 
-      /* Deep space background layers */
-      .wd-hero-bg-layer {
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(ellipse 80% 60% at 70% 50%, rgba(10,40,120,0.55) 0%, transparent 65%),
-          radial-gradient(ellipse 50% 80% at 100% 50%, rgba(5,20,80,0.4) 0%, transparent 60%),
-          radial-gradient(ellipse 30% 40% at 50% 50%, rgba(0,80,200,0.12) 0%, transparent 50%);
-        pointer-events: none;
-      }
-
-      /* Right side glow rings around devices */
-      .wd-hero-rings {
-        position: absolute;
-        right: 3%;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 560px;
-        height: 560px;
-        pointer-events: none;
-      }
-      .wd-hero-rings::before,
-      .wd-hero-rings::after {
+      /* Subtle dot/mesh bg pattern */
+      .wd-hero-section::before {
         content: '';
         position: absolute;
-        border-radius: 50%;
-        border: 1.5px solid rgba(30,120,255,0.25);
-      }
-      .wd-hero-rings::before {
         inset: 0;
-        box-shadow: 0 0 80px rgba(20,82,177,0.3), inset 0 0 80px rgba(20,82,177,0.1);
-      }
-      .wd-hero-rings::after {
-        inset: 60px;
-        border-color: rgba(30,120,255,0.18);
-        box-shadow: 0 0 40px rgba(20,82,177,0.2);
-      }
-      .wd-hero-rings-inner {
-        position: absolute;
-        inset: 120px;
-        border-radius: 50%;
-        border: 1px solid rgba(30,120,255,0.12);
+        background-image: radial-gradient(circle, rgba(20,82,177,0.06) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
       }
 
-      .wd-hero-devices-wrap {
+      /* Right product image area */
+      .wd-hero-products-wrap {
         position: absolute;
         right: 0;
         top: 0;
@@ -84,18 +72,92 @@
         width: 52%;
         pointer-events: none;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
         overflow: hidden;
       }
-      .wd-hero-devices-wrap img {
-        width: 90%;
-        max-width: 600px;
+      .wd-hero-products-wrap img {
+        width: 100%;
+        max-width: 660px;
         object-fit: contain;
         object-position: center bottom;
-        filter: drop-shadow(0 0 40px rgba(20,82,177,0.5)) drop-shadow(0 20px 60px rgba(0,0,0,0.6));
-        transform: translateY(4%);
+        filter: drop-shadow(0 20px 40px rgba(20,82,177,0.15));
       }
+
+      /* OUR PRODUCTS badge */
+      .wd-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        background: white;
+        border: 1px solid rgba(20,82,177,0.2);
+        color: #1452b1;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 2px 8px rgba(20,82,177,0.08);
+      }
+
+      /* Feature icon badges */
+      .wd-hero-feat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+      }
+      .wd-hero-feat-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(20,82,177,0.2);
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      }
+
+      /* Search bar */
+      .wd-search-bar {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+        overflow: hidden;
+        max-width: 380px;
+        border: 1px solid rgba(20,82,177,0.12);
+      }
+      .wd-search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+        color: #374151;
+        background: transparent;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .wd-search-input::placeholder { color: #9ca3af; }
+      .wd-search-btn {
+        width: 42px;
+        height: 42px;
+        background: #1452b1;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        margin: 3px;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+      .wd-search-btn:hover { background: #0e3d8a; }
 
       /* Ecosystem Ring Section */
       .wd-ecosystem-section {
@@ -406,7 +468,7 @@
       }
     </style>
   </head>
-  <body class="gradient-bg text-white">
+  <body class="gradient-bg text-white light-hero">
 
     <!-- ══ NAVBAR ══ -->
     <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -479,302 +541,616 @@
 
     <!-- ══════════════ HERO ══════════════ -->
     <section class="wd-hero-section">
-      <!-- Background depth layers -->
-      <div class="wd-hero-bg-layer"></div>
 
-      <!-- Glowing rings behind devices -->
-      <div class="wd-hero-rings hidden lg:block">
-        <div class="wd-hero-rings-inner"></div>
-      </div>
-
-      <!-- Bottom fade so hero blends into next section -->
-      <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style="background:linear-gradient(to bottom, transparent, #050e17)"></div>
-
-      <!-- Device images placeholder — to be replaced when new image is added -->
-      <div class="wd-hero-devices-wrap hidden lg:flex">
-        <!-- Image will be added here -->
+      <!-- Right side: product images -->
+      <div class="wd-hero-products-wrap hidden lg:flex">
+        <!-- Product image will be added here -->
       </div>
 
       <div class="container-pro relative z-10">
-        <div style="max-width:600px">
-          <!-- Eyebrow -->
-          <p class="text-xs mb-5 tracking-widest uppercase animate-fadeInUp" style="color:#3b9eff;font-weight:700;letter-spacing:0.18em;animation-delay:0.2s">WELLNESS TECHNOLOGIES</p>
+        <div style="max-width:520px">
+
+          <!-- OUR PRODUCTS badge -->
+          <div class="mb-5 animate-fadeInUp" style="animation-delay:0.1s">
+            <span class="wd-hero-badge">
+              <i class="fas fa-leaf" style="font-size:10px;color:#42841F"></i>
+              OUR PRODUCTS
+            </span>
+          </div>
 
           <!-- Heading -->
-          <h1 class="mb-5 animate-fadeInUp" style="font-size:clamp(1.8rem,3vw,2.8rem);color:white;font-weight:900;line-height:1.15;letter-spacing:-0.01em;animation-delay:0.35s;white-space:nowrap">
-            <span class="block">ADVANCED WELLNESS</span>
-            <span class="block">TECHNOLOGY.</span>
-            <span class="block" style="color:#6cb833">NATURAL HARMONY.</span>
+          <h1 class="mb-4 animate-fadeInUp" style="font-size:clamp(1.9rem,3.5vw,3rem);color:#050e17;font-weight:800;line-height:1.15;animation-delay:0.2s">
+            Advanced Wellness<br>Technologies for<br>
+            <span style="color:#42841F">Modern Living</span>
           </h1>
 
           <!-- Description -->
-          <p class="mb-8 animate-fadeIn" style="color:rgba(209,213,219,0.9);font-size:0.9rem;line-height:1.7;font-weight:400;max-width:430px;animation-delay:0.55s">
-            Rich &amp; Well's ecosystem of frequency-based wellness technologies designed to support balance, vitality, relaxation, and empowered living.
+          <p class="mb-7 animate-fadeIn" style="color:#4b5563;font-size:0.88rem;line-height:1.75;max-width:400px;animation-delay:0.35s">
+            Explore innovative wellness solutions designed to support a healthier lifestyle, improved comfort, and everyday wellbeing.
           </p>
 
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-3 mb-10 animate-fadeInUp" style="animation-delay:0.7s">
-            <button class="btn-blue rounded-full text-sm text-white flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:700;padding:0.75rem 1.75rem;min-width:200px">
-              EXPLORE TECHNOLOGIES <i class="fas fa-arrow-right"></i>
-            </button>
-            <button class="rounded-full text-sm flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:600;padding:0.75rem 1.75rem;min-width:200px;color:white;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.35)">
-              SPEAK TO A CONSULTANT <i class="fas fa-phone text-xs"></i>
+          <!-- Feature badges row -->
+          <div class="flex flex-wrap gap-5 mb-8 animate-fadeInUp" style="animation-delay:0.5s">
+            <div class="wd-hero-feat">
+              <div class="wd-hero-feat-icon">
+                <i class="fas fa-shield-alt" style="color:#1452b1;font-size:16px"></i>
+              </div>
+              <span style="color:#374151;font-size:0.65rem;font-weight:700;line-height:1.2">Premium<br>Quality</span>
+            </div>
+            <div class="wd-hero-feat">
+              <div class="wd-hero-feat-icon">
+                <i class="fas fa-microchip" style="color:#42841F;font-size:16px"></i>
+              </div>
+              <span style="color:#374151;font-size:0.65rem;font-weight:700;line-height:1.2">Innovative<br>Technology</span>
+            </div>
+            <div class="wd-hero-feat">
+              <div class="wd-hero-feat-icon">
+                <i class="fas fa-globe" style="color:#ffc00a;font-size:16px"></i>
+              </div>
+              <span style="color:#374151;font-size:0.65rem;font-weight:700;line-height:1.2">Trusted<br>Worldwide</span>
+            </div>
+            <div class="wd-hero-feat">
+              <div class="wd-hero-feat-icon">
+                <i class="fas fa-headset" style="color:#1452b1;font-size:16px"></i>
+              </div>
+              <span style="color:#374151;font-size:0.65rem;font-weight:700;line-height:1.2">Dedicated<br>Support</span>
+            </div>
+          </div>
+
+          <!-- Search bar -->
+          <div class="wd-search-bar animate-fadeInUp" style="animation-delay:0.65s">
+            <i class="fas fa-search ml-3 flex-shrink-0" style="color:#9ca3af;font-size:13px"></i>
+            <input type="text" class="wd-search-input" placeholder="Search for products..." id="wdSearchInput" />
+            <button class="wd-search-btn" aria-label="Search">
+              <i class="fas fa-search" style="color:white;font-size:13px"></i>
             </button>
           </div>
 
-          <!-- Trust Badges Row -->
-          <div class="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style="animation-delay:0.85s">
-            <div class="flex items-center gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
-                <i class="fas fa-leaf text-sm" style="color:#6cb833"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CATEGORY TABS + FEATURED PRODUCTS ══════════════ -->
+    <section style="background:var(--bg-secondary);padding:0">
+
+      <!-- Category Tabs Strip -->
+      <div style="border-bottom:1px solid var(--border-light);overflow-x:auto;-webkit-overflow-scrolling:touch">
+        <div style="display:flex;min-width:100%" id="catTabsRow">
+
+          <button class="cat-tab active-tab" data-cat="featured" onclick="switchCat(this,'featured')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:#1452b1;border-radius:0;white-space:nowrap;transition:background 0.2s">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-star" style="color:white;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:700;color:white;line-height:1.2;text-align:center">Featured<br>Products</span>
+          </button>
+
+          <button class="cat-tab" data-cat="terahertz" onclick="switchCat(this,'terahertz')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(20,82,177,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-wave-square" style="color:#1452b1;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Terahertz<br>Technology</span>
+          </button>
+
+          <button class="cat-tab" data-cat="hydrogen" onclick="switchCat(this,'hydrogen')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(30,144,255,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-tint" style="color:#1e90ff;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Hydrogen<br>Technology</span>
+          </button>
+
+          <button class="cat-tab" data-cat="infrared" onclick="switchCat(this,'infrared')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(220,53,69,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-fire" style="color:#dc3545;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Infrared<br>Therapy</span>
+          </button>
+
+          <button class="cat-tab" data-cat="wellness" onclick="switchCat(this,'wellness')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(142,68,173,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-heartbeat" style="color:#8e44ad;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Wellness<br>Devices</span>
+          </button>
+
+          <button class="cat-tab" data-cat="wearable" onclick="switchCat(this,'wearable')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(32,178,170,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-clock" style="color:#20b2aa;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Wearable<br>Wellness</span>
+          </button>
+
+          <button class="cat-tab" data-cat="recovery" onclick="switchCat(this,'recovery')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,140,0,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-spa" style="color:#ff8c00;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Recovery &amp;<br>Relaxation</span>
+          </button>
+
+          <button class="cat-tab" data-cat="accessories" onclick="switchCat(this,'accessories')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;border:none;cursor:pointer;background:transparent;border-radius:0;white-space:nowrap;transition:background 0.2s" onmouseover="if(!this.classList.contains('active-tab'))this.style.background='rgba(20,82,177,0.06)'" onmouseout="if(!this.classList.contains('active-tab'))this.style.background='transparent'">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(100,100,100,0.1);display:flex;align-items:center;justify-content:center">
+              <i class="fas fa-box" style="color:#6c757d;font-size:13px"></i>
+            </div>
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-primary);line-height:1.2;text-align:center">Accessories</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Featured Products Section -->
+      <div class="container-pro" style="padding-top:2.5rem;padding-bottom:4rem">
+
+        <!-- Section header -->
+        <div class="flex items-center justify-between mb-6 reveal-up" style="transition-delay:0.1s">
+          <h2 class="font-bold text-lg" style="color:var(--text-primary);letter-spacing:0.04em;text-transform:uppercase">FEATURED PRODUCTS</h2>
+          <a href="#" class="flex items-center gap-1.5 text-sm font-semibold" style="color:#1452b1">
+            View All Products <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <!-- Products slider wrapper -->
+        <div class="relative reveal-up" style="transition-delay:0.2s">
+
+          <!-- Prev -->
+          <button id="prodPrev" aria-label="Previous" onclick="slideProd(-1)" class="absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center border transition" style="background:white;border-color:rgba(0,0,0,0.12);color:#6b7280;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+            <i class="fas fa-chevron-left text-xs"></i>
+          </button>
+
+          <!-- Track -->
+          <div style="overflow:hidden">
+            <div id="prodTrack" style="display:flex;gap:1.25rem;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)">
+
+              <!-- Card 1: Premium Terahertz Therapy Wand -->
+              <div class="prod-card" style="flex-shrink:0;background:white;border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+              <div class="prod-card-img dark-bg">
+                  <img src="images/product/ionsync.jpeg" alt="Premium Terahertz Therapy Wand" loading="lazy" />
+                </div>
+                <div style="padding:1.25rem">
+                  <h3 style="color:#050e17;font-size:0.95rem;font-weight:700;margin:0 0 0.4rem;line-height:1.3">Premium Terahertz<br>Therapy Wand</h3>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem">
+                    <div style="width:28px;height:3px;background:#42841F;border-radius:2px"></div>
+                    <span style="color:#42841F;font-size:0.7rem;font-weight:700">In Stock</span>
+                  </div>
+                  <p style="color:#6b7280;font-size:0.75rem;line-height:1.55;margin:0 0 0.75rem">Advanced terahertz frequency technology for daily wellness and vitality support.</p>
+                  <div style="display:flex;align-items:center;gap:4px;margin-bottom:0.75rem">
+                    <i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:11px"></i>
+                    <span style="color:#9ca3af;font-size:0.7rem;margin-left:2px">(128)</span>
+                  </div>
+                  <div style="display:flex;align-items:baseline;gap:8px">
+                    <span style="color:#6b7280;font-size:0.8rem">USD <strong style="color:#050e17;font-size:1.1rem;font-weight:800">$249</strong></span>
+                    <span style="color:#6b7280;font-size:0.72rem">NGN <strong style="color:#050e17;font-weight:700">₦390,000</strong></span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold uppercase tracking-wide" style="color:white">DRUG-FREE</div>
-                <div class="text-xs" style="color:rgba(255,255,255,0.55)">Wellness Support</div>
+
+              <!-- Card 2: Instant Hydrogen Rich Water Machine -->
+              <div class="prod-card" style="flex-shrink:0;background:white;border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+              <div class="prod-card-img light-bg">
+                  <img src="images/product/SPEPEM Hydrogen Water Bottle.jpeg" alt="Instant Hydrogen Rich Water Machine" loading="lazy" />
+                </div>
+                <div style="padding:1.25rem">
+                  <h3 style="color:#050e17;font-size:0.95rem;font-weight:700;margin:0 0 0.4rem;line-height:1.3">Instant Hydrogen Rich<br>Water Machine</h3>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem">
+                    <div style="width:28px;height:3px;background:#42841F;border-radius:2px"></div>
+                    <span style="color:#42841F;font-size:0.7rem;font-weight:700">In Stock</span>
+                  </div>
+                  <p style="color:#6b7280;font-size:0.75rem;line-height:1.55;margin:0 0 0.75rem">Multi-temperature hydrogen water for better hydration and overall wellbeing.</p>
+                  <div style="display:flex;align-items:center;gap:4px;margin-bottom:0.75rem">
+                    <i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:11px"></i>
+                    <span style="color:#9ca3af;font-size:0.7rem;margin-left:2px">(97)</span>
+                  </div>
+                  <div style="display:flex;align-items:baseline;gap:8px">
+                    <span style="color:#6b7280;font-size:0.8rem">USD <strong style="color:#050e17;font-size:1.1rem;font-weight:800">$699</strong></span>
+                    <span style="color:#6b7280;font-size:0.72rem">NGN <strong style="color:#050e17;font-weight:700">₦1,090,000</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Far Infrared Therapy Sauna -->
+              <div class="prod-card" style="flex-shrink:0;background:white;border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+              <div class="prod-card-img light-bg">
+                  <img src="images/product/Lumara Elite.jpeg" alt="Far Infrared Therapy Sauna" loading="lazy" />
+                </div>
+                <div style="padding:1.25rem">
+                  <h3 style="color:#050e17;font-size:0.95rem;font-weight:700;margin:0 0 0.4rem;line-height:1.3">Far Infrared Therapy<br>Sauna</h3>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem">
+                    <div style="width:28px;height:3px;background:#42841F;border-radius:2px"></div>
+                    <span style="color:#42841F;font-size:0.7rem;font-weight:700">In Stock</span>
+                  </div>
+                  <p style="color:#6b7280;font-size:0.75rem;line-height:1.55;margin:0 0 0.75rem">Deep infrared heat therapy to promote detoxification, relaxation and improved circulation.</p>
+                  <div style="display:flex;align-items:center;gap:4px;margin-bottom:0.75rem">
+                    <i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:11px"></i>
+                    <span style="color:#9ca3af;font-size:0.7rem;margin-left:2px">(154)</span>
+                  </div>
+                  <div style="display:flex;align-items:baseline;gap:8px">
+                    <span style="color:#6b7280;font-size:0.8rem">USD <strong style="color:#050e17;font-size:1.1rem;font-weight:800">$699</strong></span>
+                    <span style="color:#6b7280;font-size:0.72rem">NGN <strong style="color:#050e17;font-weight:700">₦1,090,000</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: Far Infrared Foot & Body Therapy Device -->
+              <div class="prod-card" style="flex-shrink:0;background:white;border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+              <div class="prod-card-img light-bg">
+                  <img src="images/product/AI Foot Massager.jpeg" alt="Far Infrared Foot & Body Therapy Device" loading="lazy" />
+                </div>
+                <div style="padding:1.25rem">
+                  <h3 style="color:#050e17;font-size:0.95rem;font-weight:700;margin:0 0 0.4rem;line-height:1.3">Far Infrared Foot &amp; Body<br>Therapy Device</h3>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem">
+                    <div style="width:28px;height:3px;background:#42841F;border-radius:2px"></div>
+                    <span style="color:#42841F;font-size:0.7rem;font-weight:700">In Stock</span>
+                  </div>
+                  <p style="color:#6b7280;font-size:0.75rem;line-height:1.55;margin:0 0 0.75rem">Relieve fatigue, improve blood circulation and protect your health every day.</p>
+                  <div style="display:flex;align-items:center;gap:4px;margin-bottom:0.75rem">
+                    <i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:11px"></i>
+                    <span style="color:#9ca3af;font-size:0.7rem;margin-left:2px">(112)</span>
+                  </div>
+                  <div style="display:flex;align-items:baseline;gap:8px">
+                    <span style="color:#6b7280;font-size:0.8rem">USD <strong style="color:#050e17;font-size:1.1rem;font-weight:800">$99</strong></span>
+                    <span style="color:#6b7280;font-size:0.72rem">NGN <strong style="color:#050e17;font-weight:700">₦625,000</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5: IonSync Terahertz Wand -->
+              <div class="prod-card" style="flex-shrink:0;background:white;border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+              <div class="prod-card-img dark-bg">
+                  <img src="images/product/polaris vitalis.jpeg" alt="Polaris Vitalis" loading="lazy" />
+                </div>
+                <div style="padding:1.25rem">
+                  <h3 style="color:#050e17;font-size:0.95rem;font-weight:700;margin:0 0 0.4rem;line-height:1.3">Polaris Vitalis<br>Triple Action</h3>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem">
+                    <div style="width:28px;height:3px;background:#42841F;border-radius:2px"></div>
+                    <span style="color:#42841F;font-size:0.7rem;font-weight:700">In Stock</span>
+                  </div>
+                  <p style="color:#6b7280;font-size:0.75rem;line-height:1.55;margin:0 0 0.75rem">Terahertz + Phased Red Light + EMS Pulse for deep wellness support.</p>
+                  <div style="display:flex;align-items:center;gap:4px;margin-bottom:0.75rem">
+                    <i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:11px"></i>
+                    <span style="color:#9ca3af;font-size:0.7rem;margin-left:2px">(89)</span>
+                  </div>
+                  <div style="display:flex;align-items:baseline;gap:8px">
+                    <span style="color:#6b7280;font-size:0.8rem">USD <strong style="color:#050e17;font-size:1.1rem;font-weight:800">$330</strong></span>
+                    <span style="color:#6b7280;font-size:0.72rem">NGN <strong style="color:#050e17;font-weight:700">₦528,000</strong></span>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- end track -->
+          </div>
+
+          <!-- Next -->
+          <button id="prodNext" aria-label="Next" onclick="slideProd(1)" class="absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center border transition" style="background:white;border-color:rgba(0,0,0,0.12);color:#6b7280;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+            <i class="fas fa-chevron-right text-xs"></i>
+          </button>
+        </div><!-- end slider -->
+
+      </div>
+    </section>
+
+
+
+
+    <!-- ══════════════ ALL PRODUCTS ══════════════ -->
+    <section style="background:var(--bg-secondary);padding:3rem 0 5rem">
+      <div class="container-pro">
+        <div class="lg:flex gap-8 items-start">
+
+          <!-- LEFT: Filter Sidebar -->
+          <div class="lg:w-56 flex-shrink-0 mb-8 lg:mb-0">
+            <div class="card-gradient rounded-2xl p-5" style="border:1px solid var(--border-light);position:sticky;top:120px">
+
+              <!-- Header -->
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-sm" style="color:var(--text-primary)">FILTER BY</h3>
+                <i class="fas fa-chevron-up text-xs" style="color:var(--text-secondary)"></i>
+              </div>
+
+              <!-- Category -->
+              <div class="mb-5">
+                <h4 class="font-bold text-xs mb-3" style="color:var(--text-primary)">Category</h4>
+                <div class="space-y-2">
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Terahertz Technology</span></label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Hydrogen Technology</span></label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Infrared Therapy</span></label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Wellness Devices</span></label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Wearable Wellness</span></label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Recovery &amp; Relaxation</span></label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Accessories</span></label>
+                </div>
+                <button class="text-xs font-semibold mt-3" style="color:#1452b1">View More +</button>
+              </div>
+
+              <!-- Price Range -->
+              <div class="mb-5" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-xs" style="color:var(--text-primary)">Price Range (USD)</h4>
+                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                </div>
+                <input type="range" min="0" max="1500" value="1500" class="w-full" style="accent-color:#1452b1">
+                <div class="flex justify-between mt-1">
+                  <span class="text-xs" style="color:var(--text-secondary)">$0</span>
+                  <span class="text-xs" style="color:var(--text-secondary)">$1,500+</span>
+                </div>
+              </div>
+
+              <!-- Availability -->
+              <div class="mb-4" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <div class="flex items-center justify-between cursor-pointer">
+                  <h4 class="font-bold text-xs" style="color:var(--text-primary)">Availability</h4>
+                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                </div>
+              </div>
+
+              <!-- Technology -->
+              <div class="mb-4" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <div class="flex items-center justify-between cursor-pointer">
+                  <h4 class="font-bold text-xs" style="color:var(--text-primary)">Technology</h4>
+                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                </div>
+              </div>
+
+              <!-- Rating -->
+              <div class="mb-5" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <div class="flex items-center justify-between cursor-pointer">
+                  <h4 class="font-bold text-xs" style="color:var(--text-primary)">Rating</h4>
+                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                </div>
+              </div>
+
+              <!-- Reset -->
+              <button class="w-full py-2 rounded-lg text-xs font-semibold border transition hover:bg-gray-50 dark:hover:bg-white/5" style="color:var(--text-primary);border-color:var(--border-light)">Reset Filters</button>
+            </div>
+          </div>
+
+          <!-- RIGHT: Products Grid -->
+          <div class="flex-1">
+
+            <!-- Toolbar -->
+            <div class="flex items-center justify-between mb-5 flex-wrap gap-3">
+              <h2 class="font-bold text-base" style="color:var(--text-primary);text-transform:uppercase;letter-spacing:0.04em">ALL PRODUCTS</h2>
+              <div class="flex items-center gap-3">
+                <span class="text-xs" style="color:var(--text-secondary)">Sort by:</span>
+                <select class="text-xs rounded-lg px-3 py-2 border" style="background:var(--bg-secondary);color:var(--text-primary);border-color:var(--border-light)">
+                  <option>Most Popular</option>
+                  <option>Price: Low to High</option>
+                  <option>Price: High to Low</option>
+                  <option>Newest</option>
+                </select>
+                <button class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#1452b1"><i class="fas fa-th" style="color:white;font-size:12px"></i></button>
+                <button class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:var(--bg-primary);border:1px solid var(--border-light)"><i class="fas fa-list" style="color:var(--text-secondary);font-size:12px"></i></button>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
-                <i class="fas fa-wave-square text-sm" style="color:#3b9eff"></i>
+
+            <!-- Grid -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem">
+
+              <!-- P1 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/Moringa Patch.jpeg" alt="Moringa Patch" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">10-IN-1 Moringa Nano Microdarts Patch</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(86)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$59</strong> <span class="ml-1">NGN ₦92,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div class="text-xs font-bold uppercase tracking-wide" style="color:white">FREQUENCY-BASED</div>
-                <div class="text-xs" style="color:rgba(255,255,255,0.55)">Innovation</div>
+
+              <!-- P2 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/EMF Anti Radiation Sticker..jpeg" alt="EMF Protection Patch" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Anti-Radiation Mobile Patch (EMF)</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(73)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$29</strong> <span class="ml-1">NGN ₦45,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
               </div>
+
+              <!-- P3 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/Airsheild Pendant.jpeg" alt="Quantum Terahertz Pendant" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Quantum Terahertz Pendant (Air Purifier)</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(91)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$89</strong> <span class="ml-1">NGN ₦159,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- P4 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/Gyromagnetic Thermostatic Meter.jpeg" alt="Terahertz Chip Radiation Detector" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Terahertz Chip Radiation Detector</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(68)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$129</strong> <span class="ml-1">NGN ₦201,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- P5 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/SPEPEM Hydrogen Water Bottle.jpeg" alt="Hydrogen Rich Water Machine" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Hydrogen Rich Water Machine</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(104)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$699</strong> <span class="ml-1">NGN ₦1,090,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- P6 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#0a0e1a;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/ionsync.jpeg" alt="Terahertz Frequency Massage Wand" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Terahertz Frequency Massage Wand</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(77)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$229</strong> <span class="ml-1">NGN ₦358,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- P7 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/AI Foot Massager.jpeg" alt="Far Infrared Therapy Belt" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Far Infrared Therapy Belt</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(85)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$299</strong> <span class="ml-1">NGN ₦469,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- P8 -->
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+                <div style="height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                  <img src="images/product/Lumara Elite.jpeg" alt="Infrared Light Therapy Panel" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div style="padding:1rem">
+                  <h3 class="font-bold text-sm mb-1" style="color:var(--text-primary)">Infrared Light Therapy Panel (Stand)</h3>
+                  <span class="text-xs font-bold" style="color:#42841F">In Stock</span>
+                  <div class="flex gap-0.5 my-1"><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star" style="color:#ffc00a;font-size:10px"></i><i class="fas fa-star-half-alt" style="color:#ffc00a;font-size:10px"></i><span class="text-xs ml-1" style="color:var(--text-secondary)">(66)</span></div>
+                  <div class="text-xs mb-3" style="color:var(--text-secondary)">USD <strong style="font-size:1rem;color:var(--text-primary)">$899</strong> <span class="ml-1">NGN ₦1,400,000</span></div>
+                  <div class="flex gap-2">
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold border" style="color:#1452b1;border-color:#1452b1;background:transparent">View Product</button>
+                    <button class="flex-1 py-1.5 rounded-lg text-xs font-semibold text-white" style="background:#42841F;border:none">Place Order</button>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- end grid -->
+          </div><!-- end right -->
+        </div><!-- end flex -->
+      </div>
+    </section>
+
+    <!-- ══ TRUST BADGES ══ -->
+    <section style="background:var(--bg-secondary);padding:1.5rem 0;border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)">
+      <div class="container-pro">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.08);border:1px solid rgba(20,82,177,0.15)">
+              <i class="fas fa-shield-alt" style="color:#1452b1;font-size:16px"></i>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15)">
-                <i class="fas fa-shield-alt text-sm" style="color:#3b9eff"></i>
-              </div>
-              <div>
-                <div class="text-xs font-bold uppercase tracking-wide" style="color:white">NON-INVASIVE</div>
-                <div class="text-xs" style="color:rgba(255,255,255,0.55)">&amp; Easy To Use</div>
-              </div>
+            <div>
+              <div class="text-sm font-bold" style="color:var(--text-primary)">Premium Quality</div>
+              <div class="text-xs leading-relaxed" style="color:var(--text-secondary)">Carefully selected, tested and certified products.</div>
             </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(66,132,31,0.08);border:1px solid rgba(66,132,31,0.15)">
+              <i class="fas fa-truck" style="color:#42841F;font-size:16px"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold" style="color:var(--text-primary)">Fast &amp; Secure Delivery</div>
+              <div class="text-xs leading-relaxed" style="color:var(--text-secondary)">Nationwide delivery with safe packaging.</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,192,10,0.1);border:1px solid rgba(255,192,10,0.2)">
+              <i class="fas fa-crown" style="color:#ffc00a;font-size:16px"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold" style="color:var(--text-primary)">Member Benefits</div>
+              <div class="text-xs leading-relaxed" style="color:var(--text-secondary)">Special discounts and exclusive offers.</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(142,68,173,0.08);border:1px solid rgba(142,68,173,0.15)">
+              <i class="fas fa-headset" style="color:#8e44ad;font-size:16px"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold" style="color:var(--text-primary)">Dedicated Support</div>
+              <div class="text-xs leading-relaxed" style="color:var(--text-secondary)">We're here to help you every step of the way.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ READY TO EXPERIENCE CTA ══ -->
+    <section style="background:#0a1628;padding:2.5rem 0;position:relative;overflow:hidden">
+      <!-- Green leaf decorations -->
+      <div class="absolute left-0 bottom-0 pointer-events-none opacity-60" style="width:120px">
+        <svg viewBox="0 0 120 100" aria-hidden="true"><ellipse cx="20" cy="80" rx="60" ry="30" fill="#42841F" opacity="0.4" transform="rotate(-30 20 80)"/><ellipse cx="10" cy="90" rx="40" ry="20" fill="#6cb833" opacity="0.3" transform="rotate(-20 10 90)"/></svg>
+      </div>
+      <div class="absolute right-0 bottom-0 pointer-events-none opacity-60" style="width:120px">
+        <svg viewBox="0 0 120 100" aria-hidden="true"><ellipse cx="100" cy="80" rx="60" ry="30" fill="#42841F" opacity="0.4" transform="rotate(30 100 80)"/><ellipse cx="110" cy="90" rx="40" ry="20" fill="#6cb833" opacity="0.3" transform="rotate(20 110 90)"/></svg>
+      </div>
+      <div class="container-pro relative z-10">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-5">
+          <!-- Left -->
+          <div>
+            <h2 class="font-bold text-xl md:text-2xl mb-2" style="color:white">
+              Ready to Experience <span style="color:#6cb833">Better Wellness?</span>
+            </h2>
+            <p class="text-sm" style="color:rgba(255,255,255,0.65);max-width:420px">
+              Experience the power of advanced wellness technologies designed for your health, vitality and everyday life.
+            </p>
+          </div>
+          <!-- Buttons -->
+          <div class="flex gap-3 flex-shrink-0">
+            <button class="px-6 py-2.5 rounded-lg text-sm font-bold border-2 transition hover:bg-white/10" style="color:white;border-color:rgba(255,255,255,0.5);background:transparent;white-space:nowrap">
+              Browse Products
+            </button>
+            <button class="px-6 py-2.5 rounded-lg text-sm font-bold text-white" style="background:#42841F;border:none;white-space:nowrap">
+              Become a Member
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════ EXPLORE WELLNESS TECHNOLOGY ECOSYSTEM + PRODUCT SUITE ══════════════ -->
-    <section id="product-suite" style="background:var(--bg-secondary);padding:0">
-
-      <!-- Eyebrow -->
-      <div class="text-center py-5" style="border-bottom:1px solid var(--border-light)">
-        <p class="text-xs tracking-widest uppercase" style="color:var(--text-secondary);font-weight:700;letter-spacing:0.18em">
-          EXPLORE OUR <span style="color:var(--accent-green)">WELLNESS TECHNOLOGY</span> ECOSYSTEM
-        </p>
-        <div class="flex justify-center mt-2">
-          <i class="fas fa-diamond text-[8px]" style="color:var(--accent-green)"></i>
-        </div>
-      </div>
-
-      <div class="container-pro" style="padding-top:5rem;padding-bottom:6rem">
-
-        <!-- ── SERIES 01: TERAHERTZ BLOWER SERIES ── -->
-        <div class="mb-16 reveal-up" style="transition-delay:0.1s">
-
-          <!-- Series heading -->
-          <div class="mb-10">
-            <p style="color:var(--accent-blue);font-size:1.15rem;font-weight:800;line-height:1;letter-spacing:0.02em;margin-bottom:0.5rem">01</p>
-            <h2 style="font-size:clamp(2rem,4vw,3rem);color:var(--text-primary);font-weight:900;line-height:1.0;letter-spacing:-0.02em;margin:0 0 0.75rem">
-              <span style="display:block">TERAHERTZ</span>
-              <span style="display:block">BLOWER SERIES</span>
-            </h2>
-            <div style="width:40px;height:2px;background:var(--border-light);border-radius:2px;margin-bottom:0.75rem"></div>
-            <p style="color:var(--text-secondary);font-size:0.85rem;max-width:480px;line-height:1.7;margin:0">
-              Portable frequency technology designed to support balance, vitality, and daily wellness — anytime, anywhere.
-            </p>
-          </div>
-
-        
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem">
-
-          <!-- 1. IonSync -->
-          <div class="reveal-up" style="transition-delay:0.15s;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s ease,box-shadow 0.3s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-            <div style="background:rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:220px">
-              <img src="images/product/ionsync.jpeg" alt="IonSync" style="max-height:180px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 20px rgba(20,82,177,0.35))" loading="lazy" />
-            </div>
-            <div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.6rem">
-              <h3 style="color:white;font-size:1rem;font-weight:800;margin:0">IonSync</h3>
-              <p style="color:#3b9eff;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin:0">The World's First Terahertz Wand + Negative Ions</p>
-              <p style="color:rgba(255,255,255,0.55);font-size:0.78rem;line-height:1.6;margin:0">100 Million Negative Ions • High Purity Terahertz Wave<br><em>Nourish. Balance. Restore.</em></p>
-              <div style="margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
-                <div>
-                  <div style="color:white;font-size:1rem;font-weight:800">$110</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:0.7rem">NGN 170,000</div>
-                </div>
-                <button class="btn-blue" style="font-size:0.72rem;font-weight:700;padding:0.5rem 1.1rem;border-radius:6px;color:white;letter-spacing:0.04em;white-space:nowrap">
-                  Learn More <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. VitaFlow Duo -->
-          <div class="reveal-up" style="transition-delay:0.2s;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s ease,box-shadow 0.3s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-            <div style="background:rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:220px">
-              <img src="images/product/vitaflow duo.jpeg" alt="VitaFlow Duo" style="max-height:180px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 20px rgba(20,82,177,0.35))" loading="lazy" />
-            </div>
-            <div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.6rem">
-              <h3 style="color:white;font-size:1rem;font-weight:800;margin:0">VitaFlow Duo</h3>
-              <p style="color:#3b9eff;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin:0">Dual Wand Technology</p>
-              <p style="color:rgba(255,255,255,0.55);font-size:0.78rem;line-height:1.6;margin:0">Terahertz + PEMF</p>
-              <div style="margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
-                <div>
-                  <div style="color:white;font-size:1rem;font-weight:800">$150</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:0.7rem">NGN 240,000</div>
-                </div>
-                <button class="btn-blue" style="font-size:0.72rem;font-weight:700;padding:0.5rem 1.1rem;border-radius:6px;color:white;letter-spacing:0.04em;white-space:nowrap">
-                  Learn More <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Quantum Essence 9.0 -->
-          <div class="reveal-up" style="transition-delay:0.25s;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s ease,box-shadow 0.3s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-            <div style="background:rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:220px">
-              <img src="images/product/quantum essence 9.0.jpeg" alt="Quantum Essence 9.0" style="max-height:180px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 20px rgba(20,82,177,0.35))" loading="lazy" />
-            </div>
-            <div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.6rem">
-              <h3 style="color:white;font-size:1rem;font-weight:800;margin:0">Quantum Essence 9.0</h3>
-              <p style="color:#3b9eff;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin:0">The Next Generation Terahertz Blower</p>
-              <p style="color:rgba(255,255,255,0.55);font-size:0.78rem;line-height:1.6;margin:0">Advanced frequency calibration for peak wellness performance.</p>
-              <div style="margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
-                <div>
-                  <div style="color:white;font-size:1rem;font-weight:800">$90</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:0.7rem">NGN 140,000</div>
-                </div>
-                <button class="btn-blue" style="font-size:0.72rem;font-weight:700;padding:0.5rem 1.1rem;border-radius:6px;color:white;letter-spacing:0.04em;white-space:nowrap">
-                  Learn More <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Polaris Vitalis -->
-          <div class="reveal-up" style="transition-delay:0.3s;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s ease,box-shadow 0.3s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-            <div style="background:rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:220px">
-              <img src="images/product/polaris vitalis.jpeg" alt="Polaris Vitalis" style="max-height:180px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 20px rgba(20,82,177,0.35))" loading="lazy" />
-            </div>
-            <div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.6rem">
-              <h3 style="color:white;font-size:1rem;font-weight:800;margin:0">Polaris Vitalis</h3>
-              <p style="color:#3b9eff;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin:0">Triple Action Therapy</p>
-              <p style="color:rgba(255,255,255,0.55);font-size:0.78rem;line-height:1.6;margin:0">Terahertz + Phased Red Light + EMS Pulse</p>
-              <div style="margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
-                <div>
-                  <div style="color:white;font-size:1rem;font-weight:800">$330</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:0.7rem">NGN 528,000</div>
-                </div>
-                <button class="btn-blue" style="font-size:0.72rem;font-weight:700;padding:0.5rem 1.1rem;border-radius:6px;color:white;letter-spacing:0.04em;white-space:nowrap">
-                  Learn More <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 5. Infinity (Touch Version) — FEATURED -->
-          <div class="reveal-up" style="transition-delay:0.35s;background:rgba(255,255,255,0.03);border:1px solid rgba(20,82,177,0.45);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 0 30px rgba(20,82,177,0.2);transition:transform 0.3s ease,box-shadow 0.3s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 50px rgba(20,82,177,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 0 30px rgba(20,82,177,0.2)'">
-            <!-- Featured badge -->
-            <div style="position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#1452b1,#347db6);color:white;font-size:0.62rem;font-weight:700;letter-spacing:0.08em;padding:3px 10px;border-radius:99px;text-transform:uppercase;z-index:2">PRO</div>
-            <div style="background:rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:220px">
-              <img src="images/product/infinity (touch version).jpeg" alt="Infinity Touch Version" style="max-height:180px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 24px rgba(20,82,177,0.5))" loading="lazy" />
-            </div>
-            <div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.6rem">
-              <h3 style="color:white;font-size:1rem;font-weight:800;margin:0">Infinity <span style="color:#4a9eff">(Touch Version)</span></h3>
-              <p style="color:#3b9eff;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin:0">Professional Grade · LED Touch Control</p>
-              <p style="color:rgba(255,255,255,0.55);font-size:0.78rem;line-height:1.6;margin:0">Professional Handcrafted. Cold air auto blow.<br><em>Outstanding results. Built for Pros.</em></p>
-              <div style="margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
-                <div>
-                  <div style="color:white;font-size:1rem;font-weight:800">$700</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:0.7rem">NGN 1,100,000</div>
-                </div>
-                <button class="btn-blue" style="font-size:0.72rem;font-weight:700;padding:0.5rem 1.1rem;border-radius:6px;color:white;letter-spacing:0.04em;white-space:nowrap">
-                  Learn More <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 6. Terahertz Rotating Magnetic Wave — FLAGSHIP -->
-          <div class="reveal-up" style="transition-delay:0.4s;background:linear-gradient(135deg,rgba(20,82,177,0.12) 0%,rgba(5,14,23,0.95) 100%);border:1px solid rgba(20,82,177,0.6);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(20,82,177,0.25);transition:transform 0.3s ease,box-shadow 0.3s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(20,82,177,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 0 40px rgba(20,82,177,0.25)'">
-            <!-- Flagship badge -->
-            <div style="position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#ffc00a,#e69c09);color:#050e17;font-size:0.62rem;font-weight:800;letter-spacing:0.08em;padding:3px 10px;border-radius:99px;text-transform:uppercase;z-index:2">FLAGSHIP</div>
-            <div style="background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;padding:2rem;min-height:220px">
-              <img src="images/product/TerahertzRotatingMagneticWave.jpeg" alt="Terahertz Rotating Magnetic Wave" style="max-height:180px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 28px rgba(20,82,177,0.6))" loading="lazy" />
-            </div>
-            <div style="padding:1.4rem;flex:1;display:flex;flex-direction:column;gap:0.6rem">
-              <h3 style="color:white;font-size:1rem;font-weight:800;margin:0">Terahertz Rotating Magnetic Wave</h3>
-              <p style="color:#ffc00a;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin:0">4-in-1 Revolutionary Upgrade</p>
-              <p style="color:rgba(255,255,255,0.55);font-size:0.78rem;line-height:1.6;margin:0">Terahertz + Gyromagnetic + Red Light + Blue Light.<br><em>Four Therapies. One Machine. Maximum Results.</em><br><span style="color:rgba(255,255,255,0.4);font-size:0.72rem">For Clinics, Spas & Wellness Pros</span></p>
-              <div style="margin-top:auto;padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap">
-                <div>
-                  <div style="color:#ffc00a;font-size:1rem;font-weight:800">$1,600</div>
-                  <div style="color:rgba(255,255,255,0.4);font-size:0.7rem">NGN 2,400,000</div>
-                </div>
-                <button class="btn-blue" style="font-size:0.72rem;font-weight:700;padding:0.5rem 1.1rem;border-radius:6px;color:white;letter-spacing:0.04em;white-space:nowrap">
-                  Learn More <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- end series 01 grid -->
-        </div><!-- end series 01 -->
-
-        <!-- ── MORE SERIES WILL BE ADDED HERE ── -->
-
-      </div>
-    
     <!-- ══════════════ FOOTER ══════════════ -->
     <footer class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden" style="background:#050e17;border-color:rgba(20,82,177,0.2)">
       <div class="container-pro relative z-10">
 
-        <!-- Footer CTA Banner -->
-        <div class="mb-0 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-0 xl:rounded-2xl overflow-hidden relative" style="background:#050e17;min-height:100px">
-          <!-- Background image right side -->
-          <div class="absolute inset-0 pointer-events-none">
-            <img src="images/slider2.png" alt="" class="absolute right-0 top-0 h-full w-1/2 object-cover object-left" style="mask-image:linear-gradient(to right,transparent 0%,black 40%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 40%)" aria-hidden="true" loading="lazy" />
-            <!-- Dark overlay over entire banner -->
-            <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(5,14,23,1) 0%,rgba(5,14,23,0.88) 45%,rgba(5,14,23,0.45) 75%,rgba(5,14,23,0.2) 100%)"></div>
-            <!-- Green wave lines bottom-left -->
-            <div class="absolute bottom-0 left-0 w-64 h-full pointer-events-none overflow-hidden">
-              <svg viewBox="0 0 260 100" preserveAspectRatio="none" class="absolute bottom-0 left-0 w-full h-full opacity-60" aria-hidden="true">
-                <path d="M0,80 Q40,60 80,70 Q120,80 160,60 Q200,40 260,55" fill="none" stroke="#42841F" stroke-width="1.5"/>
-                <path d="M0,90 Q50,72 100,82 Q150,92 200,72 Q230,60 260,68" fill="none" stroke="#6cb833" stroke-width="1"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 px-6 sm:px-8 lg:px-10 py-5">
-            <!-- Left: Text -->
-            <div>
-              <div class="text-base sm:text-lg font-black leading-tight" style="letter-spacing:-0.01em">
-                <span style="color:white;font-weight:900">DISCOVER WELLNESS DIFFERENTLY.</span>
-              </div>
-              <div class="text-base sm:text-lg font-black leading-tight mt-0.5" style="letter-spacing:-0.01em">
-                <span style="color:#6cb833;font-weight:900">HEAL SMARTER.&nbsp;</span>
-                <span style="color:#3b9eff;font-weight:900">EARN FREELY.&nbsp;</span>
-                <span style="color:white;font-weight:900">LIVE </span><span style="color:#ffc00a;font-weight:900">FULLY.</span>
-              </div>
-            </div>
-
-            <!-- Right: Buttons -->
-            <div class="flex items-center gap-3 flex-shrink-0">
-              <button class="btn-blue flex items-center gap-2 whitespace-nowrap" style="font-weight:700;font-size:0.75rem;padding:0.65rem 1.4rem;border-radius:6px;color:white;letter-spacing:0.05em">
-                EXPLORE TECHNOLOGIES <i class="fas fa-arrow-right" style="font-size:10px"></i>
-              </button>
-              <button class="flex items-center gap-2 whitespace-nowrap" style="font-weight:600;font-size:0.75rem;padding:0.63rem 1.3rem;border-radius:6px;color:white;border:1.5px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.04);letter-spacing:0.04em">
-                <i class="fas fa-user-circle" style="font-size:13px"></i> BECOME A MEMBER
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spacer before footer grid -->
-        <div class="mb-12"></div>
 
         <!-- Desktop footer grid -->
         <div class="footer-main-grid hidden lg:grid">
@@ -944,8 +1320,12 @@
 
         <!-- Bottom bar -->
         <div class="footer-bottom-bar pt-8 mt-4">
-          <div class="text-center">
-            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight:400">© 2025 Rich &amp; Well. All Rights Reserved.</p>
+          <div class="flex items-center justify-center gap-3 flex-wrap text-center">
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight:400">© 2026 Rich &amp; Well. All Rights Reserved.</p>
+            <img src="images/logo.png" alt="Rich & Well" class="h-5 w-auto" />
+            <p class="text-gray-500 text-xs sm:text-sm" style="font-weight:400">Designed for Wellness. Built for Impact.</p>
+          </div>
+        </div>
           </div>
         </div>
       </div>
@@ -953,22 +1333,67 @@
 
     <script src="app.js"></script>
     <script>
-      // ── Testimonials Slider ──
+      // ── Product Slider ──
+      (function(){
+        const track = document.getElementById('prodTrack');
+        if(!track) return;
+        const cards = track.querySelectorAll('.prod-card');
+        let cur = 0;
+        const gap = 20;
+
+        function visible(){ return window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1; }
+
+        function setWidths(){
+          const v = visible();
+          const w = (track.parentElement.offsetWidth - gap * (v - 1)) / v;
+          cards.forEach(c => { c.style.width = w + 'px'; });
+          return w + gap;
+        }
+
+        window.slideProd = function(dir){
+          const step = setWidths();
+          const max = Math.max(0, cards.length - visible());
+          cur = Math.max(0, Math.min(cur + dir, max));
+          track.style.transform = `translateX(-${cur * step}px)`;
+        };
+
+        // Touch swipe
+        let tx = 0;
+        track.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+        track.addEventListener('touchend', e => {
+          const dx = e.changedTouches[0].clientX - tx;
+          if(Math.abs(dx) > 50) slideProd(dx < 0 ? 1 : -1);
+        }, {passive:true});
+
+        window.addEventListener('resize', () => { setWidths(); slideProd(0); });
+        setWidths();
+      })();
+
+      // ── Category Tabs ──
+      window.switchCat = function(btn, cat){
+        // Reset all tabs
+        document.querySelectorAll('.cat-tab').forEach(b => {
+          b.style.background = 'transparent';
+          b.querySelector('span').style.color = 'var(--text-primary)';
+        });
+        // Activate clicked
+        btn.style.background = '#1452b1';
+        btn.querySelector('span').style.color = 'white';
+        // Future: filter/load products by category
+        console.log('Category:', cat);
+      };
+
+      // ── Testimonials Slider (legacy) ──
       (function () {
         const track = document.getElementById('wdTestiTrack');
         const dots  = document.querySelectorAll('.wd-testi-dot');
         const prevBtn = document.getElementById('wdTestiPrev');
         const nextBtn = document.getElementById('wdTestiNext');
         if (!track) return;
-
         const cards = track.querySelectorAll('.wd-testimonial-card');
         let current = 0;
         const visibleCount = () => window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-
-        function cardWidth() {
-          return cards[0].offsetWidth + 20; // 20 = gap (1.25rem)
-        }
-
+        function cardWidth() { return cards[0].offsetWidth + 20; }
         function goTo(index) {
           const max = cards.length - visibleCount();
           current = Math.max(0, Math.min(index, max));
@@ -978,15 +1403,14 @@
             d.style.width = i === current ? '20px' : '8px';
           });
         }
-
         dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
         if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-
-        // Auto-advance every 5s
         setInterval(() => goTo((current + 1) % (cards.length - visibleCount() + 1)), 5000);
         window.addEventListener('resize', () => goTo(current));
       })();
     </script>
   </body>
 </html>
+
+<!-- ══════════════ ALL PRODUCTS ══════════════ -->

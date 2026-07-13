@@ -792,6 +792,42 @@
         color: white !important;
       }
 
+      /* ── Light-hero pages (e.g. wellness-devices.html new hero) ──
+         Navbar starts with dark text since bg is light */
+      body.light-hero #navbar {
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 1px 12px rgba(0,0,0,0.07);
+      }
+      body.light-hero #navbar .nav-link {
+        color: #374151 !important;
+      }
+      body.light-hero #navbar .nav-link:hover {
+        color: #1452b1 !important;
+      }
+      body.light-hero #navbar .nav-link.text-white {
+        color: #050e17 !important;
+      }
+      body.light-hero #navbar #loginBtn {
+        color: #050e17 !important;
+        border-color: rgba(5,14,23,0.3) !important;
+      }
+      body.light-hero #navbar .mobile-header-cta {
+        color: white !important;
+      }
+      /* Theme toggle border for light hero */
+      body.light-hero .theme-toggle {
+        border-color: rgba(5,14,23,0.25) !important;
+      }
+      body.light-hero .theme-toggle i {
+        color: #050e17 !important;
+      }
+      /* Hamburger lines dark on light bg */
+      body.light-hero .hamburger-line {
+        background: #050e17 !important;
+      }
+
       /* Dark Mode Navbar */
       .dark #navbar.scrolled {
         background: rgba(5, 14, 23, 0.98);
@@ -1637,7 +1673,6 @@
           justify-content: center;
           align-items: center;
           padding-top: 1.5rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .footer-bottom-copyright {

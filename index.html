@@ -940,56 +940,91 @@
     <section id="wellness-devices" class="py-16 mb-16" style="background: var(--bg-secondary)">
       <div class="container-pro">
         <div class="text-center mb-10 reveal-up" style="transition-delay:0.5s;">
-          <p
-            class="text-xs mb-2 tracking-wider uppercase"
-            style="color: var(--accent-blue); font-weight: 500"
-          >
-            OUR WELLNESS DEVICES
-          </p>
+          <p class="text-xs mb-2 tracking-wider uppercase" style="color: var(--accent-blue); font-weight: 500">OUR WELLNESS DEVICES</p>
           <h2 class="text-2xl" style="font-weight: 600; color: var(--text-primary)">
             Advanced Technology.
-            <span style="color: var(--accent-green); font-weight: 600">Natural</span>
-            Harmony
+            <span style="color: var(--accent-green); font-weight: 600">Natural</span> Harmony
           </h2>
         </div>
 
-        <!-- Full-width image 1 -->
-        <div class="reveal-up mb-4" style="transition-delay:0.55s;">
+        <!-- Hero banner — image 1 as background with CTA -->
+        <div class="reveal-up mb-8 rounded-2xl overflow-hidden relative" style="min-height:320px;transition-delay:0.55s;">
+          <!-- Background image -->
           <picture>
-            <!-- Mobile: cropped version for clearer product visibility -->
             <source media="(max-width: 639px)" srcset="images/mobilehomeproductsimage1.png" />
-            <!-- Tablet & Desktop: full wide version -->
             <source media="(min-width: 640px)" srcset="images/homeproductsimage1.png" />
-            <img
-              src="images/homeproductsimage1.png"
-              alt="Rich & Well Wellness Products"
-              class="w-full rounded-2xl object-cover"
-              style="max-height:360px; object-position: center;"
-              loading="lazy"
-            />
+            <img src="images/homeproductsimage1.png" alt="Wellness Devices" class="absolute inset-0 w-full h-full object-cover" style="object-position:center" loading="lazy" />
           </picture>
+          <!-- Dark overlay -->
+          <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(5,14,23,0.82) 0%, rgba(5,14,23,0.55) 55%, rgba(5,14,23,0.15) 100%)"></div>
+          <!-- CTA content -->
+          <div class="relative z-10 flex flex-col justify-center h-full p-8 md:p-12" style="min-height:320px;max-width:520px">
+            <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:var(--accent-green)">OUR PRODUCT SUITE</p>
+            <h3 class="font-black mb-4" style="font-size:clamp(1.6rem,3.5vw,2.5rem);color:white;line-height:1.2">
+              Frequency Wellness<br>Technologies That<br><span style="color:#6cb833">Actually Work.</span>
+            </h3>
+            <p class="text-sm leading-relaxed mb-6" style="color:rgba(255,255,255,0.72);max-width:380px">
+              Discover our full range of drug-free, non-invasive wellness devices designed to restore balance, boost vitality, and support everyday wellbeing.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="wellness-devices.html" class="btn-blue px-6 py-2.5 rounded-full text-sm flex items-center gap-2" style="font-weight:700;color:white">
+                Explore All Devices <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="wellness-devices.html" class="px-6 py-2.5 rounded-full text-sm flex items-center gap-2" style="font-weight:600;color:white;border:1.5px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.06)">
+                View Pricing <i class="fas fa-tag text-xs"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <!-- Two images side by side -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal-up" style="transition-delay:0.7s;">
-          <img
-            src="images/homeproductimage2.jpg"
-            alt="Rich & Well Product"
-            class="w-full rounded-2xl object-contain"
-            loading="lazy"
-          />
-          <img
-            src="images/homeproductimage3.jpg"
-            alt="Rich & Well Product"
-            class="w-full rounded-2xl object-contain"
-            loading="lazy"
-          />
+        <!-- 3 Featured product cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal-up" style="transition-delay:0.7s;">
+
+          <!-- Product 1 -->
+          <div class="card-gradient rounded-2xl overflow-hidden" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+            <div style="height:280px;background:#f0f2f5;overflow:hidden">
+              <img src="images/product/ionsync.jpeg" alt="IonSync Terahertz Wand" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm mb-3" style="color:var(--text-primary)">IonSync Terahertz Wand</h4>
+              <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:var(--accent-blue)">
+                View Product <i class="fas fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="card-gradient rounded-2xl overflow-hidden" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+            <div style="height:280px;background:#f0f2f5;overflow:hidden">
+              <img src="images/product/AI Foot Massager.jpeg" alt="Far Infrared Foot Therapy Device" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm mb-3" style="color:var(--text-primary)">Far Infrared Foot Therapy Device</h4>
+              <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:var(--accent-blue)">
+                View Product <i class="fas fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="card-gradient rounded-2xl overflow-hidden" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+            <div style="height:280px;background:#f0f2f5;overflow:hidden">
+              <img src="images/product/SPEPEM Hydrogen Water Bottle.jpeg" alt="Hydrogen Rich Water Machine" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm mb-3" style="color:var(--text-primary)">Hydrogen Rich Water Machine</h4>
+              <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:var(--accent-blue)">
+                View Product <i class="fas fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <!-- CTA button -->
+        <!-- Bottom CTA -->
         <div class="flex justify-center mt-8 reveal-up" style="transition-delay:0.85s;">
           <a href="wellness-devices.html" class="btn-blue px-7 py-3 rounded-full text-sm flex items-center gap-2" style="font-weight:600;color:white">
-            Explore All Devices <i class="fas fa-arrow-right"></i>
+            See All Products <i class="fas fa-arrow-right"></i>
           </a>
         </div>
 
@@ -2016,10 +2051,10 @@
 
         <!-- Bottom bar -->
         <div class="footer-bottom-bar pt-8 mt-4">
-          <div class="text-center">
-            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight: 400">
-              © 2026 Rich & Well. All Rights Reserved.
-            </p>
+          <div class="flex items-center justify-center gap-3 flex-wrap text-center">
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight: 400">© 2026 Rich &amp; Well. All Rights Reserved.</p>
+            <img src="images/logo.png" alt="Rich & Well" class="h-5 w-auto" />
+            <p class="text-gray-500 text-xs sm:text-sm" style="font-weight: 400">Designed for Wellness. Built for Impact.</p>
           </div>
         </div>
       </div>
