@@ -898,8 +898,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        height: 44px;
+        width: 34px;
+        height: 34px;
         border-radius: 50%;
         border: 1px solid rgba(255, 255, 255, 0.3);
         background: rgba(255, 255, 255, 0.1);
@@ -912,7 +912,7 @@
       }
 
       .theme-toggle i {
-        font-size: 18px;
+        font-size: 14px;
         color: white;
       }
 

@@ -728,6 +728,18 @@
 ### PENDING TASKS ON WELLNESS DEVICES PAGE:
 - Add hero background image when provided by user
 - Add Terahertz Wand device image (right side) when provided
+
+61. **Updated Wellness Devices Section (index.html) for Mobile**:
+    - For mobile devices only:
+      - Changed section heading to "Frequency Wellness Technologies That Actually Work." with sub-description
+      - Removed all content from the hero banner (left write-up, both buttons) except the background image (mobilehomeproductsimage1.png)
+      - Added "Explore All Devices" button centered below the hero banner
+    - Desktop layout remains completely unchanged
+
+62. **Removed 3 Featured Product Cards & Bottom CTA from Wellness Devices Section (index.html) for All Devices**:
+    - Removed all 3 product cards (IonSync Terahertz Wand, Far Infrared Foot Therapy Device, Hydrogen Rich Water Machine)
+    - Removed the bottom "See All Products" CTA button
+    - Section now ends after the hero banner (and mobile-only button)
 - Add product images to the 5 category strip cards when provided
 - Review/test testimonials slider JS (inline script at bottom of file)
 - Mobile responsiveness pass (all new sections built desktop-first)
