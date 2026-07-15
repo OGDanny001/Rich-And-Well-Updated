@@ -1033,11 +1033,50 @@
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
-      .product-card:hover,
-      .value-card:hover,
-      .card-gradient:hover {
+      /* Dark mode: green shadow */
+      html:not(.light) .product-card:hover,
+      html:not(.light) .value-card:hover,
+      html:not(.light) .card-gradient:hover {
         transform: translateY(-8px) !important;
-        box-shadow: 0 25px 60px rgba(66, 132, 31, 0.35), 0 12px 30px rgba(0,0,0,0.12) !important; /* Very visible soft green shadow */
+        box-shadow: 0 25px 60px rgba(66, 132, 31, 0.35), 0 12px 30px rgba(0,0,0,0.12) !important;
+      }
+      /* Light mode: blue shadow */
+      html.light .product-card:hover,
+      html.light .value-card:hover,
+      html.light .card-gradient:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 25px 60px rgba(20, 82, 177, 0.35), 0 12px 30px rgba(0,0,0,0.12) !important;
+      }
+      
+      /* Filter toggle styles */
+      .filter-toggle {
+        cursor: pointer;
+      }
+      .filter-content {
+        max-height: 500px;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+      }
+      .filter-content.collapsed {
+        max-height: 0;
+        opacity: 0;
+      }
+      .filter-icon {
+        transition: transform 0.3s ease;
+      }
+      .filter-toggle.collapsed .filter-icon {
+        transform: rotate(180deg);
+      }
+      
+      /* Keep icons circular, no squashing */
+      .fas,
+      .fab,
+      .far {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        height: auto !important;
       }
 
       /* Nav Link Hover Effects */

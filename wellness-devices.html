@@ -793,13 +793,15 @@
               <!-- Header -->
               <div class="flex items-center justify-between mb-4">
                 <h3 class="font-bold text-sm" style="color:var(--text-primary)">FILTER BY</h3>
-                <i class="fas fa-chevron-up text-xs" style="color:var(--text-secondary)"></i>
               </div>
 
-              <!-- Category -->
-              <div class="mb-5">
-                <h4 class="font-bold text-xs mb-3" style="color:var(--text-primary)">Category</h4>
-                <div class="space-y-2">
+              <!-- Category (collapsible) -->
+              <div class="filter-section mb-5">
+                <button class="filter-toggle w-full flex items-center justify-between mb-3" data-section="category">
+                  <h4 class="font-bold text-xs" style="color:var(--text-primary)">Category</h4>
+                  <i class="fas fa-chevron-up text-xs filter-icon" style="color:var(--text-secondary)"></i>
+                </button>
+                <div class="filter-content space-y-2">
                   <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Terahertz Technology</span></label>
                   <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Hydrogen Technology</span></label>
                   <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded" style="accent-color:#1452b1"><span class="text-xs" style="color:var(--text-secondary)">Infrared Therapy</span></label>
@@ -811,40 +813,48 @@
                 <button class="text-xs font-semibold mt-3" style="color:#1452b1">View More +</button>
               </div>
 
-              <!-- Price Range -->
-              <div class="mb-5" style="border-top:1px solid var(--border-light);padding-top:1rem">
-                <div class="flex items-center justify-between mb-3">
+              <!-- Price Range (collapsible) -->
+              <div class="filter-section mb-5" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <button class="filter-toggle w-full flex items-center justify-between mb-3" data-section="price">
                   <h4 class="font-bold text-xs" style="color:var(--text-primary)">Price Range (USD)</h4>
-                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
-                </div>
-                <input type="range" min="0" max="1500" value="1500" class="w-full" style="accent-color:#1452b1">
-                <div class="flex justify-between mt-1">
-                  <span class="text-xs" style="color:var(--text-secondary)">$0</span>
-                  <span class="text-xs" style="color:var(--text-secondary)">$1,500+</span>
+                  <i class="fas fa-chevron-up text-xs filter-icon" style="color:var(--text-secondary)"></i>
+                </button>
+                <div class="filter-content">
+                  <input type="range" min="0" max="1500" value="1500" class="w-full" style="accent-color:#1452b1">
+                  <div class="flex justify-between mt-1">
+                    <span class="text-xs" style="color:var(--text-secondary)">$0</span>
+                    <span class="text-xs" style="color:var(--text-secondary)">$1,500+</span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Availability -->
-              <div class="mb-4" style="border-top:1px solid var(--border-light);padding-top:1rem">
-                <div class="flex items-center justify-between cursor-pointer">
+              <!-- Availability (collapsible) -->
+              <div class="filter-section mb-4" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <button class="filter-toggle w-full flex items-center justify-between cursor-pointer" data-section="availability">
                   <h4 class="font-bold text-xs" style="color:var(--text-primary)">Availability</h4>
-                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                  <i class="fas fa-chevron-up text-xs filter-icon" style="color:var(--text-secondary)"></i>
+                </button>
+                <div class="filter-content">
                 </div>
               </div>
 
-              <!-- Technology -->
-              <div class="mb-4" style="border-top:1px solid var(--border-light);padding-top:1rem">
-                <div class="flex items-center justify-between cursor-pointer">
+              <!-- Technology (collapsible) -->
+              <div class="filter-section mb-4" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <button class="filter-toggle w-full flex items-center justify-between cursor-pointer" data-section="technology">
                   <h4 class="font-bold text-xs" style="color:var(--text-primary)">Technology</h4>
-                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                  <i class="fas fa-chevron-up text-xs filter-icon" style="color:var(--text-secondary)"></i>
+                </button>
+                <div class="filter-content">
                 </div>
               </div>
 
-              <!-- Rating -->
-              <div class="mb-5" style="border-top:1px solid var(--border-light);padding-top:1rem">
-                <div class="flex items-center justify-between cursor-pointer">
+              <!-- Rating (collapsible) -->
+              <div class="filter-section mb-5" style="border-top:1px solid var(--border-light);padding-top:1rem">
+                <button class="filter-toggle w-full flex items-center justify-between cursor-pointer" data-section="rating">
                   <h4 class="font-bold text-xs" style="color:var(--text-primary)">Rating</h4>
-                  <i class="fas fa-chevron-down text-xs" style="color:var(--text-secondary)"></i>
+                  <i class="fas fa-chevron-up text-xs filter-icon" style="color:var(--text-secondary)"></i>
+                </button>
+                <div class="filter-content">
                 </div>
               </div>
 
@@ -857,9 +867,18 @@
           <div class="flex-1">
 
             <!-- Toolbar -->
-            <div class="flex items-center justify-between mb-5 flex-wrap gap-3">
-              <h2 class="font-bold text-base" style="color:var(--text-primary);text-transform:uppercase;letter-spacing:0.04em">ALL PRODUCTS</h2>
-              <div class="flex items-center gap-3">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-5 flex-wrap gap-3">
+              <div class="flex items-center gap-3 w-full md:w-auto">
+                <h2 class="font-bold text-base" style="color:var(--text-primary);text-transform:uppercase;letter-spacing:0.04em">ALL PRODUCTS</h2>
+              </div>
+              <div class="flex items-center gap-3 flex-wrap w-full md:w-auto">
+                <!-- Search input -->
+                <div class="flex-1 md:w-64">
+                  <div class="relative">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2" style="color:var(--text-secondary);font-size:12px"></i>
+                    <input type="text" id="productSearch" placeholder="Search products..." class="w-full rounded-lg px-10 py-2 text-xs border" style="background:var(--bg-secondary);color:var(--text-primary);border-color:var(--border-light)" />
+                  </div>
+                </div>
                 <span class="text-xs" style="color:var(--text-secondary)">Sort by:</span>
                 <select class="text-xs rounded-lg px-3 py-2 border" style="background:var(--bg-secondary);color:var(--text-primary);border-color:var(--border-light)">
                   <option>Most Popular</option>
@@ -881,7 +900,7 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem">
 
               <!-- P1: IonSync -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="IonSync">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/ionsync.jpeg" alt="IonSync" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -899,7 +918,7 @@
               </div>
 
               <!-- P2: Vitaflow Duo -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Vitaflow Duo">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/vitaflow duo.jpeg" alt="Vitaflow Duo" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -917,7 +936,7 @@
               </div>
 
               <!-- P3: Quantum Essence 9.0 -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Quantum Essence 9.0">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/quantum essence 9.0.jpeg" alt="Quantum Essence 9.0" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -935,7 +954,7 @@
               </div>
 
               <!-- P4: Polaris Vitalis -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Polaris Vitalis">
                 <div style="min-height:180px;background:#0a0e1a;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/polaris vitalis.jpeg" alt="Polaris Vitalis" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -953,7 +972,7 @@
               </div>
 
               <!-- P5: Infinity (Touch Version) -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Infinity (Touch Version)">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/infinity (touch version).jpeg" alt="Infinity (Touch Version)" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -971,7 +990,7 @@
               </div>
 
               <!-- P6: 4 in 1 REVOLUTIONARY UPGRADE -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="4 in 1 REVOLUTIONARY UPGRADE">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/TerahertzRotatingMagneticWave.jpeg" alt="4 in 1 REVOLUTIONARY UPGRADE" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -999,7 +1018,7 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem">
 
               <!-- P1: PulseSole -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="PulseSole">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/pulsesole.jpeg" alt="PulseSole" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1017,7 +1036,7 @@
               </div>
 
               <!-- P2: Gyromagnetic Thermostatic Meter -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Gyromagnetic Thermostatic Meter">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Gyromagnetic.jpg" alt="Gyromagnetic Thermostatic Meter" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1035,7 +1054,7 @@
               </div>
 
               <!-- P3: AI Foot Massager -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="AI Foot Massager">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/AI Foot Massager.jpeg" alt="AI Foot Massager" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1053,7 +1072,7 @@
               </div>
 
               <!-- P4: Tri-Restore -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Tri-Restore">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Trirestore.jpeg" alt="Tri-Restore" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1071,7 +1090,7 @@
               </div>
 
               <!-- P5: Sleep Aid -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Sleep Aid">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Sleep aid.jpeg" alt="Sleep Aid" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1088,7 +1107,7 @@
               </div>
 
               <!-- P6: Quantum Energy Spray -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Quantum Energy Spray">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Quantum energy spray.jpeg" alt="Quantum Energy Spray" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1106,7 +1125,7 @@
               </div>
 
               <!-- P7: AirShield Pendant -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="AirShield Pendant">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Airsheild Pendant.jpeg" alt="AirShield Pendant" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1124,7 +1143,7 @@
               </div>
 
               <!-- P8: Transdermal Nutrition Patches -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Transdermal Nutrition Patches">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Transdermal Nutrition Patches.jpeg" alt="Transdermal Nutrition Patches" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1142,7 +1161,7 @@
               </div>
 
               <!-- P9: EMF Anti Radiation Sticker -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="EMF Anti Radiation Sticker">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/emf radiation sticker.jpeg" alt="EMF Anti Radiation Sticker" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1170,7 +1189,7 @@
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem">
 
               <!-- P1: Antioxidant-Rich Water Bottle -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Antioxidant-Rich Water Bottle">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/SPEPEM Hydrogen Water Bottle.jpeg" alt="Antioxidant-Rich Water Bottle" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1188,7 +1207,7 @@
               </div>
 
               <!-- P2: Terahertz Energy Life Device -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Terahertz Energy Life Device">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Terahertz Energy Life Device.jpeg" alt="Terahertz Energy Life Device" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1206,7 +1225,7 @@
               </div>
 
               <!-- P3: Countertop Hydrogen Water Dispenser -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Countertop Hydrogen Water Dispenser">
                 <div style="min-height:180px;background:#f4f6f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Countertop Hydrogen Water Dispenser..jpeg" alt="Countertop Hydrogen Water Dispenser" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>
@@ -1224,7 +1243,7 @@
               </div>
 
               <!-- P4: Lumara Elite -->
-              <div class="card-gradient rounded-2xl overflow-hidden reveal-up" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+              <div class="card-gradient rounded-2xl overflow-hidden reveal-up product-card" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.05)" data-product-name="Lumara Elite">
                 <div style="min-height:180px;background:#0a0e1a;display:flex;align-items:center;justify-content:center;overflow:hidden">
                   <img src="images/product/Lumara Elite.jpeg" alt="Lumara Elite" style="width:100%;height:100%;object-fit:contain" loading="lazy">
                 </div>

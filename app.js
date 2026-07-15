@@ -295,8 +295,60 @@
 
       // Initialize calculator when DOM is loaded
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeCalculator);
+        document.addEventListener('DOMContentLoaded', () => {
+          initializeCalculator();
+          initializeFilters();
+          initializeSearch();
+        });
       } else {
         initializeCalculator();
+        initializeFilters();
+        initializeSearch();
+      }
+      
+      // Filter toggle functionality
+      function initializeFilters() {
+        const filterToggles = document.querySelectorAll('.filter-toggle');
+        filterToggles.forEach(toggle => {
+          toggle.addEventListener('click', () => {
+            const filterContent = toggle.nextElementSibling;
+            filterContent.classList.toggle('collapsed');
+            toggle.classList.toggle('collapsed');
+          });
+        });
+      }
+      
+      // Product search functionality
+      function initializeSearch() {
+        // Find all product cards (add class .product-card to product cards in HTML first)
+        // For now, let's handle search for both search inputs
+        const searchInputs = [
+          document.getElementById('wdSearchInput'),
+          document.getElementById('productSearch')
+        ];
+        
+        searchInputs.forEach(input => {
+          if (input) {
+            input.addEventListener('input', (e) => {
+              const searchTerm = e.target.value.toLowerCase().trim();
+              filterProducts(searchTerm);
+            });
+          }
+        });
+      }
+      
+      function filterProducts(searchTerm) {
+        // First, we need to mark product cards in wellness-devices.html with .product-card
+        // and add data-product-name attribute for easier searching
+        const productCards = document.querySelectorAll('.product-card');
+        
+        productCards.forEach(card => {
+          const productName = card.getAttribute('data-product-name')?.toLowerCase() || card.textContent.toLowerCase();
+          if (searchTerm === '' || productName.includes(searchTerm)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
       }
     
