@@ -1003,9 +1003,9 @@
       /* Scroll Reveal Base */
       .reveal-up {
         opacity: 0;
-        transform: translate3d(0, 40px, 0);
-        transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translate3d(0, 35px, 0);
+        transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .reveal-up.is-visible {
         opacity: 1;
@@ -1028,13 +1028,16 @@
 
       /* Card Hover Effects */
       .product-card,
-      .value-card {
+      .value-card,
+      .card-gradient {
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
       .product-card:hover,
-      .value-card:hover {
-        transform: translateY(-8px);
+      .value-card:hover,
+      .card-gradient:hover {
+        transform: translateY(-8px) !important;
+        box-shadow: 0 25px 60px rgba(66, 132, 31, 0.35), 0 12px 30px rgba(0,0,0,0.12) !important; /* Very visible soft green shadow */
       }
 
       /* Nav Link Hover Effects */

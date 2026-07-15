@@ -740,6 +740,27 @@
     - Removed all 3 product cards (IonSync Terahertz Wand, Far Infrared Foot Therapy Device, Hydrogen Rich Water Machine)
     - Removed the bottom "See All Products" CTA button
     - Section now ends after the hero banner (and mobile-only button)
+
+63. **Updated wellness-devices.html "All Products" Section**:
+    - Added "Terahertz Blower Series" header (brand green color)
+    - Replaced all 8 previous products with 6 new products: IonSync, Vitaflow Duo, Quantum Essence 9.0, Polaris Vitalis, Infinity (Touch Version), and 4 in 1 REVOLUTIONARY UPGRADE
+    - Added "THz FOOT MASSAGER SERIES" header (brand blue color)
+    - Added 9 new products: PulseSole, Gyromagnetic Thermostatic Meter, AI Foot Massager, Tri-Restore, Sleep Aid, Quantum Energy Spray, AirShield Pendant, Transdermal Nutrition Patches, and EMF Anti Radiation Sticker
+    - Added "CLEAN, SAFE, & HEALTHY LIVING WATER DEVICES" header (brand green color) with subheading "Drink Better. Live Better."
+    - Added 4 new products: Antioxidant-Rich Water Bottle, Terahertz Energy Life Device, Countertop Hydrogen Water Dispenser, and Lumara Elite
+    - Updated all products across all series to use `width:100%; height:100%; object-fit: contain` to ensure no part of any product is cut out while still filling the top image section of each card
+    - Kept the same existing design structure
+    - **Updated Featured Products Section to Flagship Products Section**:
+        - Replaced Featured Products with new Flagship Products showcasing TriVitalis
+        - Desktop view: Image left, content right layout; Mobile view: Normal product card layout
+        - Updated all product buttons to remove border radius, use border:2px solid #1452b1 for View Product button, and border:2px solid #42841F for Place Order button
+        - Updated flagship section image to Bio-Energetic.jpeg
+        - Reduced flagship section height, text sizes, and spacing to fit within ~90-100vh without scrolling
+        - Made View Product button padding match Place Order button (px-6)
+        - Updated flagship product image to fill left side completely with no padding, use object-fit:contain to avoid cutting off top/bottom parts of the product; moved section padding to only the right content side; added overflow:hidden to the container
+        - Updated View Product buttons to use lighter blue border/text (rgba(20, 82, 177, 0.7)) instead of solid dark blue
+        - Added very visible soft green hover shadow (rgba(66, 132, 31, 0.35) plus base rgba(0,0,0,0.12) shadow) to product cards, value cards, and card-gradient elements; added !important to override any inline styles
+        - Adjusted scroll reveal animations (reveal-up) to 1.8s duration, 35px vertical offset for smoother, not too fast timing that feels "right on time"
 - Add product images to the 5 category strip cards when provided
 - Review/test testimonials slider JS (inline script at bottom of file)
 - Mobile responsiveness pass (all new sections built desktop-first)
