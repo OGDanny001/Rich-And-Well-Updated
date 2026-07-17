@@ -925,11 +925,11 @@
       }
 
       .theme-toggle .fa-sun {
-        display: none;
+        display: none !important;
       }
 
       .theme-toggle .fa-moon {
-        display: block;
+        display: block !important;
       }
 
       .dark .theme-toggle {
@@ -937,11 +937,11 @@
       }
 
       .dark .theme-toggle .fa-sun {
-        display: block;
+        display: block !important;
       }
 
       .dark .theme-toggle .fa-moon {
-        display: none;
+        display: none !important;
       }
 
       /* ===============================
