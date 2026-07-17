@@ -2000,6 +2000,71 @@
         pointer-events: none;
       }
 
+      /* ===============================
+         Navbar Dropdown Menu
+         =============================== */
+      .nav-dropdown {
+        position: relative;
+      }
+      .nav-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        background: rgba(5, 14, 23, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 12px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      .nav-dropdown:hover .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .nav-dropdown-item {
+        display: block;
+        padding: 10px 20px;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s ease, background 0.2s ease;
+      }
+      .nav-dropdown-item:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.05);
+      }
+      #navbar.scrolled .nav-dropdown-menu {
+        background: white;
+        border-color: rgba(5, 14, 23, 0.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+      #navbar.scrolled .nav-dropdown-item {
+        color: #050e17;
+      }
+      #navbar.scrolled .nav-dropdown-item:hover {
+        color: #1452b1;
+        background: rgba(20, 82, 177, 0.05);
+      }
+      body.light-hero .nav-dropdown-menu {
+        background: white;
+        border-color: rgba(5, 14, 23, 0.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+      body.light-hero .nav-dropdown-item {
+        color: #050e17;
+      }
+      body.light-hero .nav-dropdown-item:hover {
+        color: #1452b1;
+        background: rgba(20, 82, 177, 0.05);
+      }
       /* Dim desktop login/join buttons — still visible */
       #navbar.is-blurred > div > div > div > div:last-child {
         opacity: 0.3;
