@@ -20,11 +20,9 @@
     </script>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      body {
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-      
+      /* ── Fix: prevent dark body bg showing above hero on mobile ── */
+      html, body { background: #f0f4ff !important; }
+
       /* ── Product card image covers top half edge-to-edge ── */
       .prod-card-img {
         width: 100%;
@@ -49,19 +47,20 @@
       #catTabsRow { justify-content: space-evenly; }
       .wd-hero-section {
         background: linear-gradient(135deg, #f0f4ff 0%, #e8eef8 40%, #edf5f0 100%);
-        min-height: 88vh;
+        min-height: auto;
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
-        padding-top: 70px;
+        padding-top: 170px;
         padding-bottom: 3rem;
-        margin-top: 0;
       }
-      
-      @media (min-width: 768px) {
+      @media (max-width: 767px) {
         .wd-hero-section {
-          padding-top: 170px;
+          min-height: auto;
+          align-items: flex-start;
+          padding-top: 80px;
+          padding-bottom: 2rem;
         }
       }
 
@@ -83,10 +82,16 @@
         bottom: 0;
         width: 52%;
         pointer-events: none;
-        display: flex;
+        display: none !important;
         align-items: flex-end;
         justify-content: center;
         overflow: hidden;
+      }
+      
+      @media (min-width: 1024px) {
+        .wd-hero-products-wrap {
+          display: flex !important;
+        }
       }
       .wd-hero-products-wrap img {
         width: 100%;
@@ -522,10 +527,10 @@
           >Opportunity</a
         >
         <a
-          href="foundation.html"
+          href="services.html"
           class="nav-link text-gray-300 hover:text-white transition"
           style="font-weight: 500"
-          >Foundation</a
+          >Services</a
         >
         <a
           href="compensation.html"

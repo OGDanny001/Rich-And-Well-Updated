@@ -1304,3 +1304,9 @@
       `© 2026 Rich & Well. All Rights Reserved.` [logo h-5] `Designed for Wellness. Built for Impact.`
     - Layout: `flex items-center justify-center gap-3 flex-wrap text-center` — everything sits close together in one centered line, wraps on mobile
     - wellness-devices.html also had "DISCOVER WELLNESS DIFFERENTLY" footer CTA section removed completely
+
+95. **wellness-devices.html — Styling fix**:
+    - ROOT CAUSE: A global CSS reset `* { margin: 0 !important; padding: 0 !important; }` was stripping all spacing from every element on the page — cards, buttons, sections all lost their padding/margins
+    - ALSO: `.wd-hero-section .container-pro` and `.container-pro` overrides with `!important` were fighting with styles.css
+    - FIX: Removed the global `*` reset entirely. Removed all `container-pro` padding overrides. Restored `.wd-hero-section` to clean CSS: `padding-top:170px` desktop, `80px` mobile via media query
+    - No space/div between navbar and hero — spacing is handled purely by `padding-top` on `.wd-hero-section`
