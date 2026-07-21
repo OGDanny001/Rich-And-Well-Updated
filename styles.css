@@ -56,6 +56,8 @@
           color var(--transition-duration) ease,
           border-color var(--transition-duration) ease,
           box-shadow var(--transition-duration) ease;
+        overflow-wrap: break-word;
+        word-break: break-word;
       }
 
       html,
@@ -2109,5 +2111,42 @@
       .slider-dot.active {
         background: white !important;
         transform: scale(1.2);
+      }
+
+      /* ===============================
+         Extra Small Screens (<= 360px)
+         =============================== */
+      @media (max-width: 360px) {
+        .hero-heading {
+          font-size: 1.5rem;
+        }
+        .container-pro {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+      }
+
+      /* ===============================
+         Very Large Screens (>= 1920px)
+         =============================== */
+      @media (min-width: 1920px) {
+        .container-pro {
+          max-width: 1600px;
+        }
+        .hero-heading {
+          font-size: 88px;
+        }
+      }
+
+      /* ===============================
+         Ultra Large Screens (>= 2560px)
+         =============================== */
+      @media (min-width: 2560px) {
+        .container-pro {
+          max-width: 2000px;
+        }
+        .hero-heading {
+          font-size: 100px;
+        }
       }
     
