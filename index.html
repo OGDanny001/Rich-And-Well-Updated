@@ -944,116 +944,229 @@
       </div>
     </section>
         <!-- Products Section -->
-    <section id="wellness-devices" class="py-16 mb-16" style="background: var(--bg-secondary)">
-      <div class="container-pro">
-        <!-- Desktop heading -->
-        <div class="hidden md:block text-center mb-10 reveal-up" style="transition-delay:0.5s;">
-          <p class="text-xs mb-2 tracking-wider uppercase" style="color: var(--accent-blue); font-weight: 500">OUR WELLNESS DEVICES</p>
-          <h2 class="text-2xl" style="font-weight: 600; color: var(--text-primary)">
-            Advanced Technology.
-            <span style="color: var(--accent-green); font-weight: 600">Natural</span> Harmony
-          </h2>
-        </div>
-        <!-- Mobile heading -->
-        <div class="md:hidden text-center mb-8 reveal-up" style="transition-delay:0.5s;">
-          <h2 class="text-2xl font-bold mb-3" style="color: var(--text-primary); line-height: 1.2;">
-            Frequency Wellness<br>Technologies That<br>Actually Work.
-          </h2>
-          <p class="text-sm" style="color: var(--text-secondary)">
-            Discover our full range of drug-free, non-invasive wellness devices designed to restore balance, boost vitality, and support everyday wellbeing.
-          </p>
-        </div>
+    <section id="wellness-devices" class="mb-16" style="background: var(--bg-secondary)">
 
-        <!-- Hero banner — image 1 as background with CTA -->
-        <div class="reveal-up mb-8 rounded-2xl overflow-hidden relative" style="min-height:320px;transition-delay:0.55s;">
-          <!-- Background image -->
-          <picture>
-            <source media="(max-width: 639px)" srcset="images/mobilehomeproductsimage1.png" />
-            <source media="(min-width: 640px)" srcset="images/homeproductsimage1.png" />
-            <img src="images/homeproductsimage1.png" alt="Wellness Devices" class="absolute inset-0 w-full h-full object-cover" style="object-position:center" loading="lazy" />
-          </picture>
-          <!-- Dark overlay -->
-          <div class="absolute inset-0 hidden md:block" style="background:linear-gradient(to right, rgba(5,14,23,0.82) 0%, rgba(5,14,23,0.55) 55%, rgba(5,14,23,0.15) 100%)"></div>
-          <!-- CTA content (desktop only) -->
-          <div class="relative z-10 hidden md:flex flex-col justify-center h-full p-8 md:p-12" style="min-height:320px;max-width:520px">
-            <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:var(--accent-green)">OUR PRODUCT SUITE</p>
-            <h3 class="font-black mb-4" style="font-size:clamp(1.6rem,3.5vw,2.5rem);color:white;line-height:1.2">
-              Frequency Wellness<br>Technologies That<br><span style="color:#6cb833">Actually Work.</span>
-            </h3>
-            <p class="text-sm leading-relaxed mb-6" style="color:rgba(255,255,255,0.72);max-width:380px">
-              Discover our full range of drug-free, non-invasive wellness devices designed to restore balance, boost vitality, and support everyday wellbeing.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <a href="wellness-devices.html" class="btn-blue px-6 py-2.5 rounded-full text-sm flex items-center gap-2" style="font-weight:700;color:white">
-                Explore All Devices <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="wellness-devices.html" class="px-6 py-2.5 rounded-full text-sm flex items-center gap-2" style="font-weight:600;color:white;border:1.5px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.06)">
-                View Pricing <i class="fas fa-tag text-xs"></i>
-              </a>
+      <!-- Flagship Device Banner -->
+      <div class="relative overflow-hidden" style="min-height:480px;background:linear-gradient(135deg,#e8f0fe 0%,#dce8fb 40%,#e8f4fb 100%)">
+        <!-- Background image -->
+        <img src="images/wellnessdevices.jpeg" alt="Wellness Devices" class="absolute inset-0 w-full h-full object-cover" style="object-position:center" loading="lazy" />
+        <!-- Light overlay — strong on left for text, fades to transparent right -->
+        <div class="absolute inset-0 hidden lg:block" style="background:linear-gradient(to right,rgba(235,242,255,0.97) 0%,rgba(235,242,255,0.9) 45%,rgba(235,242,255,0.3) 75%,transparent 100%)"></div>
+        <!-- Mobile overlay — strong at top/bottom for text readability, transparent in middle for image -->
+        <div class="absolute inset-0 lg:hidden" style="background:linear-gradient(to bottom,rgba(235,242,255,0.96) 0%,rgba(235,242,255,0.7) 35%,rgba(235,242,255,0.15) 55%,rgba(235,242,255,0.85) 80%,rgba(235,242,255,0.97) 100%)"></div>
+
+        <div class="container-pro relative z-10 h-full">
+          <div class="grid lg:grid-cols-2 gap-8 items-center" style="min-height:480px;padding-top:2.5rem;padding-bottom:2.5rem">
+
+            <!-- LEFT: Copy -->
+            <div class="reveal-up" style="transition-delay:0.1s">
+
+              <!-- Section label + heading — visible on ALL screens -->
+              <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#1452b1">OUR FLAGSHIP DEVICE</p>
+              <h2 class="font-black mb-1" style="font-size:clamp(1.8rem,4vw,3rem);color:#050e17;line-height:1.1">TriVitalis</h2>
+              <p class="font-bold mb-1 hidden lg:block" style="font-size:clamp(0.75rem,1.2vw,0.9rem);color:#1452b1;letter-spacing:0.04em">BIO-ENERGETIC SYNCHRONIZATION TECHNOLOGY (B.E.S.T.)</p>
+              <p class="font-semibold mb-4" style="font-size:clamp(0.95rem,1.8vw,1.15rem);color:#42841F">Your Personal Wellness Companion,<br>Anywhere. Anytime.</p>
+              <p class="text-sm leading-relaxed mb-5 hidden lg:block" style="color:#4b5563;max-width:400px">
+                Next-generation portable bio-energetic wellness device built on advanced MFS technology. Delivers precisely calibrated frequencies to support your body's natural bio-energetic balance — stylish, compact, and reliable.
+              </p>
+
+              <!-- Mobile spacer — gives room for background product image to show -->
+              <div class="lg:hidden" style="height:220px"></div>
+
+              <!-- 4 feature badges -->
+              <div class="flex gap-2 mb-6" style="justify-content:space-between">
+                <div class="flex flex-col items-center gap-1 text-center flex-1">
+                  <div class="w-9 h-9 rounded-full border-2 flex items-center justify-center" style="border-color:#1452b1;background:rgba(20,82,177,0.06)">
+                    <i class="fas fa-heartbeat" style="color:#1452b1;font-size:13px"></i>
+                  </div>
+                  <span class="text-[9px] font-bold leading-tight" style="color:#050e17">Promotes<br>Balance</span>
+                  <span class="text-[8px] leading-tight hidden lg:block" style="color:#6b7280">Supports your body's natural energy balance.</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 text-center flex-1">
+                  <div class="w-9 h-9 rounded-full border-2 flex items-center justify-center" style="border-color:#1452b1;background:rgba(20,82,177,0.06)">
+                    <i class="fas fa-shield-alt" style="color:#1452b1;font-size:13px"></i>
+                  </div>
+                  <span class="text-[9px] font-bold leading-tight" style="color:#050e17">No Side<br>Effects</span>
+                  <span class="text-[8px] leading-tight hidden lg:block" style="color:#6b7280">Non-invasive technology safe for daily use.</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 text-center flex-1">
+                  <div class="w-9 h-9 rounded-full border-2 flex items-center justify-center" style="border-color:#1452b1;background:rgba(20,82,177,0.06)">
+                    <i class="fas fa-briefcase" style="color:#1452b1;font-size:13px"></i>
+                  </div>
+                  <span class="text-[9px] font-bold leading-tight" style="color:#050e17">Carry<br>Anywhere</span>
+                  <span class="text-[8px] leading-tight hidden lg:block" style="color:#6b7280">Small, lightweight and perfect for on-the-go.</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 text-center flex-1">
+                  <div class="w-9 h-9 rounded-full border-2 flex items-center justify-center" style="border-color:#1452b1;background:rgba(20,82,177,0.06)">
+                    <i class="fas fa-battery-full" style="color:#1452b1;font-size:13px"></i>
+                  </div>
+                  <span class="text-[9px] font-bold leading-tight" style="color:#050e17">Long Lasting<br>Power</span>
+                  <span class="text-[8px] leading-tight hidden lg:block" style="color:#6b7280">Built to last with efficient energy performance.</span>
+                </div>
+              </div>
+
+              <!-- Buttons — stacked full-width on mobile, inline on desktop -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href="contact.html" class="btn-blue flex items-center justify-center gap-2 rounded-lg text-sm text-white w-full sm:w-auto" style="font-weight:700;padding:0.85rem 1.5rem">
+                  <i class="fas fa-shopping-bag text-xs"></i> Place Order Now <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+                <a href="wellness-devices.html" class="flex items-center justify-center gap-2 rounded-lg text-sm w-full sm:w-auto" style="font-weight:600;padding:0.85rem 1.5rem;color:#1452b1;border:1.5px solid #1452b1;background:transparent">
+                  <i class="fas fa-search text-xs"></i> View Product Details
+                </a>
+              </div>
             </div>
+
+            <!-- RIGHT: Feature cards (visible on lg only) -->
+            <div class="hidden lg:flex flex-col gap-3 items-end reveal-up" style="transition-delay:0.3s">
+              <div class="flex items-start gap-3 rounded-2xl p-4" style="background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);width:270px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.08)"><i class="fas fa-th-large" style="color:#1452b1;font-size:14px"></i></div>
+                <div><div class="text-xs font-bold mb-0.5" style="color:#050e17">253 Wellness Complexes</div><div class="text-[11px]" style="color:#6b7280">Daily programs for comprehensive bio-energetic support.</div></div>
+              </div>
+              <div class="flex items-start gap-3 rounded-2xl p-4" style="background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);width:270px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.08)"><i class="fas fa-battery-full" style="color:#1452b1;font-size:14px"></i></div>
+                <div><div class="text-xs font-bold mb-0.5" style="color:#050e17">18-Hour Continuous Power</div><div class="text-[11px]" style="color:#6b7280">All-day operation without recharging.</div></div>
+              </div>
+              <div class="flex items-start gap-3 rounded-2xl p-4" style="background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);width:270px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.08)"><i class="fas fa-shield-alt" style="color:#1452b1;font-size:14px"></i></div>
+                <div><div class="text-xs font-bold mb-0.5" style="color:#050e17">Certified &amp; Patented</div><div class="text-[11px]" style="color:#6b7280">Authorized by Ministry of Health RF. Certified in Russia, EU &amp; CIS.</div></div>
+              </div>
+              <div class="flex items-start gap-3 rounded-2xl p-4" style="background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);width:270px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.08)"><i class="fas fa-globe" style="color:#1452b1;font-size:14px"></i></div>
+                <div><div class="text-xs font-bold mb-0.5" style="color:#050e17">8-Language Interface</div><div class="text-[11px]" style="color:#6b7280">EN, DE, FR, IT, ES, RO, RU, LT — global reach.</div></div>
+              </div>
+              <div class="flex items-start gap-3 rounded-2xl p-4" style="background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);width:270px;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(20,82,177,0.08)"><i class="fas fa-laptop" style="color:#1452b1;font-size:14px"></i></div>
+                <div><div class="text-xs font-bold mb-0.5" style="color:#050e17">Complete Kit Included</div><div class="text-[11px]" style="color:#6b7280">Uptake PC software + USB programmer. MFS research across 6+ countries.</div></div>
+              </div>
+            </div>
+
           </div>
         </div>
-        <!-- Mobile only: Explore All Devices button after the banner -->
-        <div class="md:hidden flex justify-center mb-8">
-          <a href="wellness-devices.html" class="btn-blue px-6 py-2.5 rounded-full text-sm flex items-center gap-2" style="font-weight:700;color:white">
-            Explore All Devices <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <!-- 3 Featured product cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 reveal-up" style="transition-delay:0.7s;">
-
-          <!-- Product 1 -->
-          <div class="card-gradient rounded-2xl overflow-hidden" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
-            <div style="height:340px;overflow:hidden">
-              <img src="images/product/ionsync.jpeg" alt="IonSync Terahertz Wand" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block" loading="lazy" />
-            </div>
-            <div class="p-4">
-              <h4 class="font-bold text-sm mb-3" style="color:var(--text-primary)">IonSync Terahertz Wand</h4>
-              <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:var(--accent-blue)">
-                View Product <i class="fas fa-arrow-right text-[9px]"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Product 2 -->
-          <div class="card-gradient rounded-2xl overflow-hidden" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
-            <div style="height:340px;overflow:hidden">
-              <img src="images/product/AI Foot Massager.jpeg" alt="Far Infrared Foot Therapy Device" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block" loading="lazy" />
-            </div>
-            <div class="p-4">
-              <h4 class="font-bold text-sm mb-3" style="color:var(--text-primary)">Ai Foot Massager</h4>
-              <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:var(--accent-blue)">
-                View Product <i class="fas fa-arrow-right text-[9px]"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Product 3 -->
-          <div class="card-gradient rounded-2xl overflow-hidden" style="border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,0.06)">
-            <div style="height:340px;overflow:hidden">
-              <img src="images/product/SPEPEM Hydrogen Water Bottle.jpeg" alt="Hydrogen Rich Water Machine" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block" loading="lazy" />
-            </div>
-            <div class="p-4">
-              <h4 class="font-bold text-sm mb-3" style="color:var(--text-primary)">Hydrogen Rich Water Machine</h4>
-              <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-xs font-bold" style="color:var(--accent-blue)">
-                View Product <i class="fas fa-arrow-right text-[9px]"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Bottom CTA — desktop only -->
-        <div class="hidden md:flex justify-center mt-8 reveal-up" style="transition-delay:0.85s;">
-          <a href="wellness-devices.html" class="btn-blue px-7 py-3 rounded-full text-sm flex items-center gap-2" style="font-weight:600;color:white">
-            See All Products <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-
-
       </div>
+
+      <!-- Product Grid / Mobile Slider -->
+      <div class="py-8 reveal-up" style="background:var(--bg-primary);transition-delay:0.2s">
+        <div class="container-pro">
+
+          <!-- Section heading -->
+          <p class="font-bold mb-5" style="font-size:1rem;color:var(--text-primary)">Explore More Wellness Devices</p>
+
+          <!-- DESKTOP: 3-col grid -->
+          <div class="hidden sm:grid sm:grid-cols-3 gap-5">
+            <div class="flex items-center gap-5 rounded-2xl p-6" style="background:white;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)">
+              <div class="relative flex-shrink-0" style="width:140px;height:140px">
+                <span class="absolute top-0 left-0 text-[9px] font-bold px-2 py-0.5 rounded-full z-10" style="background:#42841F;color:white;letter-spacing:0.05em">FEATURED</span>
+                <img src="images/abdominal heat pad.jpeg" alt="Abdominal Heat Pad" style="width:100%;height:100%;object-fit:contain" loading="lazy" />
+              </div>
+              <div>
+                <h4 class="font-bold mb-2" style="font-size:1rem;color:#050e17">Abdominal Heat Pad</h4>
+                <p class="text-sm mb-4 leading-snug" style="color:#6b7280">Targeted heat therapy for abdominal comfort, relaxation and wellness support.</p>
+                <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:#1452b1">View Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+              </div>
+            </div>
+            <div class="flex items-center gap-5 rounded-2xl p-6" style="background:white;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)">
+              <div class="flex-shrink-0" style="width:140px;height:140px">
+                <img src="images/product/hydrogen water dispenser.jpeg" alt="Hydrogen Rich Water Dispenser" style="width:100%;height:100%;object-fit:contain" loading="lazy" />
+              </div>
+              <div>
+                <h4 class="font-bold mb-2" style="font-size:1rem;color:#050e17">Hydrogen Rich Water Dispenser</h4>
+                <p class="text-sm mb-4 leading-snug" style="color:#6b7280">Experience the power of hydrogen for better hydration and wellness.</p>
+                <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:#1452b1">View Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+              </div>
+            </div>
+            <div class="flex items-center gap-5 rounded-2xl p-6" style="background:white;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)">
+              <div class="flex-shrink-0" style="width:140px;height:140px">
+                <img src="images/product/AI Foot Massager.jpeg" alt="AI Foot Massager" style="width:100%;height:100%;object-fit:contain" loading="lazy" />
+              </div>
+              <div>
+                <h4 class="font-bold mb-2" style="font-size:1rem;color:#050e17">AI Foot Massager</h4>
+                <p class="text-sm mb-4 leading-snug" style="color:#6b7280">Deep heat therapy for detox, relaxation and rejuvenation.</p>
+                <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:#1452b1">View Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOBILE: one card at a time slider -->
+          <div class="sm:hidden relative">
+            <!-- Prev arrow -->
+            <button onclick="wdMobGo(Math.max(0,cur-1))" aria-label="Previous" class="absolute left-0 top-1/2 z-10 w-8 h-8 rounded-full flex items-center justify-center shadow" style="transform:translateY(-50%);background:white;border:1px solid #e5e7eb;color:#1452b1;left:-10px">
+              <i class="fas fa-chevron-left text-xs"></i>
+            </button>
+            <!-- Next arrow -->
+            <button onclick="wdMobGo(Math.min(2,cur+1))" aria-label="Next" class="absolute right-0 top-1/2 z-10 w-8 h-8 rounded-full flex items-center justify-center shadow" style="transform:translateY(-50%);background:white;border:1px solid #e5e7eb;color:#1452b1;right:-10px">
+              <i class="fas fa-chevron-right text-xs"></i>
+            </button>
+            <div id="wd-mob-track" class="overflow-hidden rounded-2xl" style="margin:0 16px">
+              <div class="flex transition-transform duration-300 ease-in-out" id="wd-mob-inner">
+
+                <div class="flex-shrink-0 w-full flex items-center gap-4 rounded-2xl p-5" style="background:white;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)">
+                  <div class="relative flex-shrink-0" style="width:120px;height:120px">
+                    <span class="absolute top-0 left-0 text-[9px] font-bold px-2 py-0.5 rounded-full z-10" style="background:#42841F;color:white;letter-spacing:0.05em">FEATURED</span>
+                    <img src="images/abdominal heat pad.jpeg" alt="Abdominal Heat Pad" style="width:100%;height:100%;object-fit:contain" loading="lazy" />
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1" style="font-size:0.95rem;color:#050e17">Abdominal Heat Pad</h4>
+                    <p class="text-sm mb-3 leading-snug" style="color:#6b7280">Targeted heat therapy for abdominal comfort and relaxation.</p>
+                    <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:#1452b1">View Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                  </div>
+                </div>
+
+                <div class="flex-shrink-0 w-full flex items-center gap-4 rounded-2xl p-5" style="background:white;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)">
+                  <div class="flex-shrink-0" style="width:120px;height:120px">
+                    <img src="images/product/hydrogen water dispenser.jpeg" alt="Hydrogen Rich Water Dispenser" style="width:100%;height:100%;object-fit:contain" loading="lazy" />
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1" style="font-size:0.95rem;color:#050e17">Hydrogen Rich Water Dispenser</h4>
+                    <p class="text-sm mb-3 leading-snug" style="color:#6b7280">Experience the power of hydrogen for better hydration and wellness.</p>
+                    <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:#1452b1">View Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                  </div>
+                </div>
+
+                <div class="flex-shrink-0 w-full flex items-center gap-4 rounded-2xl p-5" style="background:white;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)">
+                  <div class="flex-shrink-0" style="width:120px;height:120px">
+                    <img src="images/product/AI Foot Massager.jpeg" alt="AI Foot Massager" style="width:100%;height:100%;object-fit:contain" loading="lazy" />
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1" style="font-size:0.95rem;color:#050e17">AI Foot Massager</h4>
+                    <p class="text-sm mb-3 leading-snug" style="color:#6b7280">Deep heat therapy for detox, relaxation and rejuvenation.</p>
+                    <a href="wellness-devices.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:#1452b1">View Details <i class="fas fa-arrow-right text-[10px]"></i></a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- Dot indicators -->
+            <div class="flex justify-center gap-2 mt-3" id="wd-dots">
+              <button onclick="wdMobGo(0)" class="w-2 h-2 rounded-full" style="background:#1452b1"></button>
+              <button onclick="wdMobGo(1)" class="w-2 h-2 rounded-full" style="background:#d1d5db"></button>
+              <button onclick="wdMobGo(2)" class="w-2 h-2 rounded-full" style="background:#d1d5db"></button>
+            </div>
+          </div>
+          <script>
+            var cur = 0;
+            var inner = document.getElementById('wd-mob-inner');
+            var dots = document.querySelectorAll('#wd-dots button');
+            window.wdMobGo = function(n){
+              cur = Math.max(0, Math.min(2, n));
+              inner.style.transform = 'translateX(-'+(cur*100)+'%)';
+              dots.forEach(function(d,i){ d.style.background = i===cur ? '#1452b1' : '#d1d5db'; });
+            };
+            var startX = 0;
+            var track = document.getElementById('wd-mob-track');
+            track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+            track.addEventListener('touchend', function(e){
+              var diff = startX - e.changedTouches[0].clientX;
+              if(Math.abs(diff) > 40){ wdMobGo(cur + (diff>0?1:-1)); }
+            }, {passive:true});
+          </script>
+
+          <!-- View All -->
+          <div class="flex justify-center mt-6">
+            <a href="wellness-devices.html" class="btn-blue px-7 py-3 rounded-full text-sm flex items-center gap-2" style="font-weight:600;color:white">See All Products <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- Ecosystem Section -->
@@ -2047,8 +2160,6 @@
 
         <!-- Mission & values -->
         <div class="footer-mission-section text-center relative">
-          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--left hidden lg:block" aria-hidden="true" loading="lazy" />
-          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--right hidden lg:block" aria-hidden="true" loading="lazy" />
           <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
             <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
               <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color: #1452b1"></i></div>

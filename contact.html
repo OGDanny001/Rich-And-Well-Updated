@@ -621,212 +621,441 @@
         </div>
       </div>
     </section>
-
-    <!-- ══ FOOTER ══ -->
-    <footer class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden" style="background:#050e17;border-color:rgba(20,82,177,0.2)">
+<!-- Footer -->
+    <footer
+      class="pt-10 pb-8 md:pt-12 md:pb-12 border-t relative overflow-hidden"
+      style="background: #050e17; border-color: rgba(20, 82, 177, 0.2)"
+    >
       <div class="container-pro relative z-10">
-        <!-- Newsletter CTA -->
-        <div class="mb-16">
-          <div class="rounded-2xl overflow-hidden border border-[rgba(20,82,177,0.3)]" style="background:rgba(5,14,23,0.95)">
-            <div class="p-5 md:p-6 lg:p-8">
-              <div class="flex flex-col lg:flex-row lg:items-center gap-5">
-                <div class="flex-shrink-0 flex justify-center lg:justify-start">
-                  <div class="w-11 h-11 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center" style="background:rgba(20,82,177,0.1)">
-                    <i class="fas fa-users text-xl" style="color:#1452b1"></i>
+        <!-- Newsletter CTA Section - Full Width -->
+        <div class="news relative mb-16">
+          <div class="container-pro relative z-10">
+            <div class="rounded-2xl overflow-hidden border border-[rgba(20,82,177,0.3)]" style="background: rgba(5,14,23,0.95); width: calc(100% + 4rem); margin-left: -2rem; margin-right: -2rem;">
+              <div class="p-6 md:p-8 lg:p-10">
+                <style>
+                  @media (min-width: 1280px) {
+                    .cta-heading {
+                      margin-left: -14rem !important;
+                    }
+                    .cta-divider {
+                      margin-left: -14rem !important;
+                    }
+                    .cta-button {
+                      width: 70% !important;
+                      margin-left: -10rem !important;
+                    }
+                  }
+                </style>
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 items-center">
+                  <!-- Icon -->
+                  <div class="flex justify-center lg:justify-start">
+                    <div
+                      class="w-11 h-11 rounded-full border border-[rgba(20,82,177,0.5)] flex items-center justify-center"
+                      style="background: rgba(20,82,177,0.1)"
+                    >
+                      <i
+                        class="fas fa-users text-xl"
+                        style="color: #1452b1"
+                      ></i>
+                    </div>
                   </div>
-                </div>
-                <div class="text-center lg:text-left flex-shrink-0">
-                  <h2 class="text-lg md:text-xl font-bold" style="color:white;font-weight:700;line-height:1.25">
-                    Ready To Begin Your<br />
-                    <span style="color:#1452b1">Rich</span> &amp; <span style="color:#487319">Well</span> Journey?
-                  </h2>
-                </div>
-                <div class="hidden lg:block w-px self-stretch" style="background:rgba(255,255,255,0.15);flex-shrink:0"></div>
-                <div class="flex-1">
-                  <p class="text-gray-300 text-xs leading-relaxed text-center lg:text-left" style="font-weight:400">
-                    Join a global wellness and empowerment ecosystem<br class="hidden lg:block" />
-                    designed to help you live healthier, earn smarter,<br class="hidden lg:block" />
-                    and create lasting impact.
-                  </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-end items-center flex-shrink-0">
-                  <button class="btn-blue px-5 py-2.5 rounded-full text-xs flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:600" onclick="window.location.href='signup.html'">BECOME A MEMBER <i class="fas fa-arrow-right"></i></button>
-                  <button class="px-5 py-2.5 rounded-full text-xs border border-[rgba(255,192,10,0.5)] text-white flex items-center gap-2 justify-center whitespace-nowrap" style="font-weight:500;background:rgba(0,0,0,0.2)" onclick="window.location.href='contact.html'"><i class="fas fa-phone" style="color:#ffc00a"></i> SPEAK TO A CONSULTANT</button>
+                  <!-- Heading -->
+                  <div class="text-center lg:text-left">
+                    <h2
+                      class="text-xl md:text-2xl font-bold cta-heading"
+                      style="color: white; font-weight: 700; line-height: 1.2;"
+                    >
+                      Ready To Begin Your<br />
+                      <span style="color: #1452b1">Rich</span> &amp;
+                      <span style="color: #487319">Well</span> Journey?
+                    </h2>
+                  </div>
+                  <!-- Vertical Divider + Description -->
+                  <div class="flex items-center gap-5 cta-divider">
+                    <div class="hidden lg:block w-px h-12 bg-gray-600"></div>
+                    <p
+                      class="text-gray-300 text-xs leading-relaxed text-center lg:text-left"
+                      style="font-weight: 400;"
+                    >
+                      Join a global wellness and empowerment ecosystem
+                      <br />
+                      designed to help you live healthier, earn smarter,
+                      <br />
+                      and create lasting impact.
+                    </p>
+                  </div>
+                  <!-- Buttons -->
+                  <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end items-center"
+                  >
+                    <button
+                      class="btn-blue px-4 py-3 rounded-full text-xs flex items-center gap-2 justify-center w-full sm:w-auto cta-button"
+                      style="font-weight: 600;"
+                      onclick="window.location.href='signup.html'"
+                    >
+                      BECOME A MEMBER
+                      <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button
+                      class="px-4 py-3 rounded-full text-xs border border-[rgba(255,192,10,0.5)] text-white flex items-center gap-2 justify-center w-full sm:w-auto"
+                      style="font-weight: 500; background: rgba(0,0,0,0.2);"
+                      onclick="window.location.href='contact.html'"
+                    >
+                      <i class="fas fa-phone" style="color: #ffc00a"></i>
+                      SPEAK TO A CONSULTANT
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Desktop footer grid -->
+
+        <!-- Main footer grid (desktop) -->
         <div class="footer-main-grid hidden lg:grid">
+          <!-- Brand -->
           <div>
             <img src="images/logo.png" alt="Rich & Well" class="h-12 w-auto" loading="lazy" />
-            <p class="footer-brand-desc" style="font-weight:400">Empowering wellness through innovative frequency technologies and life-changing opportunities.</p>
+            <p class="footer-brand-desc" style="font-weight: 400;">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
             <div class="footer-social-row">
-              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook" style="color:white"></i></a>
-              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram" style="color:white"></i></a>
-              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok" style="color:white"></i></a>
-              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube" style="color:white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube" style="color: white"></i></a>
             </div>
           </div>
+          <!-- Company -->
           <div>
             <h4 class="footer-col-heading footer-col-heading--blue">COMPANY</h4>
             <ul class="footer-col-links list-none p-0 m-0">
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="about.html">Our Mission</a></li>
-              <li><a href="about.html">Leadership</a></li>
-              <li><a href="testimonials.html">Success Stories</a></li>
-              <li><a href="about.html">News &amp; Blog</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#about">Our Mission</a></li>
+              <li><a href="#about">Leadership</a></li>
+              <li><a href="#testimonials">Success Stories</a></li>
+              <li><a href="#about">News &amp; Blog</a></li>
+              <li><a href="#contact">Contact Us</a></li>
             </ul>
           </div>
+          <!-- Wellness Devices -->
           <div>
             <h4 class="footer-col-heading footer-col-heading--green">WELLNESS DEVICES</h4>
             <ul class="footer-col-links list-none p-0 m-0">
-              <li><a href="wellness-devices.html">Terahertz Series</a></li>
-              <li><a href="wellness-devices.html">Foot Therapy</a></li>
-              <li><a href="wellness-devices.html">Frequency Collection</a></li>
-              <li><a href="wellness-devices.html">Accessories</a></li>
-              <li><a href="wellness-devices.html">Wellness Solutions</a></li>
+              <li><a href="#wellness-devices">B.E.S.T. Therapy</a></li>
+              <li><a href="#wellness-devices">Terahertz Wave</a></li>
+              <li><a href="#wellness-devices">Frequency Collection</a></li>
+              <li><a href="#wellness-devices">Accessories</a></li>
+              <li><a href="#wellness-devices">Wellness Solutions</a></li>
             </ul>
           </div>
+          <!-- Opportunity -->
           <div>
             <h4 class="footer-col-heading footer-col-heading--gold">OPPORTUNITY</h4>
             <ul class="footer-col-links list-none p-0 m-0">
-              <li><a href="opportunity.html">Why Rich &amp; Well</a></li>
-              <li><a href="compensation.html">Compensation Plan</a></li>
-              <li><a href="opportunity.html">Become A Distributor</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="#opportunity">Why Rich &amp; Well</a></li>
+              <li><a href="#compensation">Compensation Plan</a></li>
+              <li><a href="#opportunity">Become A Distributor</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQs</a></li>
             </ul>
           </div>
+          <!-- Resources -->
           <div>
             <h4 class="footer-col-heading footer-col-heading--blue">RESOURCES</h4>
             <ul class="footer-col-links list-none p-0 m-0">
-              <li><a href="faq.html">Support Center</a></li>
-              <li><a href="faq.html">Shipping Policy</a></li>
-              <li><a href="faq.html">Returns &amp; Refunds</a></li>
-              <li><a href="faq.html">Terms of Use</a></li>
-              <li><a href="faq.html">Privacy Policy</a></li>
-              <li><a href="faq.html">Legal Disclaimer</a></li>
+              <li><a href="#faq">Support Center</a></li>
+              <li><a href="#faq">Shipping Policy</a></li>
+              <li><a href="#faq">Returns &amp; Refunds</a></li>
+              <li><a href="#faq">Terms of Use</a></li>
+              <li><a href="#faq">Privacy Policy</a></li>
+              <li><a href="#faq">Legal Disclaimer</a></li>
             </ul>
           </div>
+          <!-- Stay Connected -->
           <div>
             <h4 class="footer-col-heading footer-col-heading--green">STAY CONNECTED</h4>
-            <p class="text-gray-400 text-xs mb-4 leading-relaxed" style="font-weight:400">Receive wellness insights, product updates, and community news.</p>
-            <form class="footer-newsletter-input-wrap">
-              <input type="email" placeholder="Enter your email address" class="flex-1 rounded-l-lg px-4 py-3 text-xs text-white border border-gray-600 focus:outline-none" style="background:rgba(255,255,255,0.05);font-weight:400" required />
-              <button type="submit" class="btn-primary rounded-r-lg px-4 py-3 text-xs" style="font-weight:600;color:white"><i class="fas fa-arrow-right"></i></button>
+            <p class="text-gray-400 text-xs mb-4 leading-relaxed" style="font-weight: 400;">
+              Receive wellness insights, product updates, and community news.
+            </p>
+            <form id="newsletterFormDesktop" class="footer-newsletter-input-wrap">
+              <input type="email" placeholder="Enter your email address" class="flex-1 rounded-l-lg px-4 py-3 text-xs text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" style="background: rgba(255,255,255,0.05); font-weight: 400;" required />
+              <button type="submit" class="btn-primary rounded-r-lg px-4 py-3 text-xs" style="font-weight: 600; color: white;">
+                <i class="fas fa-arrow-right"></i>
+              </button>
             </form>
+            <div id="newsletterMessageDesktop" class="hidden text-green-400 text-xs mt-2" style="font-weight: 500;"></div>
             <div class="flex items-center gap-2 mt-4">
-              <i class="fas fa-shield-alt text-xs" style="color:#42841F"></i>
-              <p class="text-gray-500 text-[10px]" style="font-weight:400">We respect your privacy.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Mobile footer -->
-        <div class="lg:hidden">
-          <div class="text-center pb-8 mb-8 border-b" style="border-color:rgba(255,255,255,0.08)">
-            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
-            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight:400">Empowering wellness through innovative frequency technologies and life-changing opportunities.</p>
-            <div class="flex flex-wrap justify-center gap-3">
-              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color:white"></i></a>
-              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color:white"></i></a>
-              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color:white"></i></a>
-              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color:white"></i></a>
-            </div>
-          </div>
-          <div class="grid grid-cols-1 gap-0 mb-8">
-            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
-              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
-                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#1452b1"></span></h4>
-                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
-              </button>
-              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
-                <li><a href="about.html" class="hover:text-white transition block">About Us</a></li>
-                <li><a href="about.html" class="hover:text-white transition block">Our Mission</a></li>
-                <li><a href="testimonials.html" class="hover:text-white transition block">Success Stories</a></li>
-                <li><a href="contact.html" class="hover:text-white transition block">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
-              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
-                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">WELLNESS DEVICES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#42841F"></span></h4>
-                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
-              </button>
-              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
-                <li><a href="wellness-devices.html" class="hover:text-white transition block">Terahertz Series</a></li>
-                <li><a href="wellness-devices.html" class="hover:text-white transition block">Foot Therapy</a></li>
-                <li><a href="wellness-devices.html" class="hover:text-white transition block">Frequency Collection</a></li>
-                <li><a href="wellness-devices.html" class="hover:text-white transition block">Accessories</a></li>
-              </ul>
-            </div>
-            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
-              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
-                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#ffc00a"></span></h4>
-                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
-              </button>
-              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
-                <li><a href="opportunity.html" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
-                <li><a href="compensation.html" class="hover:text-white transition block">Compensation Plan</a></li>
-                <li><a href="opportunity.html" class="hover:text-white transition block">Become A Distributor</a></li>
-                <li><a href="testimonials.html" class="hover:text-white transition block">Testimonials</a></li>
-              </ul>
-            </div>
-            <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
-              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
-                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color:white;font-weight:600;padding-bottom:6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background:#1452b1"></span></h4>
-                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
-              </button>
-              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
-                <li><a href="faq.html" class="hover:text-white transition block">Support Center</a></li>
-                <li><a href="faq.html" class="hover:text-white transition block">FAQs</a></li>
-                <li><a href="faq.html" class="hover:text-white transition block">Terms of Use</a></li>
-                <li><a href="faq.html" class="hover:text-white transition block">Privacy Policy</a></li>
-              </ul>
+              <i class="fas fa-shield-alt text-xs" style="color: #42841F"></i>
+              <p class="text-gray-500 text-[10px]" style="font-weight: 400;">
+                We respect your privacy.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- Mission pillars -->
-        <div class="footer-mission-section text-center relative">
-          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--left hidden lg:block" aria-hidden="true" loading="lazy" />
-          <img src="images/newsletter.png" alt="" class="footer-mission-wave footer-mission-wave--right hidden lg:block" aria-hidden="true" loading="lazy" />
-          <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
-            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
-              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color:#1452b1"></i></div>
-              <p class="text-[10px] sm:text-xs" style="color:#1452b1">WELLNESS</p>
-            </div>
-            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
-              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(72,115,25,0.15)"><i class="fas fa-chart-line text-xs sm:text-sm" style="color:#487319"></i></div>
-              <p class="text-[10px] sm:text-xs" style="color:#487319">WEALTH</p>
-            </div>
-            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
-              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(20,82,177,0.15)"><i class="fas fa-users text-xs sm:text-sm" style="color:#1452b1"></i></div>
-              <p class="text-[10px] sm:text-xs" style="color:#1452b1">COMMUNITY</p>
-            </div>
-            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
-              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background:rgba(255,192,10,0.12)"><i class="fas fa-person-walking text-xs sm:text-sm" style="color:#ffc00a"></i></div>
-              <p class="text-[10px] sm:text-xs" style="color:#ffc00a">FREEDOM</p>
+        <!-- Mobile footer (accordions) -->
+        <div class="lg:hidden">
+          <div class="text-center pb-8 mb-8 border-b" style="border-color: rgba(255,255,255,0.08);">
+            <img src="images/logo.png" alt="Rich & Well Logo" class="h-16 w-auto mx-auto mb-4" loading="lazy" />
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed max-w-md mx-auto" style="font-weight: 400">
+              Empowering wellness through innovative frequency technologies and life-changing opportunities.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Facebook"><i class="fab fa-facebook text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="Instagram"><i class="fab fa-instagram text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="TikTok"><i class="fab fa-tiktok text-sm" style="color: white"></i></a>
+              <a href="#" class="footer-social-btn w-11 h-11 rounded-full flex items-center justify-center transition" aria-label="YouTube"><i class="fab fa-youtube text-sm" style="color: white"></i></a>
             </div>
           </div>
-          <h2 class="font-bold mb-3 px-2 relative z-10" style="font-weight:700;color:white;font-size:clamp(0.9rem,3vw,1.5rem)">
-            <span class="inline">RESTORE <span style="color:#1452b1">SMARTER</span></span>
-            <span class="inline mx-2">PROSPER <span style="color:#487319">FREELY</span></span>
-            <span class="inline">LIVE <span style="color:#ffc00a">FULLY</span></span>
-          </h2>
-          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight:400">Creating a future where wellness, wealth, community, and freedom work together.</p>
+          <div class="grid grid-cols-1 gap-0 mb-8">
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">COMPANY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#about" class="hover:text-white transition block">About Us</a></li>
+                <li><a href="#about" class="hover:text-white transition block">Our Mission</a></li>
+                <li><a href="#testimonials" class="hover:text-white transition block">Success Stories</a></li>
+                <li><a href="#contact" class="hover:text-white transition block">Contact Us</a></li>
+
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">WELLNESS DEVICES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #42841F"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#wellness-devices" class="hover:text-white transition block">B.E.S.T. Therapy</a></li>
+                <li><a href="#wellness-devices" class="hover:text-white transition block">Terahertz Wave</a></li>
+                <li><a href="#wellness-devices" class="hover:text-white transition block">Frequency Collection</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">OPPORTUNITY<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #ffc00a"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#opportunity" class="hover:text-white transition block">Why Rich &amp; Well</a></li>
+                <li><a href="#compensation" class="hover:text-white transition block">Compensation Plan</a></li>
+                <li><a href="#testimonials" class="hover:text-white transition block">Testimonials</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="border-b" style="border-color: rgba(255,255,255,0.08);">
+              <button type="button" class="footer-col-toggle w-full flex items-center justify-between py-4" aria-expanded="false">
+                <h4 class="text-xs tracking-wider uppercase relative inline-block" style="color: white; font-weight: 600; padding-bottom: 6px">RESOURCES<span class="absolute left-0 bottom-0 w-8 h-0.5 rounded-full" style="background: #1452b1"></span></h4>
+                <i class="fas fa-chevron-down footer-chevron text-gray-500 text-xs"></i>
+              </button>
+              <ul class="footer-col-links space-y-3 text-sm text-gray-400 pb-4">
+                <li><a href="#faq" class="hover:text-white transition block">Support Center</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">Terms of Use</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">Privacy Policy</a></li>
+                <li><a href="#faq" class="hover:text-white transition block">Legal Disclaimer</a></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Mission & values -->
+        <div class="footer-mission-section text-center relative">
+          <div class="footer-pillars-row flex justify-center gap-2 sm:gap-4 lg:gap-16 mb-8 max-w-2xl sm:max-w-none mx-auto relative z-10">
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-heartbeat text-xs sm:text-sm" style="color: #1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #1452b1">WELLNESS</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(72,115,25,0.15)"><i class="fas fa-chart-line text-xs sm:text-sm" style="color: #487319"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #487319">WEALTH</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(20,82,177,0.15)"><i class="fas fa-users text-xs sm:text-sm" style="color: #1452b1"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #1452b1">COMMUNITY</p>
+            </div>
+            <div class="footer-pillar-item text-center flex flex-col items-center gap-1">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center footer-social-btn" style="background: rgba(255,192,10,0.12)"><i class="fas fa-person-walking text-xs sm:text-sm" style="color: #ffc00a"></i></div>
+              <p class="text-[10px] sm:text-xs" style="color: #ffc00a">FREEDOM</p>
+            </div>
+          </div>
+          <h2 class="footer-tagline footer-tagline-desktop font-bold mb-3 px-2 relative z-10" style="font-weight: 700; color: white; font-size: clamp(0.9rem, 3vw, 1.5rem)">
+            <span class="inline">RESTORE <span style="color: #1452b1">SMARTER</span></span>
+            <span class="inline mx-2">PROSPER <span style="color: #487319">FREELY</span></span>
+            <span class="inline">LIVE <span style="color: #ffc00a">FULLY</span></span>
+          </h2>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed px-4 relative z-10" style="font-weight: 400">
+            Creating a future where wellness, wealth, community, and freedom work together.
+          </p>
+        </div>
+
         <!-- Bottom bar -->
         <div class="footer-bottom-bar pt-8 mt-4">
           <div class="flex items-center justify-center gap-3 flex-wrap text-center">
-            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight:400">© 2026 Rich &amp; Well. All Rights Reserved.</p>
+            <p class="footer-bottom-copyright text-gray-500 text-xs sm:text-sm" style="font-weight: 400">© 2026 Rich &amp; Well. All Rights Reserved.</p>
             <img src="images/logo.png" alt="Rich & Well" class="h-5 w-auto" />
-            <p class="text-gray-500 text-xs sm:text-sm" style="font-weight:400">Designed for Wellness. Built for Impact.</p>
+            <p class="text-gray-500 text-xs sm:text-sm" style="font-weight: 400">Designed for Wellness. Built for Impact.</p>
           </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      const themeToggle = document.getElementById("themeToggle");
+      const themeToggleMobile = document.getElementById("themeToggleMobile");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenuCloseBtn = document.getElementById("mobileMenuCloseBtn");
+      const mobileMenuBackdrop = document.getElementById("mobileMenuBackdrop");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileNavLinks = document.querySelectorAll("#mobileNav .mobile-nav-link");
+      const navbar = document.getElementById("navbar");
+
+      // Function to toggle theme
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.toggle("dark");
+        document.documentElement.classList.toggle("light", !isDark);
+        const newTheme = isDark ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+
+      if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+      if (themeToggleMobile) themeToggleMobile.addEventListener("click", toggleTheme);
+
+      [themeToggle, themeToggleMobile].forEach((btn) => {
+        if (!btn) return;
+        btn.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleTheme();
+          }
+        });
+      });
+
+      // Mobile Menu Toggle
+      function setMobileMenuOpen(isOpen) {
+        mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        mobileMenuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+        mobileMenuBtn.classList.toggle("is-open", isOpen);
+        // Hide hamburger, show close
+        mobileMenuBtn.style.display = isOpen ? "none" : "flex";
+        if (mobileMenuCloseBtn) {
+          mobileMenuCloseBtn.style.display = isOpen ? "flex" : "none";
+          mobileMenuCloseBtn.classList.toggle("is-open", isOpen);
+        }
+        mobileMenu.classList.toggle("is-open", isOpen);
+        mobileMenuBackdrop.classList.toggle("is-open", isOpen);
+        mobileMenu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        mobileMenuBackdrop.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        navbar.classList.toggle("is-blurred", isOpen); // Blur navbar when mobile menu is open
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      }
+
+      mobileMenuBtn.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.contains("is-open");
+        setMobileMenuOpen(!isOpen);
+      });
+
+      if (mobileMenuCloseBtn) {
+        mobileMenuCloseBtn.addEventListener("click", () => {
+          setMobileMenuOpen(false);
+        });
+      }
+
+      mobileMenuBackdrop.addEventListener("click", () => {
+        setMobileMenuOpen(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+          setMobileMenuOpen(false);
+        }
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          setMobileMenuOpen(false);
+        });
+      });
+
+      // Active mobile nav link on scroll
+      const sectionIds = ["home", "about", "wellness-devices", "opportunity", "compensation", "testimonials", "faq", "contact"];
+      function updateActiveNavLink() {
+        const scrollPos = window.scrollY + 100;
+        let current = "home";
+        sectionIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollPos) current = id;
+        });
+        mobileNavLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          link.classList.toggle("active", href === "#" + current);
+        });
+      }
+      window.addEventListener("scroll", updateActiveNavLink);
+      updateActiveNavLink();
+
+
+
+      // Navbar scroll behavior
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Footer mobile accordion
+      document.querySelectorAll(".footer-col-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          if (window.innerWidth >= 1024) return;
+          const links = toggle.nextElementSibling;
+          const isOpen = links.classList.contains("is-open");
+          document.querySelectorAll(".footer-col-links.is-open").forEach((el) => {
+            el.classList.remove("is-open");
+          });
+          document.querySelectorAll(".footer-col-toggle[aria-expanded='true']").forEach((btn) => {
+            btn.setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            links.classList.add("is-open");
+            toggle.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      // Newsletter form
+      function handleNewsletterSubmit(e, messageEl) {
+        e.preventDefault();
+        if (messageEl) {
+          messageEl.textContent = "Thank you for subscribing!";
+          messageEl.classList.remove("hidden");
+        }
+        e.target.reset();
+      }
+
+      const newsletterForm = document.getElementById("newsletterForm");
+      const newsletterMessage = document.getElementById("newsletterMessage");
+      const newsletterFormDesktop = document.getElementById("newsletterFormDesktop");
+      const newsletterMessageDesktop = document.getElementById("newsletterMessageDesktop");
+
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => handleNewsletterSubmit(e, newsletterMessage));
+      }
+      if (newsletterFormDesktop) {
+        newsletterFormDesktop.addEventListener("submit", (e) => handleNewsletterSubmit(e, newsletterMessageDesktop));
+      }
+
+      // Reveal animation fallback
+      setTimeout(() => {
+        document.querySelectorAll(".reveal-up:not(.is-visible)").forEach((el) => {
+          el.classList.add("is-visible");
+        });
+      }, 2500);
+    </script>
 
     <script src="app.js"></script>
     <script>

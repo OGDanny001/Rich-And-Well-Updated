@@ -62,6 +62,8 @@
 html,
 body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .gradient-bg {
@@ -1368,6 +1370,16 @@ html:not(.dark) #navbar.scrolled .theme-toggle i {
   #mobileMenu.is-open .mobile-nav-link:nth-child(8) { animation-delay: 0.32s; }
 }
 
+/* Ensure footer always spans full viewport width */
+footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 .footer-tagline {
   font-size: 1.25rem;
   line-height: 1.35;
@@ -1651,9 +1663,13 @@ html:not(.dark) #navbar.scrolled .theme-toggle i {
     margin-bottom: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(rgba(5,14,23,0.65), rgba(5,14,23,0.65)), ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .footer-mission-wave {
+  /* .footer-mission-wave {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -1671,7 +1687,7 @@ html:not(.dark) #navbar.scrolled .theme-toggle i {
   .footer-mission-wave--right {
     right: 0;
     transform: translateY(-50%) scaleX(-1);
-  }
+  } */
 
   .footer-pillars-row {
     display: flex;
