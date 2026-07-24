@@ -949,10 +949,14 @@
       <!-- Flagship Device Banner -->
       <div class="relative overflow-hidden" style="min-height:480px;background:linear-gradient(135deg,#e8f0fe 0%,#dce8fb 40%,#e8f4fb 100%)">
         <!-- Background image -->
-        <img src="images/wellnessdevices.jpeg" alt="Wellness Devices" class="absolute inset-0 w-full h-full object-cover" style="object-position:center" loading="lazy" />
+        <img src="images/product/flagship 101 background.png" alt="" class="absolute inset-0 w-full h-full object-cover" style="object-position:center" loading="lazy" />
+        <!-- Product image — right side on desktop, hidden on mobile -->
+        <!-- Product image — desktop: left:35%, mobile: centered in spacer -->
+        <img src="images/product/flagship 101.png" alt="TriVitalis" class="absolute hidden lg:block" style="left:35%;top:0;height:100%;width:50%;object-fit:contain;object-position:center;z-index:1" loading="lazy" />
+        <img src="images/product/flagship 101.png" alt="TriVitalis" class="absolute lg:hidden" style="left:50%;top:25%;transform:translateX(-50%);width:80%;height:auto;object-fit:contain;z-index:1" loading="lazy" />
         <!-- Light overlay — strong on left for text, fades to transparent right -->
-        <div class="absolute inset-0 hidden lg:block" style="background:linear-gradient(to right,rgba(235,242,255,0.97) 0%,rgba(235,242,255,0.9) 45%,rgba(235,242,255,0.3) 75%,transparent 100%)"></div>
-        <!-- Mobile overlay — strong at top/bottom for text readability, transparent in middle for image -->
+        <div class="absolute inset-0 hidden lg:block" style="background:linear-gradient(to right,rgba(235,242,255,0.97) 0%,rgba(235,242,255,0.9) 45%,rgba(235,242,255,0.1) 70%,transparent 100%)"></div>
+        <!-- Mobile overlay -->
         <div class="absolute inset-0 lg:hidden" style="background:linear-gradient(to bottom,rgba(235,242,255,0.96) 0%,rgba(235,242,255,0.7) 35%,rgba(235,242,255,0.15) 55%,rgba(235,242,255,0.85) 80%,rgba(235,242,255,0.97) 100%)"></div>
 
         <div class="container-pro relative z-10 h-full">
