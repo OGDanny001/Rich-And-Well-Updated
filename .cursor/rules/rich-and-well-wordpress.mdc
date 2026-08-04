@@ -1,0 +1,48 @@
+---
+description: Rich & Well WordPress theme — always-on standards
+alwaysApply: true
+---
+
+# Rich & Well WordPress Theme Rules
+
+## Scope
+- Theme path: `rich-and-well/`
+- Classic theme only (not FSE / block theme)
+- Presentation only — no MLM, genealogy, wallet, commissions, dashboards, or user/business logic (those are future plugins)
+
+## Preserve design
+- Do not redesign or change UX from the static HTML site
+- Match existing layout, responsiveness, animations, and interactions
+- Prefer migrating existing CSS/JS over rewriting
+
+## Architecture
+- Global chrome: `header.php`, `footer.php`
+- Page templates stay independent; avoid unnecessary `template-parts/`
+- No premature abstraction or drive-by refactors
+- Keep `functions.php` as a thin loader; logic in `inc/`
+
+## Builder & plugin compatibility
+- Page bodies must use `the_content()` so Elementor / WPBakery can edit pages
+- Do not hardcode page content that blocks builders
+- Maintain WooCommerce, Contact Form 7, and Elementor compatibility hooks in `inc/compatibility.php`
+
+## Security
+- Escape all output (`esc_html`, `esc_attr`, `esc_url`, `wp_kses_post`, etc.)
+- Sanitize all input (`sanitize_text_field`, `absint`, nonces, capability checks)
+- Never trust `$_GET` / `$_POST` / `$_REQUEST` raw
+- Use WordPress APIs instead of custom reinventions
+
+## WordPress Coding Standards
+- Follow WPCS / official PHP WordPress standards
+- Prefix functions/hooks with `raw_`
+- Text domain: `rich-and-well`
+- Abspath guards in every PHP file
+
+## Performance & a11y
+- Enqueue assets properly; no duplicate CDNs without reason
+- Prefer deferred/footer scripts where safe
+- Maintain skip links, semantic landmarks, and keyboard-accessible controls
+
+## Workflow
+- Do not convert static pages unless explicitly asked
+- Prefer small, focused changes; no unrelated cleanup

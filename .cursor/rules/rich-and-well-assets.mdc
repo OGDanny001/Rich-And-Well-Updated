@@ -1,0 +1,14 @@
+---
+description: Theme CSS/JS asset conventions
+globs: rich-and-well/assets/**/*.{css,js}
+alwaysApply: false
+---
+
+# Asset Conventions
+
+- Primary design CSS: `assets/css/main.css` (migrate from static `styles.css`)
+- Theme chrome metadata stays in root `style.css` header only
+- JS in `assets/js/main.js`; keep interactions matching the static site
+- Enqueue via `inc/enqueue.php` only — do not hardcode `<script>`/`<link>` in templates when avoidable
+- Preserve CSS variables / brand tokens (`--accent-blue`, `--accent-green`, `--accent-yellow`, `--bg-dark`)
+- Mobile → tablet → desktop breakpoints must remain consistent with the static site

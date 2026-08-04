@@ -1,0 +1,19 @@
+/*
+Theme Name: Rich & Well
+Theme URI: https://richandwell.com/
+Author: Rich & Well
+Author URI: https://richandwell.com/
+Description: Classic WordPress theme for Rich & Well. Preserves the existing static frontend design. Presentation-only — no MLM or business logic.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rich-and-well
+Tags: custom-logo, custom-menu, featured-images, translation-ready, e-commerce
+
+Rich & Well Theme — base stylesheet. Primary styles load from assets/css/main.css.
+*/
+
+/* Intentionally minimal. Design CSS is enqueued separately. */

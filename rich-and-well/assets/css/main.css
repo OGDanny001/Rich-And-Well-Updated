@@ -1,0 +1,70 @@
+/**
+ * Rich & Well — primary stylesheet (migrated from static styles.css later).
+ *
+ * Keep design tokens and layout styles here. Do not put theme chrome metadata here
+ * (that lives in the root style.css header).
+ */
+
+:root {
+  --bg-primary: #f8f9fb;
+  --bg-secondary: white;
+  --bg-dark: #050e17;
+  --text-primary: #050e17;
+  --text-secondary: #4b5563;
+  --accent-blue: #1452b1;
+  --accent-green: #42841f;
+  --accent-yellow: #ffc00a;
+}
+
+.container-pro {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-pro {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-pro {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+  background-color: #f8f9fb;
+  clip: auto !important;
+  clip-path: none;
+  color: #050e17;
+  display: block;
+  font-size: 0.875rem;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}

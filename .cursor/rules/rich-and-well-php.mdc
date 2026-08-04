@@ -1,0 +1,16 @@
+---
+description: PHP / WordPress file conventions for the Rich & Well theme
+globs: rich-and-well/**/*.php
+alwaysApply: false
+---
+
+# PHP Theme Conventions
+
+- File header docblock with `@package Rich_And_Well`
+- `if ( ! defined( 'ABSPATH' ) ) { exit; }` in includable files
+- Tabs for indentation (WPCS)
+- Prefer readable WordPress-style conditionals
+- Hooks: document callbacks; remove actions carefully with matching priority
+- Use `get_template_directory()` / `get_template_directory_uri()` via `RAW_THEME_*` constants
+- Template tags that print must escape; helpers that return data clearly named (`raw_get_*` vs `raw_the_*`)
+- No business/MLM logic in theme templates

@@ -1452,13 +1452,14 @@ footer {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (max-width: 767px) {
-  .footer-col-links {
-    display: none;
+@media (max-width: 1023px) {
+  /* Accordion lists sit next to .footer-col-toggle — closed until clicked */
+  .footer-col-toggle + .footer-col-links {
+    display: none !important;
   }
 
-  .footer-col-links.is-open {
-    display: block;
+  .footer-col-toggle + .footer-col-links.is-open {
+    display: block !important;
     padding-bottom: 1rem;
     animation: fadeIn 0.35s ease;
   }
@@ -1479,16 +1480,135 @@ footer {
     background: rgba(20, 82, 177, 0.2);
     border-color: rgba(20, 82, 177, 0.4);
   }
+
+  /* ── Join CTA banner: centered stack on phone + tablet ── */
+  footer .footer-join-cta,
+  footer .news {
+    margin-bottom: 2.5rem;
+  }
+
+  footer .footer-join-cta-bg,
+  footer .news > div:first-child {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  footer .footer-join-cta-card,
+  footer .news .rounded-2xl {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  footer .news .grid.grid-cols-1,
+  footer .footer-join-cta-inner {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.15rem;
+  }
+
+  footer .news .cta-heading,
+  footer .footer-join-cta .cta-heading {
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  footer .news .cta-divider,
+  footer .footer-join-cta .cta-divider {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 26rem;
+    margin-left: 0 !important;
+    gap: 0;
+  }
+
+  footer .news .cta-divider p,
+  footer .footer-join-cta .cta-divider p {
+    width: 100%;
+    max-width: 26rem;
+    margin: 0 auto;
+    text-align: center !important;
+    line-height: 1.7;
+  }
+
+  footer .news .cta-divider p br,
+  footer .footer-join-cta .cta-divider p br {
+    display: none;
+  }
+
+  footer .news .cta-button,
+  footer .footer-join-cta .cta-button {
+    width: 100% !important;
+    max-width: 18rem;
+    margin-left: 0 !important;
+  }
+
+  footer .news .grid > div:last-child,
+  footer .footer-join-cta-actions {
+    width: 100%;
+    max-width: 26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  footer .news .grid > div:last-child > button,
+  footer .footer-join-cta-actions > button,
+  footer .footer-join-cta-actions > a {
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+  }
 }
 
-@media (min-width: 768px) {
-  .footer-col-links {
-    display: block !important;
+@media (min-width: 640px) and (max-width: 1023px) {
+  footer .news .grid > div:last-child,
+  footer .footer-join-cta-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer .news .grid > div:last-child > button,
+  footer .news .cta-button,
+  footer .footer-join-cta-actions > button,
+  footer .footer-join-cta-actions > a {
+    width: auto !important;
+    max-width: none;
+    flex: 0 1 auto;
   }
 }
 
 /* Desktop Footer UI */
 @media (min-width: 1024px) {
+  .footer-main-grid .footer-col-links {
+    display: block !important;
+  }
+
+  footer .footer-join-cta .cta-heading,
+  footer .news .cta-heading {
+    margin-left: 0 !important;
+  }
+
+  footer .footer-join-cta .cta-divider,
+  footer .news .cta-divider {
+    margin-left: 0 !important;
+  }
+
+  footer .footer-join-cta .cta-button,
+  footer .news .cta-button {
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+
   .footer-cta-card {
     padding: 0;
   }
@@ -2138,6 +2258,78 @@ body.light-hero .nav-dropdown-item:hover {
   .container-pro {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+}
+
+/* ===============================
+   Tablet / mid screens (768–1023px)
+   Fills the phone→laptop gap without
+   forcing the full desktop chrome yet.
+   =============================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-mobile-content {
+    max-width: 36rem;
+  }
+
+  .hero-mobile-content .hero-description {
+    max-width: 32rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .hero-mobile-content .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .hero-mobile-content .hero-actions a,
+  .hero-mobile-content .hero-actions button {
+    width: auto;
+    min-width: 10rem;
+  }
+
+  #home.hero-foreground {
+    padding-top: 8.5rem;
+    padding-bottom: 3rem;
+    justify-content: center;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.5rem, 6vw, 3.25rem);
+    line-height: 1.05;
+  }
+
+  .tablet-terahertz-img {
+    max-height: 320px !important;
+  }
+
+  .values-grid {
+    gap: 1rem;
+  }
+
+  .value-card {
+    padding: 1.15rem 1.25rem;
+  }
+
+  /* Keep desktop nav usable once it appears at lg;
+     tablet portrait stays on hamburger (correct). */
+}
+
+/* Navbar: slightly tighter on early laptop / iPad landscape */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #navbar .container-pro {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #navbar .btn-primary.px-6 {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  #loginBtn {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
 }
 

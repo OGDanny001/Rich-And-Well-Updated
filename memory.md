@@ -182,3 +182,6 @@
 - footer.jpeg path: `url(images/footer.jpeg)` — same directory as styles.css
 - Mobile slider auto-advances every 3s, resets on manual swipe
 - Flagship 101 product image: `width:100%; height:100%; object-fit:contain` (no max-width) on desktop left panel
+- Tablet band (768–1023): homepage hero uses mobile layout only (`lg` cutoff) — no overlapping `md` desktop slider/content. Mid layouts use `md:grid-cols-2` for advocacy/how-it-works/flagship. CSS tablet block in styles.css.
+- Footer accordion: closed by default through 1023px (`.footer-col-toggle + .footer-col-links { display:none }`). Opens only with `.is-open` on click. Desktop grid links unaffected (no toggle sibling).
+- Footer join CTA: on ≤1023px centered stack (no bleed negative margins, no forced `<br>`). Classes: `.footer-join-cta`, `.footer-join-cta-bg`, `.footer-join-cta-inner`, `.footer-join-cta-actions`.
